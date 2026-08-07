@@ -18,6 +18,7 @@ import {
   ChevronRight,
   Sliders,
   X,
+  Bookmark,
   PlusCircle,
   Swords,
 } from 'lucide-react';
@@ -62,6 +63,7 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
   };
   const [unitSearchQuery, setUnitSearchQuery] = useState<string>('');
   const [copiedShareLink, setCopiedShareLink] = useState<boolean>(false);
+  const [savedSuccess, setSavedSuccess] = useState<boolean>(false);
   const [showImportModal, setShowImportModal] = useState<boolean>(false);
   const [importJsonText, setImportJsonText] = useState<string>('');
   const [importError, setImportError] = useState<string>('');
@@ -217,6 +219,62 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
     }
   };
 
+  // Save as Custom Build Guide to LocalStorage
+  const handleSaveAsCustomBuildGuide = () => {
+    try {
+      const frontRowIds = slots.filter((s) => s.row === 'front').map((s) => s.unitId);
+      const backRowIds = slots.filter((s) => s.row === 'back').map((s) => s.unitId);
+
+      const keyItems: string[] = [];
+      slots.forEach((s) => {
+        if (s.customItems) {
+          s.customItems.forEach((it) => {
+            if (it && !keyItems.includes(it)) keyItems.push(it);
+          });
+        }
+      });
+      if (keyItems.length === 0) keyItems.push('Custom Gear Loadout');
+
+      const newBuild: SquadBuild = {
+        id: `custom-build-${Date.now()}`,
+        name: squadName || 'Custom Tactical Squad',
+        archetype: 'Instant Board Wipe',
+        tier: 'S',
+        description: `User-created 5-unit custom formation with custom tactics programming.`,
+        keyItems,
+        frontRow: frontRowIds,
+        backRow: backRowIds,
+        tacticsSequence: synergy.initiativeTimeline.map((item, idx) => ({
+          step: idx + 1,
+          unit: item.unitName,
+          skill: 'Primary Active Skill',
+          condition1: '[Target: Highest Priority]',
+          condition2: '[AP >= 1]',
+          notes: `Position: ${item.position}, SPD ${item.speed}`,
+        })),
+        pros: ['Customized tactical formation', 'Flexible skill rule priority'],
+        cons: ['Requires manual testing in Coliseum'],
+        counters: ['Check Coliseum Counter Matrix for specific unit counters'],
+        isCustom: true,
+      };
+
+      const existingStored = localStorage.getItem('unicorn_saved_builds');
+      const existingList: SquadBuild[] = existingStored ? JSON.parse(existingStored) : [];
+      const updatedList = [newBuild, ...existingList];
+      localStorage.setItem('unicorn_saved_builds', JSON.stringify(updatedList));
+
+      setSavedSuccess(true);
+      setTimeout(() => setSavedSuccess(false), 3000);
+      try {
+        confetti({ particleCount: 60, spread: 70, origin: { y: 0.7 } });
+      } catch (e) {
+        // ignore
+      }
+    } catch (err) {
+      console.error('Failed to save build guide to localStorage', err);
+    }
+  };
+
   // Copy Shareable Link / Code
   const handleCopyShareLink = () => {
     const unitIds = slots.map((s) => s.unitId || 'empty').join(',');
@@ -297,6 +355,23 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
                 <span>Battle Simulator</span>
               </button>
             </div>
+
+            <button
+              onClick={handleSaveAsCustomBuildGuide}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 hover:bg-emerald-500/30 text-xs font-bold transition shadow"
+            >
+              {savedSuccess ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  <span className="text-emerald-400 font-bold">Saved Guide!</span>
+                </>
+              ) : (
+                <>
+                  <Bookmark className="w-3.5 h-3.5" />
+                  <span>Save to Build Guides</span>
+                </>
+              )}
+            </button>
 
             <button
               onClick={handleExportJson}
@@ -401,11 +476,11 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
               </div>
 
               {/* Grid Container */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 p-5 rounded-2xl bg-gradient-to-b from-[#0e1424] to-[#070a12] border-2 border-amber-500/40 shadow-2xl filigree-box">
+              <div className="stage-pedestal grid grid-cols-1 md:grid-cols-2 gap-5 p-5 rounded-2xl border-2 border-amber-500/40 shadow-2xl filigree-box">
                 {/* Front Row (2 Slots) */}
                 <div className="space-y-3">
-                  <div className="banner-ribbon py-1.5 px-3 rounded-t-lg text-xs font-serif font-bold text-center tracking-widest shadow-md">
-                    🛡️ FRONT ROW (TANK / VANGUARD)
+                  <div className="vanguard-banner py-1.5 px-3 rounded-t-lg text-xs font-serif font-bold text-center tracking-widest shadow-md">
+                    🛡️ VANGUARD ROW (FRONT TANK)
                   </div>
                   <div className="space-y-3">
                     {slots
@@ -418,7 +493,7 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
                             onClick={() => setActiveSlotModal(slot)}
                             className={`relative p-4 rounded-xl border-2 transition-all cursor-pointer group flex flex-col justify-between min-h-[160px] ${
                               unit
-                                ? 'game-card-gold hover:border-amber-300 shadow-xl hover:shadow-[0_0_20px_rgba(245,158,11,0.3)]'
+                                ? 'bg-slate-950/90 border-amber-500/60 hover:border-amber-300 shadow-xl hover:shadow-[0_0_20px_rgba(245,158,11,0.3)]'
                                 : 'bg-[#0a0f1d]/60 border-amber-500/20 border-dashed hover:border-amber-400'
                             }`}
                           >
@@ -426,7 +501,7 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
                               <>
                                 <div className="flex items-start justify-between">
                                   <div className="flex items-center gap-3">
-                                    <div className="w-12 h-12 rounded-xl bg-slate-950 border-2 border-amber-400/60 flex items-center justify-center text-2xl group-hover:scale-105 transition-transform overflow-hidden relative shrink-0 shadow-lg">
+                                    <div className="w-16 h-16 rounded-xl bg-slate-950 border-2 border-amber-400/60 flex items-center justify-center text-3xl group-hover:scale-105 transition-transform overflow-hidden relative shrink-0 shadow-lg">
                                       {unit.image ? (
                                         <img src={unit.image} alt={unit.name} className="w-full h-full object-cover" />
                                       ) : (
@@ -500,8 +575,8 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
 
                 {/* Back Row (3 Slots) */}
                 <div className="space-y-3">
-                  <div className="banner-ribbon py-1.5 px-3 rounded-t-lg text-xs font-serif font-bold text-center tracking-widest shadow-md">
-                    ⚔️ BACK ROW (DPS / HEALER / SUPPORT)
+                  <div className="rearguard-banner py-1.5 px-3 rounded-t-lg text-xs font-serif font-bold text-center tracking-widest shadow-md">
+                    ⚔️ REARGUARD ROW (BACK DPS / SUPPORT)
                   </div>
                   <div className="space-y-2.5">
                     {slots

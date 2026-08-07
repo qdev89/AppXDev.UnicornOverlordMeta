@@ -10,6 +10,7 @@ import { RelicCatalog } from '@/components/tabs/RelicCatalog';
 import { SkillCompendium } from '@/components/tabs/SkillCompendium';
 import { SquadBuilder } from '@/components/tabs/SquadBuilder';
 import { CounterMatrix } from '@/components/tabs/CounterMatrix';
+import { DivineShardCalculator } from '@/components/tabs/DivineShardCalculator';
 import { SquadBuild } from '@/types';
 import { Crown, Heart, Shield, ExternalLink } from 'lucide-react';
 
@@ -56,7 +57,7 @@ export default function Home() {
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.2 }}
               >
-                <ClassDatabase />
+                <ClassDatabase onLoadIntoBuilder={handleLoadSquadIntoBuilder} />
               </motion.div>
             )}
 
@@ -105,6 +106,18 @@ export default function Home() {
                 transition={{ duration: 0.2 }}
               >
                 <CounterMatrix />
+              </motion.div>
+            )}
+
+            {activeTab === 'divine' && (
+              <motion.div
+                key="divine"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.2 }}
+              >
+                <DivineShardCalculator />
               </motion.div>
             )}
           </AnimatePresence>

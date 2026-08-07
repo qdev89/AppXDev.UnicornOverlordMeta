@@ -91,6 +91,29 @@ export interface TacticsStep {
   notes: string;
 }
 
+export interface UnitGearConfig {
+  unitId: string;
+  unitName: string;
+  roleTitle?: string;
+  weapon?: string;
+  shieldOrHelm?: string;
+  accessory1?: string;
+  accessory2?: string;
+  statPriorities?: string[];
+  growthTypes?: [string, string];
+}
+
+export interface StrategyGuide {
+  winCondition: string;
+  overview: string;
+  combatSequenceNotes: string[];
+}
+
+export interface ItemSubstitutes {
+  earlyGame: string[];
+  endgameAlternatives: string[];
+}
+
 export interface SquadBuild {
   id: string;
   name: string;
@@ -104,6 +127,13 @@ export interface SquadBuild {
   pros: string[];
   cons: string[];
   counters: string[];
+  isCustom?: boolean;
+  isFavorite?: boolean;
+  strategyGuide?: StrategyGuide;
+  unitGearConfigs?: UnitGearConfig[];
+  substitutes?: ItemSubstitutes;
+  pvpRating?: string;
+  pveRating?: string;
 }
 
 export interface RelicItem {

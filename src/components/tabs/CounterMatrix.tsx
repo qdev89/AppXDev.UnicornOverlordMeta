@@ -18,17 +18,17 @@ export const CounterMatrix: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="relative rounded-2xl bg-gradient-to-r from-slate-950 via-slate-900 to-[#121826] p-6 sm:p-8 border border-red-500/30 overflow-hidden shadow-2xl">
+      <div className="relative rounded-2xl bg-gradient-to-r from-slate-950 via-[#18090f] to-slate-950 p-6 sm:p-8 border border-red-500/40 overflow-hidden shadow-2xl filigree-box">
         <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl -z-10 pointer-events-none" />
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <Swords className="w-6 h-6 text-red-400" />
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold bg-gradient-to-r from-red-200 via-amber-300 to-amber-500 bg-clip-text text-transparent">
+              <Swords className="w-7 h-7 text-red-400 drop-shadow-[0_0_10px_rgba(248,113,113,0.6)]" />
+              <h2 className="font-serif text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-red-200 via-amber-300 to-amber-500 bg-clip-text text-transparent">
                 Coliseum & Counter Matrix Hub
               </h2>
             </div>
-            <p className="text-sm text-slate-300 max-w-2xl font-sans">
+            <p className="text-sm text-slate-300 max-w-2xl font-sans leading-relaxed">
               Instant tactical decision engine. Select an oppressive enemy PvP or boss composition archetype to get tailored counters, key class picks, relic items, and tactics condition logic.
             </p>
           </div>
@@ -36,17 +36,17 @@ export const CounterMatrix: React.FC = () => {
 
         {/* Enemy Archetype Selectors */}
         <div className="mt-6 pt-6 border-t border-slate-800 flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
-          <span className="text-xs font-semibold text-slate-400 shrink-0">Enemy Threat:</span>
+          <span className="text-xs font-serif font-bold text-amber-300 shrink-0">Enemy Threat:</span>
           {COUNTERS_DATA.map((counter) => {
             const isSelected = selectedCounterId === counter.id;
             return (
               <button
                 key={counter.id}
                 onClick={() => setSelectedCounterId(counter.id)}
-                className={`px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-2 ${
+                className={`px-4 py-2 rounded-xl text-xs font-serif font-bold whitespace-nowrap transition-all flex items-center gap-2 ${
                   isSelected
-                    ? 'bg-gradient-to-r from-red-600 to-amber-600 text-white shadow-lg shadow-red-500/20 font-bold scale-105'
-                    : 'bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white hover:border-red-500/40'
+                    ? 'bg-gradient-to-r from-red-600 to-amber-600 text-slate-950 shadow-lg shadow-red-500/30 font-extrabold border border-amber-300 scale-105'
+                    : 'bg-slate-950/80 border border-slate-800 text-slate-300 hover:text-white hover:border-red-500/40'
                 }`}
               >
                 <ShieldAlert className="w-4 h-4 text-amber-300" />
@@ -63,30 +63,30 @@ export const CounterMatrix: React.FC = () => {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="rounded-2xl bg-slate-900/80 border border-red-500/30 p-6 sm:p-8 space-y-6 shadow-2xl"
+        className="rounded-2xl bg-gradient-to-b from-[#101728] to-[#070b16] border border-red-500/40 p-6 sm:p-8 space-y-6 shadow-2xl filigree-box filigree-bottom"
       >
         {/* Threat Header */}
         <div className="p-5 rounded-xl bg-slate-950 border border-red-500/30 space-y-2">
-          <div className="flex items-center gap-2 text-red-400 text-xs font-bold uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-red-400 text-xs font-serif font-bold uppercase tracking-wider">
             <ShieldAlert className="w-4 h-4" />
             <span>Target Enemy Threat Breakdown</span>
           </div>
           <h3 className="font-serif text-xl font-bold text-slate-100">
             vs. {activeCounter.enemyArchetype}
           </h3>
-          <p className="text-sm text-slate-300 leading-relaxed">
+          <p className="text-xs text-slate-300 leading-relaxed font-sans">
             {activeCounter.threatDescription}
           </p>
         </div>
 
         {/* Pro Tip Callout */}
-        <div className="p-4 rounded-xl bg-amber-950/40 border border-amber-500/40 flex items-start gap-3">
+        <div className="p-4 rounded-xl bg-gradient-to-r from-amber-950/40 via-slate-900 to-purple-950/40 border border-amber-500/40 flex items-start gap-3 shadow">
           <Lightbulb className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
           <div>
-            <h4 className="font-bold text-xs uppercase text-amber-300 tracking-wider">
+            <h4 className="font-serif font-bold text-xs uppercase text-amber-300 tracking-wider">
               Master Tactics Secret
             </h4>
-            <p className="text-xs text-amber-100/90 leading-relaxed mt-0.5">
+            <p className="text-xs text-amber-100/90 leading-relaxed mt-0.5 font-sans">
               {activeCounter.tacticalTip}
             </p>
           </div>
@@ -121,12 +121,12 @@ export const CounterMatrix: React.FC = () => {
                 return (
                   <div
                     key={i}
-                    className="p-2.5 rounded-lg bg-slate-900 border border-purple-500/30 flex items-center gap-2"
+                    className="p-2.5 rounded-xl bg-slate-900 border border-purple-500/30 flex items-center gap-2"
                   >
                     <span className="text-xl">{cls?.icon || '⚔️'}</span>
                     <div>
-                      <h5 className="font-semibold text-xs text-purple-200">{cls?.name || unitId}</h5>
-                      <span className="text-[10px] text-slate-400">{cls?.role}</span>
+                      <h5 className="font-serif font-bold text-xs text-purple-200">{cls?.name || unitId}</h5>
+                      <span className="text-[10px] text-slate-400 font-serif">{cls?.role}</span>
                     </div>
                   </div>
                 );
@@ -137,24 +137,25 @@ export const CounterMatrix: React.FC = () => {
 
         {/* Must Have Relic Items */}
         <div className="space-y-3">
-          <h4 className="font-serif text-sm font-bold text-slate-300 uppercase tracking-wider">
+          <h4 className="font-serif text-sm font-bold text-amber-300 uppercase tracking-wider">
             Must-Have Counter Equipment
           </h4>
           <div className="flex flex-wrap gap-2">
             {activeCounter.mustHaveItems.map((item, i) => (
-              <span
+              <div
                 key={i}
-                className="px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 font-semibold text-xs"
+                className="equipment-pill px-3 py-1.5 flex items-center gap-2 text-amber-200 text-xs"
               >
-                👑 {item}
-              </span>
+                <span className="text-amber-400">👑</span>
+                <span className="font-serif font-bold">{item}</span>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Tactics Condition Setups */}
         <div className="space-y-3 pt-4 border-t border-slate-800">
-          <h4 className="font-serif text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+          <h4 className="font-serif text-sm font-bold text-amber-300 uppercase tracking-wider flex items-center gap-2">
             <ArrowRight className="w-4 h-4 text-amber-400" />
             <span>Optimal Tactics Condition Setup</span>
           </h4>
@@ -162,9 +163,9 @@ export const CounterMatrix: React.FC = () => {
             {activeCounter.tacticsConditions.map((tc, i) => (
               <div
                 key={i}
-                className="p-3 rounded-lg bg-slate-950 border border-slate-800 text-xs font-mono text-amber-300 flex items-center gap-2"
+                className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono text-amber-300 flex items-center gap-2"
               >
-                <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-[10px] shrink-0">
+                <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-[10px] shrink-0 font-sans">
                   {i + 1}
                 </span>
                 <span>{tc}</span>

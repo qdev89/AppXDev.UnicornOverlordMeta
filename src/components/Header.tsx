@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Shield, Sword, Crown, Zap, Swords, Search, ExternalLink, Sparkles } from 'lucide-react';
+import { Shield, Sword, Crown, Zap, Swords, Search, ExternalLink, Sparkles, ShoppingBag } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface HeaderProps {
@@ -18,6 +18,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, openSea
     { id: 'skills', label: 'Skills & Tactics', icon: Sparkles },
     { id: 'builder', label: '5-Unit Squad Builder', icon: Zap, badge: 'Interactive' },
     { id: 'coliseum', label: 'Coliseum Matrix', icon: Swords },
+    { id: 'divine', label: 'Divine Shard Shop', icon: ShoppingBag, badge: 'Shop' },
   ];
 
   return (
@@ -75,8 +76,12 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, openSea
       </div>
 
       {/* Navigation Tabs Bar */}
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 border-t border-amber-500/20">
-        <nav className="flex overflow-x-auto no-scrollbar gap-1 py-1.5 sm:gap-2">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 border-t border-amber-500/20 flex items-center justify-between">
+        <span className="text-[10px] font-mono font-bold text-amber-400 px-2.5 py-1 rounded bg-slate-950 border border-amber-500/30 shrink-0 hidden sm:inline-block">
+          L
+        </span>
+
+        <nav className="flex overflow-x-auto no-scrollbar gap-1 py-1.5 sm:gap-2 flex-1 justify-center">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -84,12 +89,13 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, openSea
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative flex items-center gap-2 px-4 py-2 rounded-lg text-xs sm:text-sm font-serif tracking-wider uppercase whitespace-nowrap transition-all duration-200 ${
+                className={`relative flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-serif tracking-wider uppercase whitespace-nowrap transition-all duration-200 ${
                   isActive
                     ? 'text-slate-950 font-bold bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 shadow-[0_0_15px_rgba(245,158,11,0.5)] border border-amber-300'
                     : 'text-amber-200/80 hover:text-amber-100 hover:bg-amber-500/10 border border-transparent'
                 }`}
               >
+                {isActive && <span className="pp-diamond" />}
                 <Icon className={`w-4 h-4 ${isActive ? 'text-slate-950' : 'text-amber-400/80'}`} />
                 <span>{tab.label}</span>
 
@@ -104,6 +110,10 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, openSea
             );
           })}
         </nav>
+
+        <span className="text-[10px] font-mono font-bold text-amber-400 px-2.5 py-1 rounded bg-slate-950 border border-amber-500/30 shrink-0 hidden sm:inline-block">
+          R
+        </span>
       </div>
     </header>
   );

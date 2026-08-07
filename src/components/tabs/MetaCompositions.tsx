@@ -1,11 +1,24 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Sparkles, Zap, CheckCircle2, XCircle, ShieldAlert, ArrowRight, Filter } from 'lucide-react';
+import {
+  Shield,
+  Sparkles,
+  Zap,
+  CheckCircle2,
+  XCircle,
+  ArrowRight,
+  Filter,
+  Heart,
+  BookOpen,
+  PlusCircle,
+  Award,
+} from 'lucide-react';
 import { SQUADS_DATA } from '@/data/squads';
 import { CLASSES_DATA } from '@/data/classes';
 import { SquadBuild } from '@/types';
+import { BuildDetailModal } from '@/components/builder/BuildDetailModal';
 
 interface MetaCompositionsProps {
   onLoadIntoBuilder: (squad: SquadBuild) => void;
@@ -13,7 +26,44 @@ interface MetaCompositionsProps {
 
 export const MetaCompositions: React.FC<MetaCompositionsProps> = ({ onLoadIntoBuilder }) => {
   const [selectedArchetype, setSelectedArchetype] = useState<string>('All');
+  const [activeFilterTab, setActiveFilterTab] = useState<'all' | 'official' | 'custom' | 'favorites'>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  
+  const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
+  const [customBuilds, setCustomBuilds] = useState<SquadBuild[]>([]);
+  const [selectedBuildForModal, setSelectedBuildForModal] = useState<SquadBuild | null>(null);
+
+  // Load favorites & custom builds from localStorage
+  useEffect(() => {
+    try {
+      const storedFavs = localStorage.getItem('unicorn_favorite_builds');
+      if (storedFavs) {
+        setFavoriteIds(JSON.parse(storedFavs));
+      }
+
+      const storedCustom = localStorage.getItem('unicorn_saved_builds');
+      if (storedCustom) {
+        setCustomBuilds(JSON.parse(storedCustom));
+      }
+    } catch (e) {
+      console.error('Error loading saved builds from localStorage', e);
+    }
+  }, []);
+
+  // Toggle favorite
+  const handleToggleFavorite = (squadId: string) => {
+    setFavoriteIds((prev) => {
+      const updated = prev.includes(squadId)
+        ? prev.filter((id) => id !== squadId)
+        : [...prev, squadId];
+      try {
+        localStorage.setItem('unicorn_favorite_builds', JSON.stringify(updated));
+      } catch (e) {
+        // ignore
+      }
+      return updated;
+    });
+  };
 
   const archetypes = [
     'All',
@@ -24,12 +74,27 @@ export const MetaCompositions: React.FC<MetaCompositionsProps> = ({ onLoadIntoBu
     'Magic Nuke',
   ];
 
-  const filteredSquads = SQUADS_DATA.filter((squad) => {
+  // Combine official squads with user custom builds
+  const allSquads: SquadBuild[] = [
+    ...SQUADS_DATA,
+    ...customBuilds.map((b) => ({ ...b, isCustom: true })),
+  ];
+
+  const filteredSquads = allSquads.filter((squad) => {
+    // Filter Tab Check
+    if (activeFilterTab === 'official' && squad.isCustom) return false;
+    if (activeFilterTab === 'custom' && !squad.isCustom) return false;
+    if (activeFilterTab === 'favorites' && !favoriteIds.includes(squad.id)) return false;
+
+    // Archetype Check
     const matchesArchetype = selectedArchetype === 'All' || squad.archetype === selectedArchetype;
+
+    // Query Check
     const matchesQuery =
       squad.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       squad.keyItems.some((item) => item.toLowerCase().includes(searchQuery.toLowerCase())) ||
       squad.description.toLowerCase().includes(searchQuery.toLowerCase());
+
     return matchesArchetype && matchesQuery;
   });
 
@@ -41,40 +106,99 @@ export const MetaCompositions: React.FC<MetaCompositionsProps> = ({ onLoadIntoBu
   return (
     <div className="space-y-6">
       {/* Page Title & Hero Header */}
-      <div className="relative rounded-2xl bg-gradient-to-r from-slate-950 via-slate-900 to-[#121826] p-6 sm:p-8 border border-amber-500/30 overflow-hidden shadow-2xl">
+      <div className="relative rounded-2xl bg-gradient-to-r from-slate-950 via-[#0e1628] to-slate-950 p-6 sm:p-8 border border-amber-500/40 overflow-hidden shadow-2xl filigree-box">
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -z-10 pointer-events-none" />
+        
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <Shield className="w-6 h-6 text-amber-400" />
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500 bg-clip-text text-transparent">
-                Meta Compositions & Master Tactics
+              <Shield className="w-7 h-7 text-amber-400 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]" />
+              <h2 className="font-serif text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-amber-100 via-amber-300 to-amber-500 bg-clip-text text-transparent">
+                Meta Compositions & Build Guides
               </h2>
             </div>
-            <p className="text-sm text-slate-300 max-w-2xl font-sans">
-              Discover top-tier 5-unit formation archetypes, condition execution sequences, and core required relics for story and competitive PvP domination.
+            <p className="text-sm text-slate-300 max-w-2xl font-sans leading-relaxed">
+              Explore authentic 5-unit meta squad formations from the Reddit community (`r/UnicornOverlord`), equipment loadouts, tactics programming rules, and counter matchup guides.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs font-semibold text-amber-300 flex items-center gap-1.5">
+            <span className="px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs font-serif font-bold text-amber-300 flex items-center gap-2 shadow">
               <Sparkles className="w-4 h-4 text-amber-400" />
-              {SQUADS_DATA.length} Pre-Loaded Meta Squads
+              <span>{allSquads.length} Total Build Guides</span>
             </span>
           </div>
         </div>
 
-        {/* Filter Chips Bar */}
-        <div className="mt-6 pt-6 border-t border-slate-800 flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
-            <Filter className="w-4 h-4 text-slate-400 shrink-0" />
+        {/* Filter Category Tabs & Search Bar */}
+        <div className="mt-6 pt-6 border-t border-slate-800 space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            {/* Filter Group: All / Official / Custom / Favorites */}
+            <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-950 border border-amber-500/30">
+              <button
+                onClick={() => setActiveFilterTab('all')}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-serif font-bold transition ${
+                  activeFilterTab === 'all'
+                    ? 'bg-gradient-to-r from-amber-400 to-amber-600 text-slate-950 shadow-md'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                All Guides ({allSquads.length})
+              </button>
+              <button
+                onClick={() => setActiveFilterTab('official')}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-serif font-bold transition ${
+                  activeFilterTab === 'official'
+                    ? 'bg-gradient-to-r from-amber-400 to-amber-600 text-slate-950 shadow-md'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Community Meta ({SQUADS_DATA.length})
+              </button>
+              <button
+                onClick={() => setActiveFilterTab('custom')}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-serif font-bold transition flex items-center gap-1 ${
+                  activeFilterTab === 'custom'
+                    ? 'bg-gradient-to-r from-amber-400 to-amber-600 text-slate-950 shadow-md'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <PlusCircle className="w-3.5 h-3.5" />
+                <span>My Saved Builds ({customBuilds.length})</span>
+              </button>
+              <button
+                onClick={() => setActiveFilterTab('favorites')}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-serif font-bold transition flex items-center gap-1 ${
+                  activeFilterTab === 'favorites'
+                    ? 'bg-gradient-to-r from-amber-400 to-amber-600 text-slate-950 shadow-md'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
+                <span>Favorites ({favoriteIds.length})</span>
+              </button>
+            </div>
+
+            {/* Search Input */}
+            <input
+              type="text"
+              placeholder="Search guides by unit, item, name, tactic..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="px-4 py-2 rounded-xl bg-slate-950 border border-amber-500/30 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-400 w-full md:w-72 shadow-inner"
+            />
+          </div>
+
+          {/* Archetype Chips */}
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 pt-1">
+            <Filter className="w-4 h-4 text-amber-400 shrink-0" />
             {archetypes.map((archetype) => (
               <button
                 key={archetype}
                 onClick={() => setSelectedArchetype(archetype)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
+                className={`px-3 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
                   selectedArchetype === archetype
-                    ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
+                    ? 'bg-amber-500/20 text-amber-300 border border-amber-400/50 font-bold'
                     : 'bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-white hover:border-amber-500/30'
                 }`}
               >
@@ -82,227 +206,231 @@ export const MetaCompositions: React.FC<MetaCompositionsProps> = ({ onLoadIntoBu
               </button>
             ))}
           </div>
-
-          <input
-            type="text"
-            placeholder="Filter squad by item, name, key skill..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="px-3.5 py-1.5 rounded-lg bg-slate-950 border border-amber-500/20 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-400 w-full md:w-64"
-          />
         </div>
       </div>
 
       {/* Squad Cards Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {filteredSquads.map((squad, idx) => (
-          <motion.div
-            key={squad.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: idx * 0.05 }}
-            className="group relative rounded-xl bg-slate-900/80 border border-amber-500/20 hover:border-amber-400/50 hover:shadow-[0_0_20px_rgba(245,158,11,0.15)] transition-all duration-300 overflow-hidden flex flex-col justify-between"
-          >
-            {/* Squad Header */}
-            <div className="p-5 border-b border-slate-800/80 bg-slate-950/60">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <h3 className="font-serif text-lg font-bold text-amber-200 group-hover:text-amber-300 transition">
-                      {squad.name}
-                    </h3>
-                    <span className="text-xs px-2 py-0.5 rounded font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                      Tier {squad.tier}
-                    </span>
-                  </div>
-                  <span className="inline-block text-[11px] font-semibold px-2 py-0.5 rounded bg-purple-950/60 text-purple-300 border border-purple-800/40">
-                    {squad.archetype}
-                  </span>
-                </div>
-
-                <button
-                  onClick={() => onLoadIntoBuilder(squad)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs shadow-md hover:shadow-amber-500/30 transition-all"
-                >
-                  <Zap className="w-3.5 h-3.5 fill-slate-950" />
-                  <span>Load into Builder</span>
-                </button>
-              </div>
-
-              <p className="mt-2.5 text-xs text-slate-300 leading-relaxed">{squad.description}</p>
-            </div>
-
-            <div className="p-5 space-y-5 flex-1">
-              {/* Visual 2x3 Formation Grid */}
-              <div>
-                <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center justify-between">
-                  <span>Squad Formation (2 Front / 3 Back)</span>
-                  <span className="text-[10px] text-amber-400/80 font-normal">Click unit to view class</span>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3 p-3 rounded-lg bg-slate-950/90 border border-slate-800">
-                  {/* Front Row (2 slots) */}
-                  <div className="space-y-2">
-                    <div className="text-[10px] font-bold text-amber-400/70 uppercase text-center tracking-wider">
-                      Front Row (Tank/Engage)
-                    </div>
-                    <div className="grid grid-cols-1 gap-2">
-                      {squad.frontRow.map((unitId, i) => {
-                        const unit = getUnitClass(unitId);
-                        return (
-                          <div
-                            key={i}
-                            className={`p-2 rounded border text-xs flex items-center justify-between ${
-                              unit
-                                ? 'bg-slate-900 border-amber-500/30 text-slate-100'
-                                : 'bg-slate-950/50 border-slate-800 border-dashed text-slate-600'
-                            }`}
-                          >
-                            {unit ? (
-                              <div className="flex items-center gap-2">
-                                <div className="w-6 h-6 rounded bg-slate-950 border border-amber-500/40 flex items-center justify-center overflow-hidden text-xs relative shrink-0">
-                                  {unit.image ? (
-                                    <img src={unit.image} alt={unit.name} className="w-full h-full object-cover" />
-                                  ) : (
-                                    unit.icon
-                                  )}
-                                </div>
-                                <span className="font-semibold text-xs text-amber-200 truncate">
-                                  {unit.name}
-                                </span>
-                              </div>
-                            ) : (
-                              <span className="text-[11px]">Empty Slot</span>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Back Row (3 slots) */}
-                  <div className="space-y-2">
-                    <div className="text-[10px] font-bold text-purple-400/70 uppercase text-center tracking-wider">
-                      Back Row (DPS/Support)
-                    </div>
-                    <div className="grid grid-cols-1 gap-2">
-                      {squad.backRow.map((unitId, i) => {
-                        const unit = getUnitClass(unitId);
-                        return (
-                          <div
-                            key={i}
-                            className={`p-2 rounded border text-xs flex items-center justify-between ${
-                              unit
-                                ? 'bg-slate-900 border-purple-500/30 text-slate-100'
-                                : 'bg-slate-950/50 border-slate-800 border-dashed text-slate-600'
-                            }`}
-                          >
-                            {unit ? (
-                              <div className="flex items-center gap-2">
-                                <div className="w-6 h-6 rounded bg-slate-950 border border-purple-500/40 flex items-center justify-center overflow-hidden text-xs relative shrink-0">
-                                  {unit.image ? (
-                                    <img src={unit.image} alt={unit.name} className="w-full h-full object-cover" />
-                                  ) : (
-                                    unit.icon
-                                  )}
-                                </div>
-                                <span className="font-semibold text-xs text-purple-200 truncate">
-                                  {unit.name}
-                                </span>
-                              </div>
-                            ) : (
-                              <span className="text-[11px]">Empty Slot</span>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Key Core Relics */}
-              <div>
-                <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
-                  Required Core Relics & Items
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {squad.keyItems.map((item, i) => (
-                    <span
-                      key={i}
-                      className="px-2.5 py-1 rounded bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold"
-                    >
-                      👑 {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Tactics Execution Sequence */}
-              <div>
-                <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
-                  <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Tactics Execution Sequence</span>
-                </div>
-                <div className="space-y-2 bg-slate-950/80 p-3 rounded-lg border border-slate-800 text-xs">
-                  {squad.tacticsSequence.map((step) => (
-                    <div
-                      key={step.step}
-                      className="flex flex-col sm:flex-row sm:items-center justify-between p-2 rounded bg-slate-900/60 border border-slate-800/60 gap-2"
-                    >
-                      <div className="flex items-center gap-2">
-                        <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-[10px]">
-                          {step.step}
+      {filteredSquads.length === 0 ? (
+        <div className="p-12 text-center rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3">
+          <Shield className="w-12 h-12 text-slate-600 mx-auto" />
+          <h3 className="font-serif text-lg font-bold text-slate-300">No Build Guides Found</h3>
+          <p className="text-xs text-slate-500">Try adjusting your filters or search keywords.</p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {filteredSquads.map((squad, idx) => {
+            const isFav = favoriteIds.includes(squad.id);
+            return (
+              <motion.div
+                key={squad.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: idx * 0.04 }}
+                className="group relative rounded-2xl bg-gradient-to-b from-[#0f172a] to-[#070b16] border border-amber-500/30 hover:border-amber-400/70 hover:shadow-[0_0_35px_rgba(245,158,11,0.2)] transition-all duration-300 overflow-hidden flex flex-col justify-between filigree-box"
+              >
+                {/* Squad Header */}
+                <div className="p-5 sm:p-6 border-b border-slate-800/80 bg-gradient-to-r from-slate-950/90 via-[#0e1628] to-slate-950/90">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                        <h3 className="font-serif text-lg sm:text-xl font-extrabold text-amber-100 group-hover:text-amber-300 transition drop-shadow">
+                          {squad.name}
+                        </h3>
+                        <span className="text-xs px-2 py-0.5 rounded font-mono font-extrabold bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 shadow">
+                          Tier {squad.tier}
                         </span>
-                        <span className="font-semibold text-slate-200">{step.unit}</span>
-                        <span className="text-amber-300 font-mono text-[11px]">{step.skill}</span>
+                        {squad.isCustom && (
+                          <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/40">
+                            Custom Build
+                          </span>
+                        )}
+                      </div>
+                      <span className="inline-block text-[11px] font-serif font-bold px-2.5 py-0.5 rounded bg-purple-950/80 text-purple-200 border border-purple-800/50">
+                        {squad.archetype}
+                      </span>
+                    </div>
+
+                    {/* Bookmark Heart Button */}
+                    <button
+                      onClick={() => handleToggleFavorite(squad.id)}
+                      className={`p-2 rounded-xl border transition-all ${
+                        isFav
+                          ? 'bg-rose-500/20 border-rose-500/60 text-rose-400 shadow-[0_0_12px_rgba(244,63,94,0.4)]'
+                          : 'bg-slate-950/80 border-slate-800 text-slate-400 hover:text-rose-300 hover:border-rose-500/40'
+                      }`}
+                      title={isFav ? 'Remove Favorite' : 'Save to Favorites'}
+                    >
+                      <Heart className={`w-4 h-4 ${isFav ? 'fill-rose-500' : ''}`} />
+                    </button>
+                  </div>
+
+                  <p className="mt-3 text-xs text-slate-300 leading-relaxed">{squad.description}</p>
+                </div>
+
+                <div className="p-5 sm:p-6 space-y-5 flex-1">
+                  {/* Visual 2x3 Formation Grid */}
+                  <div>
+                    <div className="text-[11px] font-serif font-bold uppercase tracking-wider text-amber-300/90 mb-2 flex items-center justify-between">
+                      <span>Tactical Formation (2 Vanguard / 3 Rearguard)</span>
+                      <span className="text-[10px] text-slate-400 font-sans">Click to inspect</span>
+                    </div>
+
+                    <div className="stage-pedestal grid grid-cols-2 gap-3 p-3.5 rounded-xl border border-amber-500/40">
+                      {/* Front Row (2 slots) */}
+                      <div className="space-y-2">
+                        <div className="vanguard-banner text-[10px] font-bold uppercase text-center tracking-wider py-1 rounded-t-md">
+                          🛡️ Vanguard Row
+                        </div>
+                        <div className="grid grid-cols-1 gap-2">
+                          {squad.frontRow.map((unitId, i) => {
+                            const unit = getUnitClass(unitId);
+                            return (
+                              <div
+                                key={i}
+                                className={`p-2 rounded-lg border text-xs flex items-center justify-between ${
+                                  unit
+                                    ? 'bg-slate-950/90 border-amber-500/40 text-slate-100'
+                                    : 'bg-slate-950/50 border-slate-800 border-dashed text-slate-600'
+                                }`}
+                              >
+                                {unit ? (
+                                  <div className="flex items-center justify-between w-full">
+                                    <div className="flex items-center gap-2 overflow-hidden">
+                                      <div className="w-12 h-12 rounded-xl bg-slate-950 border border-amber-400/50 flex items-center justify-center overflow-hidden text-xl relative shrink-0 shadow">
+                                        {unit.image ? (
+                                          <img src={unit.image} alt={unit.name} className="w-full h-full object-cover" />
+                                        ) : (
+                                          unit.icon
+                                        )}
+                                      </div>
+                                      <div>
+                                        <span className="font-serif font-bold text-sm text-amber-200 truncate block">
+                                          {unit.name}
+                                        </span>
+                                        <span className="text-[9px] font-mono text-emerald-400 font-bold">
+                                          HP {unit.baseStats.hp || 100}/100
+                                        </span>
+                                      </div>
+                                    </div>
+                                    <div className="flex items-center">
+                                      <span className="ap-diamond" />
+                                      <span className="pp-diamond" />
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <span className="text-[11px]">Empty Slot</span>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
 
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        <span className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">
-                          {step.condition1}
-                        </span>
-                        <span className="px-1.5 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-800/40 font-mono text-[10px]">
-                          {step.condition2}
-                        </span>
+                      {/* Back Row (3 slots) */}
+                      <div className="space-y-2">
+                        <div className="rearguard-banner text-[10px] font-bold uppercase text-center tracking-wider py-1 rounded-t-md">
+                          ⚔️ Rearguard Row
+                        </div>
+                        <div className="grid grid-cols-1 gap-2">
+                          {squad.backRow.map((unitId, i) => {
+                            const unit = getUnitClass(unitId);
+                            return (
+                              <div
+                                key={i}
+                                className={`p-2 rounded-lg border text-xs flex items-center justify-between ${
+                                  unit
+                                    ? 'bg-slate-950/90 border-purple-500/40 text-slate-100'
+                                    : 'bg-slate-950/50 border-slate-800 border-dashed text-slate-600'
+                                }`}
+                              >
+                                {unit ? (
+                                  <div className="flex items-center justify-between w-full">
+                                    <div className="flex items-center gap-2.5 overflow-hidden">
+                                      <div className="w-12 h-12 rounded-xl bg-slate-950 border border-purple-400/50 flex items-center justify-center overflow-hidden text-xl relative shrink-0 shadow">
+                                        {unit.image ? (
+                                          <img src={unit.image} alt={unit.name} className="w-full h-full object-cover" />
+                                        ) : (
+                                          unit.icon
+                                        )}
+                                      </div>
+                                      <div>
+                                        <span className="font-serif font-bold text-sm text-purple-200 truncate block">
+                                          {unit.name}
+                                        </span>
+                                        <span className="text-[9px] font-mono text-emerald-400 font-bold">
+                                          HP {unit.baseStats.hp || 90}/90
+                                        </span>
+                                      </div>
+                                    </div>
+                                    <div className="flex items-center">
+                                      <span className="ap-diamond" />
+                                      <span className="pp-diamond" />
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <span className="text-[11px]">Empty Slot</span>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Pros & Cons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-slate-800">
-                <div className="space-y-1">
-                  <div className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1">
-                    <CheckCircle2 className="w-3 h-3" /> Pros
                   </div>
-                  <ul className="space-y-1 text-slate-300 text-[11px]">
-                    {squad.pros.map((pro, i) => (
-                      <li key={i} className="flex items-start gap-1.5">
-                        <span className="text-emerald-400">•</span> {pro}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
 
-                <div className="space-y-1">
-                  <div className="text-[10px] font-bold text-red-400 uppercase tracking-wider flex items-center gap-1">
-                    <XCircle className="w-3 h-3" /> Counters & Weaknesses
+                  {/* Core Required Relics */}
+                  <div>
+                    <div className="text-[11px] font-serif font-bold uppercase tracking-wider text-amber-300/80 mb-2">
+                      Core Required Relics & Equipment
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {squad.keyItems.map((item, i) => (
+                        <span
+                          key={i}
+                          className="px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold flex items-center gap-1"
+                        >
+                          👑 {item}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <ul className="space-y-1 text-slate-300 text-[11px]">
-                    {squad.counters.map((c, i) => (
-                      <li key={i} className="flex items-start gap-1.5">
-                        <span className="text-red-400">•</span> {c}
-                      </li>
-                    ))}
-                  </ul>
+
+                  {/* Action Buttons */}
+                  <div className="pt-3 border-t border-slate-800 flex items-center gap-2">
+                    <button
+                      onClick={() => setSelectedBuildForModal(squad)}
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-950 border border-amber-500/40 hover:border-amber-400 text-amber-300 hover:text-amber-200 font-serif font-bold text-xs shadow-md transition-all"
+                    >
+                      <BookOpen className="w-4 h-4 text-amber-400" />
+                      <span>View Full Build Guide</span>
+                    </button>
+
+                    <button
+                      onClick={() => onLoadIntoBuilder(squad)}
+                      className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-xs shadow-md transition-all font-serif uppercase tracking-wider"
+                    >
+                      <Zap className="w-3.5 h-3.5 fill-slate-950" />
+                      <span>Builder</span>
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Build Detail Modal */}
+      {selectedBuildForModal && (
+        <BuildDetailModal
+          squad={selectedBuildForModal}
+          isOpen={!!selectedBuildForModal}
+          onClose={() => setSelectedBuildForModal(null)}
+          onLoadIntoBuilder={onLoadIntoBuilder}
+          isFavorite={favoriteIds.includes(selectedBuildForModal.id)}
+          onToggleFavorite={handleToggleFavorite}
+        />
+      )}
     </div>
   );
 };

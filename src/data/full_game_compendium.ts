@@ -1,0 +1,2922 @@
+// Unicorn Overlord Full Official Metadata Compendium (496 Game Entities)
+
+export interface GameEntityMeta {
+  id: string;
+  name: string;
+  category: 'Class' | 'Weapon' | 'Shield' | 'Accessory';
+  wikiPageId: number;
+  wikiUrl: string;
+}
+
+export const FULL_GAME_CLASSES_COUNT = 71;
+export const FULL_GAME_EQUIPMENT_COUNT = 425;
+
+export const RAW_GAME_CLASSES = [
+  {
+    "id": "arbalist",
+    "title": "Arbalist",
+    "pageid": 175
+  },
+  {
+    "id": "berserker",
+    "title": "Berserker",
+    "pageid": 246
+  },
+  {
+    "id": "bishop",
+    "title": "Bishop",
+    "pageid": 252
+  },
+  {
+    "id": "breaker",
+    "title": "Breaker",
+    "pageid": 247
+  },
+  {
+    "id": "classes",
+    "title": "Classes",
+    "pageid": 482
+  },
+  {
+    "id": "cleric",
+    "title": "Cleric",
+    "pageid": 181
+  },
+  {
+    "id": "crusader",
+    "title": "Crusader",
+    "pageid": 1004
+  },
+  {
+    "id": "dark-knight",
+    "title": "Dark Knight",
+    "pageid": 179
+  },
+  {
+    "id": "dark-lord",
+    "title": "Dark Lord",
+    "pageid": 192
+  },
+  {
+    "id": "dark-marquess",
+    "title": "Dark Marquess",
+    "pageid": 279
+  },
+  {
+    "id": "dark-marquess-axe",
+    "title": "Dark Marquess (Axe)",
+    "pageid": 286
+  },
+  {
+    "id": "dark-marquess-spear",
+    "title": "Dark Marquess (Spear)",
+    "pageid": 284
+  },
+  {
+    "id": "dark-marquess-staff",
+    "title": "Dark Marquess (Staff)",
+    "pageid": 285
+  },
+  {
+    "id": "dark-marquess-sword",
+    "title": "Dark Marquess (Sword)",
+    "pageid": 283
+  },
+  {
+    "id": "doom-knight",
+    "title": "Doom Knight",
+    "pageid": 180
+  },
+  {
+    "id": "dreadnought",
+    "title": "Dreadnought",
+    "pageid": 269
+  },
+  {
+    "id": "elven-archer",
+    "title": "Elven Archer",
+    "pageid": 240
+  },
+  {
+    "id": "elven-augur",
+    "title": "Elven Augur",
+    "pageid": 277
+  },
+  {
+    "id": "elven-fencer",
+    "title": "Elven Fencer",
+    "pageid": 239
+  },
+  {
+    "id": "elven-sibyl",
+    "title": "Elven Sibyl",
+    "pageid": 276
+  },
+  {
+    "id": "featherbow",
+    "title": "Featherbow",
+    "pageid": 241
+  },
+  {
+    "id": "feathershield",
+    "title": "Feathershield",
+    "pageid": 273
+  },
+  {
+    "id": "featherstaff",
+    "title": "Featherstaff",
+    "pageid": 242
+  },
+  {
+    "id": "feathersword",
+    "title": "Feathersword",
+    "pageid": 188
+  },
+  {
+    "id": "fighter",
+    "title": "Fighter",
+    "pageid": 166
+  },
+  {
+    "id": "gladiator",
+    "title": "Gladiator",
+    "pageid": 165
+  },
+  {
+    "id": "great-knight",
+    "title": "Great Knight",
+    "pageid": 177
+  },
+  {
+    "id": "gryphon-knight",
+    "title": "Gryphon Knight",
+    "pageid": 187
+  },
+  {
+    "id": "gryphon-master",
+    "title": "Gryphon Master",
+    "pageid": 282
+  },
+  {
+    "id": "high-lord",
+    "title": "High Lord",
+    "pageid": 236
+  },
+  {
+    "id": "high-priestess",
+    "title": "High Priestess",
+    "pageid": 270
+  },
+  {
+    "id": "hoplite",
+    "title": "Hoplite",
+    "pageid": 171
+  },
+  {
+    "id": "housecarl",
+    "title": "Housecarl",
+    "pageid": 148
+  },
+  {
+    "id": "hunter",
+    "title": "Hunter",
+    "pageid": 174
+  },
+  {
+    "id": "knight",
+    "title": "Knight",
+    "pageid": 164
+  },
+  {
+    "id": "landsknecht",
+    "title": "Landsknecht",
+    "pageid": 254
+  },
+  {
+    "id": "legionnaire",
+    "title": "Legionnaire",
+    "pageid": 172
+  },
+  {
+    "id": "lord",
+    "title": "Lord",
+    "pageid": 161
+  },
+  {
+    "id": "necromancer",
+    "title": "Necromancer",
+    "pageid": 280
+  },
+  {
+    "id": "overlord",
+    "title": "Overlord",
+    "pageid": 281
+  },
+  {
+    "id": "paladin",
+    "title": "Paladin",
+    "pageid": 189
+  },
+  {
+    "id": "priestess",
+    "title": "Priestess",
+    "pageid": 163
+  },
+  {
+    "id": "prince",
+    "title": "Prince",
+    "pageid": 271
+  },
+  {
+    "id": "radiant-knight",
+    "title": "Radiant Knight",
+    "pageid": 178
+  },
+  {
+    "id": "rogue",
+    "title": "Rogue",
+    "pageid": 250
+  },
+  {
+    "id": "sainted-knight",
+    "title": "Sainted Knight",
+    "pageid": 248
+  },
+  {
+    "id": "sellsword",
+    "title": "Sellsword",
+    "pageid": 170
+  },
+  {
+    "id": "sergeant",
+    "title": "Sergeant",
+    "pageid": 169
+  },
+  {
+    "id": "shaman",
+    "title": "Shaman",
+    "pageid": 186
+  },
+  {
+    "id": "shieldshooter",
+    "title": "Shieldshooter",
+    "pageid": 267
+  },
+  {
+    "id": "sniper",
+    "title": "Sniper",
+    "pageid": 249
+  },
+  {
+    "id": "snow-ranger",
+    "title": "Snow Ranger",
+    "pageid": 272
+  },
+  {
+    "id": "soldier",
+    "title": "Soldier",
+    "pageid": 168
+  },
+  {
+    "id": "sorceress",
+    "title": "Sorceress",
+    "pageid": 185
+  },
+  {
+    "id": "swordfighter",
+    "title": "Swordfighter",
+    "pageid": 190
+  },
+  {
+    "id": "swordmaster",
+    "title": "Swordmaster",
+    "pageid": 238
+  },
+  {
+    "id": "thief",
+    "title": "Thief",
+    "pageid": 176
+  },
+  {
+    "id": "valkyria",
+    "title": "Valkyria",
+    "pageid": 191
+  },
+  {
+    "id": "vanguard",
+    "title": "Vanguard",
+    "pageid": 167
+  },
+  {
+    "id": "viking",
+    "title": "Viking",
+    "pageid": 253
+  },
+  {
+    "id": "warlock",
+    "title": "Warlock",
+    "pageid": 183
+  },
+  {
+    "id": "warrior",
+    "title": "Warrior",
+    "pageid": 173
+  },
+  {
+    "id": "werebear",
+    "title": "Werebear",
+    "pageid": 274
+  },
+  {
+    "id": "werefox",
+    "title": "Werefox",
+    "pageid": 244
+  },
+  {
+    "id": "werelion",
+    "title": "Werelion",
+    "pageid": 275
+  },
+  {
+    "id": "wereowl",
+    "title": "Wereowl",
+    "pageid": 245
+  },
+  {
+    "id": "werewolf",
+    "title": "Werewolf",
+    "pageid": 243
+  },
+  {
+    "id": "witch",
+    "title": "Witch",
+    "pageid": 184
+  },
+  {
+    "id": "wizard",
+    "title": "Wizard",
+    "pageid": 182
+  },
+  {
+    "id": "wyvern-knight",
+    "title": "Wyvern Knight",
+    "pageid": 1001
+  },
+  {
+    "id": "wyvern-master",
+    "title": "Wyvern Master",
+    "pageid": 268
+  }
+];
+export const RAW_GAME_EQUIPMENT = [
+  {
+    "id": "adept-s-shortspear",
+    "name": "Adept's Shortspear",
+    "category": "Weapon",
+    "pageid": 1839
+  },
+  {
+    "id": "alminster",
+    "name": "Alminster",
+    "category": "Weapon",
+    "pageid": 993
+  },
+  {
+    "id": "apeliotes-s-bow",
+    "name": "Apeliotes's Bow",
+    "category": "Weapon",
+    "pageid": 1596
+  },
+  {
+    "id": "astral-pike",
+    "name": "Astral Pike",
+    "category": "Weapon",
+    "pageid": 1840
+  },
+  {
+    "id": "bandit-longsword",
+    "name": "Bandit Longsword",
+    "category": "Weapon",
+    "pageid": 1466
+  },
+  {
+    "id": "bandit-s-handaxe",
+    "name": "Bandit's Handaxe",
+    "category": "Weapon",
+    "pageid": 940
+  },
+  {
+    "id": "banishing-hammer",
+    "name": "Banishing Hammer",
+    "category": "Weapon",
+    "pageid": 1201
+  },
+  {
+    "id": "barbarian-s-axe",
+    "name": "Barbarian's Axe",
+    "category": "Weapon",
+    "pageid": 1617
+  },
+  {
+    "id": "barbarian-s-might",
+    "name": "Barbarian's Might",
+    "category": "Weapon",
+    "pageid": 1156
+  },
+  {
+    "id": "baroque-axe",
+    "name": "Baroque Axe",
+    "category": "Weapon",
+    "pageid": 826
+  },
+  {
+    "id": "baroque-bow",
+    "name": "Baroque Bow",
+    "category": "Weapon",
+    "pageid": 828
+  },
+  {
+    "id": "baroque-rod",
+    "name": "Baroque Rod",
+    "category": "Weapon",
+    "pageid": 850
+  },
+  {
+    "id": "baroque-spear",
+    "name": "Baroque Spear",
+    "category": "Weapon",
+    "pageid": 827
+  },
+  {
+    "id": "baroque-sword",
+    "name": "Baroque Sword",
+    "category": "Weapon",
+    "pageid": 825
+  },
+  {
+    "id": "berserker-s-battleaxe",
+    "name": "Berserker's Battleaxe",
+    "category": "Weapon",
+    "pageid": 1615
+  },
+  {
+    "id": "black-axe-of-the-abyss",
+    "name": "Black Axe of the Abyss",
+    "category": "Weapon",
+    "pageid": 1612
+  },
+  {
+    "id": "black-iron-axe",
+    "name": "Black-Iron Axe",
+    "category": "Weapon",
+    "pageid": 1061
+  },
+  {
+    "id": "black-iron-bow",
+    "name": "Black-Iron Bow",
+    "category": "Weapon",
+    "pageid": 1063
+  },
+  {
+    "id": "black-iron-spear",
+    "name": "Black-Iron Spear",
+    "category": "Weapon",
+    "pageid": 1062
+  },
+  {
+    "id": "black-iron-staff",
+    "name": "Black-Iron Staff",
+    "category": "Weapon",
+    "pageid": 1064
+  },
+  {
+    "id": "black-iron-sword",
+    "name": "Black-Iron Sword",
+    "category": "Weapon",
+    "pageid": 1060
+  },
+  {
+    "id": "bloodmoon-rod",
+    "name": "Bloodmoon Rod",
+    "category": "Weapon",
+    "pageid": 944
+  },
+  {
+    "id": "bloody-spear",
+    "name": "Bloody Spear",
+    "category": "Weapon",
+    "pageid": 1153
+  },
+  {
+    "id": "blue-rose",
+    "name": "Blue Rose",
+    "category": "Weapon",
+    "pageid": 1470
+  },
+  {
+    "id": "boreas-s-axe",
+    "name": "Boreas's Axe",
+    "category": "Weapon",
+    "pageid": 1600
+  },
+  {
+    "id": "bow-of-swiftness",
+    "name": "Bow of Swiftness",
+    "category": "Weapon",
+    "pageid": 1071
+  },
+  {
+    "id": "bronze-axe",
+    "name": "Bronze Axe",
+    "category": "Weapon",
+    "pageid": 844
+  },
+  {
+    "id": "bronze-bow",
+    "name": "Bronze Bow",
+    "category": "Weapon",
+    "pageid": 845
+  },
+  {
+    "id": "bronze-spear",
+    "name": "Bronze Spear",
+    "category": "Weapon",
+    "pageid": 843
+  },
+  {
+    "id": "bronze-staff",
+    "name": "Bronze Staff",
+    "category": "Weapon",
+    "pageid": 846
+  },
+  {
+    "id": "bronze-sword",
+    "name": "Bronze Sword",
+    "category": "Weapon",
+    "pageid": 842
+  },
+  {
+    "id": "canyon-lance",
+    "name": "Canyon Lance",
+    "category": "Weapon",
+    "pageid": 1582
+  },
+  {
+    "id": "cardinal-s-mace",
+    "name": "Cardinal's Mace",
+    "category": "Weapon",
+    "pageid": 1269
+  },
+  {
+    "id": "carnat-axe",
+    "name": "Carnat Axe",
+    "category": "Weapon",
+    "pageid": 1029
+  },
+  {
+    "id": "carnat-bow",
+    "name": "Carnat Bow",
+    "category": "Weapon",
+    "pageid": 1031
+  },
+  {
+    "id": "carnat-rod",
+    "name": "Carnat Rod",
+    "category": "Weapon",
+    "pageid": 1032
+  },
+  {
+    "id": "carnat-spear",
+    "name": "Carnat Spear",
+    "category": "Weapon",
+    "pageid": 1030
+  },
+  {
+    "id": "carnat-sword",
+    "name": "Carnat Sword",
+    "category": "Weapon",
+    "pageid": 1028
+  },
+  {
+    "id": "carnelian-axe",
+    "name": "Carnelian Axe",
+    "category": "Weapon",
+    "pageid": 891
+  },
+  {
+    "id": "carnelian-blade",
+    "name": "Carnelian Blade",
+    "category": "Weapon",
+    "pageid": 889
+  },
+  {
+    "id": "carnelian-bow",
+    "name": "Carnelian Bow",
+    "category": "Weapon",
+    "pageid": 892
+  },
+  {
+    "id": "carnelian-spear",
+    "name": "Carnelian Spear",
+    "category": "Weapon",
+    "pageid": 890
+  },
+  {
+    "id": "carnelian-staff",
+    "name": "Carnelian Staff",
+    "category": "Weapon",
+    "pageid": 893
+  },
+  {
+    "id": "chiropteran-staff",
+    "name": "Chiropteran Staff",
+    "category": "Weapon",
+    "pageid": 1857
+  },
+  {
+    "id": "chlorotic",
+    "name": "Chlorotic",
+    "category": "Weapon",
+    "pageid": 1874
+  },
+  {
+    "id": "cleric-s-cane",
+    "name": "Cleric's Cane",
+    "category": "Weapon",
+    "pageid": 392
+  },
+  {
+    "id": "corroded-spear",
+    "name": "Corroded Spear",
+    "category": "Weapon",
+    "pageid": 1054
+  },
+  {
+    "id": "crane-bow",
+    "name": "Crane Bow",
+    "category": "Weapon",
+    "pageid": 1211
+  },
+  {
+    "id": "crimson-sarissa",
+    "name": "Crimson Sarissa",
+    "category": "Weapon",
+    "pageid": 1882
+  },
+  {
+    "id": "crimson-p-e",
+    "name": "Crimson Épée",
+    "category": "Weapon",
+    "pageid": 386
+  },
+  {
+    "id": "crushing-axe",
+    "name": "Crushing Axe",
+    "category": "Weapon",
+    "pageid": 379
+  },
+  {
+    "id": "cursed-axe-of-the-abyss",
+    "name": "Cursed Axe of the Abyss",
+    "category": "Weapon",
+    "pageid": 1613
+  },
+  {
+    "id": "cursed-blade-of-the-abyss",
+    "name": "Cursed Blade of the Abyss",
+    "category": "Weapon",
+    "pageid": 1472
+  },
+  {
+    "id": "cursed-lance-of-the-abyss",
+    "name": "Cursed Lance of the Abyss",
+    "category": "Weapon",
+    "pageid": 1841
+  },
+  {
+    "id": "cursed-staff-of-the-abyss",
+    "name": "Cursed Staff of the Abyss",
+    "category": "Weapon",
+    "pageid": 1861
+  },
+  {
+    "id": "cutthroat-s-boon",
+    "name": "Cutthroat's Boon",
+    "category": "Weapon",
+    "pageid": 938
+  },
+  {
+    "id": "dancer-s-delight",
+    "name": "Dancer's Delight",
+    "category": "Weapon",
+    "pageid": 1070
+  },
+  {
+    "id": "dark-knight-cleaver",
+    "name": "Dark Knight Cleaver",
+    "category": "Weapon",
+    "pageid": 1616
+  },
+  {
+    "id": "death-pillar",
+    "name": "Death Pillar",
+    "category": "Weapon",
+    "pageid": 1187
+  },
+  {
+    "id": "defender-s-mace",
+    "name": "Defender's Mace",
+    "category": "Weapon",
+    "pageid": 879
+  },
+  {
+    "id": "desert-bow",
+    "name": "Desert Bow",
+    "category": "Weapon",
+    "pageid": 1849
+  },
+  {
+    "id": "dragonbone-axe",
+    "name": "Dragonbone Axe",
+    "category": "Weapon",
+    "pageid": 1040
+  },
+  {
+    "id": "dragonbone-blade",
+    "name": "Dragonbone Blade",
+    "category": "Weapon",
+    "pageid": 1039
+  },
+  {
+    "id": "dragonbone-bow",
+    "name": "Dragonbone Bow",
+    "category": "Weapon",
+    "pageid": 1042
+  },
+  {
+    "id": "dragonbone-spear",
+    "name": "Dragonbone Spear",
+    "category": "Weapon",
+    "pageid": 1041
+  },
+  {
+    "id": "dragonbone-staff",
+    "name": "Dragonbone Staff",
+    "category": "Weapon",
+    "pageid": 1043
+  },
+  {
+    "id": "dragoon-s-warspear",
+    "name": "Dragoon's Warspear",
+    "category": "Weapon",
+    "pageid": 1075
+  },
+  {
+    "id": "dustbound-staff",
+    "name": "Dustbound Staff",
+    "category": "Weapon",
+    "pageid": 1072
+  },
+  {
+    "id": "ein-seeker",
+    "name": "Ein Seeker",
+    "category": "Weapon",
+    "pageid": 1875
+  },
+  {
+    "id": "elfeater",
+    "name": "Elfeater",
+    "category": "Weapon",
+    "pageid": 943
+  },
+  {
+    "id": "eliminator",
+    "name": "Eliminator",
+    "category": "Weapon",
+    "pageid": 1213
+  },
+  {
+    "id": "euros-s-staff",
+    "name": "Euros's Staff",
+    "category": "Weapon",
+    "pageid": 1594
+  },
+  {
+    "id": "flamberge",
+    "name": "Flamberge",
+    "category": "Weapon",
+    "pageid": 1180
+  },
+  {
+    "id": "flame-bow",
+    "name": "Flame Bow",
+    "category": "Weapon",
+    "pageid": 803
+  },
+  {
+    "id": "flame-javelin",
+    "name": "Flame Javelin",
+    "category": "Weapon",
+    "pageid": 1883
+  },
+  {
+    "id": "flame-hex-staff",
+    "name": "Flame-Hex Staff",
+    "category": "Weapon",
+    "pageid": 1049
+  },
+  {
+    "id": "frostbloom-bow",
+    "name": "Frostbloom Bow",
+    "category": "Weapon",
+    "pageid": 1850
+  },
+  {
+    "id": "frozen-battleaxe",
+    "name": "Frozen Battleaxe",
+    "category": "Weapon",
+    "pageid": 1195
+  },
+  {
+    "id": "galecutter",
+    "name": "Galecutter",
+    "category": "Weapon",
+    "pageid": 1218
+  },
+  {
+    "id": "gallian-crossbow",
+    "name": "Gallian Crossbow",
+    "category": "Weapon",
+    "pageid": 1186
+  },
+  {
+    "id": "general-s-longbow",
+    "name": "General's Longbow",
+    "category": "Weapon",
+    "pageid": 1409
+  },
+  {
+    "id": "general-s-pike",
+    "name": "General's Pike",
+    "category": "Weapon",
+    "pageid": 1169
+  },
+  {
+    "id": "giant-s-greataxe",
+    "name": "Giant's Greataxe",
+    "category": "Weapon",
+    "pageid": 1155
+  },
+  {
+    "id": "glaive",
+    "name": "Glaive",
+    "category": "Weapon",
+    "pageid": 1189
+  },
+  {
+    "id": "gleaming-mace",
+    "name": "Gleaming Mace",
+    "category": "Weapon",
+    "pageid": 1221
+  },
+  {
+    "id": "golden-ram-axe",
+    "name": "Golden Ram Axe",
+    "category": "Weapon",
+    "pageid": 1604
+  },
+  {
+    "id": "grand-magus-staff",
+    "name": "Grand Magus Staff",
+    "category": "Weapon",
+    "pageid": 1226
+  },
+  {
+    "id": "greatsword",
+    "name": "Greatsword",
+    "category": "Weapon",
+    "pageid": 1468
+  },
+  {
+    "id": "greatsword-of-the-abyss",
+    "name": "Greatsword of the Abyss",
+    "category": "Weapon",
+    "pageid": 1473
+  },
+  {
+    "id": "greatwood-axe",
+    "name": "Greatwood Axe",
+    "category": "Weapon",
+    "pageid": 1079
+  },
+  {
+    "id": "greatwood-bow",
+    "name": "Greatwood Bow",
+    "category": "Weapon",
+    "pageid": 1081
+  },
+  {
+    "id": "greatwood-spear",
+    "name": "Greatwood Spear",
+    "category": "Weapon",
+    "pageid": 1080
+  },
+  {
+    "id": "greatwood-spiritbow",
+    "name": "Greatwood Spiritbow",
+    "category": "Weapon",
+    "pageid": 1848
+  },
+  {
+    "id": "greatwood-staff",
+    "name": "Greatwood Staff",
+    "category": "Weapon",
+    "pageid": 1082
+  },
+  {
+    "id": "greatwood-sword",
+    "name": "Greatwood Sword",
+    "category": "Weapon",
+    "pageid": 1078
+  },
+  {
+    "id": "hailstorm-edge",
+    "name": "Hailstorm Edge",
+    "category": "Weapon",
+    "pageid": 1177
+  },
+  {
+    "id": "hallowed-blade",
+    "name": "Hallowed Blade",
+    "category": "Weapon",
+    "pageid": 1408
+  },
+  {
+    "id": "hallowed-mace",
+    "name": "Hallowed Mace",
+    "category": "Weapon",
+    "pageid": 804
+  },
+  {
+    "id": "headsman-s-axe",
+    "name": "Headsman's Axe",
+    "category": "Weapon",
+    "pageid": 1026
+  },
+  {
+    "id": "heavenswing-staff",
+    "name": "Heavenswing Staff",
+    "category": "Weapon",
+    "pageid": 1860
+  },
+  {
+    "id": "heavenswing-sword",
+    "name": "Heavenswing Sword",
+    "category": "Weapon",
+    "pageid": 1462
+  },
+  {
+    "id": "helix-spear",
+    "name": "Helix Spear",
+    "category": "Weapon",
+    "pageid": 1184
+  },
+  {
+    "id": "helleborus-axe",
+    "name": "Helleborus Axe",
+    "category": "Weapon",
+    "pageid": 1457
+  },
+  {
+    "id": "hoarfrost-axe",
+    "name": "Hoarfrost Axe",
+    "category": "Weapon",
+    "pageid": 875
+  },
+  {
+    "id": "holy-unicorn-blade",
+    "name": "Holy Unicorn Blade",
+    "category": "Weapon",
+    "pageid": 1141
+  },
+  {
+    "id": "hunter-s-claymore",
+    "name": "Hunter's Claymore",
+    "category": "Weapon",
+    "pageid": 1204
+  },
+  {
+    "id": "hunter-s-halberd",
+    "name": "Hunter's Halberd",
+    "category": "Weapon",
+    "pageid": 1210
+  },
+  {
+    "id": "icefall-axe",
+    "name": "Icefall Axe",
+    "category": "Weapon",
+    "pageid": 1110
+  },
+  {
+    "id": "icefall-blade",
+    "name": "Icefall Blade",
+    "category": "Weapon",
+    "pageid": 1109
+  },
+  {
+    "id": "icefall-bow",
+    "name": "Icefall Bow",
+    "category": "Weapon",
+    "pageid": 1112
+  },
+  {
+    "id": "icefall-spear",
+    "name": "Icefall Spear",
+    "category": "Weapon",
+    "pageid": 1111
+  },
+  {
+    "id": "icefall-staff",
+    "name": "Icefall Staff",
+    "category": "Weapon",
+    "pageid": 1113
+  },
+  {
+    "id": "icestorm-staff",
+    "name": "Icestorm Staff",
+    "category": "Weapon",
+    "pageid": 1872
+  },
+  {
+    "id": "infamous-bow",
+    "name": "Infamous Bow",
+    "category": "Weapon",
+    "pageid": 1591
+  },
+  {
+    "id": "interrogator-s-bow",
+    "name": "Interrogator's Bow",
+    "category": "Weapon",
+    "pageid": 834
+  },
+  {
+    "id": "iron-axe",
+    "name": "Iron Axe",
+    "category": "Weapon",
+    "pageid": 837
+  },
+  {
+    "id": "iron-bow",
+    "name": "Iron Bow",
+    "category": "Weapon",
+    "pageid": 838
+  },
+  {
+    "id": "iron-spear",
+    "name": "Iron Spear",
+    "category": "Weapon",
+    "pageid": 836
+  },
+  {
+    "id": "iron-staff",
+    "name": "Iron Staff",
+    "category": "Weapon",
+    "pageid": 839
+  },
+  {
+    "id": "iron-sword",
+    "name": "Iron Sword",
+    "category": "Weapon",
+    "pageid": 835
+  },
+  {
+    "id": "juggernaut",
+    "name": "Juggernaut",
+    "category": "Weapon",
+    "pageid": 1185
+  },
+  {
+    "id": "kingsaxe-drakenash",
+    "name": "Kingsaxe Drakenash",
+    "category": "Weapon",
+    "pageid": 1255
+  },
+  {
+    "id": "kingsblade-cornix",
+    "name": "Kingsblade Cornix",
+    "category": "Weapon",
+    "pageid": 400
+  },
+  {
+    "id": "kingsbow-bastorik",
+    "name": "Kingsbow Bastorik",
+    "category": "Weapon",
+    "pageid": 1257
+  },
+  {
+    "id": "kingslance-elhal",
+    "name": "Kingslance Elhal",
+    "category": "Weapon",
+    "pageid": 1256
+  },
+  {
+    "id": "kingstaff-albiore",
+    "name": "Kingstaff Albiore",
+    "category": "Weapon",
+    "pageid": 1258
+  },
+  {
+    "id": "knot-of-ruin",
+    "name": "Knot of Ruin",
+    "category": "Weapon",
+    "pageid": 1580
+  },
+  {
+    "id": "labrys",
+    "name": "Labrys",
+    "category": "Weapon",
+    "pageid": 1610
+  },
+  {
+    "id": "lance-of-devotion",
+    "name": "Lance of Devotion",
+    "category": "Weapon",
+    "pageid": 1843
+  },
+  {
+    "id": "libera",
+    "name": "Libera",
+    "category": "Weapon",
+    "pageid": 1270
+  },
+  {
+    "id": "liberator-s-staff",
+    "name": "Liberator's Staff",
+    "category": "Weapon",
+    "pageid": 1225
+  },
+  {
+    "id": "lifeblood-staff",
+    "name": "Lifeblood Staff",
+    "category": "Weapon",
+    "pageid": 1175
+  },
+  {
+    "id": "lupinus-staff",
+    "name": "Lupinus Staff",
+    "category": "Weapon",
+    "pageid": 1460
+  },
+  {
+    "id": "lyrical-wand",
+    "name": "Lyrical Wand",
+    "category": "Weapon",
+    "pageid": 410
+  },
+  {
+    "id": "magebane-bow",
+    "name": "Magebane Bow",
+    "category": "Weapon",
+    "pageid": 1844
+  },
+  {
+    "id": "mason-s-hammer",
+    "name": "Mason's Hammer",
+    "category": "Weapon",
+    "pageid": 1618
+  },
+  {
+    "id": "meteorite-axe",
+    "name": "Meteorite Axe",
+    "category": "Weapon",
+    "pageid": 1576
+  },
+  {
+    "id": "meteorite-bow",
+    "name": "Meteorite Bow",
+    "category": "Weapon",
+    "pageid": 1578
+  },
+  {
+    "id": "meteorite-lance",
+    "name": "Meteorite Lance",
+    "category": "Weapon",
+    "pageid": 1583
+  },
+  {
+    "id": "meteorite-rod",
+    "name": "Meteorite Rod",
+    "category": "Weapon",
+    "pageid": 1579
+  },
+  {
+    "id": "meteorite-sword",
+    "name": "Meteorite Sword",
+    "category": "Weapon",
+    "pageid": 1463
+  },
+  {
+    "id": "millenium-scepter",
+    "name": "Millenium Scepter",
+    "category": "Weapon",
+    "pageid": 910
+  },
+  {
+    "id": "mist-scimitar",
+    "name": "Mist Scimitar",
+    "category": "Weapon",
+    "pageid": 1474
+  },
+  {
+    "id": "moonlight-rapier",
+    "name": "Moonlight Rapier",
+    "category": "Weapon",
+    "pageid": 1212
+  },
+  {
+    "id": "morningstar",
+    "name": "Morningstar",
+    "category": "Weapon",
+    "pageid": 1147
+  },
+  {
+    "id": "mother-laelia-s-staff",
+    "name": "Mother Laelia's Staff",
+    "category": "Weapon",
+    "pageid": 1873
+  },
+  {
+    "id": "nameless-greataxe",
+    "name": "Nameless Greataxe",
+    "category": "Weapon",
+    "pageid": 1606
+  },
+  {
+    "id": "nameless-greatbow",
+    "name": "Nameless Greatbow",
+    "category": "Weapon",
+    "pageid": 1845
+  },
+  {
+    "id": "nameless-greatspear",
+    "name": "Nameless Greatspear",
+    "category": "Weapon",
+    "pageid": 1837
+  },
+  {
+    "id": "nameless-greatstaff",
+    "name": "Nameless Greatstaff",
+    "category": "Weapon",
+    "pageid": 1854
+  },
+  {
+    "id": "nameless-greatsword",
+    "name": "Nameless Greatsword",
+    "category": "Weapon",
+    "pageid": 1476
+  },
+  {
+    "id": "nameless-guard-s-bow",
+    "name": "Nameless Guard's Bow",
+    "category": "Weapon",
+    "pageid": 1886
+  },
+  {
+    "id": "nameless-guard-s-spear",
+    "name": "Nameless Guard's Spear",
+    "category": "Weapon",
+    "pageid": 1878
+  },
+  {
+    "id": "notos-s-sword",
+    "name": "Notos's Sword",
+    "category": "Weapon",
+    "pageid": 1461
+  },
+  {
+    "id": "obsidian-axe",
+    "name": "Obsidian Axe",
+    "category": "Weapon",
+    "pageid": 1605
+  },
+  {
+    "id": "obsidian-bow",
+    "name": "Obsidian Bow",
+    "category": "Weapon",
+    "pageid": 1846
+  },
+  {
+    "id": "obsidian-spear",
+    "name": "Obsidian Spear",
+    "category": "Weapon",
+    "pageid": 1836
+  },
+  {
+    "id": "obsidian-staff",
+    "name": "Obsidian Staff",
+    "category": "Weapon",
+    "pageid": 1855
+  },
+  {
+    "id": "obsidian-sword",
+    "name": "Obsidian Sword",
+    "category": "Weapon",
+    "pageid": 1475
+  },
+  {
+    "id": "orchis-spear",
+    "name": "Orchis Spear",
+    "category": "Weapon",
+    "pageid": 1458
+  },
+  {
+    "id": "papal-crosier",
+    "name": "Papal Crosier",
+    "category": "Weapon",
+    "pageid": 1174
+  },
+  {
+    "id": "pestilent-staff",
+    "name": "Pestilent Staff",
+    "category": "Weapon",
+    "pageid": 936
+  },
+  {
+    "id": "phantom-knight-s-axe",
+    "name": "Phantom Knight's Axe",
+    "category": "Weapon",
+    "pageid": 1261
+  },
+  {
+    "id": "phantom-knight-s-bow",
+    "name": "Phantom Knight's Bow",
+    "category": "Weapon",
+    "pageid": 1263
+  },
+  {
+    "id": "phantom-knight-s-spear",
+    "name": "Phantom Knight's Spear",
+    "category": "Weapon",
+    "pageid": 1260
+  },
+  {
+    "id": "phantom-knight-s-staff",
+    "name": "Phantom Knight's Staff",
+    "category": "Weapon",
+    "pageid": 1264
+  },
+  {
+    "id": "phantom-knight-s-sword",
+    "name": "Phantom Knight's Sword",
+    "category": "Weapon",
+    "pageid": 1262
+  },
+  {
+    "id": "pheasant-bow",
+    "name": "Pheasant Bow",
+    "category": "Weapon",
+    "pageid": 874
+  },
+  {
+    "id": "phosphorescent-staff",
+    "name": "Phosphorescent Staff",
+    "category": "Weapon",
+    "pageid": 1208
+  },
+  {
+    "id": "piercing-bow",
+    "name": "Piercing Bow",
+    "category": "Weapon",
+    "pageid": 1067
+  },
+  {
+    "id": "piercing-strongbow",
+    "name": "Piercing Strongbow",
+    "category": "Weapon",
+    "pageid": 1205
+  },
+  {
+    "id": "poison-hex-staff",
+    "name": "Poison-Hex Staff",
+    "category": "Weapon",
+    "pageid": 1144
+  },
+  {
+    "id": "precious-rod",
+    "name": "Precious Rod",
+    "category": "Weapon",
+    "pageid": 1593
+  },
+  {
+    "id": "purifier",
+    "name": "Purifier",
+    "category": "Weapon",
+    "pageid": 992
+  },
+  {
+    "id": "pursuant-s-blade",
+    "name": "Pursuant's Blade",
+    "category": "Weapon",
+    "pageid": 1206
+  },
+  {
+    "id": "quartz-rod",
+    "name": "Quartz Rod",
+    "category": "Weapon",
+    "pageid": 931
+  },
+  {
+    "id": "quince-bow",
+    "name": "Quince Bow",
+    "category": "Weapon",
+    "pageid": 1459
+  },
+  {
+    "id": "raven-staff",
+    "name": "Raven Staff",
+    "category": "Weapon",
+    "pageid": 1852
+  },
+  {
+    "id": "recruit-s-handaxe",
+    "name": "Recruit's Handaxe",
+    "category": "Weapon",
+    "pageid": 361
+  },
+  {
+    "id": "recruit-s-shortbow",
+    "name": "Recruit's Shortbow",
+    "category": "Weapon",
+    "pageid": 363
+  },
+  {
+    "id": "recruit-s-shortspear",
+    "name": "Recruit's Shortspear",
+    "category": "Weapon",
+    "pageid": 362
+  },
+  {
+    "id": "recruit-s-shortsword",
+    "name": "Recruit's Shortsword",
+    "category": "Weapon",
+    "pageid": 360
+  },
+  {
+    "id": "recruit-s-staff",
+    "name": "Recruit's Staff",
+    "category": "Weapon",
+    "pageid": 364
+  },
+  {
+    "id": "red-rose",
+    "name": "Red Rose",
+    "category": "Weapon",
+    "pageid": 1471
+  },
+  {
+    "id": "red-bark-staff",
+    "name": "Red-Bark Staff",
+    "category": "Weapon",
+    "pageid": 1858
+  },
+  {
+    "id": "replica-alminster",
+    "name": "Replica Alminster",
+    "category": "Weapon",
+    "pageid": 1851
+  },
+  {
+    "id": "ringed-staff",
+    "name": "Ringed Staff",
+    "category": "Weapon",
+    "pageid": 1159
+  },
+  {
+    "id": "rose-knight-axe",
+    "name": "Rose Knight Axe",
+    "category": "Weapon",
+    "pageid": 1608
+  },
+  {
+    "id": "rose-knight-hammer",
+    "name": "Rose Knight Hammer",
+    "category": "Weapon",
+    "pageid": 1609
+  },
+  {
+    "id": "rose-knight-sword",
+    "name": "Rose Knight Sword",
+    "category": "Weapon",
+    "pageid": 1465
+  },
+  {
+    "id": "rosularis-sword",
+    "name": "Rosularis Sword",
+    "category": "Weapon",
+    "pageid": 1456
+  },
+  {
+    "id": "royal-saber",
+    "name": "Royal Saber",
+    "category": "Weapon",
+    "pageid": 1467
+  },
+  {
+    "id": "runic-axe",
+    "name": "Runic Axe",
+    "category": "Weapon",
+    "pageid": 1614
+  },
+  {
+    "id": "runic-bow",
+    "name": "Runic Bow",
+    "category": "Weapon",
+    "pageid": 1884
+  },
+  {
+    "id": "runic-spear",
+    "name": "Runic Spear",
+    "category": "Weapon",
+    "pageid": 823
+  },
+  {
+    "id": "runic-sword",
+    "name": "Runic Sword",
+    "category": "Weapon",
+    "pageid": 358
+  },
+  {
+    "id": "sacral-axe",
+    "name": "Sacral Axe",
+    "category": "Weapon",
+    "pageid": 1601
+  },
+  {
+    "id": "sacral-bow",
+    "name": "Sacral Bow",
+    "category": "Weapon",
+    "pageid": 1597
+  },
+  {
+    "id": "sacral-rod",
+    "name": "Sacral Rod",
+    "category": "Weapon",
+    "pageid": 1595
+  },
+  {
+    "id": "sacral-spear",
+    "name": "Sacral Spear",
+    "category": "Weapon",
+    "pageid": 1599
+  },
+  {
+    "id": "angel-hunter-s-buckler",
+    "name": "Angel Hunter's Buckler",
+    "category": "Shield",
+    "pageid": 1036
+  },
+  {
+    "id": "arrowshield",
+    "name": "Arrowshield",
+    "category": "Shield",
+    "pageid": 1888
+  },
+  {
+    "id": "azure-crest-shield",
+    "name": "Azure Crest Shield",
+    "category": "Shield",
+    "pageid": 390
+  },
+  {
+    "id": "baroque-shield",
+    "name": "Baroque Shield",
+    "category": "Shield",
+    "pageid": 816
+  },
+  {
+    "id": "battler-s-shield",
+    "name": "Battler's Shield",
+    "category": "Shield",
+    "pageid": 851
+  },
+  {
+    "id": "beast-hunter-s-buckler",
+    "name": "Beast Hunter's Buckler",
+    "category": "Shield",
+    "pageid": 1181
+  },
+  {
+    "id": "black-iron-shield",
+    "name": "Black-Iron Shield",
+    "category": "Shield",
+    "pageid": 1044
+  },
+  {
+    "id": "blessed-roundshield",
+    "name": "Blessed Roundshield",
+    "category": "Shield",
+    "pageid": 1027
+  },
+  {
+    "id": "blue-rose-shield",
+    "name": "Blue Rose Shield",
+    "category": "Shield",
+    "pageid": 1890
+  },
+  {
+    "id": "bronze-shield",
+    "name": "Bronze Shield",
+    "category": "Shield",
+    "pageid": 847
+  },
+  {
+    "id": "carnat-shield",
+    "name": "Carnat Shield",
+    "category": "Shield",
+    "pageid": 1033
+  },
+  {
+    "id": "cavalry-hunter-s-buckler",
+    "name": "Cavalry Hunter's Buckler",
+    "category": "Shield",
+    "pageid": 818
+  },
+  {
+    "id": "chivalric-shield",
+    "name": "Chivalric Shield",
+    "category": "Shield",
+    "pageid": 1154
+  },
+  {
+    "id": "dragonbone-shield",
+    "name": "Dragonbone Shield",
+    "category": "Shield",
+    "pageid": 1046
+  },
+  {
+    "id": "golden-ram-shield",
+    "name": "Golden Ram Shield",
+    "category": "Shield",
+    "pageid": 1863
+  },
+  {
+    "id": "greatwood-shield",
+    "name": "Greatwood Shield",
+    "category": "Shield",
+    "pageid": 1076
+  },
+  {
+    "id": "guard-s-shield",
+    "name": "Guard's Shield",
+    "category": "Shield",
+    "pageid": 1103
+  },
+  {
+    "id": "heavenswing-shield",
+    "name": "Heavenswing Shield",
+    "category": "Shield",
+    "pageid": 1864
+  },
+  {
+    "id": "hoarfrost-shield",
+    "name": "Hoarfrost Shield",
+    "category": "Shield",
+    "pageid": 1104
+  },
+  {
+    "id": "holy-knight-s-shield",
+    "name": "Holy Knight's Shield",
+    "category": "Shield",
+    "pageid": 904
+  },
+  {
+    "id": "holy-unicorn-shield",
+    "name": "Holy Unicorn Shield",
+    "category": "Shield",
+    "pageid": 1173
+  },
+  {
+    "id": "hunter-s-buckler",
+    "name": "Hunter's Buckler",
+    "category": "Shield",
+    "pageid": 1200
+  },
+  {
+    "id": "icefall-shield",
+    "name": "Icefall Shield",
+    "category": "Shield",
+    "pageid": 1115
+  },
+  {
+    "id": "iron-shield",
+    "name": "Iron Shield",
+    "category": "Shield",
+    "pageid": 840
+  },
+  {
+    "id": "ironclad-buckler",
+    "name": "Ironclad Buckler",
+    "category": "Shield",
+    "pageid": 877
+  },
+  {
+    "id": "kaikias-s-shield",
+    "name": "Kaikias's Shield",
+    "category": "Shield",
+    "pageid": 1602
+  },
+  {
+    "id": "luminous-shield",
+    "name": "Luminous Shield",
+    "category": "Shield",
+    "pageid": 1126
+  },
+  {
+    "id": "manalith-buckler",
+    "name": "Manalith Buckler",
+    "category": "Shield",
+    "pageid": 1058
+  },
+  {
+    "id": "mercenary-s-shield",
+    "name": "Mercenary's Shield",
+    "category": "Shield",
+    "pageid": 1203
+  },
+  {
+    "id": "moonlight-shield",
+    "name": "Moonlight Shield",
+    "category": "Shield",
+    "pageid": 1589
+  },
+  {
+    "id": "nameless-guard-s-shield",
+    "name": "Nameless Guard's Shield",
+    "category": "Shield",
+    "pageid": 1887
+  },
+  {
+    "id": "obsidian-shield",
+    "name": "Obsidian Shield",
+    "category": "Shield",
+    "pageid": 1865
+  },
+  {
+    "id": "parrying-shield",
+    "name": "Parrying Shield",
+    "category": "Shield",
+    "pageid": 1199
+  },
+  {
+    "id": "phantom-knight-s-shield",
+    "name": "Phantom Knight's Shield",
+    "category": "Shield",
+    "pageid": 1259
+  },
+  {
+    "id": "recruit-s-shield",
+    "name": "Recruit's Shield",
+    "category": "Shield",
+    "pageid": 381
+  },
+  {
+    "id": "scarlet-crest-shield",
+    "name": "Scarlet Crest Shield",
+    "category": "Shield",
+    "pageid": 883
+  },
+  {
+    "id": "searing-shield",
+    "name": "Searing Shield",
+    "category": "Shield",
+    "pageid": 1048
+  },
+  {
+    "id": "spellsteel-shield",
+    "name": "Spellsteel Shield",
+    "category": "Shield",
+    "pageid": 1106
+  },
+  {
+    "id": "squire-s-shield",
+    "name": "Squire's Shield",
+    "category": "Shield",
+    "pageid": 1035
+  },
+  {
+    "id": "steel-shield",
+    "name": "Steel Shield",
+    "category": "Shield",
+    "pageid": 1098
+  },
+  {
+    "id": "templar-s-shield",
+    "name": "Templar's Shield",
+    "category": "Shield",
+    "pageid": 901
+  },
+  {
+    "id": "thorn-shield",
+    "name": "Thorn Shield",
+    "category": "Shield",
+    "pageid": 1088
+  },
+  {
+    "id": "twin-dragon-shield",
+    "name": "Twin Dragon Shield",
+    "category": "Shield",
+    "pageid": 1588
+  },
+  {
+    "id": "unfettered-shield",
+    "name": "Unfettered Shield",
+    "category": "Shield",
+    "pageid": 1176
+  },
+  {
+    "id": "unyielding-shield",
+    "name": "Unyielding Shield",
+    "category": "Shield",
+    "pageid": 1216
+  },
+  {
+    "id": "viper-shield",
+    "name": "Viper Shield",
+    "category": "Shield",
+    "pageid": 853
+  },
+  {
+    "id": "vorpal-shield",
+    "name": "Vorpal Shield",
+    "category": "Shield",
+    "pageid": 1100
+  },
+  {
+    "id": "watchman-s-buckler",
+    "name": "Watchman's Buckler",
+    "category": "Shield",
+    "pageid": 1862
+  },
+  {
+    "id": "white-knight-s-shield",
+    "name": "White Knight's Shield",
+    "category": "Shield",
+    "pageid": 1889
+  },
+  {
+    "id": "white-rider-s-shield",
+    "name": "White Rider's Shield",
+    "category": "Shield",
+    "pageid": 1866
+  },
+  {
+    "id": "wingcrest-shield",
+    "name": "Wingcrest Shield",
+    "category": "Shield",
+    "pageid": 1124
+  },
+  {
+    "id": "zenoiran-knight-s-shield",
+    "name": "Zenoiran Knight's Shield",
+    "category": "Shield",
+    "pageid": 929
+  },
+  {
+    "id": "zenoiran-shield",
+    "name": "Zenoiran Shield",
+    "category": "Shield",
+    "pageid": 922
+  },
+  {
+    "id": "acrobat-s-shoes",
+    "name": "Acrobat's Shoes",
+    "category": "Accessory",
+    "pageid": 872
+  },
+  {
+    "id": "amethyst-pendant",
+    "name": "Amethyst Pendant",
+    "category": "Accessory",
+    "pageid": 882
+  },
+  {
+    "id": "ancient-crown",
+    "name": "Ancient Crown",
+    "category": "Accessory",
+    "pageid": 1452
+  },
+  {
+    "id": "angel-plume",
+    "name": "Angel Plume",
+    "category": "Accessory",
+    "pageid": 905
+  },
+  {
+    "id": "archbishop-s-mitre",
+    "name": "Archbishop's Mitre",
+    "category": "Accessory",
+    "pageid": 1217
+  },
+  {
+    "id": "armored-gauntlets",
+    "name": "Armored Gauntlets",
+    "category": "Accessory",
+    "pageid": 1179
+  },
+  {
+    "id": "aurora-ring",
+    "name": "Aurora Ring",
+    "category": "Accessory",
+    "pageid": 997
+  },
+  {
+    "id": "awakening-amulet",
+    "name": "Awakening Amulet",
+    "category": "Accessory",
+    "pageid": 832
+  },
+  {
+    "id": "badger-gauntlets",
+    "name": "Badger Gauntlets",
+    "category": "Accessory",
+    "pageid": 1566
+  },
+  {
+    "id": "barbed-ribbon",
+    "name": "Barbed Ribbon",
+    "category": "Accessory",
+    "pageid": 1091
+  },
+  {
+    "id": "battleline-standard",
+    "name": "Battleline Standard",
+    "category": "Accessory",
+    "pageid": 1215
+  },
+  {
+    "id": "black-cat-ear-hood",
+    "name": "Black Cat-Ear Hood",
+    "category": "Accessory",
+    "pageid": 994
+  },
+  {
+    "id": "bloodbrand-tome",
+    "name": "Bloodbrand Tome",
+    "category": "Accessory",
+    "pageid": 945
+  },
+  {
+    "id": "bloodmoon-earrings",
+    "name": "Bloodmoon Earrings",
+    "category": "Accessory",
+    "pageid": 939
+  },
+  {
+    "id": "bloodstained-ribbon",
+    "name": "Bloodstained Ribbon",
+    "category": "Accessory",
+    "pageid": 1538
+  },
+  {
+    "id": "blue-spectacles",
+    "name": "Blue Spectacles",
+    "category": "Accessory",
+    "pageid": 809
+  },
+  {
+    "id": "bronze-bangle",
+    "name": "Bronze Bangle",
+    "category": "Accessory",
+    "pageid": 383
+  },
+  {
+    "id": "bronze-circlet",
+    "name": "Bronze Circlet",
+    "category": "Accessory",
+    "pageid": 384
+  },
+  {
+    "id": "brown-beret",
+    "name": "Brown Beret",
+    "category": "Accessory",
+    "pageid": 408
+  },
+  {
+    "id": "carnelian-pendant",
+    "name": "Carnelian Pendant",
+    "category": "Accessory",
+    "pageid": 354
+  },
+  {
+    "id": "celestial-talisman",
+    "name": "Celestial Talisman",
+    "category": "Accessory",
+    "pageid": 1170
+  },
+  {
+    "id": "charm-of-land-sea",
+    "name": "Charm of Land & Sea",
+    "category": "Accessory",
+    "pageid": 1171
+  },
+  {
+    "id": "charm-of-sun-moon",
+    "name": "Charm of Sun & Moon",
+    "category": "Accessory",
+    "pageid": 1172
+  },
+  {
+    "id": "charm-of-warding",
+    "name": "Charm of Warding",
+    "category": "Accessory",
+    "pageid": 903
+  },
+  {
+    "id": "chloe-s-charm",
+    "name": "Chloe's Charm",
+    "category": "Accessory",
+    "pageid": 1546
+  },
+  {
+    "id": "citadel-guard-s-sabatons",
+    "name": "Citadel Guard's Sabatons",
+    "category": "Accessory",
+    "pageid": 387
+  },
+  {
+    "id": "clearsight-amulet",
+    "name": "Clearsight Amulet",
+    "category": "Accessory",
+    "pageid": 941
+  },
+  {
+    "id": "cleric-s-bracelet",
+    "name": "Cleric's Bracelet",
+    "category": "Accessory",
+    "pageid": 1267
+  },
+  {
+    "id": "cleric-s-medallion",
+    "name": "Cleric's Medallion",
+    "category": "Accessory",
+    "pageid": 888
+  },
+  {
+    "id": "cloth-gauntlets",
+    "name": "Cloth Gauntlets",
+    "category": "Accessory",
+    "pageid": 808
+  },
+  {
+    "id": "cooling-bandana",
+    "name": "Cooling Bandana",
+    "category": "Accessory",
+    "pageid": 1038
+  },
+  {
+    "id": "counter-belt",
+    "name": "Counter Belt",
+    "category": "Accessory",
+    "pageid": 395
+  },
+  {
+    "id": "courser-s-reins",
+    "name": "Courser's Reins",
+    "category": "Accessory",
+    "pageid": 1163
+  },
+  {
+    "id": "critical-damage",
+    "name": "Critical Damage +",
+    "category": "Accessory",
+    "pageid": 1556
+  },
+  {
+    "id": "crown-of-the-abyss",
+    "name": "Crown of the Abyss",
+    "category": "Accessory",
+    "pageid": 1549
+  },
+  {
+    "id": "crude-tasset",
+    "name": "Crude Tasset",
+    "category": "Accessory",
+    "pageid": 409
+  },
+  {
+    "id": "daemon-s-shackles",
+    "name": "Daemon's Shackles",
+    "category": "Accessory",
+    "pageid": 916
+  },
+  {
+    "id": "dancer-s-anklet",
+    "name": "Dancer's Anklet",
+    "category": "Accessory",
+    "pageid": 396
+  },
+  {
+    "id": "dancer-s-bracelet",
+    "name": "Dancer's Bracelet",
+    "category": "Accessory",
+    "pageid": 385
+  },
+  {
+    "id": "dawn-robes",
+    "name": "Dawn Robes",
+    "category": "Accessory",
+    "pageid": 1168
+  },
+  {
+    "id": "defender-s-ring",
+    "name": "Defender's Ring",
+    "category": "Accessory",
+    "pageid": 1568
+  },
+  {
+    "id": "defensive-gauntlets",
+    "name": "Defensive Gauntlets",
+    "category": "Accessory",
+    "pageid": 1164
+  },
+  {
+    "id": "defensive-ring",
+    "name": "Defensive Ring",
+    "category": "Accessory",
+    "pageid": 1053
+  },
+  {
+    "id": "defrosting-amulet",
+    "name": "Defrosting Amulet",
+    "category": "Accessory",
+    "pageid": 831
+  },
+  {
+    "id": "detoxifying-amulet",
+    "name": "Detoxifying Amulet",
+    "category": "Accessory",
+    "pageid": 829
+  },
+  {
+    "id": "dirty-gambler-s-coin",
+    "name": "Dirty Gambler's Coin",
+    "category": "Accessory",
+    "pageid": 1069
+  },
+  {
+    "id": "dove-plume",
+    "name": "Dove Plume",
+    "category": "Accessory",
+    "pageid": 398
+  },
+  {
+    "id": "dream-crown",
+    "name": "Dream Crown",
+    "category": "Accessory",
+    "pageid": 1455
+  },
+  {
+    "id": "druid-s-robes",
+    "name": "Druid's Robes",
+    "category": "Accessory",
+    "pageid": 1149
+  },
+  {
+    "id": "dusk-robes",
+    "name": "Dusk Robes",
+    "category": "Accessory",
+    "pageid": 1166
+  },
+  {
+    "id": "earrings-of-pursuit",
+    "name": "Earrings of Pursuit",
+    "category": "Accessory",
+    "pageid": 1543
+  },
+  {
+    "id": "elite-beret",
+    "name": "Elite Beret",
+    "category": "Accessory",
+    "pageid": 475
+  },
+  {
+    "id": "elite-standard",
+    "name": "Elite Standard",
+    "category": "Accessory",
+    "pageid": 998
+  },
+  {
+    "id": "erv-lda-s-talisman",
+    "name": "Ervélda's Talisman",
+    "category": "Accessory",
+    "pageid": 1143
+  },
+  {
+    "id": "familiar-s-choker",
+    "name": "Familiar's Choker",
+    "category": "Accessory",
+    "pageid": 942
+  },
+  {
+    "id": "first-aid-kit",
+    "name": "First Aid Kit",
+    "category": "Accessory",
+    "pageid": 393
+  },
+  {
+    "id": "flamebrand-tome",
+    "name": "Flamebrand Tome",
+    "category": "Accessory",
+    "pageid": 1055
+  },
+  {
+    "id": "fluffy-cape",
+    "name": "Fluffy Cape",
+    "category": "Accessory",
+    "pageid": 1123
+  },
+  {
+    "id": "frostbrand-tome",
+    "name": "Frostbrand Tome",
+    "category": "Accessory",
+    "pageid": 394
+  },
+  {
+    "id": "gambler-s-coin",
+    "name": "Gambler's Coin",
+    "category": "Accessory",
+    "pageid": 399
+  },
+  {
+    "id": "gauntlets",
+    "name": "Gauntlets",
+    "category": "Accessory",
+    "pageid": 407
+  },
+  {
+    "id": "gauntlets-of-the-abyss",
+    "name": "Gauntlets of the Abyss",
+    "category": "Accessory",
+    "pageid": 1548
+  },
+  {
+    "id": "glacial-ring",
+    "name": "Glacial Ring",
+    "category": "Accessory",
+    "pageid": 1193
+  },
+  {
+    "id": "glory-sash",
+    "name": "Glory Sash",
+    "category": "Accessory",
+    "pageid": 999
+  },
+  {
+    "id": "gold-bangle",
+    "name": "Gold Bangle",
+    "category": "Accessory",
+    "pageid": 471
+  },
+  {
+    "id": "gold-circlet",
+    "name": "Gold Circlet",
+    "category": "Accessory",
+    "pageid": 473
+  },
+  {
+    "id": "gold-goblet",
+    "name": "Gold Goblet",
+    "category": "Accessory",
+    "pageid": 1407
+  },
+  {
+    "id": "golden-egg",
+    "name": "Golden Egg",
+    "category": "Accessory",
+    "pageid": 357
+  },
+  {
+    "id": "gravekeeper-boots",
+    "name": "Gravekeeper Boots",
+    "category": "Accessory",
+    "pageid": 1050
+  },
+  {
+    "id": "gravekeeper-lantern",
+    "name": "Gravekeeper Lantern",
+    "category": "Accessory",
+    "pageid": 1268
+  },
+  {
+    "id": "green-beret",
+    "name": "Green Beret",
+    "category": "Accessory",
+    "pageid": 474
+  },
+  {
+    "id": "guardian-gloves",
+    "name": "Guardian Gloves",
+    "category": "Accessory",
+    "pageid": 397
+  },
+  {
+    "id": "gust-bracelet",
+    "name": "Gust Bracelet",
+    "category": "Accessory",
+    "pageid": 1569
+  },
+  {
+    "id": "heavensteed-reins",
+    "name": "Heavensteed Reins",
+    "category": "Accessory",
+    "pageid": 912
+  },
+  {
+    "id": "heavenwyvern-reins",
+    "name": "Heavenwyvern Reins",
+    "category": "Accessory",
+    "pageid": 913
+  },
+  {
+    "id": "hero-s-medallion",
+    "name": "Hero's Medallion",
+    "category": "Accessory",
+    "pageid": 1539
+  },
+  {
+    "id": "holy-broach",
+    "name": "Holy Broach",
+    "category": "Accessory",
+    "pageid": 906
+  },
+  {
+    "id": "holy-unicorn-signet",
+    "name": "Holy Unicorn Signet",
+    "category": "Accessory",
+    "pageid": 1142
+  },
+  {
+    "id": "hp-200",
+    "name": "HP +200",
+    "category": "Accessory",
+    "pageid": 1552
+  },
+  {
+    "id": "hp-50",
+    "name": "HP +50",
+    "category": "Accessory",
+    "pageid": 1551
+  },
+  {
+    "id": "illusory-cloak",
+    "name": "Illusory Cloak",
+    "category": "Accessory",
+    "pageid": 1266
+  },
+  {
+    "id": "iron-shackles",
+    "name": "Iron Shackles",
+    "category": "Accessory",
+    "pageid": 914
+  },
+  {
+    "id": "knight-s-medallion",
+    "name": "Knight's Medallion",
+    "category": "Accessory",
+    "pageid": 887
+  },
+  {
+    "id": "lamplight-ring",
+    "name": "Lamplight Ring",
+    "category": "Accessory",
+    "pageid": 1573
+  },
+  {
+    "id": "lapis-bell",
+    "name": "Lapis Bell",
+    "category": "Accessory",
+    "pageid": 1196
+  },
+  {
+    "id": "lapis-pendant",
+    "name": "Lapis Pendant",
+    "category": "Accessory",
+    "pageid": 389
+  },
+  {
+    "id": "large-aid-kit",
+    "name": "Large Aid Kit",
+    "category": "Accessory",
+    "pageid": 1150
+  },
+  {
+    "id": "leaf-broach",
+    "name": "Leaf Broach",
+    "category": "Accessory",
+    "pageid": 1059
+  },
+  {
+    "id": "leather-hood",
+    "name": "Leather Hood",
+    "category": "Accessory",
+    "pageid": 805
+  },
+  {
+    "id": "liberator-s-belt",
+    "name": "Liberator's Belt",
+    "category": "Accessory",
+    "pageid": 1559
+  },
+  {
+    "id": "liberator-s-bracelet",
+    "name": "Liberator's Bracelet",
+    "category": "Accessory",
+    "pageid": 1051
+  },
+  {
+    "id": "lifeblood-talisman",
+    "name": "Lifeblood Talisman",
+    "category": "Accessory",
+    "pageid": 1197
+  },
+  {
+    "id": "lionheart",
+    "name": "Lionheart",
+    "category": "Accessory",
+    "pageid": 1540
+  },
+  {
+    "id": "lips-s-ring",
+    "name": "Lips's Ring",
+    "category": "Accessory",
+    "pageid": 1570
+  },
+  {
+    "id": "lucky-coin",
+    "name": "Lucky Coin",
+    "category": "Accessory",
+    "pageid": 1534
+  },
+  {
+    "id": "mage-s-gloves",
+    "name": "Mage's Gloves",
+    "category": "Accessory",
+    "pageid": 1151
+  },
+  {
+    "id": "magia-heart",
+    "name": "Magia Heart",
+    "category": "Accessory",
+    "pageid": 894
+  },
+  {
+    "id": "magia-soul",
+    "name": "Magia Soul",
+    "category": "Accessory",
+    "pageid": 895
+  },
+  {
+    "id": "magical-attack",
+    "name": "Magical Attack +",
+    "category": "Accessory",
+    "pageid": 1555
+  },
+  {
+    "id": "master-s-gauntlets",
+    "name": "Master's Gauntlets",
+    "category": "Accessory",
+    "pageid": 1557
+  },
+  {
+    "id": "medical-kit",
+    "name": "Medical Kit",
+    "category": "Accessory",
+    "pageid": 1565
+  },
+  {
+    "id": "mercenary-s-eyepatch",
+    "name": "Mercenary's Eyepatch",
+    "category": "Accessory",
+    "pageid": 813
+  },
+  {
+    "id": "mirrored-spectacles",
+    "name": "Mirrored Spectacles",
+    "category": "Accessory",
+    "pageid": 810
+  },
+  {
+    "id": "miser-s-bracelet",
+    "name": "Miser's Bracelet",
+    "category": "Accessory",
+    "pageid": 1547
+  },
+  {
+    "id": "mistletoe-charm",
+    "name": "Mistletoe Charm",
+    "category": "Accessory",
+    "pageid": 1541
+  },
+  {
+    "id": "monk-s-mitre",
+    "name": "Monk's Mitre",
+    "category": "Accessory",
+    "pageid": 1160
+  },
+  {
+    "id": "necromancer-s-lantern",
+    "name": "Necromancer's Lantern",
+    "category": "Accessory",
+    "pageid": 1571
+  },
+  {
+    "id": "old-witch-s-ring",
+    "name": "Old Witch's Ring",
+    "category": "Accessory",
+    "pageid": 1558
+  },
+  {
+    "id": "onyx-pendant",
+    "name": "Onyx Pendant",
+    "category": "Accessory",
+    "pageid": 1533
+  },
+  {
+    "id": "outlaw-s-bracelet",
+    "name": "Outlaw's Bracelet",
+    "category": "Accessory",
+    "pageid": 866
+  },
+  {
+    "id": "parrying-amulet",
+    "name": "Parrying Amulet",
+    "category": "Accessory",
+    "pageid": 833
+  },
+  {
+    "id": "phoenix-s-plume",
+    "name": "Phoenix's Plume",
+    "category": "Accessory",
+    "pageid": 1000
+  },
+  {
+    "id": "physical-attack",
+    "name": "Physical Attack +",
+    "category": "Accessory",
+    "pageid": 1554
+  },
+  {
+    "id": "power-belt",
+    "name": "Power Belt",
+    "category": "Accessory",
+    "pageid": 1057
+  },
+  {
+    "id": "prisoner-s-shackles",
+    "name": "Prisoner's Shackles",
+    "category": "Accessory",
+    "pageid": 915
+  },
+  {
+    "id": "pursuant-s-bracelet",
+    "name": "Pursuant's Bracelet",
+    "category": "Accessory",
+    "pageid": 411
+  },
+  {
+    "id": "quenching-amulet",
+    "name": "Quenching Amulet",
+    "category": "Accessory",
+    "pageid": 830
+  },
+  {
+    "id": "raven-plume",
+    "name": "Raven Plume",
+    "category": "Accessory",
+    "pageid": 1117
+  },
+  {
+    "id": "retaliation-earrings",
+    "name": "Retaliation Earrings",
+    "category": "Accessory",
+    "pageid": 1074
+  },
+  {
+    "id": "ring-of-the-unicorn",
+    "name": "Ring of the Unicorn",
+    "category": "Accessory",
+    "pageid": 405
+  },
+  {
+    "id": "riot-belt",
+    "name": "Riot Belt",
+    "category": "Accessory",
+    "pageid": 1560
+  },
+  {
+    "id": "rookie-egg",
+    "name": "Rookie Egg",
+    "category": "Accessory",
+    "pageid": 880
+  },
+  {
+    "id": "rose-broach",
+    "name": "Rose Broach",
+    "category": "Accessory",
+    "pageid": 1223
+  },
+  {
+    "id": "royal-scarf",
+    "name": "Royal Scarf",
+    "category": "Accessory",
+    "pageid": 812
+  },
+  {
+    "id": "ruby-pendant",
+    "name": "Ruby Pendant",
+    "category": "Accessory",
+    "pageid": 466
+  },
+  {
+    "id": "sacral-broach",
+    "name": "Sacral Broach",
+    "category": "Accessory",
+    "pageid": 1535
+  },
+  {
+    "id": "sage-owl-s-shawl",
+    "name": "Sage Owl's Shawl",
+    "category": "Accessory",
+    "pageid": 1562
+  },
+  {
+    "id": "sage-s-hood",
+    "name": "Sage's Hood",
+    "category": "Accessory",
+    "pageid": 807
+  },
+  {
+    "id": "salamander-ring",
+    "name": "Salamander Ring",
+    "category": "Accessory",
+    "pageid": 1544
+  },
+  {
+    "id": "sapphire-pendant",
+    "name": "Sapphire Pendant",
+    "category": "Accessory",
+    "pageid": 467
+  },
+  {
+    "id": "scarlett-s-ribbon",
+    "name": "Scarlett's Ribbon",
+    "category": "Accessory",
+    "pageid": 406
+  },
+  {
+    "id": "self-aid-kit",
+    "name": "Self-Aid Kit",
+    "category": "Accessory",
+    "pageid": 1090
+  },
+  {
+    "id": "shawl-of-repose",
+    "name": "Shawl of Repose",
+    "category": "Accessory",
+    "pageid": 1065
+  },
+  {
+    "id": "silk-hood",
+    "name": "Silk Hood",
+    "category": "Accessory",
+    "pageid": 806
+  },
+  {
+    "id": "silken-scarf",
+    "name": "Silken Scarf",
+    "category": "Accessory",
+    "pageid": 811
+  },
+  {
+    "id": "silver-bangle",
+    "name": "Silver Bangle",
+    "category": "Accessory",
+    "pageid": 470
+  },
+  {
+    "id": "silver-circlet",
+    "name": "Silver Circlet",
+    "category": "Accessory",
+    "pageid": 472
+  },
+  {
+    "id": "silver-goblet",
+    "name": "Silver Goblet",
+    "category": "Accessory",
+    "pageid": 1272
+  },
+  {
+    "id": "skillful-amulet",
+    "name": "Skillful Amulet",
+    "category": "Accessory",
+    "pageid": 1097
+  },
+  {
+    "id": "sniper-s-amber-lens",
+    "name": "Sniper's Amber Lens",
+    "category": "Accessory",
+    "pageid": 1118
+  },
+  {
+    "id": "sniper-s-lens",
+    "name": "Sniper's Lens",
+    "category": "Accessory",
+    "pageid": 1121
+  },
+  {
+    "id": "soothing-plume",
+    "name": "Soothing Plume",
+    "category": "Accessory",
+    "pageid": 1134
+  },
+  {
+    "id": "sorcerer-s-gauntlets",
+    "name": "Sorcerer's Gauntlets",
+    "category": "Accessory",
+    "pageid": 1188
+  },
+  {
+    "id": "sorcerer-s-medallion",
+    "name": "Sorcerer's Medallion",
+    "category": "Accessory",
+    "pageid": 824
+  },
+  {
+    "id": "spirit-s-necklace",
+    "name": "Spirit's Necklace",
+    "category": "Accessory",
+    "pageid": 1132
+  },
+  {
+    "id": "squall-bracelet",
+    "name": "Squall Bracelet",
+    "category": "Accessory",
+    "pageid": 1222
+  },
+  {
+    "id": "str-100",
+    "name": "STR +100",
+    "category": "Accessory",
+    "pageid": 1553
+  },
+  {
+    "id": "tailwind-cape",
+    "name": "Tailwind Cape",
+    "category": "Accessory",
+    "pageid": 388
+  },
+  {
+    "id": "talisman-of-the-abyss",
+    "name": "Talisman of the Abyss",
+    "category": "Accessory",
+    "pageid": 1550
+  },
+  {
+    "id": "thief-s-bell",
+    "name": "Thief's Bell",
+    "category": "Accessory",
+    "pageid": 935
+  },
+  {
+    "id": "thief-s-mantle",
+    "name": "Thief's Mantle",
+    "category": "Accessory",
+    "pageid": 932
+  },
+  {
+    "id": "thunderbrand-tome",
+    "name": "Thunderbrand Tome",
+    "category": "Accessory",
+    "pageid": 1162
+  },
+  {
+    "id": "thunderclap-ring",
+    "name": "Thunderclap Ring",
+    "category": "Accessory",
+    "pageid": 1545
+  },
+  {
+    "id": "truestrike-star",
+    "name": "Truestrike Star",
+    "category": "Accessory",
+    "pageid": 1563
+  },
+  {
+    "id": "twilight-cloak",
+    "name": "Twilight Cloak",
+    "category": "Accessory",
+    "pageid": 937
+  },
+  {
+    "id": "undead-ring",
+    "name": "Undead Ring",
+    "category": "Accessory",
+    "pageid": 1271
+  },
+  {
+    "id": "vengeful-caligae",
+    "name": "Vengeful Caligae",
+    "category": "Accessory",
+    "pageid": 1202
+  },
+  {
+    "id": "verdant-ribbon",
+    "name": "Verdant Ribbon",
+    "category": "Accessory",
+    "pageid": 1537
+  },
+  {
+    "id": "veteran-s-eyepatch",
+    "name": "Veteran's Eyepatch",
+    "category": "Accessory",
+    "pageid": 814
+  },
+  {
+    "id": "vitality-talisman",
+    "name": "Vitality Talisman",
+    "category": "Accessory",
+    "pageid": 380
+  },
+  {
+    "id": "warrior-s-medallion",
+    "name": "Warrior's Medallion",
+    "category": "Accessory",
+    "pageid": 404
+  },
+  {
+    "id": "watchman-s-horn",
+    "name": "Watchman's Horn",
+    "category": "Accessory",
+    "pageid": 1572
+  },
+  {
+    "id": "watchman-s-lantern",
+    "name": "Watchman's Lantern",
+    "category": "Accessory",
+    "pageid": 1542
+  },
+  {
+    "id": "white-cat-ear-hood",
+    "name": "White Cat-Ear Hood",
+    "category": "Accessory",
+    "pageid": 911
+  },
+  {
+    "id": "white-ribbon",
+    "name": "White Ribbon",
+    "category": "Accessory",
+    "pageid": 1536
+  },
+  {
+    "id": "wind-faerie-s-bell",
+    "name": "Wind Faerie's Bell",
+    "category": "Accessory",
+    "pageid": 1564
+  },
+  {
+    "id": "wingline-standard",
+    "name": "Wingline Standard",
+    "category": "Accessory",
+    "pageid": 1214
+  },
+  {
+    "id": "wolf-fang-bracelet",
+    "name": "Wolf Fang Bracelet",
+    "category": "Accessory",
+    "pageid": 1561
+  },
+  {
+    "id": "wolfpack-gauntlets",
+    "name": "Wolfpack Gauntlets",
+    "category": "Accessory",
+    "pageid": 1567
+  },
+  {
+    "id": "wooly-mittens",
+    "name": "Wooly Mittens",
+    "category": "Accessory",
+    "pageid": 1114
+  },
+  {
+    "id": "wyvern-claw",
+    "name": "Wyvern Claw",
+    "category": "Accessory",
+    "pageid": 1122
+  },
+  {
+    "id": "wyvern-reins",
+    "name": "Wyvern Reins",
+    "category": "Accessory",
+    "pageid": 1073
+  }
+];

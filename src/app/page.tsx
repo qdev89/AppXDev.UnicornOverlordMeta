@@ -19,6 +19,18 @@ export default function Home() {
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const [builderSquad, setBuilderSquad] = useState<SquadBuild | null>(null);
 
+  React.useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#builder')) {
+        setActiveTab('builder');
+      }
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
+
   const handleLoadSquadIntoBuilder = (squad: SquadBuild) => {
     setBuilderSquad(squad);
     setActiveTab('builder');

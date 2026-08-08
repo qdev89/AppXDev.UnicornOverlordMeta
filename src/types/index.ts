@@ -1,13 +1,14 @@
 export type UnitCategory = 'Unique' | 'Infantry' | 'Cavalry' | 'Flying' | 'Armored';
 export type UnitRole = 'Tank' | 'Physical DPS' | 'Magic DPS' | 'Support' | 'Debuffer';
-export type UnitTier = 'SS' | 'S' | 'A+' | 'A' | 'B' | 'C';
+export type UnitTier = 'SS' | 'S+' | 'S' | 'A+' | 'A' | 'B' | 'C';
 export type ItemType = 'Weapon' | 'Shield' | 'Accessory' | 'Tome';
 export type SquadArchetype = 
   | 'Instant Board Wipe' 
   | 'Heavy Sustain' 
   | 'Cavalry Burst' 
   | 'Affliction Control' 
-  | 'Magic Nuke';
+  | 'Magic Nuke'
+  | 'Physical DPS';
 
 export interface ActiveSkill {
   name: string;

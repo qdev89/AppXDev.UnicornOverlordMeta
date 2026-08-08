@@ -68,6 +68,72 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
   const [importJsonText, setImportJsonText] = useState<string>('');
   const [importError, setImportError] = useState<string>('');
 
+  // 1. Load Preset from initialSquad prop
+  React.useEffect(() => {
+    if (initialSquad) {
+      setSlots(convertBuildToSlots(initialSquad));
+      setSquadName(initialSquad.name);
+    }
+  }, [initialSquad]);
+
+  // 2. Load Shared Squad Code from URL Hash or Load WIP
+  React.useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.includes('code=')) {
+        const match = hash.match(/code=([^&]+)/);
+        if (match && match[1]) {
+          try {
+            const decoded = atob(match[1]);
+            const unitIds = decoded.split(',');
+            if (unitIds.length === 5) {
+              setSlots((prev) =>
+                prev.map((s, idx) => ({
+                  ...s,
+                  unitId: unitIds[idx] === 'empty' ? null : unitIds[idx],
+                }))
+              );
+            }
+          } catch (e) {
+            console.error('Failed to decode share code from hash', e);
+          }
+        }
+      } else {
+        const savedWip = localStorage.getItem('unicorn_squad_builder_wip');
+        if (savedWip) {
+          try {
+            const parsed = JSON.parse(savedWip);
+            if (parsed.slots && Array.isArray(parsed.slots)) {
+              setSlots(parsed.slots);
+            }
+            if (parsed.squadName) {
+              setSquadName(parsed.squadName);
+            }
+          } catch (e) {
+            console.error('Failed to load WIP squad from localStorage', e);
+          }
+        }
+      }
+    };
+
+    handleHashChange();
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // 3. Auto-save current WIP to localStorage on slot or name change
+  React.useEffect(() => {
+    const isWipNotEmpty = slots.some(s => s.unitId !== null);
+    if (isWipNotEmpty) {
+      const wipData = {
+        squadName,
+        slots,
+      };
+      localStorage.setItem('unicorn_squad_builder_wip', JSON.stringify(wipData));
+    }
+  }, [slots, squadName]);
+
   function convertBuildToSlots(squad: SquadBuild): SquadSlot[] {
     return [
       { slotId: 'front-0', row: 'front', index: 0, unitId: squad.frontRow[0] || null },

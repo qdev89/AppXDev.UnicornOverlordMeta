@@ -46,34 +46,108 @@ export const BattleSimulator: React.FC<BattleSimulatorProps> = ({ slots }) => {
   // Generate 5v5 Combat Steps & Win Rate Simulation
   const battle5v5Data = useMemo<Battle5v5Result>(() => {
     // 1. Gather Player Units
-    const playerUnits: { unit: UnitClass; slot: SquadSlot; isPlayer: boolean; hp: number; maxHp: number }[] = [];
+    const playerUnits: any[] = [];
     slots.forEach((s) => {
       if (s.unitId) {
         const u = getUnit(s.unitId);
         if (u) {
           playerUnits.push({
+            id: `player-${s.slotId}`,
+            name: u.name,
+            icon: u.icon,
+            side: 'player' as const,
+            row: s.row,
+            pos: s.index,
             unit: u,
-            slot: s,
-            isPlayer: true,
-            hp: u.baseStats.hp,
             maxHp: u.baseStats.hp,
+            hp: u.baseStats.hp,
+            ap: 2,
+            pp: 2,
+            initiative: u.baseStats.initiative,
+            evasion: u.baseStats.evasion,
+            physAtk: u.baseStats.physAtk,
+            magAtk: u.baseStats.magAtk,
+            physDef: u.baseStats.physDef,
+            magDef: u.baseStats.magDef,
+            critRate: u.baseStats.critRate,
+            role: u.role,
+            category: u.category,
+            frozen: false,
+            stunned: false,
+            blinded: false,
+            damageDealt: 0,
           });
         }
       }
     });
 
     // 2. Gather Enemy Units from selectedOpponent
-    const enemyUnitIds = [...selectedOpponent.frontRow, ...selectedOpponent.backRow].filter(Boolean) as string[];
-    const enemyUnits: { unit: UnitClass; isPlayer: boolean; hp: number; maxHp: number }[] = [];
-    enemyUnitIds.forEach((id) => {
-      const u = getUnit(id);
-      if (u) {
-        enemyUnits.push({
-          unit: u,
-          isPlayer: false,
-          hp: u.baseStats.hp,
-          maxHp: u.baseStats.hp,
-        });
+    const enemyUnits: any[] = [];
+    selectedOpponent.frontRow.forEach((id, idx) => {
+      if (id) {
+        const u = getUnit(id);
+        if (u) {
+          enemyUnits.push({
+            id: `enemy-front-${idx}`,
+            name: u.name,
+            icon: u.icon,
+            side: 'enemy' as const,
+            row: 'front' as const,
+            pos: idx,
+            unit: u,
+            maxHp: u.baseStats.hp,
+            hp: u.baseStats.hp,
+            ap: 2,
+            pp: 2,
+            initiative: u.baseStats.initiative,
+            evasion: u.baseStats.evasion,
+            physAtk: u.baseStats.physAtk,
+            magAtk: u.baseStats.magAtk,
+            physDef: u.baseStats.physDef,
+            magDef: u.baseStats.magDef,
+            critRate: u.baseStats.critRate,
+            role: u.role,
+            category: u.category,
+            frozen: false,
+            stunned: false,
+            blinded: false,
+            damageDealt: 0,
+          });
+        }
+      }
+    });
+
+    selectedOpponent.backRow.forEach((id, idx) => {
+      if (id) {
+        const u = getUnit(id);
+        if (u) {
+          enemyUnits.push({
+            id: `enemy-back-${idx}`,
+            name: u.name,
+            icon: u.icon,
+            side: 'enemy' as const,
+            row: 'back' as const,
+            pos: idx,
+            unit: u,
+            maxHp: u.baseStats.hp,
+            hp: u.baseStats.hp,
+            ap: 2,
+            pp: 2,
+            initiative: u.baseStats.initiative,
+            evasion: u.baseStats.evasion,
+            physAtk: u.baseStats.physAtk,
+            magAtk: u.baseStats.magAtk,
+            physDef: u.baseStats.physDef,
+            magDef: u.baseStats.magDef,
+            critRate: u.baseStats.critRate,
+            role: u.role,
+            category: u.category,
+            frozen: false,
+            stunned: false,
+            blinded: false,
+            damageDealt: 0,
+          });
+        }
       }
     });
 
@@ -83,149 +157,364 @@ export const BattleSimulator: React.FC<BattleSimulatorProps> = ({ slots }) => {
         playerWinRate: 0,
         playerTotalDamage: 0,
         enemyTotalDamage: 0,
-        playerCasualties: playerUnits.length,
-        enemyCasualties: 0,
+        playerCasualties: 0,
+        enemyCasualties: enemyUnits.length,
         mvpUnit: 'N/A',
         combatSteps: [],
       };
     }
 
-    // Combine all 10 combatants
-    const allCombatants = [
-      ...playerUnits.map((p) => ({ ...p, side: 'player' as const })),
-      ...enemyUnits.map((e) => ({ ...e, side: 'enemy' as const })),
-    ];
-
-    // Sort by initiative speed
-    allCombatants.sort((a, b) => b.unit.baseStats.initiative - a.unit.baseStats.initiative);
-
+    const combatants = [...playerUnits, ...enemyUnits];
     const steps: SimulatedTurnStep[] = [];
     let turnCount = 1;
     let playerDmgSum = 0;
     let enemyDmgSum = 0;
 
-    // 1. Phase 1: Start of Battle Passives across BOTH teams
-    const startOfBattleUnits = allCombatants.filter((c) =>
-      c.unit.passiveSkills.some((ps) => ps.isStartOfBattle || ps.trigger === 'Start of Battle')
+    // 1. Phase 1: Start of Battle Passives across BOTH teams (Initiative-sorted)
+    const sobCombatants = combatants.filter(c =>
+      c.unit.passiveSkills.some((ps: any) => ps.isStartOfBattle || ps.trigger === 'Start of Battle' || ps.trigger?.includes('Start of Battle'))
     );
+    sobCombatants.sort((a, b) => b.initiative - a.initiative);
 
-    if (startOfBattleUnits.length > 0) {
-      startOfBattleUnits.forEach((c, idx) => {
-        const skill = c.unit.passiveSkills.find(
-          (ps) => ps.isStartOfBattle || ps.trigger === 'Start of Battle'
-        );
+    if (sobCombatants.length > 0) {
+      sobCombatants.forEach((c, idx) => {
+        const skill = c.unit.passiveSkills.find((ps: any) => ps.isStartOfBattle || ps.trigger === 'Start of Battle' || ps.trigger?.includes('Start of Battle'));
         if (!skill) return;
 
         if (idx === 0) {
+          c.pp = Math.max(0, c.pp - skill.ppCost);
+          let effectText = 'Team Buff / Debuff';
+          const normId = c.unit.id.toLowerCase();
+          const targetSide = c.side === 'player' ? 'enemy' : 'player';
+          const allies = combatants.filter(x => x.side === c.side);
+          const enemies = combatants.filter(x => x.side === targetSide);
+
+          if (normId.includes('selvie') || normId.includes('druid') || normId.includes('shaman')) {
+            enemies.forEach(e => { e.blinded = true; });
+            effectText = 'Inflicted Blind on all enemies';
+          } else if (normId.includes('rosalinde') || normId.includes('prophet')) {
+            enemies.filter(e => e.row === 'front').forEach(e => { e.stunned = true; });
+            effectText = 'Inflicted Stun on enemy front-row';
+          } else if (normId.includes('gilbert') || normId.includes('prince')) {
+            allies.forEach(a => { a.initiative += 15; });
+            effectText = 'Granted +15 Initiative to all allies';
+          } else if (normId.includes('berengaria') || normId.includes('renegade')) {
+            enemies.forEach(e => {
+              e.physAtk = Math.round(e.physAtk * 0.8);
+              e.physDef = Math.round(e.physDef * 0.8);
+              e.initiative = Math.max(1, e.initiative - 10);
+            });
+            effectText = 'Inflicted -20% Atk/Def, -10 SPD to enemies';
+          } else if (normId.includes('eltolinde') || normId.includes('sibyl')) {
+            effectText = 'Granted Magic Barrier protection to allies';
+          }
+
           steps.push({
             turnNumber: turnCount++,
-            unitName: c.unit.name,
-            unitIcon: c.unit.icon,
+            unitName: c.name,
+            unitIcon: c.icon,
             side: c.side,
             skillName: skill.name,
             skillType: 'start_of_battle',
             costType: 'PP',
             costAmount: skill.ppCost,
             condition1: '[Start of Battle]',
-            condition2: '[Highest Initiative Priority]',
+            condition2: `[Trigger: ${skill.trigger}]`,
             conditionStatus: 'PASS',
             damageDealt: 0,
             healAmount: 0,
-            statusInflicted: 'Team Buff / Debuff',
-            logMessage: `[Start of Battle] ${c.side === 'player' ? '💙 Player' : '🔴 Enemy'} ${c.unit.name} triggered ${skill.name}! (SPD ${c.unit.baseStats.initiative})`,
-            apRemaining: 2,
-            ppRemaining: Math.max(0, 2 - skill.ppCost),
+            statusInflicted: effectText,
+            logMessage: `[Start of Battle] ${c.side === 'player' ? '💙 Player' : '🔴 Enemy'} ${c.name} triggered ${skill.name}! Effect: ${effectText}.`,
+            apRemaining: c.ap,
+            ppRemaining: c.pp,
           });
         } else {
           steps.push({
             turnNumber: turnCount++,
-            unitName: c.unit.name,
-            unitIcon: c.unit.icon,
+            unitName: c.name,
+            unitIcon: c.icon,
             side: c.side,
             skillName: skill.name,
             skillType: 'start_of_battle',
             costType: 'PP',
             costAmount: skill.ppCost,
             condition1: '[Start of Battle]',
-            condition2: '[Initiative Priority Failed]',
+            condition2: '[Initiative Suppressed]',
             conditionStatus: 'FAIL',
             damageDealt: 0,
             healAmount: 0,
-            logMessage: `[Start of Battle Suppressed] ${c.side === 'player' ? '💙 Player' : '🔴 Enemy'} ${c.unit.name}'s ${skill.name} was blocked by higher initiative speed.`,
-            apRemaining: 2,
-            ppRemaining: 2,
+            logMessage: `[Start of Battle Suppressed] ${c.side === 'player' ? '💙 Player' : '🔴 Enemy'} ${c.name}'s ${skill.name} was blocked by a faster unit.`,
+            apRemaining: c.ap,
+            ppRemaining: c.pp,
           });
         }
       });
     }
 
-    // 2. Phase 2: Main Active Combat Turns by Initiative Queue
-    allCombatants.forEach((attacker) => {
-      const activeSkill = attacker.unit.activeSkills[0];
-      if (!activeSkill) return;
+    // 2. Phase 2: Active Combat Turns (AP-based Round Loop)
+    let round = 1;
+    const maxRounds = 4;
 
-      const defenderPool = allCombatants.filter((d) => d.side !== attacker.side);
-      if (defenderPool.length === 0) return;
+    while (round <= maxRounds) {
+      const activeQueue = combatants.filter(c => c.hp > 0 && c.ap > 0);
+      if (activeQueue.length === 0) break;
 
-      const target = defenderPool[0];
-      const rawDmg = Math.round(
-        (activeSkill.potency * (attacker.unit.baseStats.physAtk + attacker.unit.baseStats.magAtk)) / 120
-      );
+      activeQueue.sort((a, b) => b.initiative - a.initiative);
+      let actedInRound = false;
 
-      if (attacker.side === 'player') {
-        playerDmgSum += rawDmg;
-      } else {
-        enemyDmgSum += rawDmg;
+      for (const attacker of activeQueue) {
+        if (attacker.hp <= 0 || attacker.ap <= 0) continue;
+
+        const enemies = combatants.filter(c => c.hp > 0 && c.side !== attacker.side);
+        if (enemies.length === 0) break;
+
+        actedInRound = true;
+
+        if (attacker.stunned || attacker.frozen) {
+          const status = attacker.stunned ? 'Stunned' : 'Frozen';
+          attacker.stunned = false;
+          attacker.frozen = false;
+          steps.push({
+            turnNumber: turnCount++,
+            unitName: attacker.name,
+            unitIcon: attacker.icon,
+            side: attacker.side,
+            skillName: 'None (Skipped)',
+            skillType: 'active',
+            costType: 'AP',
+            costAmount: 0,
+            condition1: `[Status: ${status}]`,
+            condition2: '[Turn Skipped]',
+            conditionStatus: 'FAIL',
+            damageDealt: 0,
+            healAmount: 0,
+            logMessage: `[Turn Skip] ${attacker.side === 'player' ? '💙 Player' : '🔴 Enemy'} ${attacker.name} is ${status} and skips their turn.`,
+            apRemaining: attacker.ap,
+            ppRemaining: attacker.pp,
+          });
+          continue;
+        }
+
+        const activeSkill = attacker.unit.activeSkills[0] || {
+          name: 'Strike',
+          apCost: 1,
+          potency: 100,
+          target: 'Single Enemy',
+          flags: ['Physical']
+        };
+
+        if (attacker.ap < activeSkill.apCost) continue;
+        attacker.ap -= activeSkill.apCost;
+
+        let targets: any[] = [];
+        const frontRowEnemies = enemies.filter(e => e.row === 'front');
+        const backRowEnemies = enemies.filter(e => e.row === 'back');
+
+        if (activeSkill.target === 'All Enemies') {
+          targets = [...enemies];
+        } else if (activeSkill.target === 'Full Row') {
+          targets = frontRowEnemies.length > 0 ? [...frontRowEnemies] : [...backRowEnemies];
+        } else {
+          const preferredRow = frontRowEnemies.length > 0 ? frontRowEnemies : backRowEnemies;
+          if (preferredRow.length > 0) {
+            targets = [preferredRow[0]];
+          }
+        }
+
+        if (targets.length === 0) continue;
+
+        const isAOE = activeSkill.target === 'All Enemies' || activeSkill.target === 'Full Row';
+        let totalDmgOnTargets = 0;
+        let isBlinded = attacker.blinded;
+        let logsForTargets: string[] = [];
+
+        for (const target of targets) {
+          if (target.hp <= 0) continue;
+
+          if (isBlinded) {
+            logsForTargets.push(`missed ${target.name} due to Blind`);
+            continue;
+          }
+
+          const hitChance = Math.min(100, Math.max(10, 90 + attacker.initiative - target.evasion));
+          const roll = Math.random() * 100;
+          if (roll > hitChance) {
+            logsForTargets.push(`missed ${target.name} (evaded)`);
+            continue;
+          }
+
+          const isMagical = activeSkill.flags?.includes('Magical') || attacker.unit.role === 'Magic DPS';
+          const isPhysical = activeSkill.flags?.includes('Physical') || !isMagical;
+
+          let dmg = 0;
+          if (isPhysical && isMagical) {
+            const phys = Math.max(1, attacker.physAtk - target.physDef);
+            const mag = Math.max(1, attacker.magAtk - target.magDef);
+            dmg = (phys + mag) * (activeSkill.potency / 100);
+          } else if (isMagical) {
+            dmg = Math.max(1, attacker.magAtk - target.magDef) * (activeSkill.potency / 100);
+          } else {
+            dmg = Math.max(1, attacker.physAtk - target.physDef) * (activeSkill.potency / 100);
+          }
+
+          const isCrit = Math.random() * 100 < attacker.critRate;
+          if (isCrit) dmg *= 1.5;
+          dmg = Math.round(dmg);
+
+          const coverAllies = enemies.filter(x => x.id !== target.id && x.hp > 0 && x.pp > 0 && 
+            x.unit.passiveSkills.some((ps: any) => ps.trigger?.includes('Before Ally Attacked') || ps.name?.includes('Cover'))
+          );
+
+          let finalTarget = target;
+          let wasCovered = false;
+          let wasGuarded = false;
+
+          if (coverAllies.length > 0 && !isAOE) {
+            coverAllies.sort((a, b) => b.initiative - a.initiative);
+            const coverUnit = coverAllies[0];
+            const coverSkill = coverUnit.unit.passiveSkills.find((ps: any) => ps.trigger?.includes('Before Ally Attacked') || ps.name?.includes('Cover'));
+            if (coverSkill) {
+              coverUnit.pp = Math.max(0, coverUnit.pp - coverSkill.ppCost);
+              finalTarget = coverUnit;
+              wasCovered = true;
+              dmg = Math.round(dmg * 0.5);
+            }
+          }
+
+          if (!wasCovered && finalTarget.pp > 0) {
+            const guardSkill = finalTarget.unit.passiveSkills.find((ps: any) => ps.trigger?.includes('Before Attacked') || ps.name?.includes('Guard'));
+            if (guardSkill) {
+              finalTarget.pp = Math.max(0, finalTarget.pp - guardSkill.ppCost);
+              wasGuarded = true;
+              dmg = Math.round(dmg * 0.5);
+            }
+          }
+
+          finalTarget.hp = Math.max(0, finalTarget.hp - dmg);
+          totalDmgOnTargets += dmg;
+          attacker.damageDealt += dmg;
+
+          if (attacker.side === 'player') playerDmgSum += dmg;
+          else enemyDmgSum += dmg;
+
+          let actionLabel = wasCovered ? `[Covered by ${finalTarget.name}]` : (wasGuarded ? '[Guarded]' : '[Hit]');
+          let critLabel = isCrit ? ' (CRITICAL!)' : '';
+          logsForTargets.push(`${actionLabel} dealt ${dmg} DMG to ${finalTarget.name}${critLabel}`);
+
+          if (finalTarget.hp > 0) {
+            if (activeSkill.flags?.includes('Freeze')) {
+              finalTarget.frozen = true;
+              logsForTargets.push(`[Frozen] ${finalTarget.name} is Frozen`);
+            }
+            if (activeSkill.flags?.includes('Stun')) {
+              finalTarget.stunned = true;
+              logsForTargets.push(`[Stun] ${finalTarget.name} is Stunned`);
+            }
+            if (activeSkill.flags?.includes('Blind')) {
+              finalTarget.blinded = true;
+              logsForTargets.push(`[Blind] ${finalTarget.name} is Blinded`);
+            }
+          } else {
+            logsForTargets.push(`[Defeated] ${finalTarget.name} knocked out`);
+          }
+
+          if (finalTarget.hp > 0 && finalTarget.pp > 0 && !isAOE) {
+            const counterSkill = finalTarget.unit.passiveSkills.find((ps: any) => ps.trigger?.includes('After Being Attacked') || ps.trigger?.includes('After Attacked') || ps.name?.includes('Counter'));
+            if (counterSkill) {
+              finalTarget.pp = Math.max(0, finalTarget.pp - counterSkill.ppCost);
+              let counterDmg = Math.round(Math.max(1, finalTarget.physAtk - attacker.physDef) * 0.8);
+              attacker.hp = Math.max(0, attacker.hp - counterDmg);
+
+              if (attacker.side === 'player') enemyDmgSum += counterDmg;
+              else playerDmgSum += counterDmg;
+
+              logsForTargets.push(`[Counter] ${finalTarget.name} retaliated with ${counterSkill.name} for ${counterDmg} DMG`);
+              if (attacker.hp <= 0) {
+                logsForTargets.push(`[Defeated] ${attacker.name} defeated by counter`);
+                break;
+              }
+            }
+          }
+        }
+
+        if (isBlinded) attacker.blinded = false;
+
+        const targetDesc = isAOE 
+          ? `Entire Enemy Row (${targets.map(t => t.name).join(', ')})` 
+          : (targets[0] ? targets[0].name : 'Unknown');
+
+        steps.push({
+          turnNumber: turnCount++,
+          unitName: attacker.name,
+          unitIcon: attacker.icon,
+          side: attacker.side,
+          targetName: targetDesc,
+          skillName: activeSkill.name,
+          skillType: 'active',
+          costType: 'AP',
+          costAmount: activeSkill.apCost,
+          condition1: `[AP Cost: ${activeSkill.apCost}]`,
+          condition2: `[Potency: ${activeSkill.potency}%]`,
+          conditionStatus: 'PASS',
+          damageDealt: totalDmgOnTargets,
+          healAmount: 0,
+          logMessage: `${attacker.side === 'player' ? '💙 Player' : '🔴 Enemy'} ${attacker.name} used ${activeSkill.name} on ${targetDesc}. ${logsForTargets.join('; ')}`,
+          apRemaining: attacker.ap,
+          ppRemaining: attacker.pp,
+        });
+
+        const playersAlive = combatants.some(x => x.side === 'player' && x.hp > 0);
+        const enemiesAlive = combatants.some(x => x.side === 'enemy' && x.hp > 0);
+        if (!playersAlive || !enemiesAlive) break;
       }
 
-      const isAOE = activeSkill.target === 'All Enemies' || activeSkill.target === 'Full Row';
+      if (!actedInRound) break;
+      round++;
+    }
 
-      steps.push({
-        turnNumber: turnCount++,
-        unitName: attacker.unit.name,
-        unitIcon: attacker.unit.icon,
-        side: attacker.side,
-        targetName: isAOE ? `Entire ${target.side === 'player' ? 'Player' : 'Enemy'} Line` : target.unit.name,
-        skillName: activeSkill.name,
-        skillType: 'active',
-        costType: 'AP',
-        costAmount: activeSkill.apCost,
-        condition1: `[Target: ${activeSkill.target}]`,
-        condition2: `[Potency: ${activeSkill.potency}%]`,
-        conditionStatus: 'PASS',
-        damageDealt: rawDmg,
-        healAmount: 0,
-        statusInflicted: activeSkill.flags.find((f) => ['Freeze', 'Stun', 'Blind', 'Burn'].includes(f)),
-        logMessage: `${attacker.side === 'player' ? '💙 Player' : '🔴 Enemy'} ${attacker.unit.name} used ${activeSkill.name} dealing ${rawDmg} DMG!`,
-        apRemaining: Math.max(0, 2 - activeSkill.apCost),
-        ppRemaining: 2,
-      });
-    });
+    const playersAliveCount = combatants.filter(x => x.side === 'player' && x.hp > 0).length;
+    const enemiesAliveCount = combatants.filter(x => x.side === 'enemy' && x.hp > 0).length;
+    const playerCasualties = playerUnits.filter(p => p.hp <= 0).length;
+    const enemyCasualties = enemyUnits.filter(e => e.hp <= 0).length;
 
-    // Compute estimated win rate %
-    const playerSpeedAvg =
-      playerUnits.reduce((acc, p) => acc + p.unit.baseStats.initiative, 0) / Math.max(1, playerUnits.length);
-    const enemySpeedAvg =
-      enemyUnits.reduce((acc, e) => acc + e.unit.baseStats.initiative, 0) / Math.max(1, enemyUnits.length);
+    const playerTotalHpMax = playerUnits.reduce((acc, p) => acc + p.maxHp, 0);
+    const playerTotalHpCurrent = playerUnits.reduce((acc, p) => acc + p.hp, 0);
+    const playerHpPercent = playerTotalHpMax > 0 ? (playerTotalHpCurrent / playerTotalHpMax) * 100 : 0;
 
+    const enemyTotalHpMax = enemyUnits.reduce((acc, e) => acc + e.maxHp, 0);
+    const enemyTotalHpCurrent = enemyUnits.reduce((acc, e) => acc + e.hp, 0);
+    const enemyHpPercent = enemyTotalHpMax > 0 ? (enemyTotalHpCurrent / enemyTotalHpMax) * 100 : 0;
+
+    let winner: 'player' | 'enemy' | 'draw' = 'draw';
     let winRate = 50;
-    if (playerDmgSum > enemyDmgSum) winRate += 25;
-    if (playerSpeedAvg > enemySpeedAvg) winRate += 15;
-    if (playerUnits.length >= enemyUnits.length) winRate += 10;
 
-    winRate = Math.min(98, Math.max(15, winRate));
+    if (enemiesAliveCount === 0 && playersAliveCount > 0) {
+      winner = 'player';
+      winRate = 100;
+    } else if (playersAliveCount === 0 && enemiesAliveCount > 0) {
+      winner = 'enemy';
+      winRate = 0;
+    } else {
+      if (playerHpPercent > enemyHpPercent) {
+        winner = 'player';
+        winRate = Math.round(50 + (playerHpPercent - enemyHpPercent) * 2.5);
+      } else if (enemyHpPercent > playerHpPercent) {
+        winner = 'enemy';
+        winRate = Math.round(50 - (enemyHpPercent - playerHpPercent) * 2.5);
+      }
+      winRate = Math.min(95, Math.max(5, winRate));
+    }
 
-    const mvpUnit = playerUnits.sort(
-      (a, b) => b.unit.baseStats.physAtk + b.unit.baseStats.magAtk - (a.unit.baseStats.physAtk + a.unit.baseStats.magAtk)
-    )[0]?.unit.name || 'Alain';
+    const mvpSorted = [...playerUnits].sort((a, b) => b.damageDealt - a.damageDealt);
+    const mvpUnit = mvpSorted[0]?.name || 'Alain';
 
     return {
-      winner: winRate >= 50 ? 'player' : 'enemy',
+      winner,
       playerWinRate: winRate,
       playerTotalDamage: playerDmgSum,
       enemyTotalDamage: enemyDmgSum,
-      playerCasualties: winRate >= 50 ? 0 : 2,
-      enemyCasualties: winRate >= 50 ? enemyUnits.length : 1,
+      playerCasualties,
+      enemyCasualties,
       mvpUnit,
       combatSteps: steps,
     };

@@ -515,7 +515,7 @@ export const ClassDatabase: React.FC<ClassDatabaseProps> = ({ onLoadIntoBuilder 
                           </div>
                         </div>
                         <span className="tactics-condition-banner px-2.5 py-1 text-[10px]">
-                          Target: {skill.target}
+                          Trigger: {skill.trigger}
                         </span>
                       </div>
                       <p className="text-xs text-slate-300 font-sans leading-relaxed">{skill.description}</p>

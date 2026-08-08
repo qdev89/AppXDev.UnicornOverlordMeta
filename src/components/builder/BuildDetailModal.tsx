@@ -364,7 +364,7 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                   <span className="text-[10px] font-mono text-slate-400">Mobility 119</span>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed font-sans">
-                  {currentUnitClass?.overview || squad.strategyGuide.overview}
+                  {currentUnitClass?.overview || squad.strategyGuide?.overview || ''}
                 </p>
               </div>
             </div>

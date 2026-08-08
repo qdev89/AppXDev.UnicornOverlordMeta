@@ -22,6 +22,7 @@ export const EquipmentModal: React.FC<EquipmentModalProps> = ({
   const initialItems = slot.customItems || [null, null, null, null];
   const [selectedItems, setSelectedItems] = useState<(string | null)[]>(initialItems);
   const [activeSlotIdx, setActiveSlotIdx] = useState<number | null>(null);
+  const [itemSearchQuery, setItemSearchQuery] = useState<string>('');
 
   const slotLabels = ['Weapon / Main', 'Shield / Secondary', 'Accessory 1', 'Accessory 2'];
 
@@ -140,6 +141,37 @@ export const EquipmentModal: React.FC<EquipmentModalProps> = ({
 
         {/* Loadout Slots Grid */}
         <div className="p-5 space-y-4 overflow-y-auto flex-1">
+          {/* Quick Gear Presets Toolbar */}
+          <div className="p-3 rounded-xl bg-slate-950/80 border border-amber-500/30 flex flex-wrap items-center justify-between gap-2">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center gap-1">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>Quick Gear Presets:</span>
+            </span>
+            <div className="flex flex-wrap gap-2 text-xs">
+              <button
+                type="button"
+                onClick={() => setSelectedItems(['greatsword-of-the-abyss', 'parrying-amulet', 'power-belt', 'miser-s-bracelet'])}
+                className="px-2.5 py-1 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 font-bold transition text-[11px]"
+              >
+                🛡️ BiS Tank
+              </button>
+              <button
+                type="button"
+                onClick={() => setSelectedItems(['heavenswing-sword', 'raven-plume', 'phoenix-s-plume', 'sniper-s-amber-lens'])}
+                className="px-2.5 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 font-bold transition text-[11px]"
+              >
+                ⚡ Max Speed Nuke
+              </button>
+              <button
+                type="button"
+                onClick={() => setSelectedItems(['millenium-scepter', 'ruby-pendant', 'sapphire-pendant', 'lapis-bell'])}
+                className="px-2.5 py-1 rounded-lg bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/40 text-purple-300 font-bold transition text-[11px]"
+              >
+                🔋 AP/PP Battery
+              </button>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {slotLabels.map((label, idx) => {
               const item = getEquippedItem(selectedItems[idx]);
@@ -247,12 +279,26 @@ export const EquipmentModal: React.FC<EquipmentModalProps> = ({
                   </button>
                 </div>
 
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="Search equipment by name, stat, or skill..."
+                    value={itemSearchQuery}
+                    onChange={(e) => setItemSearchQuery(e.target.value)}
+                    className="w-full px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200 focus:outline-none focus:border-amber-400"
+                  />
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-48 overflow-y-auto no-scrollbar">
-                  {ITEMS_DATA.map((item) => (
+                  {ITEMS_DATA.filter((item) =>
+                    !itemSearchQuery ||
+                    item.name.toLowerCase().includes(itemSearchQuery.toLowerCase()) ||
+                    item.statBoosts.toLowerCase().includes(itemSearchQuery.toLowerCase())
+                  ).map((item) => (
                     <div
                       key={item.id}
                       onClick={() => handleSelectItem(item)}
-                      className="p-2 rounded.lg bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-amber-500/40 transition cursor-pointer flex items-center gap-2.5"
+                      className="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-amber-500/40 transition cursor-pointer flex items-center gap-2.5"
                     >
                       <div className="w-8 h-8 rounded bg-slate-950 border border-slate-700 flex items-center justify-center overflow-hidden shrink-0">
                         {item.image ? (

@@ -21,6 +21,7 @@ import {
 import { SquadSlot, SimulatedTurnStep, UnitClass, Battle5v5Result } from '@/types';
 import { CLASSES_DATA } from '@/data/classes';
 import { SQUADS_DATA } from '@/data/squads';
+import { ITEMS_DATA } from '@/data/items';
 
 interface BattleSimulatorProps {
   slots: SquadSlot[];
@@ -45,12 +46,63 @@ export const BattleSimulator: React.FC<BattleSimulatorProps> = ({ slots }) => {
 
   // Generate 5v5 Combat Steps & Win Rate Simulation
   const battle5v5Data = useMemo<Battle5v5Result>(() => {
+    // Helper to calculate equipped item bonuses
+    const getItemBonuses = (itemIds?: (string | null)[]) => {
+      let apBonus = 0;
+      let ppBonus = 0;
+      let initBonus = 0;
+      let physAtkBonus = 0;
+      let magAtkBonus = 0;
+      let physDefBonus = 0;
+      let magDefBonus = 0;
+      let evasionBonus = 0;
+      const grantedSkills: any[] = [];
+
+      if (itemIds && Array.isArray(itemIds)) {
+        itemIds.forEach((id) => {
+          if (!id) return;
+          const item = ITEMS_DATA.find((i) => i.id === id);
+          if (!item) return;
+
+          if (item.statBoosts.includes('AP +1')) apBonus += 1;
+          if (item.statBoosts.includes('AP +2')) apBonus += 2;
+          if (item.statBoosts.includes('PP +1')) ppBonus += 1;
+          if (item.statBoosts.includes('PP +2')) ppBonus += 2;
+          if (item.statBoosts.includes('Initiative +5')) initBonus += 5;
+          if (item.statBoosts.includes('Initiative +4')) initBonus += 4;
+          if (item.statBoosts.includes('Initiative +10')) initBonus += 10;
+          if (item.statBoosts.includes('Phys Atk +24')) physAtkBonus += 24;
+          if (item.statBoosts.includes('Phys Atk +15')) physAtkBonus += 15;
+          if (item.statBoosts.includes('Mag Atk +25')) magAtkBonus += 25;
+          if (item.statBoosts.includes('Mag Atk +18')) magAtkBonus += 18;
+          if (item.statBoosts.includes('Phys Def +10')) physDefBonus += 10;
+          if (item.statBoosts.includes('Evasion +20')) evasionBonus += 20;
+
+          if (item.grantedSkill) {
+            grantedSkills.push({
+              name: item.grantedSkill.name,
+              apCost: item.grantedSkill.cost.includes('AP') ? parseInt(item.grantedSkill.cost) || 1 : 1,
+              potency: 150,
+              target: 'Single Enemy',
+              description: item.grantedSkill.description,
+              flags: ['Physical'],
+            });
+          }
+        });
+      }
+
+      return { apBonus, ppBonus, initBonus, physAtkBonus, magAtkBonus, physDefBonus, magDefBonus, evasionBonus, grantedSkills };
+    };
+
     // 1. Gather Player Units
     const playerUnits: any[] = [];
     slots.forEach((s) => {
       if (s.unitId) {
         const u = getUnit(s.unitId);
         if (u) {
+          const bonuses = getItemBonuses(s.customItems);
+          const activeSkills = [...u.activeSkills, ...bonuses.grantedSkills];
+
           playerUnits.push({
             id: `player-${s.slotId}`,
             name: u.name,
@@ -58,17 +110,17 @@ export const BattleSimulator: React.FC<BattleSimulatorProps> = ({ slots }) => {
             side: 'player' as const,
             row: s.row,
             pos: s.index,
-            unit: u,
+            unit: { ...u, activeSkills },
             maxHp: u.baseStats.hp,
             hp: u.baseStats.hp,
-            ap: 2,
-            pp: 2,
-            initiative: u.baseStats.initiative,
-            evasion: u.baseStats.evasion,
-            physAtk: u.baseStats.physAtk,
-            magAtk: u.baseStats.magAtk,
-            physDef: u.baseStats.physDef,
-            magDef: u.baseStats.magDef,
+            ap: 2 + bonuses.apBonus,
+            pp: 2 + bonuses.ppBonus,
+            initiative: u.baseStats.initiative + bonuses.initBonus,
+            evasion: u.baseStats.evasion + bonuses.evasionBonus,
+            physAtk: u.baseStats.physAtk + bonuses.physAtkBonus,
+            magAtk: u.baseStats.magAtk + bonuses.magAtkBonus,
+            physDef: u.baseStats.physDef + bonuses.physDefBonus,
+            magDef: u.baseStats.magDef + bonuses.magDefBonus,
             critRate: u.baseStats.critRate,
             role: u.role,
             category: u.category,

@@ -1,6 +1,8 @@
 import { SquadBuild } from '@/types';
+import { ZERO_OVERLAP_SQUADS } from './zeroOverlapSquads';
 
 export const SQUADS_DATA: SquadBuild[] = [
+  ...ZERO_OVERLAP_SQUADS,
   {
     id: 'trinity-rain-instant-nuke',
     name: 'Trinity Rain Instant Nuke',

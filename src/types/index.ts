@@ -8,6 +8,7 @@ export type SquadArchetype =
   | 'Cavalry Burst' 
   | 'Affliction Control' 
   | 'Magic Nuke'
+  | 'Heavy Armor Crusher'
   | 'Physical DPS';
 
 export interface ActiveSkill {
@@ -125,9 +126,9 @@ export interface SquadBuild {
   frontRow: (string | null)[];
   backRow: (string | null)[];
   tacticsSequence: TacticsStep[];
-  pros: string[];
-  cons: string[];
-  counters: string[];
+  pros?: string[];
+  cons?: string[];
+  counters?: string[];
   isCustom?: boolean;
   isFavorite?: boolean;
   strategyGuide?: StrategyGuide;

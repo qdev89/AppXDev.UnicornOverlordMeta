@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Header } from '@/components/Header';
 import { GlobalSearchModal } from '@/components/GlobalSearchModal';
+import { ZeroOverlapTop10 } from '@/components/tabs/ZeroOverlapTop10';
 import { MetaCompositions } from '@/components/tabs/MetaCompositions';
 import { ClassDatabase } from '@/components/tabs/ClassDatabase';
 import { RelicCatalog } from '@/components/tabs/RelicCatalog';
@@ -15,7 +16,7 @@ import { SquadBuild } from '@/types';
 import { Crown, Heart, Shield, ExternalLink } from 'lucide-react';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<string>('meta');
+  const [activeTab, setActiveTab] = useState<string>('zero-overlap');
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const [builderSquad, setBuilderSquad] = useState<SquadBuild | null>(null);
 
@@ -24,6 +25,8 @@ export default function Home() {
       const hash = window.location.hash;
       if (hash.startsWith('#builder')) {
         setActiveTab('builder');
+      } else if (hash.startsWith('#zero-overlap')) {
+        setActiveTab('zero-overlap');
       }
     };
     handleHash();
@@ -49,6 +52,18 @@ export default function Home() {
         {/* Main Content Hubs */}
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <AnimatePresence mode="wait">
+            {activeTab === 'zero-overlap' && (
+              <motion.div
+                key="zero-overlap"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.2 }}
+              >
+                <ZeroOverlapTop10 onLoadIntoBuilder={handleLoadSquadIntoBuilder} />
+              </motion.div>
+            )}
+
             {activeTab === 'meta' && (
               <motion.div
                 key="meta"

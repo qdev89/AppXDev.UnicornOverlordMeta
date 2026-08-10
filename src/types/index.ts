@@ -1,7 +1,7 @@
 export type UnitCategory = 'Unique' | 'Infantry' | 'Cavalry' | 'Flying' | 'Armored';
 export type UnitRole = 'Tank' | 'Physical DPS' | 'Magic DPS' | 'Support' | 'Debuffer';
 export type UnitTier = 'SS' | 'S+' | 'S' | 'A+' | 'A' | 'B' | 'C';
-export type ItemType = 'Weapon' | 'Shield' | 'Accessory' | 'Tome';
+export type ItemType = 'Weapon' | 'Shield' | 'Accessory' | 'Tome' | 'Helm';
 export type SquadArchetype = 
   | 'Instant Board Wipe' 
   | 'Heavy Sustain' 

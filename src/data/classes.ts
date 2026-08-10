@@ -415,7 +415,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "raenys-feather-sword",
-    "image": "/images/characters/raenys-feather-sword.png",
+    "image": "/images/characters/raenys-featherbow.png",
     "name": "Raenys (Feathersword)",
     "category": "Flying",
     "role": "Tank",
@@ -792,7 +792,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "crusader",
-    "image": "/images/characters/crusader.png",
+    "image": "/images/characters/valkyria.png",
     "name": "Crusader",
     "tier": "A+",
     "category": "Infantry",
@@ -844,7 +844,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "dark-knight",
-    "image": "/images/characters/dark-knight.png",
+    "image": "/images/characters/doom-knight.png",
     "name": "Dark Knight",
     "tier": "A+",
     "category": "Infantry",
@@ -896,7 +896,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "dark-lord",
-    "image": "/images/characters/dark-lord.png",
+    "image": "/images/characters/dark-marquess.png",
     "name": "Dark Lord",
     "tier": "A+",
     "category": "Infantry",
@@ -1000,7 +1000,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "dark-marquess-axe",
-    "image": "/images/characters/dark-marquess-axe.png",
+    "image": "/images/characters/berengaria-renegade.png",
     "name": "Dark Marquess (Axe)",
     "tier": "A+",
     "category": "Infantry",
@@ -1052,7 +1052,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "dark-marquess-spear",
-    "image": "/images/characters/dark-marquess-spear.png",
+    "image": "/images/characters/dark-marquess.png",
     "name": "Dark Marquess (Spear)",
     "tier": "A+",
     "category": "Infantry",
@@ -1104,7 +1104,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "dark-marquess-staff",
-    "image": "/images/characters/dark-marquess-staff.png",
+    "image": "/images/characters/dark-marquess.png",
     "name": "Dark Marquess (Staff)",
     "tier": "A+",
     "category": "Infantry",
@@ -1156,7 +1156,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "dark-marquess-sword",
-    "image": "/images/characters/dark-marquess-sword.png",
+    "image": "/images/characters/dark-marquess.png",
     "name": "Dark Marquess (Sword)",
     "tier": "A+",
     "category": "Infantry",
@@ -1260,7 +1260,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "dreadnought",
-    "image": "/images/characters/dreadnought.png",
+    "image": "/images/characters/high-lord.png",
     "name": "Dreadnought",
     "tier": "A+",
     "category": "Infantry",
@@ -1312,7 +1312,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "elven-archer",
-    "image": "/images/characters/elven-archer.png",
+    "image": "/images/characters/elven-fencer.png",
     "name": "Elven Archer",
     "tier": "A+",
     "category": "Infantry",
@@ -1364,7 +1364,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "elven-augur",
-    "image": "/images/characters/elven-augur.png",
+    "image": "/images/characters/eltolinde-elven-sibyl.png",
     "name": "Elven Augur",
     "tier": "A+",
     "category": "Infantry",
@@ -1468,7 +1468,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "elven-sibyl",
-    "image": "/images/characters/elven-sibyl.png",
+    "image": "/images/characters/eltolinde-elven-sibyl.png",
     "name": "Elven Sibyl",
     "tier": "A+",
     "category": "Infantry",
@@ -1520,7 +1520,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "featherbow",
-    "image": "/images/characters/featherbow.png",
+    "image": "/images/characters/raenys-featherbow.png",
     "name": "Featherbow",
     "tier": "A+",
     "category": "Infantry",
@@ -1572,7 +1572,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "feathershield",
-    "image": "/images/characters/feathershield.png",
+    "image": "/images/characters/sainted-knight.png",
     "name": "Feathershield",
     "tier": "A+",
     "category": "Infantry",
@@ -1624,7 +1624,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "featherstaff",
-    "image": "/images/characters/featherstaff.png",
+    "image": "/images/characters/high-priestess.png",
     "name": "Featherstaff",
     "tier": "A+",
     "category": "Infantry",
@@ -1676,7 +1676,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "feathersword",
-    "image": "/images/characters/feathersword.png",
+    "image": "/images/characters/sainted-knight.png",
     "name": "Feathersword",
     "tier": "A+",
     "category": "Infantry",
@@ -2508,7 +2508,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "overlord",
-    "image": "/images/characters/overlord.png",
+    "image": "/images/characters/lord.png",
     "name": "Overlord",
     "tier": "A+",
     "category": "Infantry",
@@ -2664,7 +2664,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "prince",
-    "image": "/images/characters/prince.png",
+    "image": "/images/characters/gilbert-prince.png",
     "name": "Prince",
     "tier": "A+",
     "category": "Infantry",
@@ -2872,7 +2872,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "sellsword",
-    "image": "/images/characters/sellsword.png",
+    "image": "/images/characters/landsknecht.png",
     "name": "Sellsword",
     "tier": "A+",
     "category": "Infantry",
@@ -2924,7 +2924,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "sergeant",
-    "image": "/images/characters/sergeant.png",
+    "image": "/images/characters/soldier.png",
     "name": "Sergeant",
     "tier": "A+",
     "category": "Infantry",
@@ -3028,7 +3028,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "shieldshooter",
-    "image": "/images/characters/shieldshooter.png",
+    "image": "/images/characters/arbalist.png",
     "name": "Shieldshooter",
     "tier": "A+",
     "category": "Infantry",
@@ -3132,7 +3132,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "snow-ranger",
-    "image": "/images/characters/snow-ranger.png",
+    "image": "/images/characters/yunifi-snow-ranger.png",
     "name": "Snow Ranger",
     "tier": "A+",
     "category": "Infantry",
@@ -3288,7 +3288,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "swordfighter",
-    "image": "/images/characters/swordfighter.png",
+    "image": "/images/characters/swordmaster.png",
     "name": "Swordfighter",
     "tier": "A+",
     "category": "Infantry",
@@ -3392,7 +3392,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "thief",
-    "image": "/images/characters/thief.png",
+    "image": "/images/characters/rogue.png",
     "name": "Thief",
     "tier": "A+",
     "category": "Infantry",
@@ -3704,7 +3704,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "werebear",
-    "image": "/images/characters/werebear.png",
+    "image": "/images/characters/werelion.png",
     "name": "Werebear",
     "tier": "A+",
     "category": "Infantry",
@@ -3756,7 +3756,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "werefox",
-    "image": "/images/characters/werefox.png",
+    "image": "/images/characters/werewolf.png",
     "name": "Werefox",
     "tier": "A+",
     "category": "Infantry",
@@ -3860,7 +3860,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "wereowl",
-    "image": "/images/characters/wereowl.png",
+    "image": "/images/characters/selvie-druid.png",
     "name": "Wereowl",
     "tier": "A+",
     "category": "Infantry",
@@ -3964,7 +3964,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "witch",
-    "image": "/images/characters/witch.png",
+    "image": "/images/characters/sorceress.png",
     "name": "Witch",
     "tier": "A+",
     "category": "Infantry",
@@ -4016,7 +4016,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "wizard",
-    "image": "/images/characters/wizard.png",
+    "image": "/images/characters/warlock.png",
     "name": "Wizard",
     "tier": "A+",
     "category": "Infantry",

@@ -54,8 +54,24 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
   // Helper to resolve Unit Class & Portrait Image
   const getUnitClassInfo = (unitId: string | null) => {
     if (!unitId) return null;
+    const aliasMap: Record<string, string> = {
+      'virginia-crusader': 'valkyria',
+      'fencer': 'elven-fencer',
+      'berengaria-dark-marquess': 'berengaria-renegade',
+      'eltolinde-elven-prophet': 'eltolinde-elven-sibyl',
+      'arbalest': 'arbalist',
+      'valkyrie': 'valkyria',
+      'snow-ranger': 'yunifi-snow-ranger',
+      'elven-augur': 'eltolinde-elven-sibyl',
+      'dark-marquess': 'berengaria-renegade',
+      'prince': 'gilbert-prince',
+      'featherbow': 'raenys-feather-sword',
+      'high-priestess': 'scarlett-high-priestess',
+      'druid': 'selvie-druid',
+    };
+    const targetId = aliasMap[unitId] || unitId;
     const found = CLASSES_DATA.find(
-      (c) => c.id === unitId || c.name.toLowerCase().includes(unitId.toLowerCase())
+      (c) => c.id === targetId || c.id === unitId || c.name.toLowerCase().includes(unitId.toLowerCase().replace(/-/g, ' '))
     );
 
     if (found && found.image) return found;
@@ -126,25 +142,63 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
     };
   };
 
+  const getItemType = (itemName: string): 'Weapon' | 'Shield' | 'Helm' | 'Accessory' => {
+    const name = itemName.toLowerCase();
+    if (
+      name.includes('sword') || name.includes('blade') || name.includes('saber') || name.includes('rapier') ||
+      name.includes('axe') || name.includes('greataxe') || name.includes('spear') || name.includes('lance') ||
+      name.includes('bow') || name.includes('strongbow') || name.includes('staff') || name.includes('rod') ||
+      name.includes('scepter') || name.includes('dagger') || name.includes('hammer') || name.includes('mace') ||
+      name.includes('arbalest') || name.includes('glaive')
+    ) {
+      return 'Weapon';
+    }
+    if (name.includes('shield') || name.includes('buckler') || name.includes('greatshield')) {
+      return 'Shield';
+    }
+    if (name.includes('helm') || name.includes('hood') || name.includes('cap') || name.includes('crown') || name.includes('tiara') || name.includes('mitre') || name.includes('beret')) {
+      return 'Helm';
+    }
+    return 'Accessory';
+  };
+
   // Helper to resolve Item Image
   const getItemInfo = (itemName: string) => {
-    const item = ITEMS_DATA.find(
-      (i) => i.name.toLowerCase() === itemName.toLowerCase() || itemName.toLowerCase().includes(i.name.toLowerCase())
-    );
-    if (item && item.image) return item;
+    const cleanName = itemName.toLowerCase().replace(/[''\\]/g, '').replace(/[^a-z0-9]+/g, '');
+    const item = ITEMS_DATA.find((i) => {
+      const iName = i.name.toLowerCase().replace(/[''\\]/g, '').replace(/[^a-z0-9]+/g, '');
+      return iName === cleanName || iName.includes(cleanName) || cleanName.includes(iName);
+    });
+    const type = getItemType(itemName);
+    const icon = type === 'Weapon' ? '⚔️' : type === 'Shield' ? '🛡️' : type === 'Helm' ? '🪖' : '💎';
+
+    if (item && item.image) {
+      return {
+        ...item,
+        type: type,
+        icon: icon
+      };
+    }
 
     const slug = itemName
       .toLowerCase()
-      .replace(/['']/g, '')
+      .replace(/[''\\]/g, '')
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-|-$/g, '');
+
+    let fallbackImg = '/images/items/carnelian-pendant.png';
+    if (type === 'Weapon') {
+      fallbackImg = '/images/items/greatwood-sword.png';
+    } else if (type === 'Shield' || type === 'Helm') {
+      fallbackImg = '/images/items/cat-ear-hood.png';
+    }
 
     return {
       id: slug,
       name: itemName,
-      image: `/images/items/${slug}.png`,
-      icon: '💎',
-      type: 'Accessory',
+      image: fallbackImg,
+      icon: icon,
+      type: type,
       statBoosts: 'Unique Meta Relic',
       acquisition: 'Endgame Quest / Divine Shard Shop',
       isMetaCore: true,

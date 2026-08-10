@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { SQUADS_DATA } from '@/data/squads';
 import { CLASSES_DATA } from '@/data/classes';
+import { ITEMS_DATA } from '@/data/items';
 import { SquadBuild } from '@/types';
 import { BuildDetailModal } from '@/components/builder/BuildDetailModal';
 
@@ -100,7 +101,81 @@ export const MetaCompositions: React.FC<MetaCompositionsProps> = ({ onLoadIntoBu
 
   const getUnitClass = (unitId: string | null) => {
     if (!unitId) return null;
-    return CLASSES_DATA.find((c) => c.id === unitId) || null;
+    const aliasMap: Record<string, string> = {
+      'virginia-crusader': 'valkyria',
+      'fencer': 'elven-fencer',
+      'berengaria-dark-marquess': 'berengaria-renegade',
+      'eltolinde-elven-prophet': 'eltolinde-elven-sibyl',
+      'arbalest': 'arbalist',
+      'valkyrie': 'valkyria',
+      'snow-ranger': 'yunifi-snow-ranger',
+      'elven-augur': 'eltolinde-elven-sibyl',
+      'dark-marquess': 'berengaria-renegade',
+      'prince': 'gilbert-prince',
+      'featherbow': 'raenys-feather-sword',
+      'high-priestess': 'scarlett-high-priestess',
+      'druid': 'selvie-druid',
+    };
+    const targetId = aliasMap[unitId] || unitId;
+    return (
+      CLASSES_DATA.find((c) => c.id === targetId || c.id === unitId) ||
+      CLASSES_DATA.find((c) => c.name.toLowerCase().includes(unitId.toLowerCase().replace(/-/g, ' '))) ||
+      null
+    );
+  };
+
+  const getItemType = (itemName: string): 'Weapon' | 'Shield' | 'Helm' | 'Accessory' => {
+    const name = itemName.toLowerCase();
+    if (
+      name.includes('sword') || name.includes('blade') || name.includes('saber') || name.includes('rapier') ||
+      name.includes('axe') || name.includes('greataxe') || name.includes('spear') || name.includes('lance') ||
+      name.includes('bow') || name.includes('strongbow') || name.includes('staff') || name.includes('rod') ||
+      name.includes('scepter') || name.includes('dagger') || name.includes('hammer') || name.includes('mace') ||
+      name.includes('arbalest') || name.includes('glaive')
+    ) {
+      return 'Weapon';
+    }
+    if (name.includes('shield') || name.includes('buckler') || name.includes('greatshield')) {
+      return 'Shield';
+    }
+    if (name.includes('helm') || name.includes('hood') || name.includes('cap') || name.includes('crown') || name.includes('tiara') || name.includes('mitre') || name.includes('beret')) {
+      return 'Helm';
+    }
+    return 'Accessory';
+  };
+
+  const getItemInfo = (itemName: string) => {
+    const cleanName = itemName.toLowerCase().replace(/[''\\]/g, '').replace(/[^a-z0-9]+/g, '');
+    const item = ITEMS_DATA.find((i) => {
+      const iName = i.name.toLowerCase().replace(/[''\\]/g, '').replace(/[^a-z0-9]+/g, '');
+      return iName === cleanName || iName.includes(cleanName) || cleanName.includes(iName);
+    });
+    const type = getItemType(itemName);
+    const icon = type === 'Weapon' ? '⚔️' : type === 'Shield' ? '🛡️' : type === 'Helm' ? '🪖' : '💎';
+
+    if (item && item.image) {
+      return {
+        ...item,
+        type: type,
+        icon: icon
+      };
+    }
+
+    let fallbackImg = '/images/items/carnelian-pendant.png';
+    if (type === 'Weapon') fallbackImg = '/images/items/greatwood-sword.png';
+    else if (type === 'Shield' || type === 'Helm') fallbackImg = '/images/items/cat-ear-hood.png';
+
+    return {
+      id: itemName.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+      name: itemName,
+      image: fallbackImg,
+      icon: icon,
+      type: type,
+      statBoosts: 'Unique Relic',
+      acquisition: 'Region Quest',
+      isMetaCore: true,
+      metaSquads: []
+    };
   };
 
   return (
@@ -383,15 +458,36 @@ export const MetaCompositions: React.FC<MetaCompositionsProps> = ({ onLoadIntoBu
                     <div className="text-[11px] font-serif font-bold uppercase tracking-wider text-amber-300/80 mb-2">
                       Core Required Relics & Equipment
                     </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      {squad.keyItems.map((item, i) => (
-                        <span
-                          key={i}
-                          className="px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold flex items-center gap-1"
-                        >
-                          👑 {item}
-                        </span>
-                      ))}
+                    <div className="flex flex-wrap gap-2">
+                      {squad.keyItems.map((itemName, i) => {
+                        const info = getItemInfo(itemName);
+                        return (
+                          <div
+                            key={i}
+                            className="px-2.5 py-1.5 rounded-xl bg-slate-950/90 border border-amber-500/30 text-amber-200 text-xs font-serif font-bold flex items-center gap-2 hover:border-amber-400 transition"
+                          >
+                            <div className="w-5 h-5 rounded bg-slate-900 border border-amber-500/40 p-0.5 shrink-0 overflow-hidden flex items-center justify-center">
+                              <img
+                                src={info.image}
+                                alt={itemName}
+                                className="w-full h-full object-contain"
+                                onError={(e) => {
+                                  (e.target as HTMLElement).style.display = 'none';
+                                }}
+                              />
+                            </div>
+                            <span className="truncate">{itemName}</span>
+                            <span className={`text-[9px] font-mono font-bold px-1.5 py-0.2 rounded uppercase ${
+                              info.type === 'Weapon' ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' :
+                              info.type === 'Shield' ? 'bg-blue-500/20 text-blue-300 border border-blue-500/40' :
+                              info.type === 'Helm' ? 'bg-purple-500/20 text-purple-300 border border-purple-500/40' :
+                              'bg-slate-800 text-slate-300 border border-slate-700'
+                            }`}>
+                              {info.icon} {info.type}
+                            </span>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
 

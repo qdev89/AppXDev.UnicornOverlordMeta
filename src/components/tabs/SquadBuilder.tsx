@@ -146,7 +146,27 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
 
   const getUnitClass = (unitId: string | null): UnitClass | null => {
     if (!unitId) return null;
-    return CLASSES_DATA.find((c) => c.id === unitId) || null;
+    const aliasMap: Record<string, string> = {
+      'virginia-crusader': 'valkyria',
+      'fencer': 'elven-fencer',
+      'berengaria-dark-marquess': 'berengaria-renegade',
+      'eltolinde-elven-prophet': 'eltolinde-elven-sibyl',
+      'arbalest': 'arbalist',
+      'valkyrie': 'valkyria',
+      'snow-ranger': 'yunifi-snow-ranger',
+      'elven-augur': 'eltolinde-elven-sibyl',
+      'dark-marquess': 'berengaria-renegade',
+      'prince': 'gilbert-prince',
+      'featherbow': 'raenys-feather-sword',
+      'high-priestess': 'scarlett-high-priestess',
+      'druid': 'selvie-druid',
+    };
+    const targetId = aliasMap[unitId] || unitId;
+    return (
+      CLASSES_DATA.find((c) => c.id === targetId || c.id === unitId) ||
+      CLASSES_DATA.find((c) => c.name.toLowerCase().includes(unitId.toLowerCase().replace(/-/g, ' '))) ||
+      null
+    );
   };
 
   // Real-Time Synergy & Logic Analyzer Engine

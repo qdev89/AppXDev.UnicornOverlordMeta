@@ -31,29 +31,56 @@ export const CounterMatrix: React.FC = () => {
   const [selectedMetaModalId, setSelectedMetaModalId] = useState<string | null>(null);
   const [currentModalStepIdx, setCurrentModalStepIdx] = useState<number>(0);
   const [isModalPlaying, setIsModalPlaying] = useState<boolean>(false);
+  const [categoryFilter, setCategoryFilter] = useState<string>('All');
+  const [counterSearch, setCounterSearch] = useState<string>('');
 
-  // Load custom squad slots from localStorage WIP or fallback default
-  const userSlots = useMemo<SquadSlot[]>(() => {
-    if (typeof window !== 'undefined') {
-      const savedWip = localStorage.getItem('unicorn_squad_builder_wip');
-      if (savedWip) {
-        try {
-          const parsed = JSON.parse(savedWip);
-          if (parsed.slots && Array.isArray(parsed.slots)) {
-            return parsed.slots;
-          }
-        } catch (e) {
-          // ignore
+  const counterCategories = ['All', 'Physical Wall', 'Evasion / Flying', 'Magic Reflect', 'Turn-1 Nuke', 'Affliction & CC'];
+
+  const filteredCounters = useMemo(() => {
+    return COUNTERS_DATA.filter((c) => {
+      const matchCat =
+        categoryFilter === 'All' ||
+        (categoryFilter === 'Physical Wall' && c.enemyArchetype.includes('Wall')) ||
+        (categoryFilter === 'Evasion / Flying' && c.enemyArchetype.includes('Flying')) ||
+        (categoryFilter === 'Magic Reflect' && c.enemyArchetype.includes('Reflect')) ||
+        (categoryFilter === 'Turn-1 Nuke' && c.enemyArchetype.includes('Turn-1')) ||
+        (categoryFilter === 'Affliction & CC' && c.enemyArchetype.includes('Affliction'));
+
+      const q = counterSearch.toLowerCase();
+      const matchQuery =
+        !q ||
+        c.enemyArchetype.toLowerCase().includes(q) ||
+        c.threatDescription.toLowerCase().includes(q) ||
+        c.keyCounters.some((k) => k.toLowerCase().includes(q)) ||
+        c.mustHaveItems.some((i) => i.toLowerCase().includes(q)) ||
+        c.tacticsConditions.some((t) => t.toLowerCase().includes(q));
+
+      return matchCat && matchQuery;
+    });
+  }, [categoryFilter, counterSearch]);
+
+  const DEFAULT_SLOTS: SquadSlot[] = [
+    { slotId: 'front-0', row: 'front', index: 0, unitId: 'alain-high-lord' },
+    { slotId: 'front-1', row: 'front', index: 1, unitId: 'berengaria-renegade' },
+    { slotId: 'back-0', row: 'back', index: 0, unitId: 'cleric' },
+    { slotId: 'back-1', row: 'back', index: 1, unitId: 'selvie-druid' },
+    { slotId: 'back-2', row: 'back', index: 2, unitId: 'gilbert-prince' },
+  ];
+
+  const [userSlots, setUserSlots] = useState<SquadSlot[]>(DEFAULT_SLOTS);
+
+  React.useEffect(() => {
+    const savedWip = localStorage.getItem('unicorn_squad_builder_wip');
+    if (savedWip) {
+      try {
+        const parsed = JSON.parse(savedWip);
+        if (parsed.slots && Array.isArray(parsed.slots)) {
+          setUserSlots(parsed.slots);
         }
+      } catch (e) {
+        // ignore
       }
     }
-    return [
-      { slotId: 'front-0', row: 'front', index: 0, unitId: 'alain-high-lord' },
-      { slotId: 'front-1', row: 'front', index: 1, unitId: 'berengaria-renegade' },
-      { slotId: 'back-0', row: 'back', index: 0, unitId: 'cleric' },
-      { slotId: 'back-1', row: 'back', index: 1, unitId: 'selvie-druid' },
-      { slotId: 'back-2', row: 'back', index: 2, unitId: 'gilbert-prince' },
-    ];
   }, []);
 
   const getUnitClass = (unitId: string | null): UnitClass | undefined => {
@@ -459,17 +486,46 @@ export const CounterMatrix: React.FC = () => {
         </div>
       </div>
 
-      {/* Counter Strategy Selector */}
-      <div className="pt-4 border-t border-slate-800">
-        <div className="flex items-center gap-2 mb-3">
-          <ShieldAlert className="w-5 h-5 text-amber-400" />
-          <h3 className="font-serif text-lg font-bold text-amber-200">
-            Specific Meta Archetype Counter Guides
-          </h3>
+      {/* Counter Strategy Selector & Filter Bar */}
+      <div className="pt-4 border-t border-slate-800 space-y-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <ShieldAlert className="w-5 h-5 text-amber-400" />
+            <h3 className="font-serif text-lg font-bold text-amber-200">
+              Specific Meta Archetype Counter Guides
+            </h3>
+          </div>
+
+          <input
+            type="text"
+            placeholder="Filter counter by keyword, item, or condition..."
+            value={counterSearch}
+            onChange={(e) => setCounterSearch(e.target.value)}
+            className="px-3.5 py-1.5 rounded-xl bg-slate-950 border border-red-500/30 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-red-400 w-full sm:w-72 shadow-inner"
+          />
         </div>
 
+        {/* Threat Category Filter Chips */}
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-xs">
+          <span className="font-serif font-bold text-amber-300 shrink-0">Filter Threat:</span>
+          {counterCategories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setCategoryFilter(cat)}
+              className={`px-3 py-1 rounded-lg font-medium whitespace-nowrap transition ${
+                categoryFilter === cat
+                  ? 'bg-red-600 text-white font-bold shadow'
+                  : 'bg-slate-950 border border-slate-800 text-slate-400 hover:text-white'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Counter Buttons Ribbon */}
         <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
-          {COUNTERS_DATA.map((counter) => {
+          {filteredCounters.map((counter) => {
             const isSelected = selectedCounterId === counter.id;
             return (
               <button
@@ -496,6 +552,7 @@ export const CounterMatrix: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         className="rounded-2xl bg-gradient-to-b from-[#101728] to-[#070b16] border border-red-500/40 p-6 sm:p-8 space-y-6 shadow-2xl filigree-box"
       >
+        {/* Threat Banner */}
         <div className="p-5 rounded-xl bg-slate-950 border border-red-500/30 space-y-2">
           <div className="flex items-center gap-2 text-red-400 text-xs font-serif font-bold uppercase tracking-wider">
             <ShieldAlert className="w-4 h-4" />
@@ -509,6 +566,7 @@ export const CounterMatrix: React.FC = () => {
           </p>
         </div>
 
+        {/* 2-Column Grid: Principles & Recommended Heroes */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-3 p-5 rounded-xl bg-slate-950 border border-slate-800">
             <h4 className="font-serif text-sm font-bold text-amber-300 uppercase tracking-wider flex items-center gap-2 border-b border-slate-800 pb-2">
@@ -548,6 +606,49 @@ export const CounterMatrix: React.FC = () => {
               })}
             </div>
           </div>
+        </div>
+
+        {/* 2-Column Grid: Must-Have Counter Items & Recommended Tactics Rules */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-3 p-5 rounded-xl bg-slate-950 border border-slate-800">
+            <h4 className="font-serif text-sm font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-2 border-b border-slate-800 pb-2">
+              <Shield className="w-4 h-4 text-cyan-400" />
+              <span>Must-Have Counter Items & Relics</span>
+            </h4>
+            <div className="space-y-2">
+              {activeCounter.mustHaveItems.map((item, idx) => (
+                <div key={idx} className="p-2.5 rounded-lg bg-slate-900 border border-cyan-500/30 text-xs font-serif font-bold text-cyan-200 flex items-center gap-2">
+                  <span>💎</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-3 p-5 rounded-xl bg-slate-950 border border-slate-800">
+            <h4 className="font-serif text-sm font-bold text-emerald-300 uppercase tracking-wider flex items-center gap-2 border-b border-slate-800 pb-2">
+              <Sliders className="w-4 h-4 text-emerald-400" />
+              <span>Recommended In-Game Tactics Rules</span>
+            </h4>
+            <div className="space-y-2 font-mono text-xs">
+              {activeCounter.tacticsConditions.map((tac, idx) => (
+                <div key={idx} className="p-2.5 rounded-lg bg-slate-900 border border-emerald-500/30 text-emerald-300">
+                  {tac}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Tactical Tip Callout Box */}
+        <div className="p-4 rounded-xl bg-gradient-to-r from-amber-950/40 via-slate-950 to-amber-950/40 border border-amber-500/40 space-y-1.5 shadow-lg">
+          <div className="flex items-center gap-2 text-amber-300 font-serif font-bold text-xs uppercase tracking-wider">
+            <Lightbulb className="w-4 h-4 text-amber-400" />
+            <span>Master Tactical Tip</span>
+          </div>
+          <p className="text-xs text-slate-200 leading-relaxed font-sans">
+            {activeCounter.tacticalTip}
+          </p>
         </div>
       </motion.div>
 

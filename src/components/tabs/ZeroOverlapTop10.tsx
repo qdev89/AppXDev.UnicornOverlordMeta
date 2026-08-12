@@ -321,11 +321,11 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
                       
                       {/* Visual Unit Portraits Row */}
                       <div className="flex items-center -space-x-1.5 pt-1">
-                        {squad.unitGearConfigs?.map((u) => {
+                        {squad.unitGearConfigs?.map((u, uIdx) => {
                           const info = getUnitClassInfo(u.unitId);
                           return (
                             <div
-                              key={u.unitId}
+                              key={`${u.unitId}-${uIdx}`}
                               className="w-7 h-7 rounded-full border border-amber-400/60 overflow-hidden bg-slate-950 shrink-0 shadow"
                               title={u.unitName}
                             >
@@ -738,11 +738,11 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
                   </td>
                   <td className="py-3.5 px-4">
                     <div className="flex items-center -space-x-1.5">
-                      {squad.unitGearConfigs?.map((u) => {
+                      {squad.unitGearConfigs?.map((u, uIdx) => {
                         const info = getUnitClassInfo(u.unitId);
                         return (
                           <div
-                            key={u.unitId}
+                            key={`${u.unitId}-${uIdx}`}
                             className="w-7 h-7 rounded-full border border-amber-400/60 overflow-hidden bg-slate-950 shrink-0 shadow"
                             title={u.unitName}
                           >

@@ -1,17 +1,45 @@
-# System Architecture Overview
+# Architecture Overview - AppXDev.UnicornOverlordMeta
 
-## Overview
-Unicorn Overlord Meta Engine is a high-performance Next.js application built with TypeScript and Tailwind CSS. It functions as a complete tactics hub and battle simulator for the game *Unicorn Overlord*.
+## 🏛️ Architecture & Component Design
 
-## Tech Stack
-- **Framework:** Next.js 15.5.23 (App Router)
-- **Language:** TypeScript 5.x
-- **UI Engine:** React 19, Framer Motion, Lucide React Icons, Canvas Confetti
-- **Styling:** CSS Modules & Utility Classes with Dark-Gold Glassmorphism Theme
+```
+src/
+├── app/
+│   ├── layout.tsx                # Root Layout (Cinzel/Inter fonts, suppressHydrationWarning)
+│   ├── page.tsx                  # Main Tab Controller & Navigation Hub
+│   └── globals.css               # Design System, Filigree borders, Custom Glows & Banners
+├── components/
+│   ├── Header.tsx                # Sticky Navigation Header & Active Tab Controls
+│   ├── GlobalSearchModal.tsx     # Cmd+K / Global Search Across Units, Relics & Squads
+│   ├── tabs/
+│   │   ├── ZeroOverlapTop10.tsx  # Top 10 Endgame 0-Overlap Squad Compendium
+│   │   ├── MetaCompositions.tsx  # Full Meta Squad Index with Filter Chips
+│   │   ├── ClassDatabase.tsx     # Hero Class Catalog + Lv. 1-50 Stat Growth Calculator
+│   │   ├── RelicCatalog.tsx      # Equipment & Relics Catalog with Meta Core Filters
+│   │   ├── SkillCompendium.tsx   # Active, Passive & Valor Skills Reference
+│   │   ├── SquadBuilder.tsx      # 5v5 Squad Formation & Tactics Programming Editor
+│   │   ├── CounterMatrix.tsx     # Coliseum Matchup Heatmap & Threat Counter Guides
+│   │   └── DivineShardCalculator.tsx # Divine Shard & Renown Cost Calculator
+│   └── builder/
+│       ├── BuildDetailModal.tsx   # Detailed Unit Inspector & In-Game Tactics Table
+│       ├── GrowthCalculator.tsx   # Stat Progression Formula & Dual Growth Type Simulator
+│       ├── TacticsEditorModal.tsx # Priority & Condition Editor for Custom Tactics
+│       ├── EquipmentModal.tsx     # Slot Item Selector & Stat Bonus Calculator
+│       └── BattleSimulator.tsx    # Step-by-Step Turn Order & Combat Engine Simulator
+├── data/
+│   ├── classes.ts                 # Full Class Definitions (Stats, Skills, Recommended Gear)
+│   ├── items.ts                   # Relics, Weapons, Shields & Accessories Data
+│   ├── squads.ts                  # Community Meta Squads Definitions
+│   ├── zeroOverlapSquads.ts       # Verified 10 Top Zero-Overlap Squads
+│   ├── skills.ts                  # Skill Compendium Master List
+│   └── counters.ts                # Coliseum Archetype Counter Strategies
+├── types/
+│   └── index.ts                   # Master TypeScript Interfaces & Types
+└── utils/
+    └── exportUtils.ts             # JSON Export, Image Card Exporter & Share Hash Generator
+```
 
-## Core Modules
-1. **Class Database (`src/data/classes.ts`)**: Contains definitions for all 78 character classes, their base stats, growth paths, and active/passive skill sets.
-2. **Item Catalog (`src/data/items.ts`)**: Contains 432 relic items, weapons, shields, rings, and accessories with stat modifiers and passive skill triggers.
-3. **Preset Squad Compendium (`src/data/squads.ts`)**: Meta compositions curated for coliseum PvP and campaign battle maps.
-4. **Squad Builder (`src/components/tabs/SquadBuilder.tsx`)**: Interactive 2x3 formation grid with dual-condition tactics programming and growth type customization.
-5. **Tactical Battle Simulator (`src/components/builder/BattleSimulator.tsx`)**: AP/PP round-based combat engine with status effect handling, damage formulas, hit/evasion calculation, guard/cover interception, and initiative queue sorting.
+## 🔐 Reliability & Safety Patterns
+1. **Hydration Protection:** `suppressHydrationWarning` on `layout.tsx`, `useEffect` wrapping for `localStorage` reads.
+2. **Deterministic React Keys:** Uniquely formatted `${unitId}-${index}` keys in map loops to avoid collisions when squads use duplicate unit classes.
+3. **Fallback Tactics Generator:** Dynamic generation of hero-specific active/passive tactics rules when explicit steps aren't provided in the squad sequence.

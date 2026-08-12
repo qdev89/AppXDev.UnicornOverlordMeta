@@ -23,7 +23,7 @@ import {
   Download,
   Users,
 } from 'lucide-react';
-import { SquadBuild, UnitClass } from '@/types';
+import { SquadBuild, UnitClass, UnitGearConfig, TacticsStep } from '@/types';
 import { CLASSES_DATA } from '@/data/classes';
 import { downloadSquadAsJson, generateSquadImageCard } from '@/utils/exportUtils';
 
@@ -55,13 +55,35 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
 
   const getUnitClass = (unitId: string | null): UnitClass | null => {
     if (!unitId) return null;
-    return CLASSES_DATA.find((c) => c.id === unitId) || null;
+    const lower = unitId.toLowerCase();
+    return (
+      CLASSES_DATA.find(
+        (c) =>
+          c.id.toLowerCase() === lower ||
+          c.id.toLowerCase().includes(lower) ||
+          lower.includes(c.id.toLowerCase()) ||
+          c.name.toLowerCase().includes(lower) ||
+          lower.includes(c.name.toLowerCase().split(' ')[0])
+      ) || null
+    );
   };
 
   const currentUnitClass = getUnitClass(activeUnitId);
-  const currentUnitGearConfig = squad.unitGearConfigs?.find(
-    (g) => g.unitId === activeUnitId || g.unitName.toLowerCase().includes(currentUnitClass?.name.toLowerCase() || '')
-  ) || squad.unitGearConfigs?.[0];
+  const currentUnitGearConfig =
+    squad.unitGearConfigs?.find((g) => {
+      if (!activeUnitId) return false;
+      const gId = g.unitId.toLowerCase();
+      const actId = activeUnitId.toLowerCase();
+      const uName = g.unitName.toLowerCase();
+      const clsName = currentUnitClass?.name.toLowerCase() || '';
+      return (
+        gId === actId ||
+        gId.includes(actId) ||
+        actId.includes(gId) ||
+        (clsName && uName.includes(clsName)) ||
+        (clsName && uName.includes(clsName.split(' ')[0]))
+      );
+    }) || squad.unitGearConfigs?.find((_, idx) => allUnitsInSquad.indexOf(activeUnitId) === idx) || squad.unitGearConfigs?.[0];
 
   const handleShare = () => {
     const shareUrl = `${window.location.origin}${window.location.pathname}#build=${squad.id}`;
@@ -70,13 +92,89 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
     setTimeout(() => setCopiedLink(false), 2500);
   };
 
-  // Filter tactics belonging to active unit or show all squad tactics if general
-  const unitTactics = squad.tacticsSequence.filter(
-    (t) =>
-      t.unit.toLowerCase().includes(currentUnitClass?.name.toLowerCase() || '') ||
-      (currentUnitClass && t.unit.toLowerCase().includes(currentUnitClass.id.split('-')[0]))
-  );
-  const displayedTactics = unitTactics.length > 0 ? unitTactics : squad.tacticsSequence;
+  // Helper to generate dynamic tactics for a unit if squad tactics sequence has no explicit entry for them
+  const generateUnitTactics = (uClass: UnitClass | null, gearConfig?: UnitGearConfig): TacticsStep[] => {
+    if (!uClass) return [];
+
+    const unitDisplayName = gearConfig?.unitName.split(' ')[0] || uClass.name.split(' ')[0] || uClass.name;
+    const steps: TacticsStep[] = [];
+
+    // 1. Active Skills
+    uClass.activeSkills.forEach((sk, idx) => {
+      steps.push({
+        step: steps.length + 1,
+        unit: unitDisplayName,
+        skill: sk.name,
+        condition1: idx === 0 ? '[Target: Frontline]' : '[Target: Lowest HP %]',
+        condition2: idx === 0 ? `[Self AP >= ${sk.apCost || 1}]` : `[Self AP >= ${sk.apCost || 2}]`,
+        notes: sk.description || `Potency ${sk.potency || 100}% ${sk.flags?.join(', ') || ''}`
+      });
+    });
+
+    // 2. Passive Skills
+    uClass.passiveSkills.forEach((sk, idx) => {
+      steps.push({
+        step: steps.length + 1,
+        unit: unitDisplayName,
+        skill: sk.name,
+        condition1: sk.isStartOfBattle ? '[Start of Battle]' : sk.trigger ? `[${sk.trigger}]` : '[Before Attacked]',
+        condition2: `[Self PP >= ${sk.ppCost || 1}]`,
+        notes: sk.description || 'Passive defensive/utility maneuver'
+      });
+    });
+
+    // 3. Fallback fill if skills are sparse
+    if (steps.length < 3) {
+      if (gearConfig?.weapon) {
+        steps.push({
+          step: steps.length + 1,
+          unit: unitDisplayName,
+          skill: `${gearConfig.weapon} Skill`,
+          condition1: '[Target: Highest ATK]',
+          condition2: '[Self AP >= 1]',
+          notes: 'Granted from equipped weapon loadout'
+        });
+      }
+      steps.push({
+        step: steps.length + 1,
+        unit: unitDisplayName,
+        skill: uClass.role === 'Tank' ? 'Heavy Cover' : uClass.role === 'Support' ? 'Quick Heal' : 'Offensive Focus',
+        condition1: uClass.role === 'Tank' ? '[Before Ally Attacked]' : '[Ally HP < 50%]',
+        condition2: '[Self PP >= 1]',
+        notes: `Tactical role execution for ${uClass.role}`
+      });
+    }
+
+    return steps;
+  };
+
+  // Filter tactics belonging to active unit
+  const matchedUnitTactics = squad.tacticsSequence.filter((t) => {
+    const tUnitLower = t.unit.toLowerCase();
+    const classNameLower = currentUnitClass?.name.toLowerCase() || '';
+    const classIdLower = currentUnitClass?.id.toLowerCase() || '';
+    const gearUnitNameLower = currentUnitGearConfig?.unitName.toLowerCase() || '';
+    const gearUnitIdLower = currentUnitGearConfig?.unitId.toLowerCase() || '';
+
+    const firstWordGear = gearUnitNameLower.split(' ')[0];
+    const firstWordClass = classNameLower.split(' ')[0];
+
+    return (
+      (classNameLower && tUnitLower.includes(classNameLower)) ||
+      (classNameLower && classNameLower.includes(tUnitLower)) ||
+      (classIdLower && tUnitLower.includes(classIdLower.split('-')[0])) ||
+      (gearUnitIdLower && tUnitLower.includes(gearUnitIdLower)) ||
+      (gearUnitNameLower && (tUnitLower.includes(gearUnitNameLower) || gearUnitNameLower.includes(tUnitLower))) ||
+      (firstWordGear.length > 2 && tUnitLower.includes(firstWordGear)) ||
+      (firstWordClass.length > 2 && tUnitLower.includes(firstWordClass))
+    );
+  });
+
+  const displayedTactics =
+    matchedUnitTactics.length > 0
+      ? matchedUnitTactics.map((t, i) => ({ ...t, step: i + 1 }))
+      : generateUnitTactics(currentUnitClass, currentUnitGearConfig);
+
   const selectedTactic = displayedTactics[selectedTacticsIndex] || displayedTactics[0];
 
   return (

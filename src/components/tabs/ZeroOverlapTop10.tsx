@@ -21,12 +21,15 @@ import {
   Swords,
   ChevronDown,
   Info,
+  ChevronRight,
+  ExternalLink,
 } from 'lucide-react';
 import { ZERO_OVERLAP_SQUADS } from '@/data/zeroOverlapSquads';
 import { CLASSES_DATA } from '@/data/classes';
 import { ITEMS_DATA } from '@/data/items';
-import { SquadBuild } from '@/types';
+import { SquadBuild, UnitGearConfig } from '@/types';
 import { BuildDetailModal } from '@/components/builder/BuildDetailModal';
+import { calculateUnitApPp } from '@/utils/apPpCalculator';
 
 interface ZeroOverlapTop10Props {
   onLoadIntoBuilder: (squad: SquadBuild) => void;
@@ -39,7 +42,8 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
   const [copiedSquadId, setCopiedSquadId] = useState<string | null>(null);
   const [selectedBuildForModal, setSelectedBuildForModal] = useState<SquadBuild | null>(null);
   const [showRosterAudit, setShowRosterAudit] = useState<boolean>(false);
-  const [expandedSquadId, setExpandedSquadId] = useState<string | null>('zero-1-trinity-rain');
+  const [expandedSquadId, setExpandedSquadId] = useState<string | null>(null);
+  const [expandedGearUnitId, setExpandedGearUnitId] = useState<string | null>(null);
 
   const archetypes = [
     'All',
@@ -55,19 +59,68 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
   const getUnitClassInfo = (unitId: string | null) => {
     if (!unitId) return null;
     const aliasMap: Record<string, string> = {
-      'virginia-crusader': 'valkyria',
+      'virginia-crusader': 'virginia-valkyria',
+      'virginia': 'virginia-valkyria',
       'fencer': 'elven-fencer',
       'berengaria-dark-marquess': 'berengaria-renegade',
       'eltolinde-elven-prophet': 'eltolinde-elven-sibyl',
-      'arbalest': 'arbalist',
-      'valkyrie': 'valkyria',
+      'eltolinde': 'eltolinde-elven-sibyl',
+      'rosalinde': 'rosalinde-elven-augur',
+      'arbalest': 'liza-shieldshooter',
+      'valkyrie': 'virginia-valkyria',
       'snow-ranger': 'yunifi-snow-ranger',
-      'elven-augur': 'eltolinde-elven-sibyl',
+      'yunifi': 'yunifi-snow-ranger',
+      'elven-augur': 'rosalinde-elven-augur',
+      'elven-sibyl': 'eltolinde-elven-sibyl',
       'dark-marquess': 'berengaria-renegade',
       'prince': 'gilbert-prince',
-      'featherbow': 'raenys-feather-sword',
+      'gilbert': 'gilbert-prince',
+      'featherbow': 'raenys-featherbow',
+      'raenys': 'raenys-featherbow',
       'high-priestess': 'scarlett-high-priestess',
+      'scarlett': 'scarlett-high-priestess',
       'druid': 'selvie-druid',
+      'selvie': 'selvie-druid',
+      'chloe': 'chloe-sergeant',
+      'melisandre': 'melisandre-swordmaster',
+      'clive': 'clive-great-knight',
+      'auch': 'auch-sorcerer',
+      'yahna': 'yahna-sorceress',
+      'sharon': 'sharon-bishop',
+      'hodrick': 'hodrick-legionnaire',
+      'hilda': 'hilda-wyvern-master',
+      'fran': 'fran-gryphon-master',
+      'miriam': 'miriam-sainted-knight',
+      'primm': 'primm-bishop',
+      'travis': 'travis-rogue',
+      'nina': 'nina-breaker',
+      'liza': 'liza-shieldshooter',
+      'bruno': 'bruno-berserker',
+      'colm': 'colm-vanguard',
+      'leah': 'leah-swordmaster',
+      'kitra': 'kitra-breaker',
+      'rolf': 'rolf-sniper',
+      'ramona': 'ramona-wereowl',
+      'ridiel': 'ridiel-elven-archer',
+      'bryce': 'bryce-legionnaire',
+      'lex': 'lex-vanguard',
+      'ithilion': 'ithilion-elven-fencer',
+      'railanor': 'railanor-elven-fencer',
+      'galadmir': 'galadmir-elven-archer',
+      'amalia': 'amalia-dreadnought',
+      'bertrand': 'bertrand-werebear',
+      'monica': 'monica-sainted-knight',
+      'aramis': 'aramis-swordmaster',
+      'mandrin': 'mandrin-sniper',
+      'dinah': 'dinah-werewolf',
+      'govil': 'govil-werewolf',
+      'morpan': 'morpan-werebear',
+      'jeremy': 'jeremy-landsknecht',
+      'ochlys': 'ochlys-feathersword',
+      'umerus': 'umerus-feathersword',
+      'sanatio': 'sanatio-featherstaff',
+      'tatiana': 'tatiana-bishop',
+      'gloucester': 'gloucester-doom-knight',
     };
     const targetId = aliasMap[unitId] || unitId;
     const found = CLASSES_DATA.find(
@@ -79,42 +132,55 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
     // Direct mapping fallback for key characters & classes
     const fallbackImageMap: Record<string, { image: string; name: string; role: string; tier: string }> = {
       'alain-high-lord': { image: '/images/characters/alain-high-lord.png', name: 'Alain (High Lord)', role: 'Physical DPS', tier: 'SS' },
-      'rosalinde-elven-prophet': { image: '/images/characters/rosalinde-elven-prophet.png', name: 'Rosalinde (Prophet)', role: 'Magic DPS', tier: 'SS' },
-      'elven-augur': { image: '/images/characters/eltolinde-elven-sibyl.png', name: 'Eltolinde (Augur)', role: 'Support', tier: 'SS' },
-      'dark-marquess': { image: '/images/characters/berengaria-renegade.png', name: 'Berengaria (Marquess)', role: 'Physical DPS', tier: 'SS' },
-      'snow-ranger': { image: '/images/characters/yunifi-snow-ranger.png', name: 'Yunifi (Snow Ranger)', role: 'Physical DPS', tier: 'SS' },
-      'prince': { image: '/images/characters/gilbert-prince.png', name: 'Gilbert (Prince)', role: 'Support', tier: 'S+' },
-      'featherbow': { image: '/images/characters/raenys-featherbow.png', name: 'Raenys (Featherbow)', role: 'Debuffer', tier: 'S+' },
-      'high-priestess': { image: '/images/characters/scarlett-high-priestess.png', name: 'Scarlett (Priestess)', role: 'Support', tier: 'SS' },
-      'hoplite': { image: '/images/characters/hoplite.png', name: 'Hoplite', role: 'Tank', tier: 'S+' },
-      'paladin': { image: '/images/characters/paladin.png', name: 'Josef (Paladin)', role: 'Support', tier: 'S+' },
-      'warlock': { image: '/images/characters/warlock.png', name: 'Auch (Warlock)', role: 'Magic DPS', tier: 'SS' },
-      'sorceress': { image: '/images/characters/sorceress.png', name: 'Yahna (Sorceress)', role: 'Magic DPS', tier: 'S+' },
-      'bishop': { image: '/images/characters/bishop.png', name: 'Sharon (Bishop)', role: 'Support', tier: 'S+' },
-      'cleric': { image: '/images/characters/cleric.png', name: 'Primm (Cleric)', role: 'Support', tier: 'S' },
-      'landsknecht': { image: '/images/characters/landsknecht.png', name: 'Berenice (Landsknecht)', role: 'Physical DPS', tier: 'S+' },
-      'valkyrie': { image: '/images/characters/valkyria.png', name: 'Chloe (Valkyrie)', role: 'Support', tier: 'S+' },
-      'valkyria': { image: '/images/characters/valkyria.png', name: 'Virginia (Valkyria)', role: 'Tank', tier: 'S+' },
-      'great-knight': { image: '/images/characters/great-knight.png', name: 'Renault (Great Knight)', role: 'Physical DPS', tier: 'SS' },
-      'wyvern-master': { image: '/images/characters/wyvern-master.png', name: 'Hilda (Wyvern Master)', role: 'Physical DPS', tier: 'SS' },
-      'gryphon-master': { image: '/images/characters/gryphon-master.png', name: 'Celeste (Gryphon)', role: 'Physical DPS', tier: 'S+' },
-      'radiant-knight': { image: '/images/characters/radiant-knight.png', name: 'Miriam (Radiant Knight)', role: 'Support', tier: 'S+' },
-      'rogue': { image: '/images/characters/rogue.png', name: 'Travis (Rogue)', role: 'Debuffer', tier: 'S+' },
-      'breaker': { image: '/images/characters/breaker.png', name: 'Nina (Breaker)', role: 'Physical DPS', tier: 'S+' },
-      'shieldshooter': { image: '/images/characters/arbalist.png', name: 'Liza (Shieldshooter)', role: 'Support', tier: 'S' },
-      'feathersword': { image: '/images/characters/feathersword.png', name: 'Ochlys (Feathersword)', role: 'Tank', tier: 'S+' },
-      'swordmaster': { image: '/images/characters/swordmaster.png', name: 'Melisandre (Swordmaster)', role: 'Physical DPS', tier: 'S+' },
-      'sniper': { image: '/images/characters/sniper.png', name: 'Rolf (Sniper)', role: 'Physical DPS', tier: 'S' },
-      'wereowl': { image: '/images/characters/cleric.png', name: 'Ramona (Wereowl)', role: 'Support', tier: 'SS' },
-      'elven-archer': { image: '/images/characters/elven-fencer.png', name: 'Ridiel (Elven Archer)', role: 'Support', tier: 'S+' },
-      'vanguard': { image: '/images/characters/vanguard.png', name: 'Colm (Vanguard)', role: 'Tank', tier: 'A+' },
-      'dreadnought': { image: '/images/characters/high-lord.png', name: 'Amalia (Dreadnought)', role: 'Physical DPS', tier: 'S+' },
-      'werebear': { image: '/images/characters/gladiator.png', name: 'Bertrand (Werebear)', role: 'Tank', tier: 'S' },
-      'warrior': { image: '/images/characters/warrior.png', name: 'Mordon (Warrior)', role: 'Physical DPS', tier: 'A+' },
-      'werewolf': { image: '/images/characters/werewolf.png', name: 'Dinah (Werewolf)', role: 'Physical DPS', tier: 'S+' },
-      'werefox': { image: '/images/characters/rogue.png', name: 'Govil (Werefox)', role: 'Debuffer', tier: 'S+' },
-      'featherstaff': { image: '/images/characters/bishop.png', name: 'Sanatio (Featherstaff)', role: 'Support', tier: 'S+' },
-      'doom-knight': { image: '/images/characters/doom-knight.png', name: 'Doom Knight', role: 'Magic DPS', tier: 'S+' },
+      'rosalinde-elven-augur': { image: '/images/characters/rosalinde-elven-prophet.png', name: 'Rosalinde (Elven Augur)', role: 'Magic DPS', tier: 'SS' },
+      'eltolinde-elven-sibyl': { image: '/images/characters/eltolinde-elven-sibyl.png', name: 'Eltolinde (Elven Sibyl)', role: 'Support', tier: 'SS' },
+      'berengaria-renegade': { image: '/images/characters/berengaria-renegade.png', name: 'Berengaria (Dark Marquess - Axe)', role: 'Physical DPS', tier: 'SS' },
+      'yunifi-snow-ranger': { image: '/images/characters/yunifi-snow-ranger.png', name: 'Yunifi (Snow Ranger)', role: 'Physical DPS', tier: 'SS' },
+      'gilbert-prince': { image: '/images/characters/gilbert-prince.png', name: 'Gilbert (Prince)', role: 'Support', tier: 'S+' },
+      'raenys-featherbow': { image: '/images/characters/raenys-featherbow.png', name: 'Raenys (Featherbow)', role: 'Debuffer', tier: 'S+' },
+      'scarlett-high-priestess': { image: '/images/characters/scarlett-high-priestess.png', name: 'Scarlett (High Priestess)', role: 'Support', tier: 'SS' },
+      'chloe-sergeant': { image: '/images/characters/valkyria.png', name: 'Chloe (Sergeant)', role: 'Support', tier: 'S+' },
+      'melisandre-swordmaster': { image: '/images/characters/swordmaster.png', name: 'Melisandre (Swordmaster)', role: 'Physical DPS', tier: 'S+' },
+      'clive-great-knight': { image: '/images/characters/great-knight.png', name: 'Clive (Great Knight)', role: 'Physical DPS', tier: 'SS' },
+      'auch-sorcerer': { image: '/images/characters/warlock.png', name: 'Auch (Sorcerer)', role: 'Magic DPS', tier: 'SS' },
+      'yahna-sorceress': { image: '/images/characters/sorceress.png', name: 'Yahna (Sorceress)', role: 'Magic DPS', tier: 'S+' },
+      'sharon-bishop': { image: '/images/characters/bishop.png', name: 'Sharon (Bishop)', role: 'Support', tier: 'S+' },
+      'hodrick-legionnaire': { image: '/images/characters/hoplite.png', name: 'Hodrick (Legionnaire)', role: 'Tank', tier: 'S+' },
+      'selvie-druid': { image: '/images/characters/druid.png', name: 'Selvie (Druid)', role: 'Debuffer', tier: 'SS' },
+      'hilda-wyvern-master': { image: '/images/characters/wyvern-master.png', name: 'Hilda (Wyvern Master)', role: 'Physical DPS', tier: 'SS' },
+      'fran-gryphon-master': { image: '/images/characters/gryphon-master.png', name: 'Fran (Gryphon Master)', role: 'Physical DPS', tier: 'S+' },
+      'miriam-sainted-knight': { image: '/images/characters/radiant-knight.png', name: 'Miriam (Sainted Knight)', role: 'Support', tier: 'S+' },
+      'primm-bishop': { image: '/images/characters/cleric.png', name: 'Primm (Bishop)', role: 'Support', tier: 'S' },
+      'travis-rogue': { image: '/images/characters/rogue.png', name: 'Travis (Rogue)', role: 'Debuffer', tier: 'S+' },
+      'nina-breaker': { image: '/images/characters/breaker.png', name: 'Nina (Breaker)', role: 'Physical DPS', tier: 'S+' },
+      'liza-shieldshooter': { image: '/images/characters/arbalist.png', name: 'Liza (Shieldshooter)', role: 'Support', tier: 'S' },
+      'bruno-berserker': { image: '/images/characters/gladiator.png', name: 'Bruno (Berserker)', role: 'Physical DPS', tier: 'S' },
+      'virginia-valkyria': { image: '/images/characters/valkyria.png', name: 'Virginia (Valkyria)', role: 'Tank', tier: 'S+' },
+      'colm-vanguard': { image: '/images/characters/vanguard.png', name: 'Colm (Vanguard)', role: 'Tank', tier: 'A+' },
+      'leah-swordmaster': { image: '/images/characters/swordmaster.png', name: 'Leah (Swordmaster)', role: 'Physical DPS', tier: 'S+' },
+      'kitra-breaker': { image: '/images/characters/breaker.png', name: 'Kitra (Breaker)', role: 'Physical DPS', tier: 'S+' },
+      'rolf-sniper': { image: '/images/characters/sniper.png', name: 'Rolf (Sniper)', role: 'Physical DPS', tier: 'S' },
+      'ramona-wereowl': { image: '/images/characters/cleric.png', name: 'Ramona (Wereowl)', role: 'Support', tier: 'SS' },
+      'ridiel-elven-archer': { image: '/images/characters/elven-fencer.png', name: 'Ridiel (Elven Archer)', role: 'Support', tier: 'S+' },
+      'bryce-legionnaire': { image: '/images/characters/hoplite.png', name: 'Bryce (Legionnaire)', role: 'Tank', tier: 'S+' },
+      'lex-vanguard': { image: '/images/characters/vanguard.png', name: 'Lex (Vanguard)', role: 'Tank', tier: 'A+' },
+      'ithilion-elven-fencer': { image: '/images/characters/elven-fencer.png', name: 'Ithilion (Elven Fencer)', role: 'Physical DPS', tier: 'S+' },
+      'railanor-elven-fencer': { image: '/images/characters/elven-fencer.png', name: 'Railanor (Elven Fencer)', role: 'Physical DPS', tier: 'S+' },
+      'galadmir-elven-archer': { image: '/images/characters/elven-fencer.png', name: 'Galadmir (Elven Archer)', role: 'Support', tier: 'S+' },
+      'amalia-dreadnought': { image: '/images/characters/high-lord.png', name: 'Amalia (Dreadnought)', role: 'Physical DPS', tier: 'S+' },
+      'bertrand-werebear': { image: '/images/characters/gladiator.png', name: 'Bertrand (Werebear)', role: 'Tank', tier: 'S' },
+      'monica-sainted-knight': { image: '/images/characters/radiant-knight.png', name: 'Monica (Sainted Knight)', role: 'Support', tier: 'S+' },
+      'aramis-swordmaster': { image: '/images/characters/swordmaster.png', name: 'Aramis (Swordmaster)', role: 'Physical DPS', tier: 'S+' },
+      'mandrin-sniper': { image: '/images/characters/sniper.png', name: 'Mandrin (Sniper)', role: 'Physical DPS', tier: 'S' },
+      'dinah-werewolf': { image: '/images/characters/werewolf.png', name: 'Dinah (Werewolf)', role: 'Physical DPS', tier: 'S+' },
+      'govil-werewolf': { image: '/images/characters/werewolf.png', name: 'Govil (Werewolf)', role: 'Physical DPS', tier: 'S+' },
+      'morpan-werebear': { image: '/images/characters/gladiator.png', name: 'Morpan (Werebear)', role: 'Tank', tier: 'S' },
+      'jeremy-landsknecht': { image: '/images/characters/landsknecht.png', name: 'Jeremy (Landsknecht)', role: 'Physical DPS', tier: 'S+' },
+      'ochlys-feathersword': { image: '/images/characters/feathersword.png', name: 'Ochlys (Feathersword)', role: 'Tank', tier: 'S+' },
+      'umerus-feathersword': { image: '/images/characters/feathersword.png', name: 'Umerus (Feathersword)', role: 'Physical DPS', tier: 'S+' },
+      'sanatio-featherstaff': { image: '/images/characters/bishop.png', name: 'Sanatio (Featherstaff)', role: 'Support', tier: 'S+' },
+      'tatiana-bishop': { image: '/images/characters/cleric.png', name: 'Tatiana (Bishop)', role: 'Support', tier: 'S' },
+      'gloucester-doom-knight': { image: '/images/characters/doom-knight.png', name: 'Gloucester (Doom Knight)', role: 'Magic DPS', tier: 'S+' },
     };
 
     const fallback = fallbackImageMap[unitId] || {
@@ -128,7 +194,7 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
       id: unitId,
       name: fallback.name,
       image: fallback.image,
-      category: 'Unique',
+      category: 'Promoted',
       role: fallback.role,
       tier: fallback.tier,
       icon: '⚔️',
@@ -138,7 +204,7 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
       bestGrowthTypes: [],
       synergiesWith: [],
       recommendedEquipment: [],
-      overview: 'Endgame meta core unit.'
+      overview: 'Promoted endgame meta hero.'
     };
   };
 
@@ -149,14 +215,14 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
       name.includes('axe') || name.includes('greataxe') || name.includes('spear') || name.includes('lance') ||
       name.includes('bow') || name.includes('strongbow') || name.includes('staff') || name.includes('rod') ||
       name.includes('scepter') || name.includes('dagger') || name.includes('hammer') || name.includes('mace') ||
-      name.includes('arbalest') || name.includes('glaive')
+      name.includes('arbalest') || name.includes('glaive') || name.includes('cleaver')
     ) {
       return 'Weapon';
     }
     if (name.includes('shield') || name.includes('buckler') || name.includes('greatshield')) {
       return 'Shield';
     }
-    if (name.includes('helm') || name.includes('hood') || name.includes('cap') || name.includes('crown') || name.includes('tiara') || name.includes('mitre') || name.includes('beret')) {
+    if (name.includes('helm') || name.includes('hood') || name.includes('cap') || name.includes('crown') || name.includes('tiara') || name.includes('mitre') || name.includes('beret') || name.includes('scarf') || name.includes('cloak') || name.includes('robes') || name.includes('shawl') || name.includes('ribbon')) {
       return 'Helm';
     }
     return 'Accessory';
@@ -213,7 +279,7 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
       squad.name.toLowerCase().includes(q) ||
       squad.archetype.toLowerCase().includes(q) ||
       squad.keyItems.some((item) => item.toLowerCase().includes(q)) ||
-      squad.unitGearConfigs?.some((u) => u.unitName.toLowerCase().includes(q)) ||
+      squad.unitGearConfigs?.some((u) => u.unitName.toLowerCase().includes(q) || u.characterName?.toLowerCase().includes(q) || u.className?.toLowerCase().includes(q)) ||
       squad.description.toLowerCase().includes(q);
 
     return matchesArchetype && matchesQuery;
@@ -252,7 +318,7 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
               </span>
               <span className="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[11px] font-mono font-bold flex items-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                Endgame & All-Content Verified
+                50 Unique Story Heroes • Promoted Classes
               </span>
             </div>
 
@@ -261,7 +327,7 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
             </h2>
 
             <p className="text-sm text-slate-300 max-w-3xl font-sans leading-relaxed">
-              Complete visual blueprint for deploying <span className="text-amber-300 font-semibold">10 full 5-unit meta squads (50 unique heroes)</span> simultaneously with <span className="text-amber-300 font-semibold">zero character overlap and zero key item conflict</span>.
+              Complete visual blueprint for deploying <span className="text-amber-300 font-semibold">10 full 5-unit meta squads (50 unique canonical heroes)</span> simultaneously with <span className="text-amber-300 font-semibold">4-slot Best-in-Slot (BIS) + Optimal alternative loadouts</span> and zero duplicate units.
             </p>
 
             {/* Live Verification Counters */}
@@ -272,11 +338,11 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/90 border border-emerald-500/30 text-emerald-300">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span><strong>50 / 50</strong> Unique Units (0 Duplicates)</span>
+                <span><strong>50 / 50</strong> Unique Promoted Heroes (0 Duplicates)</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/90 border border-amber-500/30 text-amber-200">
                 <Sparkles className="w-4 h-4 text-amber-400" />
-                <span><strong>40 / 40</strong> Non-Conflicting Key Relics</span>
+                <span><strong>4-Slot BIS + Opt</strong> Gear Breakdown</span>
               </div>
             </div>
           </div>
@@ -288,7 +354,7 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
               className="px-4 py-2.5 rounded-xl bg-amber-500/20 border border-amber-500/50 text-amber-200 hover:bg-amber-500/30 hover:text-white transition font-serif text-xs font-bold flex items-center justify-center gap-2 shadow-lg"
             >
               <Award className="w-4 h-4 text-amber-400" />
-              <span>{showRosterAudit ? 'Hide Conflict Auditor' : 'View 50-Unit Conflict Auditor'}</span>
+              <span>{showRosterAudit ? 'Hide 50-Hero Conflict Auditor' : 'View 50-Hero Conflict Auditor'}</span>
             </button>
           </div>
         </div>
@@ -306,37 +372,51 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
                 <div className="flex items-center justify-between">
                   <h3 className="font-serif text-sm font-bold text-amber-300 flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                    50-Unit & Key Item Non-Overlap Verification Matrix
+                    50 Unique Canonical Heroes & Upgraded Class Directory
                   </h3>
-                  <span className="text-[11px] text-slate-400">All 10 Squads Active Simultaneously</span>
+                  <span className="text-[11px] text-slate-400">All 10 Squads Active Simultaneously (0 Overlap)</span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 text-xs">
                   {ZERO_OVERLAP_SQUADS.map((squad, idx) => (
-                    <div key={squad.id} className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 space-y-2">
-                      <div className="font-serif font-bold text-amber-200 truncate">
-                        #{idx + 1} {squad.name.replace(/^\d+\.\s*/, '')}
+                    <div key={squad.id} className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-2.5">
+                      <div className="border-b border-slate-800 pb-1.5">
+                        <div className="font-serif font-bold text-amber-200 text-xs truncate">
+                          #{idx + 1} {squad.name.replace(/^\d+\.\s*/, '')}
+                        </div>
+                        <div className="text-[10px] text-amber-400 font-mono">{squad.archetype}</div>
                       </div>
-                      <div className="text-[10px] text-amber-400 font-mono">{squad.archetype}</div>
                       
-                      {/* Visual Unit Portraits Row */}
-                      <div className="flex items-center -space-x-1.5 pt-1">
+                      {/* Detailed 5 Heroes List */}
+                      <div className="space-y-1.5">
                         {squad.unitGearConfigs?.map((u, uIdx) => {
                           const info = getUnitClassInfo(u.unitId);
                           return (
                             <div
                               key={`${u.unitId}-${uIdx}`}
-                              className="w-7 h-7 rounded-full border border-amber-400/60 overflow-hidden bg-slate-950 shrink-0 shadow"
-                              title={u.unitName}
+                              className="flex items-center gap-2 p-1 rounded bg-slate-950/80 border border-slate-800/80"
                             >
-                              <img
-                                src={info?.image || '/images/characters/alain-high-lord.png'}
-                                alt={u.unitName}
-                                className="w-full h-full object-cover object-top"
-                                onError={(e) => {
-                                  (e.target as HTMLElement).style.display = 'none';
-                                }}
-                              />
+                              <div
+                                className="w-6 h-6 rounded-full border border-amber-400/60 overflow-hidden bg-slate-950 shrink-0 shadow"
+                                title={u.unitName}
+                              >
+                                <img
+                                  src={info?.image || '/images/characters/alain-high-lord.png'}
+                                  alt={u.unitName}
+                                  className="w-full h-full object-cover object-top"
+                                  onError={(e) => {
+                                    (e.target as HTMLElement).style.display = 'none';
+                                  }}
+                                />
+                              </div>
+                              <div className="overflow-hidden leading-tight">
+                                <div className="text-[10px] font-bold text-slate-200 truncate">
+                                  {u.characterName || u.unitName}
+                                </div>
+                                <div className="text-[8px] text-emerald-400 font-mono truncate">
+                                  {u.className || info?.category}
+                                </div>
+                              </div>
                             </div>
                           );
                         })}
@@ -403,7 +483,7 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
                 }`}
               >
                 <Layers className="w-3.5 h-3.5" />
-                <span>Gear Matrix</span>
+                <span>Gear Matrix (4 Slots)</span>
               </button>
             </div>
           </div>
@@ -413,7 +493,7 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
             <Search className="w-4 h-4 text-amber-400/70 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
-              placeholder="Search by hero (Alain, Rosalinde, Yunifi...), item (Cat-Ear Hood, Trinity Rain...), or archetype..."
+              placeholder="Search by hero (Alain, Chloe, Berengaria, Rosalinde...), item (Cat-Ear Hood, Millennium Scepter...), or archetype..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-slate-950 border border-amber-500/30 rounded-xl pl-10 pr-4 py-2.5 text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400 font-sans shadow-inner"
@@ -502,11 +582,11 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
                     {squad.description}
                   </p>
 
-                  {/* Visual 5-Unit Tactical Grid with Character Avatars */}
+                  {/* Visual 5-Unit Tactical Grid with Character Avatars & Promoted Class Titles */}
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-[11px] font-serif font-bold text-amber-300">
                       <span>Tactical Formation (5 Unique Heroes)</span>
-                      <span className="text-emerald-400 font-mono text-[10px]">0% Character Overlap</span>
+                      <span className="text-emerald-400 font-mono text-[10px]">0% Overlap Verified</span>
                     </div>
 
                     <div className="grid grid-cols-2 gap-3 bg-slate-950/90 p-3 rounded-xl border border-amber-500/30">
@@ -520,28 +600,39 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
                           {squad.frontRow.map((id, i) => {
                             const info = getUnitClassInfo(id);
                             const gearConfig = squad.unitGearConfigs?.[i];
+                            const uApPp = calculateUnitApPp(info, gearConfig);
                             return (
                               <div
                                 key={i}
-                                className="flex items-center gap-2 p-1.5 rounded-lg bg-slate-900/90 border border-slate-800 hover:border-amber-500/40 transition"
+                                className="flex items-center justify-between gap-2 p-1.5 rounded-lg bg-slate-900/90 border border-slate-800 hover:border-amber-500/40 transition"
                               >
-                                <div className="w-8 h-8 rounded-lg border border-amber-400/50 bg-slate-950 overflow-hidden shrink-0">
-                                  <img
-                                    src={info?.image || '/images/characters/alain-high-lord.png'}
-                                    alt={gearConfig?.unitName || id || ''}
-                                    className="w-full h-full object-cover object-top"
-                                    onError={(e) => {
-                                      (e.target as HTMLElement).style.display = 'none';
-                                    }}
-                                  />
+                                <div className="flex items-center gap-2 overflow-hidden">
+                                  <div className="w-8 h-8 rounded-lg border border-amber-400/50 bg-slate-950 overflow-hidden shrink-0">
+                                    <img
+                                      src={info?.image || '/images/characters/alain-high-lord.png'}
+                                      alt={gearConfig?.unitName || id || ''}
+                                      className="w-full h-full object-cover object-top"
+                                      onError={(e) => {
+                                        (e.target as HTMLElement).style.display = 'none';
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="overflow-hidden">
+                                    <div className="text-[11px] font-bold text-slate-200 truncate">
+                                      {gearConfig?.characterName || gearConfig?.unitName || info?.name || id}
+                                    </div>
+                                    <div className="text-[9px] text-amber-400 font-mono truncate">
+                                      {gearConfig?.className || gearConfig?.roleTitle || info?.role || 'Vanguard'}
+                                    </div>
+                                  </div>
                                 </div>
-                                <div className="overflow-hidden">
-                                  <div className="text-[11px] font-bold text-slate-200 truncate">
-                                    {gearConfig?.unitName || info?.name || id}
-                                  </div>
-                                  <div className="text-[9px] text-amber-400/80 font-mono truncate">
-                                    {gearConfig?.roleTitle || info?.role || 'Vanguard'}
-                                  </div>
+                                <div className="flex items-center gap-1 shrink-0">
+                                  <span className="px-1.5 py-0.5 rounded bg-red-950/90 border border-red-500/40 text-[9px] font-mono font-extrabold text-red-300">
+                                    {uApPp.totalAp} AP
+                                  </span>
+                                  <span className="px-1.5 py-0.5 rounded bg-blue-950/90 border border-blue-500/40 text-[9px] font-mono font-extrabold text-blue-300">
+                                    {uApPp.totalPp} PP
+                                  </span>
                                 </div>
                               </div>
                             );
@@ -560,28 +651,39 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
                             const idx = squad.frontRow.length + i;
                             const info = getUnitClassInfo(id);
                             const gearConfig = squad.unitGearConfigs?.[idx];
+                            const uApPp = calculateUnitApPp(info, gearConfig);
                             return (
                               <div
                                 key={i}
-                                className="flex items-center gap-2 p-1.5 rounded-lg bg-slate-900/90 border border-slate-800 hover:border-blue-500/40 transition"
+                                className="flex items-center justify-between gap-2 p-1.5 rounded-lg bg-slate-900/90 border border-slate-800 hover:border-blue-500/40 transition"
                               >
-                                <div className="w-8 h-8 rounded-lg border border-blue-400/50 bg-slate-950 overflow-hidden shrink-0">
-                                  <img
-                                    src={info?.image || '/images/characters/alain-high-lord.png'}
-                                    alt={gearConfig?.unitName || id || ''}
-                                    className="w-full h-full object-cover object-top"
-                                    onError={(e) => {
-                                      (e.target as HTMLElement).style.display = 'none';
-                                    }}
-                                  />
+                                <div className="flex items-center gap-2 overflow-hidden">
+                                  <div className="w-8 h-8 rounded-lg border border-blue-400/50 bg-slate-950 overflow-hidden shrink-0">
+                                    <img
+                                      src={info?.image || '/images/characters/alain-high-lord.png'}
+                                      alt={gearConfig?.unitName || id || ''}
+                                      className="w-full h-full object-cover object-top"
+                                      onError={(e) => {
+                                        (e.target as HTMLElement).style.display = 'none';
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="overflow-hidden">
+                                    <div className="text-[11px] font-bold text-slate-200 truncate">
+                                      {gearConfig?.characterName || gearConfig?.unitName || info?.name || id}
+                                    </div>
+                                    <div className="text-[9px] text-blue-300 font-mono truncate">
+                                      {gearConfig?.className || gearConfig?.roleTitle || info?.role || 'Support'}
+                                    </div>
+                                  </div>
                                 </div>
-                                <div className="overflow-hidden">
-                                  <div className="text-[11px] font-bold text-slate-200 truncate">
-                                    {gearConfig?.unitName || info?.name || id}
-                                  </div>
-                                  <div className="text-[9px] text-blue-300/80 font-mono truncate">
-                                    {gearConfig?.roleTitle || info?.role || 'Support'}
-                                  </div>
+                                <div className="flex items-center gap-1 shrink-0">
+                                  <span className="px-1.5 py-0.5 rounded bg-red-950/90 border border-red-500/40 text-[9px] font-mono font-extrabold text-red-300">
+                                    {uApPp.totalAp} AP
+                                  </span>
+                                  <span className="px-1.5 py-0.5 rounded bg-blue-950/90 border border-blue-500/40 text-[9px] font-mono font-extrabold text-blue-300">
+                                    {uApPp.totalPp} PP
+                                  </span>
                                 </div>
                               </div>
                             );
@@ -591,7 +693,7 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
                     </div>
                   </div>
 
-                  {/* Visual Dedicated Key Relics */}
+                  {/* Dedicated Key Relics */}
                   <div className="space-y-2">
                     <div className="text-[11px] font-serif font-bold text-amber-300 flex items-center justify-between">
                       <span>Dedicated Key Relics (No Conflict)</span>
@@ -638,7 +740,7 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
                     className="px-3.5 py-2 rounded-xl bg-slate-900 border border-amber-500/30 text-amber-300 hover:bg-slate-800 hover:text-white transition font-serif text-xs font-bold flex items-center gap-1.5"
                   >
                     <BookOpen className="w-3.5 h-3.5" />
-                    <span>Full Loadout & Tactics</span>
+                    <span>4-Slot Loadouts & Tactics</span>
                   </button>
 
                   <button
@@ -659,130 +761,289 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
       {/* VIEW MODE 2: Tactics Preset View */}
       {viewMode === 'tactics' && (
         <div className="space-y-4">
+          {filteredSquads.map((squad) => {
+            const squadTactics = (() => {
+              if (squad.tacticsSequence && squad.tacticsSequence.length >= 4) {
+                return squad.tacticsSequence;
+              }
+              const steps: { step: number; unit: string; skill: string; condition1: string; condition2: string; notes: string }[] = [];
+
+              squad.unitGearConfigs?.forEach((u) => {
+                const info = getUnitClassInfo(u.unitId);
+                const charName = u.characterName || u.unitName.split(' ')[0] || info?.name || 'Unit';
+
+                // 1. Start of battle
+                const sob = info?.passiveSkills?.find((s) => s.isStartOfBattle || s.trigger?.toLowerCase().includes('start'));
+                if (sob) {
+                  steps.push({
+                    step: steps.length + 1,
+                    unit: charName,
+                    skill: sob.name,
+                    condition1: '[Start of Battle]',
+                    condition2: '[Target: All Enemies / Front Row]',
+                    notes: sob.description || 'Start-of-Battle initiative boost',
+                  });
+                }
+
+                // 2. Primary active skill
+                const primaryActive = info?.activeSkills?.[0];
+                if (primaryActive) {
+                  let cond1 = '[Target: Frontline Row]';
+                  if (primaryActive.target === 'Full Row') cond1 = '[Target: Full Row (2+ Enemies)]';
+                  else if (primaryActive.target === 'All Enemies') cond1 = '[Target: All Enemies]';
+                  else if (primaryActive.target === 'Column') cond1 = '[Target: Column (Infantry Priority)]';
+                  else if (primaryActive.name.toLowerCase().includes('keen')) cond1 = '[Target: Prioritize Scouts / Evasion]';
+
+                  steps.push({
+                    step: steps.length + 1,
+                    unit: charName,
+                    skill: primaryActive.name,
+                    condition1: cond1,
+                    condition2: `[Self AP >= ${primaryActive.apCost || 2}]`,
+                    notes: primaryActive.description || 'Primary tactical strike',
+                  });
+                }
+
+                // 3. Key passive reaction
+                const keyPassive = info?.passiveSkills?.find((s) => !s.isStartOfBattle);
+                if (keyPassive) {
+                  let cond1 = '[Before Being Attacked]';
+                  if (keyPassive.name.toLowerCase().includes('cover')) cond1 = '[Before Ally Attacked (Back Row)]';
+                  else if (keyPassive.name.toLowerCase().includes('call')) cond1 = '[After Ally Attack (Row Attack)]';
+                  else if (keyPassive.name.toLowerCase().includes('heal')) cond1 = '[Ally HP <= 50%]';
+                  else if (keyPassive.name.toLowerCase().includes('parry')) cond1 = '[Before Melee Physical Attack]';
+
+                  steps.push({
+                    step: steps.length + 1,
+                    unit: charName,
+                    skill: keyPassive.name,
+                    condition1: cond1,
+                    condition2: `[Self PP >= ${keyPassive.ppCost || 1}]`,
+                    notes: keyPassive.description || 'Key tactical reaction/buff',
+                  });
+                }
+              });
+
+              return steps.map((s, idx) => ({ ...s, step: idx + 1 }));
+            })();
+
+            return (
+              <div
+                key={squad.id}
+                className="rounded-xl bg-slate-950 border border-amber-500/30 p-5 space-y-4 shadow-xl filigree-box"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                  <div>
+                    <h3 className="font-serif text-lg font-bold text-amber-200">{squad.name}</h3>
+                    <p className="text-xs text-slate-400">{squad.strategyGuide?.winCondition}</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setSelectedBuildForModal(squad)}
+                      className="px-3 py-1.5 rounded-lg bg-slate-900 border border-amber-500/30 text-amber-300 text-xs font-serif font-bold hover:bg-slate-800 transition flex items-center gap-1"
+                    >
+                      <BookOpen className="w-3.5 h-3.5" />
+                      <span>Inspect 4-Slot Loadouts</span>
+                    </button>
+                    <button
+                      onClick={() => onLoadIntoBuilder(squad)}
+                      className="px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 text-xs font-serif font-bold hover:bg-amber-400 transition flex items-center gap-1"
+                    >
+                      <Zap className="w-3 h-3 fill-slate-950" />
+                      <span>Load Builder</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Tactics Sequence Table */}
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-xs font-sans border-collapse">
+                    <thead>
+                      <tr className="border-b border-slate-800 text-amber-400 font-serif">
+                        <th className="py-2 px-3">Priority</th>
+                        <th className="py-2 px-3">Hero Unit</th>
+                        <th className="py-2 px-3">Skill Name</th>
+                        <th className="py-2 px-3">Condition 1</th>
+                        <th className="py-2 px-3">Condition 2</th>
+                        <th className="py-2 px-3">Tactical Rationale</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-900">
+                      {squadTactics.map((tac) => (
+                        <tr key={tac.step} className="hover:bg-slate-900/60 transition">
+                          <td className="py-2 px-3 font-mono font-bold text-amber-300">P{tac.step}</td>
+                          <td className="py-2 px-3 font-bold text-slate-200">{tac.unit}</td>
+                          <td className="py-2 px-3 font-semibold text-amber-300 font-mono">{tac.skill}</td>
+                          <td className="py-2 px-3 text-slate-300 font-mono">{tac.condition1}</td>
+                          <td className="py-2 px-3 text-slate-300 font-mono">{tac.condition2}</td>
+                          <td className="py-2 px-3 text-slate-400 italic">{tac.notes}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* VIEW MODE 3: Gear Matrix View (Full 4-Slot Loadouts Breakdown) */}
+      {viewMode === 'matrix' && (
+        <div className="space-y-6">
           {filteredSquads.map((squad) => (
             <div
               key={squad.id}
-              className="rounded-xl bg-slate-950 border border-amber-500/30 p-5 space-y-4 shadow-xl filigree-box"
+              className="rounded-2xl bg-slate-950 border border-amber-500/30 p-5 space-y-4 shadow-2xl filigree-box"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
-                <div>
-                  <h3 className="font-serif text-lg font-bold text-amber-200">{squad.name}</h3>
-                  <p className="text-xs text-slate-400">{squad.strategyGuide?.winCondition}</p>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-amber-500/20 pb-3">
+                <div className="flex items-center gap-3">
+                  <span className="px-2.5 py-1 rounded bg-amber-500 text-slate-950 font-serif font-extrabold text-xs">
+                    {squad.tier}
+                  </span>
+                  <div>
+                    <h3 className="font-serif text-lg font-bold text-amber-100">{squad.name}</h3>
+                    <span className="text-xs font-mono text-amber-400">{squad.archetype}</span>
+                  </div>
                 </div>
+
                 <div className="flex items-center gap-2">
                   <button
-                    onClick={() => onLoadIntoBuilder(squad)}
-                    className="px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 text-xs font-serif font-bold hover:bg-amber-400 transition flex items-center gap-1"
+                    onClick={() => setSelectedBuildForModal(squad)}
+                    className="px-3 py-1.5 rounded-lg bg-slate-900 border border-amber-500/30 text-amber-300 text-xs font-serif font-bold hover:bg-slate-800 transition flex items-center gap-1"
                   >
-                    <Zap className="w-3 h-3 fill-slate-950" />
-                    <span>Load Builder</span>
+                    <BookOpen className="w-3.5 h-3.5" />
+                    <span>View Tactics</span>
+                  </button>
+                  <button
+                    onClick={() => onLoadIntoBuilder(squad)}
+                    className="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-serif text-xs font-extrabold hover:from-amber-400 hover:to-amber-500 transition"
+                  >
+                    Load Builder
                   </button>
                 </div>
               </div>
 
-              {/* Tactics Sequence Table */}
+              {/* 5-Hero 4-Slot Gear Table */}
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs font-sans border-collapse">
                   <thead>
-                    <tr className="border-b border-slate-800 text-amber-400 font-serif">
-                      <th className="py-2 px-3">Step</th>
-                      <th className="py-2 px-3">Unit</th>
-                      <th className="py-2 px-3">Skill</th>
-                      <th className="py-2 px-3">Condition 1</th>
-                      <th className="py-2 px-3">Condition 2</th>
-                      <th className="py-2 px-3">Tactical Rationale</th>
+                    <tr className="border-b border-slate-800 text-amber-300 font-serif">
+                      <th className="py-2.5 px-3">Hero & Class</th>
+                      <th className="py-2.5 px-3">Total AP / PP</th>
+                      <th className="py-2.5 px-3">Slot 1: Weapon (BIS + Opt)</th>
+                      <th className="py-2.5 px-3">Slot 2: Shield / Helm (BIS + Opt)</th>
+                      <th className="py-2.5 px-3">Slot 3: Acc 1 (BIS + Opt)</th>
+                      <th className="py-2.5 px-3">Slot 4: Acc 2 (BIS + Opt)</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-900">
-                    {squad.tacticsSequence?.map((tac) => (
-                      <tr key={tac.step} className="hover:bg-slate-900/60 transition">
-                        <td className="py-2 px-3 font-mono font-bold text-amber-300">{tac.step}</td>
-                        <td className="py-2 px-3 font-bold text-slate-200">{tac.unit}</td>
-                        <td className="py-2 px-3 font-semibold text-amber-400 font-mono">{tac.skill}</td>
-                        <td className="py-2 px-3 text-slate-300 font-mono">{tac.condition1}</td>
-                        <td className="py-2 px-3 text-slate-300 font-mono">{tac.condition2}</td>
-                        <td className="py-2 px-3 text-slate-400 italic">{tac.notes}</td>
-                      </tr>
-                    ))}
+                    {squad.unitGearConfigs?.map((u, uIdx) => {
+                      const info = getUnitClassInfo(u.unitId);
+                      const uApPp = calculateUnitApPp(info, u);
+                      return (
+                        <tr key={`${u.unitId}-${uIdx}`} className="hover:bg-slate-900/60 transition">
+                          {/* Unit Title & Avatar */}
+                          <td className="py-3 px-3">
+                            <div className="flex items-center gap-2.5 min-w-[140px]">
+                              <div className="w-9 h-9 rounded-lg border border-amber-400/60 overflow-hidden bg-slate-950 shrink-0 shadow">
+                                <img
+                                  src={info?.image || '/images/characters/alain-high-lord.png'}
+                                  alt={u.unitName}
+                                  className="w-full h-full object-cover object-top"
+                                  onError={(e) => {
+                                    (e.target as HTMLElement).style.display = 'none';
+                                  }}
+                                />
+                              </div>
+                              <div>
+                                <div className="font-serif font-bold text-slate-100">{u.characterName || u.unitName}</div>
+                                <div className="text-[10px] text-emerald-400 font-mono">{u.className || info?.category}</div>
+                              </div>
+                            </div>
+                          </td>
+
+                          {/* Total AP / PP Column */}
+                          <td className="py-3 px-3">
+                            <div className="flex items-center gap-1.5 whitespace-nowrap min-w-[140px]">
+                              <div className="px-2 py-1 rounded-md bg-red-950/80 border border-red-500/50 text-[11px] font-mono font-extrabold text-red-300 flex items-center gap-1">
+                                <span>{uApPp.totalAp} AP</span>
+                                <span className="text-[9px] text-red-400/70 font-normal">({uApPp.baseAp}+{uApPp.bonusAp})</span>
+                              </div>
+                              <div className="px-2 py-1 rounded-md bg-blue-950/80 border border-blue-500/50 text-[11px] font-mono font-extrabold text-blue-300 flex items-center gap-1">
+                                <span>{uApPp.totalPp} PP</span>
+                                <span className="text-[9px] text-blue-400/70 font-normal">({uApPp.basePp}+{uApPp.bonusPp})</span>
+                              </div>
+                            </div>
+                          </td>
+
+                          {/* Slot 1 Weapon */}
+                          <td className="py-3 px-3">
+                            <div className="space-y-1 min-w-[170px]">
+                              <div className="font-bold text-amber-300 flex items-center gap-1">
+                                <span className="text-[10px] px-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">BIS</span>
+                                <span className="truncate">{u.slot1Weapon?.bestInSlot || u.weapon}</span>
+                              </div>
+                              {u.slot1Weapon?.optimalAlternatives && u.slot1Weapon.optimalAlternatives.length > 0 && (
+                                <div className="text-[10px] text-slate-400 truncate">
+                                  <span className="text-slate-500 font-mono">Opt:</span> {u.slot1Weapon.optimalAlternatives.slice(0, 2).join(', ')}
+                                </div>
+                              )}
+                            </div>
+                          </td>
+
+                          {/* Slot 2 Shield / Offhand / Helm */}
+                          <td className="py-3 px-3">
+                            <div className="space-y-1 min-w-[170px]">
+                              <div className="font-bold text-cyan-300 flex items-center gap-1">
+                                <span className="text-[10px] px-1 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">BIS</span>
+                                <span className="truncate">{u.slot2ShieldOrOffhand?.bestInSlot || u.shieldOrHelm}</span>
+                              </div>
+                              {u.slot2ShieldOrOffhand?.optimalAlternatives && u.slot2ShieldOrOffhand.optimalAlternatives.length > 0 && (
+                                <div className="text-[10px] text-slate-400 truncate">
+                                  <span className="text-slate-500 font-mono">Opt:</span> {u.slot2ShieldOrOffhand.optimalAlternatives.slice(0, 2).join(', ')}
+                                </div>
+                              )}
+                            </div>
+                          </td>
+
+                          {/* Slot 3 Accessory 1 */}
+                          <td className="py-3 px-3">
+                            <div className="space-y-1 min-w-[170px]">
+                              <div className="font-bold text-emerald-300 flex items-center gap-1">
+                                <span className="text-[10px] px-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">BIS</span>
+                                <span className="truncate">{u.slot3Accessory?.bestInSlot || u.accessory1}</span>
+                              </div>
+                              {u.slot3Accessory?.optimalAlternatives && u.slot3Accessory.optimalAlternatives.length > 0 && (
+                                <div className="text-[10px] text-slate-400 truncate">
+                                  <span className="text-slate-500 font-mono">Opt:</span> {u.slot3Accessory.optimalAlternatives.slice(0, 2).join(', ')}
+                                </div>
+                              )}
+                            </div>
+                          </td>
+
+                          {/* Slot 4 Accessory 2 */}
+                          <td className="py-3 px-3">
+                            <div className="space-y-1 min-w-[170px]">
+                              <div className="font-bold text-purple-300 flex items-center gap-1">
+                                <span className="text-[10px] px-1 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">BIS</span>
+                                <span className="truncate">{u.slot4Accessory?.bestInSlot || u.accessory2}</span>
+                              </div>
+                              {u.slot4Accessory?.optimalAlternatives && u.slot4Accessory.optimalAlternatives.length > 0 && (
+                                <div className="text-[10px] text-slate-400 truncate">
+                                  <span className="text-slate-500 font-mono">Opt:</span> {u.slot4Accessory.optimalAlternatives.slice(0, 2).join(', ')}
+                                </div>
+                              )}
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
             </div>
           ))}
-        </div>
-      )}
-
-      {/* VIEW MODE 3: Gear Matrix View */}
-      {viewMode === 'matrix' && (
-        <div className="rounded-2xl bg-slate-950 border border-amber-500/30 p-5 overflow-x-auto shadow-2xl filigree-box">
-          <table className="w-full text-left text-xs font-sans border-collapse">
-            <thead>
-              <tr className="border-b border-amber-500/30 text-amber-300 font-serif">
-                <th className="py-3 px-4">Squad Name</th>
-                <th className="py-3 px-4">Archetype</th>
-                <th className="py-3 px-4">Tier</th>
-                <th className="py-3 px-4">5 Unique Assigned Heroes</th>
-                <th className="py-3 px-4">Dedicated Key Relics</th>
-                <th className="py-3 px-4 text-right">Action</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-900">
-              {filteredSquads.map((squad) => (
-                <tr key={squad.id} className="hover:bg-slate-900/70 transition">
-                  <td className="py-3.5 px-4 font-serif font-bold text-amber-100">{squad.name}</td>
-                  <td className="py-3.5 px-4 font-mono text-amber-400">{squad.archetype}</td>
-                  <td className="py-3.5 px-4">
-                    <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold text-[10px]">
-                      {squad.tier}
-                    </span>
-                  </td>
-                  <td className="py-3.5 px-4">
-                    <div className="flex items-center -space-x-1.5">
-                      {squad.unitGearConfigs?.map((u, uIdx) => {
-                        const info = getUnitClassInfo(u.unitId);
-                        return (
-                          <div
-                            key={`${u.unitId}-${uIdx}`}
-                            className="w-7 h-7 rounded-full border border-amber-400/60 overflow-hidden bg-slate-950 shrink-0 shadow"
-                            title={u.unitName}
-                          >
-                            <img
-                              src={info?.image || '/images/characters/alain-high-lord.png'}
-                              alt={u.unitName}
-                              className="w-full h-full object-cover object-top"
-                              onError={(e) => {
-                                (e.target as HTMLElement).style.display = 'none';
-                              }}
-                            />
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </td>
-                  <td className="py-3.5 px-4">
-                    <div className="flex flex-wrap gap-1">
-                      {squad.keyItems.map((item) => (
-                        <span
-                          key={item}
-                          className="px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-300 font-mono text-[10px]"
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </td>
-                  <td className="py-3.5 px-4 text-right">
-                    <button
-                      onClick={() => onLoadIntoBuilder(squad)}
-                      className="px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-serif text-xs font-bold hover:bg-amber-400 transition"
-                    >
-                      Builder
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
       )}
 

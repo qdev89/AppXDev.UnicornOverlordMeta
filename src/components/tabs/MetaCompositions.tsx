@@ -20,6 +20,7 @@ import { CLASSES_DATA } from '@/data/classes';
 import { ITEMS_DATA } from '@/data/items';
 import { SquadBuild } from '@/types';
 import { BuildDetailModal } from '@/components/builder/BuildDetailModal';
+import { calculateUnitApPp } from '@/utils/apPpCalculator';
 
 interface MetaCompositionsProps {
   onLoadIntoBuilder: (squad: SquadBuild) => void;
@@ -359,6 +360,8 @@ export const MetaCompositions: React.FC<MetaCompositionsProps> = ({ onLoadIntoBu
                         <div className="grid grid-cols-1 gap-2">
                           {squad.frontRow.map((unitId, i) => {
                             const unit = getUnitClass(unitId);
+                            const uGearConfig = squad.unitGearConfigs?.[i];
+                            const uApPp = calculateUnitApPp(unit, uGearConfig);
                             return (
                               <div
                                 key={i}
@@ -380,16 +383,20 @@ export const MetaCompositions: React.FC<MetaCompositionsProps> = ({ onLoadIntoBu
                                       </div>
                                       <div>
                                         <span className="font-serif font-bold text-sm text-amber-200 truncate block">
-                                          {unit.name}
+                                          {uGearConfig?.characterName || unit.name}
                                         </span>
                                         <span className="text-[9px] font-mono text-emerald-400 font-bold">
                                           HP {unit.baseStats.hp || 100}/100
                                         </span>
                                       </div>
                                     </div>
-                                    <div className="flex items-center">
-                                      <span className="ap-diamond" />
-                                      <span className="pp-diamond" />
+                                    <div className="flex items-center gap-1">
+                                      <span className="px-1.5 py-0.5 rounded bg-red-950/80 border border-red-500/40 text-[10px] font-mono font-bold text-red-300">
+                                        {uApPp.totalAp} AP
+                                      </span>
+                                      <span className="px-1.5 py-0.5 rounded bg-blue-950/80 border border-blue-500/40 text-[10px] font-mono font-bold text-blue-300">
+                                        {uApPp.totalPp} PP
+                                      </span>
                                     </div>
                                   </div>
                                 ) : (
@@ -409,6 +416,9 @@ export const MetaCompositions: React.FC<MetaCompositionsProps> = ({ onLoadIntoBu
                         <div className="grid grid-cols-1 gap-2">
                           {squad.backRow.map((unitId, i) => {
                             const unit = getUnitClass(unitId);
+                            const idx = squad.frontRow.length + i;
+                            const uGearConfig = squad.unitGearConfigs?.[idx];
+                            const uApPp = calculateUnitApPp(unit, uGearConfig);
                             return (
                               <div
                                 key={i}
@@ -430,16 +440,20 @@ export const MetaCompositions: React.FC<MetaCompositionsProps> = ({ onLoadIntoBu
                                       </div>
                                       <div>
                                         <span className="font-serif font-bold text-sm text-purple-200 truncate block">
-                                          {unit.name}
+                                          {uGearConfig?.characterName || unit.name}
                                         </span>
                                         <span className="text-[9px] font-mono text-emerald-400 font-bold">
                                           HP {unit.baseStats.hp || 90}/90
                                         </span>
                                       </div>
                                     </div>
-                                    <div className="flex items-center">
-                                      <span className="ap-diamond" />
-                                      <span className="pp-diamond" />
+                                    <div className="flex items-center gap-1">
+                                      <span className="px-1.5 py-0.5 rounded bg-red-950/80 border border-red-500/40 text-[10px] font-mono font-bold text-red-300">
+                                        {uApPp.totalAp} AP
+                                      </span>
+                                      <span className="px-1.5 py-0.5 rounded bg-blue-950/80 border border-blue-500/40 text-[10px] font-mono font-bold text-blue-300">
+                                        {uApPp.totalPp} PP
+                                      </span>
                                     </div>
                                   </div>
                                 ) : (

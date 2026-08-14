@@ -1,4 +1,4 @@
-export type UnitCategory = 'Unique' | 'Infantry' | 'Cavalry' | 'Flying' | 'Armored';
+export type UnitCategory = 'Unique' | 'Promoted' | 'Infantry' | 'Cavalry' | 'Flying' | 'Armored';
 export type UnitRole = 'Tank' | 'Physical DPS' | 'Magic DPS' | 'Support' | 'Debuffer';
 export type UnitTier = 'SS' | 'S+' | 'S' | 'A+' | 'A' | 'B' | 'C';
 export type ItemType = 'Weapon' | 'Shield' | 'Accessory' | 'Tome' | 'Helm';
@@ -25,6 +25,8 @@ export interface PassiveSkill {
   ppCost: number;
   trigger: string;
   isStartOfBattle?: boolean;
+  potency?: number;
+  flags?: string[];
   description: string;
 }
 
@@ -93,14 +95,27 @@ export interface TacticsStep {
   notes: string;
 }
 
+export interface SlotGearRecommendation {
+  bestInSlot: string;
+  optimalAlternatives: string[];
+  slotType: 'Weapon' | 'Shield' | 'Helm' | 'Accessory' | 'Offhand';
+  notes?: string;
+}
+
 export interface UnitGearConfig {
   unitId: string;
   unitName: string;
+  characterName?: string;
+  className?: string;
   roleTitle?: string;
   weapon?: string;
   shieldOrHelm?: string;
   accessory1?: string;
   accessory2?: string;
+  slot1Weapon?: SlotGearRecommendation;
+  slot2ShieldOrOffhand?: SlotGearRecommendation;
+  slot3Accessory?: SlotGearRecommendation;
+  slot4Accessory?: SlotGearRecommendation;
   statPriorities?: string[];
   growthTypes?: [string, string];
 }

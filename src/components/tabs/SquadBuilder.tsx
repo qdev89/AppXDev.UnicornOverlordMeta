@@ -26,10 +26,11 @@ import confetti from 'canvas-confetti';
 import { CLASSES_DATA } from '@/data/classes';
 import { ITEMS_DATA } from '@/data/items';
 import { SQUADS_DATA } from '@/data/squads';
-import { UnitClass, RelicItem, SquadSlot, SynergyAnalysis, SquadBuild, TacticsRule } from '@/types';
+import { UnitClass, RelicItem, SquadSlot, SynergyAnalysis, SquadBuild, TacticsRule, UnitGearConfig } from '@/types';
 import { TacticsEditorModal } from '@/components/builder/TacticsEditorModal';
 import { EquipmentModal } from '@/components/builder/EquipmentModal';
 import { BattleSimulator } from '@/components/builder/BattleSimulator';
+import { calculateUnitApPp } from '@/utils/apPpCalculator';
 
 interface SquadBuilderProps {
   initialSquad?: SquadBuild | null;
@@ -573,6 +574,15 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
                       .filter((s) => s.row === 'front')
                       .map((slot) => {
                         const unit = getUnitClass(slot.unitId);
+                        const slotGear: UnitGearConfig | undefined = slot.customItems ? {
+                          unitId: slot.unitId || '',
+                          unitName: unit?.name || '',
+                          weapon: slot.customItems[0] || undefined,
+                          shieldOrHelm: slot.customItems[1] || undefined,
+                          accessory1: slot.customItems[2] || undefined,
+                          accessory2: slot.customItems[3] || undefined,
+                        } : undefined;
+                        const slotApPp = calculateUnitApPp(unit, slotGear);
                         return (
                           <div
                             key={slot.slotId}
@@ -641,8 +651,8 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
                                   </div>
 
                                   <div className="flex items-center gap-1">
-                                    <span className="ap-gem text-[10px] px-1.5 py-0.2 rounded font-serif">2 AP</span>
-                                    <span className="pp-gem text-[10px] px-1.5 py-0.2 rounded font-serif">2 PP</span>
+                                    <span className="ap-gem text-[10px] px-1.5 py-0.2 rounded font-serif">{slotApPp.totalAp} AP</span>
+                                    <span className="pp-gem text-[10px] px-1.5 py-0.2 rounded font-serif">{slotApPp.totalPp} PP</span>
                                   </div>
                                 </div>
                               </>
@@ -669,6 +679,15 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
                       .filter((s) => s.row === 'back')
                       .map((slot) => {
                         const unit = getUnitClass(slot.unitId);
+                        const slotGear: UnitGearConfig | undefined = slot.customItems ? {
+                          unitId: slot.unitId || '',
+                          unitName: unit?.name || '',
+                          weapon: slot.customItems[0] || undefined,
+                          shieldOrHelm: slot.customItems[1] || undefined,
+                          accessory1: slot.customItems[2] || undefined,
+                          accessory2: slot.customItems[3] || undefined,
+                        } : undefined;
+                        const slotApPp = calculateUnitApPp(unit, slotGear);
                         return (
                           <div
                             key={slot.slotId}
@@ -698,7 +717,8 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
                                     </div>
                                   </div>
                                   <div className="flex items-center gap-1.5">
-                                    <span className="ap-gem text-[9px] px-1.5 py-0.2 rounded font-serif">2 AP</span>
+                                    <span className="ap-gem text-[9px] px-1.5 py-0.2 rounded font-serif">{slotApPp.totalAp} AP</span>
+                                    <span className="pp-gem text-[9px] px-1.5 py-0.2 rounded font-serif">{slotApPp.totalPp} PP</span>
                                     <button
                                       onClick={(e) => {
                                         e.stopPropagation();

@@ -25,7 +25,9 @@ import {
 } from 'lucide-react';
 import { SquadBuild, UnitClass, UnitGearConfig, TacticsStep } from '@/types';
 import { CLASSES_DATA } from '@/data/classes';
+import { ITEMS_DATA } from '@/data/items';
 import { downloadSquadAsJson, generateSquadImageCard } from '@/utils/exportUtils';
+import { calculateUnitApPp } from '@/utils/apPpCalculator';
 
 interface BuildDetailModalProps {
   squad: SquadBuild | null;
@@ -92,64 +94,216 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
     setTimeout(() => setCopiedLink(false), 2500);
   };
 
-  // Helper to generate dynamic tactics for a unit if squad tactics sequence has no explicit entry for them
-  const generateUnitTactics = (uClass: UnitClass | null, gearConfig?: UnitGearConfig): TacticsStep[] => {
+  // Helper to generate rich, complete 4-6 prioritized in-game tactics rules for any unit
+  const generateComprehensiveTactics = (
+    uClass: UnitClass | null,
+    gearConfig?: UnitGearConfig,
+    squadObj?: SquadBuild | null
+  ): TacticsStep[] => {
     if (!uClass) return [];
 
-    const unitDisplayName = gearConfig?.unitName.split(' ')[0] || uClass.name.split(' ')[0] || uClass.name;
+    const unitDisplayName = gearConfig?.characterName || gearConfig?.unitName?.split(' ')[0] || uClass.name.split(' ')[0] || uClass.name;
     const steps: TacticsStep[] = [];
 
-    // 1. Active Skills
-    uClass.activeSkills.forEach((sk, idx) => {
-      steps.push({
-        step: steps.length + 1,
-        unit: unitDisplayName,
-        skill: sk.name,
-        condition1: idx === 0 ? '[Target: Frontline]' : '[Target: Lowest HP %]',
-        condition2: idx === 0 ? `[Self AP >= ${sk.apCost || 1}]` : `[Self AP >= ${sk.apCost || 2}]`,
-        notes: sk.description || `Potency ${sk.potency || 100}% ${sk.flags?.join(', ') || ''}`
-      });
-    });
+    // Gather equipped items and find granted skills
+    const equippedItemNames = [
+      gearConfig?.slot1Weapon?.bestInSlot || gearConfig?.weapon,
+      gearConfig?.slot2ShieldOrOffhand?.bestInSlot || gearConfig?.shieldOrHelm,
+      gearConfig?.slot3Accessory?.bestInSlot || gearConfig?.accessory1,
+      gearConfig?.slot4Accessory?.bestInSlot || gearConfig?.accessory2,
+    ].filter(Boolean) as string[];
 
-    // 2. Passive Skills
-    uClass.passiveSkills.forEach((sk, idx) => {
-      steps.push({
-        step: steps.length + 1,
-        unit: unitDisplayName,
-        skill: sk.name,
-        condition1: sk.isStartOfBattle ? '[Start of Battle]' : sk.trigger ? `[${sk.trigger}]` : '[Before Attacked]',
-        condition2: `[Self PP >= ${sk.ppCost || 1}]`,
-        notes: sk.description || 'Passive defensive/utility maneuver'
-      });
-    });
-
-    // 3. Fallback fill if skills are sparse
-    if (steps.length < 3) {
-      if (gearConfig?.weapon) {
-        steps.push({
-          step: steps.length + 1,
-          unit: unitDisplayName,
-          skill: `${gearConfig.weapon} Skill`,
-          condition1: '[Target: Highest ATK]',
-          condition2: '[Self AP >= 1]',
-          notes: 'Granted from equipped weapon loadout'
-        });
+    const grantedItemSkills: { name: string; cost: string; description: string; isStartOfBattle?: boolean }[] = [];
+    equippedItemNames.forEach((itemName) => {
+      const clean = itemName.toLowerCase();
+      const found = ITEMS_DATA.find(
+        (i) => i.name.toLowerCase() === clean || clean.includes(i.name.toLowerCase()) || i.name.toLowerCase().includes(clean)
+      );
+      if (found?.grantedSkill) {
+        grantedItemSkills.push(found.grantedSkill);
       }
+    });
+
+    const activeSkillsList = [...(uClass.activeSkills || [])];
+
+    // Priority 1: Primary Active Skill (Highest AP cost / Row Attack / AOE Strike / Core Nuke)
+    if (activeSkillsList.length > 0) {
+      const primaryActive = activeSkillsList.reduce(
+        (prev, curr) => ((curr.apCost || 1) >= (prev.apCost || 1) ? curr : prev),
+        activeSkillsList[0]
+      );
+      let cond1 = '[Target: Frontline Row]';
+      if (primaryActive.target === 'Full Row') cond1 = '[Target: Full Row (2+ Enemies)]';
+      else if (primaryActive.target === 'All Enemies') cond1 = '[Target: All Enemies]';
+      else if (primaryActive.target === 'Column') cond1 = '[Target: Column (Infantry Priority)]';
+      else if (primaryActive.flags?.includes('True-Strike') || primaryActive.name.toLowerCase().includes('keen'))
+        cond1 = '[Target: Prioritize Scouts / Evasion]';
+      else if (uClass.category === 'Cavalry') cond1 = '[Target: Prioritize Infantry]';
+      else if (uClass.role === 'Physical DPS') cond1 = '[Target: Prioritize Low Phys DEF]';
+
       steps.push({
-        step: steps.length + 1,
+        step: 1,
         unit: unitDisplayName,
-        skill: uClass.role === 'Tank' ? 'Heavy Cover' : uClass.role === 'Support' ? 'Quick Heal' : 'Offensive Focus',
-        condition1: uClass.role === 'Tank' ? '[Before Ally Attacked]' : '[Ally HP < 50%]',
-        condition2: '[Self PP >= 1]',
-        notes: `Tactical role execution for ${uClass.role}`
+        skill: primaryActive.name,
+        condition1: cond1,
+        condition2: `[Self AP >= ${primaryActive.apCost || 2}]`,
+        notes: primaryActive.description || `Primary tactical strike with ${primaryActive.potency || 100}% potency.`,
       });
     }
 
-    return steps;
+    // Priority 2: Granted Item Active Skill or Secondary Active Skill (Single Target / Finisher / Sustain / Lower AP)
+    const activeItemSkill = grantedItemSkills.find((g) => g.cost.includes('AP'));
+    if (activeItemSkill && !steps.some((s) => s.skill === activeItemSkill.name)) {
+      steps.push({
+        step: steps.length + 1,
+        unit: unitDisplayName,
+        skill: activeItemSkill.name,
+        condition1: activeItemSkill.name.includes('Trinity') ? '[Target: All Enemies]' : '[Target: Highest ATK Combatant]',
+        condition2: `[Self AP >= ${parseInt(activeItemSkill.cost) || 2}]`,
+        notes: `${activeItemSkill.description} (Granted from equipped weapon/relic loadout)`,
+      });
+    }
+
+    const secondaryActive = activeSkillsList.find((s) => s.name !== steps[0]?.skill);
+    if (secondaryActive) {
+      let cond1 = '[Target: Lowest HP %]';
+      if (secondaryActive.flags?.includes('Sustain')) cond1 = '[Self HP <= 75%]';
+      else if (secondaryActive.flags?.includes('Magic')) cond1 = '[Target: Prioritize Armored]';
+      else if (secondaryActive.flags?.includes('Ranged')) cond1 = '[Target: Prioritize Flying]';
+
+      steps.push({
+        step: steps.length + 1,
+        unit: unitDisplayName,
+        skill: secondaryActive.name,
+        condition1: cond1,
+        condition2: `[Self AP >= ${secondaryActive.apCost || 1}]`,
+        notes: secondaryActive.description || `Tactical execution strike to finish weakened enemy combatants.`,
+      });
+    }
+
+    // Priority 3: Start-of-Battle Passive Skill (if applicable)
+    const startOfBattlePassive = (uClass.passiveSkills || []).find(
+      (s) => s.isStartOfBattle || s.trigger?.toLowerCase().includes('start of battle')
+    );
+    if (startOfBattlePassive) {
+      steps.push({
+        step: steps.length + 1,
+        unit: unitDisplayName,
+        skill: startOfBattlePassive.name,
+        condition1: '[Start of Battle]',
+        condition2: '[Target: All Enemies / Front Row]',
+        notes: startOfBattlePassive.description || 'Start-of-Battle passive advantage triggering immediately upon combat opening.',
+      });
+    }
+
+    // Priority 4: Reaction / Defensive / Protective Passive Skill
+    const defPassives = (uClass.passiveSkills || []).filter(
+      (s) =>
+        !s.isStartOfBattle &&
+        (s.trigger?.toLowerCase().includes('attack') ||
+          s.trigger?.toLowerCase().includes('guard') ||
+          s.name.toLowerCase().includes('guard') ||
+          s.name.toLowerCase().includes('cover') ||
+          s.name.toLowerCase().includes('parry') ||
+          s.name.toLowerCase().includes('heal') ||
+          s.name.toLowerCase().includes('shield'))
+    );
+    defPassives.forEach((dp) => {
+      if (!steps.some((s) => s.skill === dp.name)) {
+        let cond1 = '[Before Being Attacked]';
+        if (dp.name.toLowerCase().includes('cover')) cond1 = '[Before Ally Attacked (Back Row)]';
+        else if (dp.name.toLowerCase().includes('parry')) cond1 = '[Before Melee Physical Attack]';
+        else if (dp.name.toLowerCase().includes('heal')) cond1 = '[Ally HP <= 50%]';
+        else if (dp.trigger) cond1 = `[${dp.trigger}]`;
+
+        steps.push({
+          step: steps.length + 1,
+          unit: unitDisplayName,
+          skill: dp.name,
+          condition1: cond1,
+          condition2: `[Self PP >= ${dp.ppCost || 1}]`,
+          notes: dp.description || 'Defensive reaction preserving squad formation health.',
+        });
+      }
+    });
+
+    // Priority 5: Granted Item Passive Skills (e.g. Quick Impetus, Eagle Eye, Parting Resurrection)
+    grantedItemSkills.forEach((gSkill) => {
+      if (gSkill.cost.includes('PP') && !steps.some((s) => s.skill === gSkill.name)) {
+        let cond1 = '[After Ally Acts]';
+        if (gSkill.name.toLowerCase().includes('impetus')) cond1 = '[Target: Highest ATK Ally (Turn 1)]';
+        else if (gSkill.name.toLowerCase().includes('eye') || gSkill.name.toLowerCase().includes('lens'))
+          cond1 = '[Self: Before Attacking (AOE)]';
+        else if (gSkill.name.toLowerCase().includes('barrier') || gSkill.name.toLowerCase().includes('shield'))
+          cond1 = '[Before Magic Attack]';
+
+        steps.push({
+          step: steps.length + 1,
+          unit: unitDisplayName,
+          skill: gSkill.name,
+          condition1: cond1,
+          condition2: `[Self PP >= ${parseInt(gSkill.cost) || 1}]`,
+          notes: `${gSkill.description} (Granted from equipped accessory/shield loadout)`,
+        });
+      }
+    });
+
+    // Priority 6: Remaining Buff / Follow-up Passive Skills
+    const otherPassives = (uClass.passiveSkills || []).filter((s) => !steps.some((st) => st.skill === s.name));
+    otherPassives.forEach((op) => {
+      let cond1 = op.trigger ? `[${op.trigger}]` : '[After Ally Attack]';
+      if (op.name.toLowerCase().includes('call')) cond1 = '[After Ally Attack (Row Attack)]';
+      else if (op.name.toLowerCase().includes('conferral')) cond1 = '[Before Ally Physical Attack]';
+      else if (op.name.toLowerCase().includes('pursuit')) cond1 = '[After Ally Attacks Weakened Foe]';
+
+      steps.push({
+        step: steps.length + 1,
+        unit: unitDisplayName,
+        skill: op.name,
+        condition1: cond1,
+        condition2: `[Self PP >= ${op.ppCost || 1}]`,
+        notes: op.description || 'Offensive passive enabler powering squad synergy combinations.',
+      });
+    });
+
+    // Ensure at least 4 complete tactical programming steps
+    if (steps.length < 4) {
+      if (uClass.role === 'Tank' || uClass.category === 'Armored') {
+        steps.push({
+          step: steps.length + 1,
+          unit: unitDisplayName,
+          skill: 'Heavy Guard',
+          condition1: '[Before Physical Attack]',
+          condition2: '[Self PP >= 1]',
+          notes: 'Standard heavy shield block reaction to mitigate incoming strikes.',
+        });
+      } else if (uClass.role === 'Support') {
+        steps.push({
+          step: steps.length + 1,
+          unit: unitDisplayName,
+          skill: 'Quick Heal',
+          condition1: '[Ally HP <= 50%]',
+          condition2: '[Self PP >= 1]',
+          notes: 'Immediate single-target healing to rescue critical squadmates.',
+        });
+      } else {
+        steps.push({
+          step: steps.length + 1,
+          unit: unitDisplayName,
+          skill: 'Focus Strike',
+          condition1: '[Target: Lowest HP %]',
+          condition2: '[Self AP >= 1]',
+          notes: 'Target prioritized single attack to guarantee knockout.',
+        });
+      }
+    }
+
+    // Re-index steps cleanly 1..N
+    return steps.map((s, idx) => ({ ...s, step: idx + 1 }));
   };
 
-  // Filter tactics belonging to active unit
-  const matchedUnitTactics = squad.tacticsSequence.filter((t) => {
+  // Filter tactics belonging to active unit, or generate full comprehensive 4-6 tactics rules
+  const matchedUnitTactics = (squad.tacticsSequence || []).filter((t) => {
     const tUnitLower = t.unit.toLowerCase();
     const classNameLower = currentUnitClass?.name.toLowerCase() || '';
     const classIdLower = currentUnitClass?.id.toLowerCase() || '';
@@ -171,9 +325,9 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
   });
 
   const displayedTactics =
-    matchedUnitTactics.length > 0
+    matchedUnitTactics.length >= 4
       ? matchedUnitTactics.map((t, i) => ({ ...t, step: i + 1 }))
-      : generateUnitTactics(currentUnitClass, currentUnitGearConfig);
+      : generateComprehensiveTactics(currentUnitClass, currentUnitGearConfig, squad);
 
   const selectedTactic = displayedTactics[selectedTacticsIndex] || displayedTactics[0];
 
@@ -331,6 +485,8 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                     {squad.frontRow.map((uId, i) => {
                       const u = getUnitClass(uId);
                       const isSelected = uId === activeUnitId;
+                      const uGearConfig = squad.unitGearConfigs?.[i];
+                      const uApPp = calculateUnitApPp(u, uGearConfig);
                       return (
                         <div
                           key={i}
@@ -361,16 +517,22 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                                   </div>
                                   <div>
                                     <span className="font-serif font-bold text-xs text-amber-200 truncate block">
-                                      {u.name}
+                                      {uGearConfig?.characterName || u.name}
                                     </span>
                                     <span className="text-[9px] font-mono text-emerald-400 font-bold">
                                       HP {u.baseStats.hp || 100}/100
                                     </span>
                                   </div>
                                 </div>
-                                <div className="flex items-center">
-                                  <span className="ap-diamond" />
-                                  <span className="pp-diamond" />
+                                <div className="flex items-center gap-1">
+                                  <div className="flex items-center gap-0.5 px-1 py-0.5 rounded bg-red-950/80 border border-red-500/40 text-[9px] font-mono font-bold text-red-300">
+                                    <span>{uApPp.totalAp}</span>
+                                    <span className="ap-diamond scale-75" />
+                                  </div>
+                                  <div className="flex items-center gap-0.5 px-1 py-0.5 rounded bg-blue-950/80 border border-blue-500/40 text-[9px] font-mono font-bold text-blue-300">
+                                    <span>{uApPp.totalPp}</span>
+                                    <span className="pp-diamond scale-75" />
+                                  </div>
                                 </div>
                               </div>
                               {isSelected && (
@@ -395,6 +557,9 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                     {squad.backRow.map((uId, i) => {
                       const u = getUnitClass(uId);
                       const isSelected = uId === activeUnitId;
+                      const idx = squad.frontRow.length + i;
+                      const uGearConfig = squad.unitGearConfigs?.[idx];
+                      const uApPp = calculateUnitApPp(u, uGearConfig);
                       return (
                         <div
                           key={i}
@@ -425,16 +590,22 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                                   </div>
                                   <div>
                                     <span className="font-serif font-bold text-xs text-purple-200 truncate block">
-                                      {u.name}
+                                      {uGearConfig?.characterName || u.name}
                                     </span>
                                     <span className="text-[9px] font-mono text-emerald-400 font-bold">
                                       HP {u.baseStats.hp || 90}/90
                                     </span>
                                   </div>
                                 </div>
-                                <div className="flex items-center">
-                                  <span className="ap-diamond" />
-                                  <span className="pp-diamond" />
+                                <div className="flex items-center gap-1">
+                                  <div className="flex items-center gap-0.5 px-1 py-0.5 rounded bg-red-950/80 border border-red-500/40 text-[9px] font-mono font-bold text-red-300">
+                                    <span>{uApPp.totalAp}</span>
+                                    <span className="ap-diamond scale-75" />
+                                  </div>
+                                  <div className="flex items-center gap-0.5 px-1 py-0.5 rounded bg-blue-950/80 border border-blue-500/40 text-[9px] font-mono font-bold text-blue-300">
+                                    <span>{uApPp.totalPp}</span>
+                                    <span className="pp-diamond scale-75" />
+                                  </div>
                                 </div>
                               </div>
                               {isSelected && (
@@ -469,72 +640,176 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
 
             {/* RIGHT COLUMN: Selected Unit Equipment, Stats & Tactics Sequence */}
             <div className="lg:col-span-7 space-y-4">
-              {/* Selected Unit Header Badge */}
-              <div className="p-4 rounded-xl bg-gradient-to-r from-slate-950 via-[#10192e] to-slate-950 border border-amber-500/40 flex items-center justify-between gap-3 shadow filigree-box">
-                <div className="flex items-center gap-3">
-                  <div className="w-14 h-14 rounded-xl bg-slate-950 border-2 border-amber-400 flex items-center justify-center text-3xl overflow-hidden shrink-0 shadow">
-                    {currentUnitClass?.image ? (
-                      <img src={currentUnitClass.image} alt={currentUnitClass.name} className="w-full h-full object-cover" />
-                    ) : (
-                      currentUnitClass?.icon || '👑'
-                    )}
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h3 className="font-serif font-bold text-lg text-amber-100">
-                        {currentUnitClass?.name || 'Selected Unit'}
-                      </h3>
-                      <span className="text-xs font-mono font-extrabold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
-                        Lv. 40
-                      </span>
+              {/* Selected Unit Header Badge with Calculated Total AP & PP */}
+              {(() => {
+                const inspectedApPp = calculateUnitApPp(currentUnitClass, currentUnitGearConfig);
+                return (
+                  <div className="p-4 rounded-xl bg-gradient-to-r from-slate-950 via-[#10192e] to-slate-950 border border-amber-500/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow filigree-box">
+                    <div className="flex items-center gap-3">
+                      <div className="w-14 h-14 rounded-xl bg-slate-950 border-2 border-amber-400 flex items-center justify-center text-3xl overflow-hidden shrink-0 shadow">
+                        {currentUnitClass?.image ? (
+                          <img src={currentUnitClass.image} alt={currentUnitClass.name} className="w-full h-full object-cover" />
+                        ) : (
+                          currentUnitClass?.icon || '👑'
+                        )}
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <h3 className="font-serif font-bold text-lg text-amber-100">
+                            {currentUnitGearConfig?.characterName || currentUnitClass?.name || 'Selected Unit'}
+                          </h3>
+                          <span className="text-xs font-mono font-extrabold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                            {currentUnitGearConfig?.className || 'Lv. 40'}
+                          </span>
+                        </div>
+                        <span className="text-xs text-purple-300 font-serif font-semibold">
+                          {currentUnitGearConfig?.roleTitle || currentUnitClass?.category} • Growth: {currentUnitGearConfig?.growthTypes?.join(' / ') || 'Offensive'}
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-xs text-purple-300 font-serif font-semibold">
-                      {currentUnitGearConfig?.roleTitle || currentUnitClass?.category} • Growth: {currentUnitGearConfig?.growthTypes?.join(' / ') || 'Offensive'}
-                    </span>
-                  </div>
-                </div>
 
-                <div className="flex items-center gap-2 text-xs font-mono shrink-0">
-                  <span className="text-slate-400">AP</span>
-                  <span className="ap-diamond" />
-                  <span className="ap-diamond" />
-                  <span className="text-slate-400 ml-2">PP</span>
-                  <span className="pp-diamond" />
-                  <span className="pp-diamond" />
-                </div>
-              </div>
+                    {/* AP & PP Count Badges with Visual Diamonds */}
+                    <div className="flex items-center gap-2.5 shrink-0">
+                      {/* AP Box */}
+                      <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-950/80 border border-red-500/60 shadow-lg">
+                        <div className="text-right">
+                          <span className="text-[10px] text-red-400/80 font-mono block leading-none">Total AP</span>
+                          <span className="text-sm font-serif font-extrabold text-red-200">{inspectedApPp.totalAp}</span>
+                        </div>
+                        <div className="flex items-center gap-0.5">
+                          {Array.from({ length: inspectedApPp.totalAp }).map((_, i) => (
+                            <span key={i} className="ap-diamond" />
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* PP Box */}
+                      <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-950/80 border border-blue-500/60 shadow-lg">
+                        <div className="text-right">
+                          <span className="text-[10px] text-blue-400/80 font-mono block leading-none">Total PP</span>
+                          <span className="text-sm font-serif font-extrabold text-blue-200">{inspectedApPp.totalPp}</span>
+                        </div>
+                        <div className="flex items-center gap-0.5">
+                          {Array.from({ length: inspectedApPp.totalPp }).map((_, i) => (
+                            <span key={i} className="pp-diamond" />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
 
               {/* EQUIPMENT & STATS GRID */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Selected Unit Equipment Panel */}
-                <div className="p-4 rounded-xl bg-slate-950 border border-amber-500/30 space-y-2.5 filigree-box">
-                  <h4 className="font-serif text-xs font-bold text-amber-300 uppercase tracking-wider border-b border-slate-800 pb-1">
-                    ⚔️ Member Equipment Loadout
-                  </h4>
-                  <div className="space-y-1.5">
-                    <div className="equipment-pill p-2 flex items-center justify-between text-xs">
-                      <span className="font-serif font-bold text-amber-200">
-                        🗡️ {currentUnitGearConfig?.weapon || currentUnitClass?.recommendedEquipment[0] || 'Weapon Slot'}
-                      </span>
-                      <span className="text-[9px] font-mono text-amber-400">Weapon</span>
+                {/* Selected Unit Equipment Panel (4 Slots with BIS & Opt) */}
+                <div className="p-4 rounded-xl bg-slate-950 border border-amber-500/30 space-y-3 filigree-box">
+                  <div className="flex items-center justify-between border-b border-slate-800 pb-1.5">
+                    <h4 className="font-serif text-xs font-bold text-amber-300 uppercase tracking-wider">
+                      ⚔️ 4-Slot Equipment Loadout (BIS & Opt)
+                    </h4>
+                    <span className="text-[10px] font-mono text-emerald-400">Class Match</span>
+                  </div>
+
+                  <div className="space-y-2">
+                    {/* Slot 1: Weapon */}
+                    <div className="p-2.5 rounded-lg bg-slate-900/90 border border-amber-500/30 space-y-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-mono font-bold text-amber-400 flex items-center gap-1">
+                          🗡️ Slot 1: {currentUnitGearConfig?.slot1Weapon?.slotType || 'Weapon'}
+                        </span>
+                        <span className="text-[9px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 font-serif font-extrabold border border-amber-500/30">
+                          BIS
+                        </span>
+                      </div>
+                      <div className="text-xs font-serif font-bold text-amber-100">
+                        {currentUnitGearConfig?.slot1Weapon?.bestInSlot || currentUnitGearConfig?.weapon || currentUnitClass?.recommendedEquipment[0] || 'Standard Weapon'}
+                      </div>
+                      {currentUnitGearConfig?.slot1Weapon?.notes && (
+                        <div className="text-[10px] text-slate-300 font-mono">
+                          {currentUnitGearConfig.slot1Weapon.notes}
+                        </div>
+                      )}
+                      {currentUnitGearConfig?.slot1Weapon?.optimalAlternatives && currentUnitGearConfig.slot1Weapon.optimalAlternatives.length > 0 && (
+                        <div className="text-[9px] text-slate-400 pt-0.5 border-t border-slate-800/80">
+                          <span className="text-slate-500 font-bold">Alternatives (Opt):</span> {currentUnitGearConfig.slot1Weapon.optimalAlternatives.join(', ')}
+                        </div>
+                      )}
                     </div>
-                    <div className="equipment-pill p-2 flex items-center justify-between text-xs">
-                      <span className="font-serif font-bold text-amber-200">
-                        🛡️ {currentUnitGearConfig?.shieldOrHelm || currentUnitClass?.recommendedEquipment[1] || 'Shield / Helm'}
-                      </span>
-                      <span className="text-[9px] font-mono text-cyan-400">Armor</span>
+
+                    {/* Slot 2: Shield / Offhand / Helm */}
+                    <div className="p-2.5 rounded-lg bg-slate-900/90 border border-cyan-500/30 space-y-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-mono font-bold text-cyan-400 flex items-center gap-1">
+                          🛡️ Slot 2: {currentUnitGearConfig?.slot2ShieldOrOffhand?.slotType || 'Shield / Armor'}
+                        </span>
+                        <span className="text-[9px] px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-300 font-serif font-extrabold border border-cyan-500/30">
+                          BIS
+                        </span>
+                      </div>
+                      <div className="text-xs font-serif font-bold text-cyan-100">
+                        {currentUnitGearConfig?.slot2ShieldOrOffhand?.bestInSlot || currentUnitGearConfig?.shieldOrHelm || currentUnitClass?.recommendedEquipment[1] || 'Standard Shield / Armor'}
+                      </div>
+                      {currentUnitGearConfig?.slot2ShieldOrOffhand?.notes && (
+                        <div className="text-[10px] text-slate-300 font-mono">
+                          {currentUnitGearConfig.slot2ShieldOrOffhand.notes}
+                        </div>
+                      )}
+                      {currentUnitGearConfig?.slot2ShieldOrOffhand?.optimalAlternatives && currentUnitGearConfig.slot2ShieldOrOffhand.optimalAlternatives.length > 0 && (
+                        <div className="text-[9px] text-slate-400 pt-0.5 border-t border-slate-800/80">
+                          <span className="text-slate-500 font-bold">Alternatives (Opt):</span> {currentUnitGearConfig.slot2ShieldOrOffhand.optimalAlternatives.join(', ')}
+                        </div>
+                      )}
                     </div>
-                    <div className="equipment-pill p-2 flex items-center justify-between text-xs">
-                      <span className="font-serif font-bold text-amber-200">
-                        👑 {currentUnitGearConfig?.accessory1 || currentUnitClass?.recommendedEquipment[2] || 'Accessory #1'}
-                      </span>
-                      <span className="text-[9px] font-mono text-emerald-400">Accessory</span>
+
+                    {/* Slot 3: Accessory 1 */}
+                    <div className="p-2.5 rounded-lg bg-slate-900/90 border border-emerald-500/30 space-y-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-mono font-bold text-emerald-400 flex items-center gap-1">
+                          👑 Slot 3: Accessory 1
+                        </span>
+                        <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 font-serif font-extrabold border border-emerald-500/30">
+                          BIS
+                        </span>
+                      </div>
+                      <div className="text-xs font-serif font-bold text-emerald-100">
+                        {currentUnitGearConfig?.slot3Accessory?.bestInSlot || currentUnitGearConfig?.accessory1 || currentUnitClass?.recommendedEquipment[2] || 'Key Accessory 1'}
+                      </div>
+                      {currentUnitGearConfig?.slot3Accessory?.notes && (
+                        <div className="text-[10px] text-slate-300 font-mono">
+                          {currentUnitGearConfig.slot3Accessory.notes}
+                        </div>
+                      )}
+                      {currentUnitGearConfig?.slot3Accessory?.optimalAlternatives && currentUnitGearConfig.slot3Accessory.optimalAlternatives.length > 0 && (
+                        <div className="text-[9px] text-slate-400 pt-0.5 border-t border-slate-800/80">
+                          <span className="text-slate-500 font-bold">Alternatives (Opt):</span> {currentUnitGearConfig.slot3Accessory.optimalAlternatives.join(', ')}
+                        </div>
+                      )}
                     </div>
-                    <div className="equipment-pill p-2 flex items-center justify-between text-xs">
-                      <span className="font-serif font-bold text-amber-200">
-                        💍 {currentUnitGearConfig?.accessory2 || 'Accessory #2'}
-                      </span>
-                      <span className="text-[9px] font-mono text-purple-400">Accessory</span>
+
+                    {/* Slot 4: Accessory 2 */}
+                    <div className="p-2.5 rounded-lg bg-slate-900/90 border border-purple-500/30 space-y-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-mono font-bold text-purple-400 flex items-center gap-1">
+                          💍 Slot 4: Accessory 2
+                        </span>
+                        <span className="text-[9px] px-1.5 py-0.2 rounded bg-purple-500/20 text-purple-300 font-serif font-extrabold border border-purple-500/30">
+                          BIS
+                        </span>
+                      </div>
+                      <div className="text-xs font-serif font-bold text-purple-100">
+                        {currentUnitGearConfig?.slot4Accessory?.bestInSlot || currentUnitGearConfig?.accessory2 || 'Key Accessory 2'}
+                      </div>
+                      {currentUnitGearConfig?.slot4Accessory?.notes && (
+                        <div className="text-[10px] text-slate-300 font-mono">
+                          {currentUnitGearConfig.slot4Accessory.notes}
+                        </div>
+                      )}
+                      {currentUnitGearConfig?.slot4Accessory?.optimalAlternatives && currentUnitGearConfig.slot4Accessory.optimalAlternatives.length > 0 && (
+                        <div className="text-[9px] text-slate-400 pt-0.5 border-t border-slate-800/80">
+                          <span className="text-slate-500 font-bold">Alternatives (Opt):</span> {currentUnitGearConfig.slot4Accessory.optimalAlternatives.join(', ')}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -596,30 +871,40 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                     <thead className="text-[10px] font-serif text-slate-400 border-b border-slate-800">
                       <tr>
                         <th className="py-1 px-2">Priority</th>
-                        <th className="py-1 px-2">Action Skill</th>
+                        <th className="py-1 px-2">Action / Passive Skill</th>
                         <th className="py-1 px-2">Condition 1</th>
                         <th className="py-1 px-2">Condition 2</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-900">
                       {displayedTactics.map((tac, idx) => {
-                        const isActiveSkill = idx < 2; // First 2 active (Red), rest passive (Blue)
+                        const isPassive =
+                          tac.condition2.includes('PP') ||
+                          tac.condition1.includes('PP') ||
+                          tac.condition1.toLowerCase().includes('start of battle') ||
+                          (!tac.condition2.includes('AP') && !tac.condition1.includes('AP'));
+                        const isActiveSkill = !isPassive;
+
                         return (
                           <tr
                             key={idx}
                             onClick={() => setSelectedTacticsIndex(idx)}
                             className={`cursor-pointer transition ${
-                              idx === selectedTacticsIndex ? 'bg-amber-500/10 font-bold' : 'hover:bg-slate-900'
+                              idx === selectedTacticsIndex ? 'bg-amber-500/15 font-bold' : 'hover:bg-slate-900'
                             }`}
                           >
-                            <td className="py-2 px-2 font-serif font-extrabold text-amber-400 flex items-center gap-1">
-                              <span className="text-sm">{tac.step}</span>
-                              {isActiveSkill ? <span className="ap-diamond" /> : <span className="pp-diamond" />}
+                            <td className="py-2 px-2 font-serif font-extrabold text-amber-400 flex items-center gap-1.5 whitespace-nowrap">
+                              <span className="text-xs">P{tac.step}</span>
+                              {isActiveSkill ? (
+                                <span className="ap-diamond" title="Active Skill (AP)" />
+                              ) : (
+                                <span className="pp-diamond" title="Passive Skill (PP)" />
+                              )}
                             </td>
 
                             <td className="py-2 px-2">
                               <span
-                                className={`px-3 py-1 text-xs block font-serif truncate ${
+                                className={`px-2.5 py-1 text-xs block font-serif rounded truncate ${
                                   isActiveSkill ? 'tactics-active-banner' : 'tactics-passive-banner'
                                 }`}
                               >
@@ -628,13 +913,13 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                             </td>
 
                             <td className="py-2 px-2">
-                              <span className="tactics-condition-banner px-2.5 py-1 block truncate">
+                              <span className="tactics-condition-banner px-2.5 py-1 block truncate text-slate-200">
                                 {tac.condition1}
                               </span>
                             </td>
 
                             <td className="py-2 px-2">
-                              <span className="tactics-condition-banner px-2.5 py-1 block truncate">
+                              <span className="tactics-condition-banner px-2.5 py-1 block truncate text-slate-200">
                                 {tac.condition2}
                               </span>
                             </td>
@@ -649,16 +934,21 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
               {/* BOTTOM RIGHT - SKILL DETAIL INSPECTOR BOX */}
               {selectedTactic && (
                 <div className="p-4 rounded-xl bg-gradient-to-r from-amber-950/40 via-slate-900 to-purple-950/40 border border-amber-500/40 space-y-2 shadow-xl">
-                  <div className="flex items-center justify-between border-b border-amber-500/30 pb-1.5">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-amber-500/30 pb-1.5 gap-2">
                     <div className="flex items-center gap-2">
                       <Zap className="w-4 h-4 text-amber-400" />
                       <h4 className="font-serif font-bold text-sm text-amber-200">
-                        {selectedTactic.unit} — {selectedTactic.skill}
+                        Priority #{selectedTactic.step}: {selectedTactic.unit} — {selectedTactic.skill}
                       </h4>
                     </div>
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
-                      Phys. Potency 150% • Hit Rate 100%
-                    </span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                        Cond 1: {selectedTactic.condition1}
+                      </span>
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/40">
+                        Cond 2: {selectedTactic.condition2}
+                      </span>
+                    </div>
                   </div>
 
                   <p className="text-xs text-slate-300 leading-relaxed font-sans">

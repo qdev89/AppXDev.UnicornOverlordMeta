@@ -1,27 +1,48 @@
 # Established Code Patterns & Conventions
 
-## 1. AP/PP Action Economy Calculation Pattern
+## 1. Universal Hero Frame & Character Portrait Pattern
+```tsx
+import { HeroFrame } from '@/components/common/HeroFrame';
+import { getUnitClass, getUnitGearConfig, getHeroPortraitImage } from '@/utils/squadUtils';
+
+// 1. Resolve canonical hero portrait and class info
+const unitClass = getUnitClass(unitId);
+const heroImage = getHeroPortraitImage(unitId, gearConfig?.characterName, unitClass?.id) || unitClass?.image;
+const displayName = gearConfig?.characterName || gearConfig?.unitName || unitClass?.name || unitId;
+
+// 2. Render with HeroFrame:
+<HeroFrame
+  image={heroImage}
+  name={displayName}
+  icon={unitClass?.icon || '⚔️'}
+  size="md"                    // 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+  frameVariant="gold"          // 'gold' | 'purple' | 'cyan' | 'silver' | 'ruby'
+  showGlow={isSelected}
+  tier={unitClass?.tier}       // 'SS' | 'S+' | 'S' | 'A'
+  ap={calculatedAp}            // Optional AP overlay
+  pp={calculatedPp}            // Optional PP overlay
+/>
+```
+
+## 2. AP/PP Action Economy Calculation Pattern
 ```typescript
 import { calculateUnitApPp } from '@/utils/apPpCalculator';
 
-// Compute total AP and PP for any unit given class ID and equipped items
-const apPp = calculateUnitApPp({
-  classId: 'alain-high-lord',
-  items: [
-    gearConfig?.slot1Weapon?.bestInSlot,
-    gearConfig?.slot2ShieldOrOffhand?.bestInSlot,
-    gearConfig?.slot3Accessory?.bestInSlot,
-    gearConfig?.slot4Accessory?.bestInSlot,
-  ],
-  customNotes: gearConfig?.notes,
-});
+// Compute total AP and PP for any unit given unit class and gear config
+const apPp = calculateUnitApPp(unitClass, unitGearConfig);
 
-// Render with diamond badge:
-// <span className="ap-diamond" /> {apPp.totalAp} AP
-// <span className="pp-diamond" /> {apPp.totalPp} PP
+// Render with diamond badges:
+<div className="flex items-center gap-1">
+  <span className="px-1.5 py-0.5 rounded bg-red-950/80 border border-red-500/40 text-[10px] font-mono font-bold text-red-300">
+    {apPp.totalAp} AP
+  </span>
+  <span className="px-1.5 py-0.5 rounded bg-blue-950/80 border border-blue-500/40 text-[10px] font-mono font-bold text-blue-300">
+    {apPp.totalPp} PP
+  </span>
+</div>
 ```
 
-## 2. In-Game Tactics Rule Schema
+## 3. In-Game Tactics Rule Schema
 Every tactics rule in Unicorn Overlord follows:
 ```typescript
 interface TacticsStep {
@@ -34,7 +55,7 @@ interface TacticsStep {
 }
 ```
 
-## 3. 4-Slot Loadout Structure Pattern
+## 4. 4-Slot Loadout Structure Pattern
 ```typescript
 interface UnitGearConfig {
   unitId: string;
@@ -56,7 +77,7 @@ interface UnitSlotGear {
 }
 ```
 
-## 4. Unique React Key Convention
+## 5. Unique React Key Convention
 When mapping through units or squad members where class IDs or unit names might appear multiple times:
 ```tsx
 {squad.unitGearConfigs.map((u, uIdx) => (
@@ -64,7 +85,7 @@ When mapping through units or squad members where class IDs or unit names might 
 ))}
 ```
 
-## 5. Hydration-Safe LocalStorage Pattern
+## 6. Hydration-Safe LocalStorage Pattern
 Always access `localStorage` inside `useEffect` or state initializer guards to prevent SSR mismatch:
 ```tsx
 const [data, setData] = useState<T | null>(null);

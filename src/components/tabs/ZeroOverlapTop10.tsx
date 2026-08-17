@@ -30,6 +30,8 @@ import { ITEMS_DATA } from '@/data/items';
 import { SquadBuild, UnitGearConfig } from '@/types';
 import { BuildDetailModal } from '@/components/builder/BuildDetailModal';
 import { calculateUnitApPp } from '@/utils/apPpCalculator';
+import { getUnitGearConfig, getUnitClass, getHeroPortraitImage } from '@/utils/squadUtils';
+import { HeroFrame } from '@/components/common/HeroFrame';
 
 interface ZeroOverlapTop10Props {
   onLoadIntoBuilder: (squad: SquadBuild) => void;
@@ -390,25 +392,19 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
                       {/* Detailed 5 Heroes List */}
                       <div className="space-y-1.5">
                         {squad.unitGearConfigs?.map((u, uIdx) => {
-                          const info = getUnitClassInfo(u.unitId);
+                          const info = getUnitClass(u.unitId);
+                          const heroImg = getHeroPortraitImage(u.unitId, u.characterName, info?.id) || info?.image;
                           return (
                             <div
                               key={`${u.unitId}-${uIdx}`}
                               className="flex items-center gap-2 p-1 rounded bg-slate-950/80 border border-slate-800/80"
                             >
-                              <div
-                                className="w-6 h-6 rounded-full border border-amber-400/60 overflow-hidden bg-slate-950 shrink-0 shadow"
-                                title={u.unitName}
-                              >
-                                <img
-                                  src={info?.image || '/images/characters/alain-high-lord.png'}
-                                  alt={u.unitName}
-                                  className="w-full h-full object-cover object-top"
-                                  onError={(e) => {
-                                    (e.target as HTMLElement).style.display = 'none';
-                                  }}
-                                />
-                              </div>
+                              <HeroFrame
+                                image={heroImg}
+                                name={u.characterName || u.unitName}
+                                icon={info?.icon}
+                                size="xs"
+                              />
                               <div className="overflow-hidden leading-tight">
                                 <div className="text-[10px] font-bold text-slate-200 truncate">
                                   {u.characterName || u.unitName}
@@ -508,7 +504,9 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
           {filteredSquads.map((squad) => {
             const isExpanded = expandedSquadId === squad.id;
             const leaderUnitId = squad.frontRow[0] || squad.backRow[0] || 'alain-high-lord';
-            const leaderInfo = getUnitClassInfo(leaderUnitId);
+            const leaderClass = getUnitClass(leaderUnitId);
+            const leaderGear = getUnitGearConfig(squad, leaderUnitId);
+            const leaderImg = getHeroPortraitImage(leaderUnitId, leaderGear?.characterName, leaderClass?.id) || leaderClass?.image;
 
             return (
               <motion.div
@@ -523,16 +521,13 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
                   <div className="relative rounded-xl bg-gradient-to-r from-slate-950 via-[#131b2e] to-slate-950 p-4 border border-amber-500/30 overflow-hidden flex items-center justify-between gap-4">
                     {/* Left: Leader Avatar & Title */}
                     <div className="flex items-center gap-3 z-10">
-                      <div className="relative w-14 h-14 rounded-xl border-2 border-amber-400/80 bg-slate-950 overflow-hidden shadow-lg shrink-0">
-                        <img
-                          src={leaderInfo?.image || '/images/characters/alain-high-lord.png'}
-                          alt={squad.name}
-                          className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-300"
-                          onError={(e) => {
-                            (e.target as HTMLElement).style.display = 'none';
-                          }}
-                        />
-                      </div>
+                      <HeroFrame
+                        image={leaderImg}
+                        name={squad.name}
+                        icon={leaderClass?.icon}
+                        size="lg"
+                        frameVariant="gold"
+                      />
 
                       <div>
                         <div className="flex items-center gap-2 mb-1">
@@ -598,25 +593,23 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
                         </div>
                         <div className="space-y-1.5">
                           {squad.frontRow.map((id, i) => {
-                            const info = getUnitClassInfo(id);
-                            const gearConfig = squad.unitGearConfigs?.[i];
+                            const info = getUnitClass(id);
+                            const gearConfig = getUnitGearConfig(squad, id);
                             const uApPp = calculateUnitApPp(info, gearConfig);
+                            const heroImg = getHeroPortraitImage(id, gearConfig?.characterName, info?.id) || info?.image;
                             return (
                               <div
-                                key={i}
+                                key={id || i}
                                 className="flex items-center justify-between gap-2 p-1.5 rounded-lg bg-slate-900/90 border border-slate-800 hover:border-amber-500/40 transition"
                               >
                                 <div className="flex items-center gap-2 overflow-hidden">
-                                  <div className="w-8 h-8 rounded-lg border border-amber-400/50 bg-slate-950 overflow-hidden shrink-0">
-                                    <img
-                                      src={info?.image || '/images/characters/alain-high-lord.png'}
-                                      alt={gearConfig?.unitName || id || ''}
-                                      className="w-full h-full object-cover object-top"
-                                      onError={(e) => {
-                                        (e.target as HTMLElement).style.display = 'none';
-                                      }}
-                                    />
-                                  </div>
+                                  <HeroFrame
+                                    image={heroImg}
+                                    name={gearConfig?.characterName || gearConfig?.unitName || info?.name || id}
+                                    icon={info?.icon}
+                                    size="sm"
+                                    frameVariant="gold"
+                                  />
                                   <div className="overflow-hidden">
                                     <div className="text-[11px] font-bold text-slate-200 truncate">
                                       {gearConfig?.characterName || gearConfig?.unitName || info?.name || id}
@@ -648,26 +641,23 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
                         </div>
                         <div className="space-y-1.5">
                           {squad.backRow.map((id, i) => {
-                            const idx = squad.frontRow.length + i;
-                            const info = getUnitClassInfo(id);
-                            const gearConfig = squad.unitGearConfigs?.[idx];
+                            const info = getUnitClass(id);
+                            const gearConfig = getUnitGearConfig(squad, id);
                             const uApPp = calculateUnitApPp(info, gearConfig);
+                            const heroImg = getHeroPortraitImage(id, gearConfig?.characterName, info?.id) || info?.image;
                             return (
                               <div
-                                key={i}
+                                key={id || i}
                                 className="flex items-center justify-between gap-2 p-1.5 rounded-lg bg-slate-900/90 border border-slate-800 hover:border-blue-500/40 transition"
                               >
                                 <div className="flex items-center gap-2 overflow-hidden">
-                                  <div className="w-8 h-8 rounded-lg border border-blue-400/50 bg-slate-950 overflow-hidden shrink-0">
-                                    <img
-                                      src={info?.image || '/images/characters/alain-high-lord.png'}
-                                      alt={gearConfig?.unitName || id || ''}
-                                      className="w-full h-full object-cover object-top"
-                                      onError={(e) => {
-                                        (e.target as HTMLElement).style.display = 'none';
-                                      }}
-                                    />
-                                  </div>
+                                  <HeroFrame
+                                    image={heroImg}
+                                    name={gearConfig?.characterName || gearConfig?.unitName || info?.name || id}
+                                    icon={info?.icon}
+                                    size="sm"
+                                    frameVariant="purple"
+                                  />
                                   <div className="overflow-hidden">
                                     <div className="text-[11px] font-bold text-slate-200 truncate">
                                       {gearConfig?.characterName || gearConfig?.unitName || info?.name || id}

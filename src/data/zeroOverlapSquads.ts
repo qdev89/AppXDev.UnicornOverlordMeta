@@ -12,7 +12,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
     "keyItems": [
       "Holy Unicorn Blade",
       "Ring of the Unicorn",
-      "Chloe's Charm (Keen Earring)",
+      "Chloe's Charm",
       "Heavensteed Reins"
     ],
     "frontRow": [
@@ -57,7 +57,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "High Lord",
         "roleTitle": "Royal Commander & Vanguard Lead",
         "weapon": "Holy Unicorn Blade",
-        "shieldOrHelm": "Greatshield of the Maiden",
+        "shieldOrHelm": "Holy Unicorn Shield",
         "accessory1": "Ring of the Unicorn",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
@@ -71,11 +71,11 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +28, All Stats +5, AP +1"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Greatshield of the Maiden",
+          "bestInSlot": "Holy Unicorn Shield",
           "optimalAlternatives": [
             "Azure Crest Shield",
-            "Silver Shield",
-            "Knight Shield"
+            "Steel Shield",
+            "Chivalric Shield"
           ],
           "slotType": "Shield",
           "notes": "Phys Def +16, Guard Rate +40%, Quick Cover"
@@ -117,7 +117,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Swordmaster",
         "roleTitle": "Dual-Wield True-Strike Parry Duelist",
         "weapon": "Kingsblade Cornix",
-        "shieldOrHelm": "Parrying Dagger (Second Blade)",
+        "shieldOrHelm": "Pursuant's Blade",
         "accessory1": "Parrying Amulet",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
@@ -125,19 +125,19 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Notos's Sword",
             "Meteorite Sword",
-            "Keen Broadsword"
+            "Iron Sword"
           ],
           "slotType": "Weapon",
           "notes": "Phys Atk +28, All Stats +5"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Parrying Dagger (Second Blade)",
+          "bestInSlot": "Pursuant's Blade",
           "optimalAlternatives": [
             "Pursuant's Blade",
             "Carnelian Blade",
-            "Steel Blade"
+            "Iron Sword"
           ],
-          "slotType": "Offhand",
+          "slotType": "Weapon",
           "notes": "Dual-Wield Slot: Evasion +15, Parrying Slash"
         },
         "slot3Accessory": {
@@ -154,7 +154,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Critical Ring",
+            "Lucky Coin",
             "Skillful Amulet"
           ],
           "slotType": "Accessory",
@@ -176,12 +176,12 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Scarlett",
         "className": "High Priestess",
         "roleTitle": "Sacred Healer, Buffer & Dispeller",
-        "weapon": "Hallowed Blade (Staff)",
+        "weapon": "Sacral Rod",
         "shieldOrHelm": "Scarlett's Ribbon",
-        "accessory1": "Ring of the Maiden",
+        "accessory1": "Holy Unicorn Signet",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
-          "bestInSlot": "Hallowed Blade (Staff)",
+          "bestInSlot": "Sacral Rod",
           "optimalAlternatives": [
             "Sacral Rod",
             "Meteorite Rod",
@@ -195,13 +195,13 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Archbishop's Mitre",
             "Monk's Mitre",
-            "Priestess Ribbon"
+            "Scarlett's Ribbon"
           ],
           "slotType": "Helm",
           "notes": "Healing +20, Mag Def +8, PP +1"
         },
         "slot3Accessory": {
-          "bestInSlot": "Ring of the Maiden",
+          "bestInSlot": "Holy Unicorn Signet",
           "optimalAlternatives": [
             "Holy Broach",
             "Celestial Talisman",
@@ -237,7 +237,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Great Knight",
         "roleTitle": "Anti-Infantry Line Charge Sweeper",
         "weapon": "Carnelian Spear",
-        "shieldOrHelm": "Knight Shield",
+        "shieldOrHelm": "Chivalric Shield",
         "accessory1": "Heavensteed Reins",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
@@ -245,15 +245,15 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Meteorite Lance",
             "Kingslance Elhal",
-            "Heavy Iron Lance"
+            "Iron Spear"
           ],
           "slotType": "Weapon",
           "notes": "Phys Atk +25, AP +1"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Knight Shield",
+          "bestInSlot": "Chivalric Shield",
           "optimalAlternatives": [
-            "Silver Shield",
+            "Steel Shield",
             "Azure Crest Shield",
             "Cloth Gauntlets"
           ],
@@ -297,8 +297,8 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Sergeant",
         "roleTitle": "100% Critical Keen Call Enabler",
         "weapon": "Meteorite Lance",
-        "shieldOrHelm": "Silver Shield",
-        "accessory1": "Chloe's Charm (Keen Earring)",
+        "shieldOrHelm": "Steel Shield",
+        "accessory1": "Chloe's Charm",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
           "bestInSlot": "Meteorite Lance",
@@ -311,9 +311,9 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +24, Max HP +20"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Silver Shield",
+          "bestInSlot": "Steel Shield",
           "optimalAlternatives": [
-            "Knight Shield",
+            "Chivalric Shield",
             "Cloth Gauntlets",
             "Bronze Shield"
           ],
@@ -321,7 +321,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Def +11, Guard Rate +25%"
         },
         "slot3Accessory": {
-          "bestInSlot": "Chloe's Charm (Keen Earring)",
+          "bestInSlot": "Chloe's Charm",
           "optimalAlternatives": [
             "Lapis Pendant",
             "Retaliation Earrings",
@@ -355,7 +355,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
       {
         "step": 1,
         "unit": "Scarlett",
-        "skill": "Sacred Light",
+        "skill": "Holy Light",
         "condition1": "[Start of Battle]",
         "condition2": "[Full Squad]",
         "notes": "Squad HP regen & affliction immunity"
@@ -379,7 +379,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
       {
         "step": 4,
         "unit": "Clive",
-        "skill": "Line Charge",
+        "skill": "Wild Rush",
         "condition1": "[Target Column/Row]",
         "condition2": "[Self AP >= 2]",
         "notes": "200% bonus vs infantry"
@@ -387,7 +387,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
       {
         "step": 5,
         "unit": "Melisandre",
-        "skill": "Parrying Slash",
+        "skill": "Parry",
         "condition1": "[Attacked by Physical]",
         "condition2": "[Self PP >= 1]",
         "notes": "Negates damage & counters"
@@ -412,8 +412,8 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
     "pveRating": "Godly (Wipes 99% Zenoira / Expert Enemy Formations)",
     "description": "The definitive Turn-1 Magic Nuke. Sorcerer Auch channels Trinity Rain on Turn 1 with Millennium Scepter, instantly accelerated by Bishop Sharon using Cat-Ear Hood (Quick Impetus), boosted by Sorceress Yahna (+50% Mag Atk via Familiar's Choker), and backed by Selvie's Turn-0 Sandstorm Blindness and Hodrick's impenetrable wall.",
     "keyItems": [
-      "Millennium Scepter",
-      "Cat-Ear Hood",
+      "Millenium Scepter",
+      "Black Cat-Ear Hood",
       "Familiar's Choker",
       "Sniper's Amber Lens"
     ],
@@ -457,12 +457,12 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Auch",
         "className": "Sorcerer",
         "roleTitle": "Primary Spell Nuke Channeler",
-        "weapon": "Millennium Scepter",
+        "weapon": "Millenium Scepter",
         "shieldOrHelm": "Sage's Hood",
         "accessory1": "Sniper's Amber Lens",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
-          "bestInSlot": "Millennium Scepter",
+          "bestInSlot": "Millenium Scepter",
           "optimalAlternatives": [
             "Euros's Staff",
             "Carnelian Staff",
@@ -518,7 +518,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Bishop",
         "roleTitle": "Instant Turn Acceleration Enabler",
         "weapon": "Euros's Staff",
-        "shieldOrHelm": "Cat-Ear Hood",
+        "shieldOrHelm": "Black Cat-Ear Hood",
         "accessory1": "Lapis Pendant",
         "accessory2": "Sapphire Pendant",
         "slot1Weapon": {
@@ -526,13 +526,13 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Meteorite Rod",
             "Sacral Rod",
-            "Hallow Cane"
+            "Sacral Rod"
           ],
           "slotType": "Weapon",
           "notes": "Mag Atk +25, Initiative +5"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Cat-Ear Hood",
+          "bestInSlot": "Black Cat-Ear Hood",
           "optimalAlternatives": [
             "White Cat-Ear Hood",
             "Archbishop's Mitre",
@@ -585,8 +585,8 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "bestInSlot": "Carnelian Staff",
           "optimalAlternatives": [
             "Meteorite Rod",
-            "Runic Rod",
-            "Chlorotic"
+            "Quartz Rod",
+            "Flame-Hex Staff"
           ],
           "slotType": "Weapon",
           "notes": "Mag Atk +25, AP +1"
@@ -638,13 +638,13 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Legionnaire",
         "roleTitle": "Physical Wall & Fortress Guard",
         "weapon": "Meteorite Lance",
-        "shieldOrHelm": "Greatshield of Fortitude",
+        "shieldOrHelm": "Unyielding Shield",
         "accessory1": "Defensive Ring",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
           "bestInSlot": "Meteorite Lance",
           "optimalAlternatives": [
-            "Heavy Iron Lance",
+            "Iron Spear",
             "Bronze Spear",
             "Carnelian Spear"
           ],
@@ -652,10 +652,10 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +24, Max HP +20"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Greatshield of Fortitude",
+          "bestInSlot": "Unyielding Shield",
           "optimalAlternatives": [
-            "Heavy Guard Shield",
-            "Tower Shield",
+            "Azure Crest Shield",
+            "Greatwood Shield",
             "Azure Crest Shield"
           ],
           "slotType": "Shield",
@@ -675,7 +675,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Heavy Guard Ring",
+            "Defender's Ring",
             "Vitality Talisman"
           ],
           "slotType": "Accessory",
@@ -697,15 +697,15 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Selvie",
         "className": "Druid",
         "roleTitle": "Start-of-Battle Curse & Blindness Controller",
-        "weapon": "Sandstorm Staff",
+        "weapon": "Dustbound Staff",
         "shieldOrHelm": "Druid's Robes",
         "accessory1": "Raven Plume",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
-          "bestInSlot": "Sandstorm Staff",
+          "bestInSlot": "Dustbound Staff",
           "optimalAlternatives": [
             "Pestilent Staff",
-            "Poison Hex Staff",
+            "Pestilent Staff",
             "Euros's Staff"
           ],
           "slotType": "Weapon",
@@ -756,7 +756,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
       {
         "step": 1,
         "unit": "Selvie",
-        "skill": "Sandstorm",
+        "skill": "Defensive Curse",
         "condition1": "[Start of Battle]",
         "condition2": "[All Enemies]",
         "notes": "Blinds enemy attackers on Turn 0"
@@ -822,7 +822,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
     "pveRating": "Godly (Wipes all Drakenhold, Bastorias & Albion maps)",
     "description": "Hilda delivers an earth-shattering Dragoon Dive aerial bombardment (4 AP). Gilbert provides Turn-0 Rapid Order (+15 Squad Initiative) and Offensive Order (+20% Atk), Primm accelerates the dive instantly with White Cat-Ear Hood, Miriam protects against magic with Magic Barrier, and Fran clears airborne and cavalry units with High Gale.",
     "keyItems": [
-      "Dragoon's War Spear",
+      "Dragoon's Warspear",
       "White Cat-Ear Hood",
       "Angel Plume",
       "Wingline Standard"
@@ -867,12 +867,12 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Hilda",
         "className": "Wyvern Master",
         "roleTitle": "Aerial Nuke Leader & Dragoon Diver",
-        "weapon": "Dragoon's War Spear",
+        "weapon": "Dragoon's Warspear",
         "shieldOrHelm": "Wyvern Reins",
         "accessory1": "Sniper's Amber Lens",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
-          "bestInSlot": "Dragoon's War Spear",
+          "bestInSlot": "Dragoon's Warspear",
           "optimalAlternatives": [
             "Kingslance Elhal",
             "Meteorite Lance",
@@ -886,7 +886,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Heavenwyvern Reins",
             "Wyvern Claw",
-            "Silver Shield"
+            "Steel Shield"
           ],
           "slotType": "Shield",
           "notes": "Flying Atk +10%, Initiative +5"
@@ -935,7 +935,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "bestInSlot": "Boreas's Axe",
           "optimalAlternatives": [
             "Meteorite Axe",
-            "Carnat Axe",
+            "Carnelian Axe",
             "Dragonbone Axe"
           ],
           "slotType": "Weapon",
@@ -944,9 +944,9 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Heavenwyvern Reins",
           "optimalAlternatives": [
-            "Gryphon Shield",
+            "Wingcrest Shield",
             "Wyvern Reins",
-            "Silver Shield"
+            "Steel Shield"
           ],
           "slotType": "Shield",
           "notes": "Flying Atk +15%, Initiative +10"
@@ -956,7 +956,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Battleline Standard",
             "Elite Standard",
-            "Gryphon Brooch"
+            "Angel Plume"
           ],
           "slotType": "Accessory",
           "notes": "Squad Flying Atk +15%, Initiative +5"
@@ -988,7 +988,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Sainted Knight",
         "roleTitle": "Magic Defense Wall & Row Healer",
         "weapon": "Runic Sword",
-        "shieldOrHelm": "Radiant Shield",
+        "shieldOrHelm": "Luminous Shield",
         "accessory1": "Lapis Pendant",
         "accessory2": "First Aid Kit",
         "slot1Weapon": {
@@ -1002,11 +1002,11 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +18, Mag Atk +24, Magick Attack"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Radiant Shield",
+          "bestInSlot": "Luminous Shield",
           "optimalAlternatives": [
-            "Silver Shield",
+            "Steel Shield",
             "Azure Crest Shield",
-            "Knight Shield"
+            "Chivalric Shield"
           ],
           "slotType": "Shield",
           "notes": "Phys Def +12, Mag Def +12, Magic Barrier"
@@ -1015,7 +1015,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "White Knight Plume",
+            "Dove Plume",
             "Amethyst Pendant"
           ],
           "slotType": "Accessory",
@@ -1064,7 +1064,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "slot2ShieldOrOffhand": {
           "bestInSlot": "White Cat-Ear Hood",
           "optimalAlternatives": [
-            "Cat-Ear Hood",
+            "Black Cat-Ear Hood",
             "Archbishop's Mitre",
             "Silk Hood"
           ],
@@ -1124,8 +1124,8 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Royal Scarf",
           "optimalAlternatives": [
-            "Crown Shield",
-            "Silver Shield",
+            "Golden Ram Shield",
+            "Steel Shield",
             "Leather Hood"
           ],
           "slotType": "Helm",
@@ -1145,7 +1145,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Carnelian Pendant",
-            "Commander's Crest",
+            "Battleline Standard",
             "Sapphire Pendant"
           ],
           "slotType": "Accessory",
@@ -1231,10 +1231,10 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
     "pveRating": "Godly (Infinite Sustain & Armor Annihilation)",
     "description": "Berengaria exploits afflicted targets. Travis opens battle with row-wide Blindness via Shadowbite, triggering Berengaria's Eye of the Crimson Bear (-20% Atk/Def to all enemies) and Sanguine Pursuit to perpetually freeze enemy turns. Nina shatters heavy armor with Enraged Strike, Bruno cleaves rows with Wide Smash, and Liza provides medical cover.",
     "keyItems": [
-      "Carnelian Greataxe",
-      "Poisoner's Dagger",
-      "Executioner's Eye",
-      "Phantom Ring"
+      "Carnelian Axe",
+      "Pursuant's Blade",
+      "Sniper's Amber Lens",
+      "Ring of the Unicorn"
     ],
     "frontRow": [
       "berengaria-renegade",
@@ -1276,12 +1276,12 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Berengaria",
         "className": "Dark Marquess (Axe)",
         "roleTitle": "Affliction Dominator & Executioner Lead",
-        "weapon": "Carnelian Greataxe",
-        "shieldOrHelm": "Nightmare Shield",
-        "accessory1": "Executioner's Eye",
+        "weapon": "Carnelian Axe",
+        "shieldOrHelm": "Thorn Shield",
+        "accessory1": "Sniper's Amber Lens",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
-          "bestInSlot": "Carnelian Greataxe",
+          "bestInSlot": "Carnelian Axe",
           "optimalAlternatives": [
             "Kingsaxe Drakenash",
             "Boreas's Axe",
@@ -1291,20 +1291,20 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +25, AP +1"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Nightmare Shield",
+          "bestInSlot": "Thorn Shield",
           "optimalAlternatives": [
             "Azure Crest Shield",
-            "Rose Shield",
-            "Silver Shield"
+            "Blue Rose Shield",
+            "Steel Shield"
           ],
           "slotType": "Shield",
           "notes": "Phys Def +14, Affliction Potency +20%"
         },
         "slot3Accessory": {
-          "bestInSlot": "Executioner's Eye",
+          "bestInSlot": "Sniper's Amber Lens",
           "optimalAlternatives": [
             "Earrings of Pursuit",
-            "Critical Ring",
+            "Lucky Coin",
             "Warrior's Medallion"
           ],
           "slotType": "Accessory",
@@ -1336,15 +1336,15 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Travis",
         "className": "Rogue",
         "roleTitle": "Row Blindness & Evasion Tank",
-        "weapon": "Poisoner's Dagger",
+        "weapon": "Pursuant's Blade",
         "shieldOrHelm": "Thief's Mantle",
-        "accessory1": "Phantom Ring",
+        "accessory1": "Ring of the Unicorn",
         "accessory2": "Raven Plume",
         "slot1Weapon": {
-          "bestInSlot": "Poisoner's Dagger",
+          "bestInSlot": "Pursuant's Blade",
           "optimalAlternatives": [
-            "Shadow Dagger",
-            "Thief's Dagger",
+            "Phantom Knight's Sword",
+            "Bandit Longsword",
             "Notos's Sword"
           ],
           "slotType": "Weapon",
@@ -1353,7 +1353,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Thief's Mantle",
           "optimalAlternatives": [
-            "Shadow Hood",
+            "Thief's Mantle",
             "Silk Hood",
             "Leather Hood"
           ],
@@ -1361,7 +1361,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Evasion +20, Evade PP +1"
         },
         "slot3Accessory": {
-          "bestInSlot": "Phantom Ring",
+          "bestInSlot": "Ring of the Unicorn",
           "optimalAlternatives": [
             "Lucky Coin",
             "Thief's Bell",
@@ -1397,7 +1397,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Breaker",
         "roleTitle": "Heavy Armor Crusher",
         "weapon": "Juggernaut",
-        "shieldOrHelm": "Gauntlets of Power",
+        "shieldOrHelm": "Master's Gauntlets",
         "accessory1": "Lapis Pendant",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
@@ -1411,10 +1411,10 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +26, Stun Multiplier"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Gauntlets of Power",
+          "bestInSlot": "Master's Gauntlets",
           "optimalAlternatives": [
             "Armored Gauntlets",
-            "Heavy Gauntlets",
+            "Armored Gauntlets",
             "Power Belt"
           ],
           "slotType": "Helm",
@@ -1435,7 +1435,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Ruby Pendant",
             "Power Belt",
-            "Critical Ring"
+            "Lucky Coin"
           ],
           "slotType": "Accessory",
           "notes": "AP +1 for Assault Blow executions"
@@ -1457,7 +1457,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Shieldshooter",
         "roleTitle": "Medical Bolt Healer & Anti-Flyer Cover",
         "weapon": "Gallian Crossbow",
-        "shieldOrHelm": "Greatshield of Fortitude",
+        "shieldOrHelm": "Unyielding Shield",
         "accessory1": "First Aid Kit",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
@@ -1471,11 +1471,11 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +24, Anti-Flying 200%"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Greatshield of Fortitude",
+          "bestInSlot": "Unyielding Shield",
           "optimalAlternatives": [
-            "Deflect Shield",
-            "Silver Shield",
-            "Heavy Guard Shield"
+            "Parrying Shield",
+            "Steel Shield",
+            "Azure Crest Shield"
           ],
           "slotType": "Shield",
           "notes": "Phys Def +18, Guard Rate +45%"
@@ -1633,8 +1633,8 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
     "pveRating": "Godly (Invincible against melee physical armies)",
     "description": "Virginia commands an unyielding counter-attack fortress. Dual-wielding swords and shields with Maiden's Hammer, Virginia buffs squad physical defense by +30% on Turn 0 with Iron Veil. Leah delivers lethal True-Strike parries, Kitra shatters enemy armor, Rolf snipes flying threats with 100% True Strike, and Colm blocks all incoming arrow volleys with Arrow Cover.",
     "keyItems": [
-      "Maiden's Sword",
-      "Rose Shield",
+      "Holy Unicorn Blade",
+      "Blue Rose Shield",
       "Counter Belt",
       "Apeliotes's Bow"
     ],
@@ -1678,12 +1678,12 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Virginia",
         "className": "Valkyria",
         "roleTitle": "Dual-Sword & Shield Counter Vanguard",
-        "weapon": "Maiden's Sword",
-        "shieldOrHelm": "Rose Shield",
+        "weapon": "Holy Unicorn Blade",
+        "shieldOrHelm": "Blue Rose Shield",
         "accessory1": "Counter Belt",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
-          "bestInSlot": "Maiden's Sword",
+          "bestInSlot": "Holy Unicorn Blade",
           "optimalAlternatives": [
             "Kingsblade Cornix",
             "Hallowed Blade",
@@ -1693,11 +1693,11 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +23, Phys Def +5, PP +1"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Rose Shield",
+          "bestInSlot": "Blue Rose Shield",
           "optimalAlternatives": [
-            "Greatshield of the Maiden",
+            "Holy Unicorn Shield",
             "Azure Crest Shield",
-            "Silver Shield"
+            "Steel Shield"
           ],
           "slotType": "Shield",
           "notes": "Phys Def +15, Guard Rate +35%, Retaliation Counter, PP +1"
@@ -1739,8 +1739,8 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Vanguard",
         "roleTitle": "Frontline Shield & Arrow Cover",
         "weapon": "Meteorite Sword",
-        "shieldOrHelm": "Deflect Shield",
-        "accessory1": "Heavy Guard Ring",
+        "shieldOrHelm": "Parrying Shield",
+        "accessory1": "Defender's Ring",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
           "bestInSlot": "Meteorite Sword",
@@ -1753,17 +1753,17 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +24, Max HP +20, Guard +10%"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Deflect Shield",
+          "bestInSlot": "Parrying Shield",
           "optimalAlternatives": [
-            "Silver Shield",
-            "Knight Shield",
+            "Steel Shield",
+            "Chivalric Shield",
             "Azure Crest Shield"
           ],
           "slotType": "Shield",
           "notes": "Arrow Deflect: Negates 100% arrow damage"
         },
         "slot3Accessory": {
-          "bestInSlot": "Heavy Guard Ring",
+          "bestInSlot": "Defender's Ring",
           "optimalAlternatives": [
             "Defender's Ring",
             "Guardian Gloves",
@@ -1799,34 +1799,34 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Swordmaster",
         "roleTitle": "True-Strike Parry Duelist",
         "weapon": "Notos's Sword",
-        "shieldOrHelm": "Parrying Dagger (Second Blade)",
+        "shieldOrHelm": "Pursuant's Blade",
         "accessory1": "Parrying Amulet",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
           "bestInSlot": "Notos's Sword",
           "optimalAlternatives": [
             "Meteorite Sword",
-            "Keen Broadsword",
+            "Iron Sword",
             "Kingsblade Cornix"
           ],
           "slotType": "Weapon",
           "notes": "Phys Atk +25, Initiative +5"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Parrying Dagger (Second Blade)",
+          "bestInSlot": "Pursuant's Blade",
           "optimalAlternatives": [
             "Pursuant's Blade",
             "Carnelian Blade",
-            "Steel Blade"
+            "Iron Sword"
           ],
-          "slotType": "Offhand",
+          "slotType": "Weapon",
           "notes": "Evasion +15, Parrying Slash"
         },
         "slot3Accessory": {
           "bestInSlot": "Parrying Amulet",
           "optimalAlternatives": [
             "Lucky Coin",
-            "Critical Ring",
+            "Lucky Coin",
             "Skillful Amulet"
           ],
           "slotType": "Accessory",
@@ -1837,7 +1837,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Ruby Pendant",
             "Warrior's Medallion",
-            "Critical Ring"
+            "Lucky Coin"
           ],
           "slotType": "Accessory",
           "notes": "AP +1 for Meteor Slash executions"
@@ -1867,7 +1867,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Juggernaut",
             "Giant's Greataxe",
-            "Carnat Axe"
+            "Carnelian Axe"
           ],
           "slotType": "Weapon",
           "notes": "Phys Atk +24, Max HP +20"
@@ -1875,9 +1875,9 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Armored Gauntlets",
           "optimalAlternatives": [
-            "Heavy Gauntlets",
+            "Armored Gauntlets",
             "Power Belt",
-            "Gauntlets of Power"
+            "Master's Gauntlets"
           ],
           "slotType": "Helm",
           "notes": "Phys Atk +4, Phys Def +4"
@@ -1897,7 +1897,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Sapphire Pendant",
             "Power Belt",
-            "Critical Ring"
+            "Lucky Coin"
           ],
           "slotType": "Accessory",
           "notes": "PP +1 for Heavy Smash follow-ups"
@@ -1919,21 +1919,21 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Sniper",
         "roleTitle": "True-Strike Anti-Flying Marksman",
         "weapon": "Apeliotes's Bow",
-        "shieldOrHelm": "Sniper Hood",
+        "shieldOrHelm": "Sniper's Lens",
         "accessory1": "Sniper's Lens",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
           "bestInSlot": "Apeliotes's Bow",
           "optimalAlternatives": [
             "Meteorite Bow",
-            "Eagle Eye Bow",
+            "Apeliotes's Bow",
             "Carnelian Bow"
           ],
           "slotType": "Weapon",
           "notes": "Phys Atk +25, Initiative +5, True Strike"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Sniper Hood",
+          "bestInSlot": "Sniper's Lens",
           "optimalAlternatives": [
             "Silk Hood",
             "Elite Beret",
@@ -1947,7 +1947,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Sniper's Amber Lens",
             "Skillful Amulet",
-            "Archer's Eyepatch"
+            "Sniper's Lens"
           ],
           "slotType": "Accessory",
           "notes": "Hawkeye: 100% True Strike"
@@ -1993,7 +1993,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
       {
         "step": 3,
         "unit": "Leah",
-        "skill": "Parrying Slash",
+        "skill": "Parry",
         "condition1": "[Attacked by Melee]",
         "condition2": "[Self PP >= 1]",
         "notes": "Negates 100% damage & strikes back"
@@ -2034,10 +2034,10 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
     "pveRating": "Godly (Freezes and obliterates entire enemy armies)",
     "description": "Yunifi freezes the entire enemy force on Turn 1 with Glacial Rain (4 AP). Ramona (Wereowl) acts as an infinite PP battery with Owl Eyes, Ridiel cleanses incoming debuffs with Pure Light and adds magic conferral, while Bryce and Lex build an impenetrable wall.",
     "keyItems": [
-      "Icefall Bow (Glacial Bow)",
-      "Ice Crystal Ring",
-      "Owl Pin",
-      "Pure Light Amulet"
+      "Icefall Bow",
+      "Glacial Ring",
+      "Sage Owl's Shawl",
+      "Celestial Talisman"
     ],
     "frontRow": [
       "bryce-legionnaire",
@@ -2079,12 +2079,12 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Yunifi",
         "className": "Snow Ranger",
         "roleTitle": "Battlefield Freeze Nuke Archer",
-        "weapon": "Icefall Bow (Glacial Bow)",
-        "shieldOrHelm": "Snow Wolf Hood",
+        "weapon": "Icefall Bow",
+        "shieldOrHelm": "Wolfpack Gauntlets",
         "accessory1": "Sniper's Amber Lens",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
-          "bestInSlot": "Icefall Bow (Glacial Bow)",
+          "bestInSlot": "Icefall Bow",
           "optimalAlternatives": [
             "Kingsbow Bastorik",
             "Meteorite Bow",
@@ -2094,7 +2094,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Glacial Rain 4 AP, Freeze, Phys Atk +22"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Snow Wolf Hood",
+          "bestInSlot": "Wolfpack Gauntlets",
           "optimalAlternatives": [
             "Elite Beret",
             "Leather Hood",
@@ -2106,7 +2106,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "slot3Accessory": {
           "bestInSlot": "Sniper's Amber Lens",
           "optimalAlternatives": [
-            "Ice Crystal Ring",
+            "Glacial Ring",
             "Sniper's Lens",
             "Skillful Amulet"
           ],
@@ -2140,8 +2140,8 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Wereowl",
         "roleTitle": "Bestral Infinite PP/AP Battery",
         "weapon": "Meteorite Rod",
-        "shieldOrHelm": "Sage's Owl Shawl",
-        "accessory1": "Owl Pin (Owl Eyes PP restoration)",
+        "shieldOrHelm": "Sage Owl's Shawl",
+        "accessory1": "Sage Owl's Shawl",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
           "bestInSlot": "Meteorite Rod",
@@ -2154,7 +2154,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Mag Atk +24, Max HP +20"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Sage's Owl Shawl",
+          "bestInSlot": "Sage Owl's Shawl",
           "optimalAlternatives": [
             "Silk Hood",
             "Druid's Robes",
@@ -2164,7 +2164,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Mag Def +8, Initiative +6"
         },
         "slot3Accessory": {
-          "bestInSlot": "Owl Pin (Owl Eyes PP restoration)",
+          "bestInSlot": "Sage Owl's Shawl",
           "optimalAlternatives": [
             "Lapis Pendant",
             "Sapphire Pendant",
@@ -2200,8 +2200,8 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Elven Archer",
         "roleTitle": "Pure Light Row Cleanse & Magic Conferral",
         "weapon": "Runic Bow",
-        "shieldOrHelm": "Elven Tiara",
-        "accessory1": "Pure Light Amulet",
+        "shieldOrHelm": "Dream Crown",
+        "accessory1": "Celestial Talisman",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
           "bestInSlot": "Runic Bow",
@@ -2214,7 +2214,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +18, Mag Atk +24"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Elven Tiara",
+          "bestInSlot": "Dream Crown",
           "optimalAlternatives": [
             "Silk Hood",
             "Sage's Hood",
@@ -2224,7 +2224,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Mag Atk +5, Mag Def +5"
         },
         "slot3Accessory": {
-          "bestInSlot": "Pure Light Amulet",
+          "bestInSlot": "Celestial Talisman",
           "optimalAlternatives": [
             "Clearsight Amulet",
             "Detoxifying Amulet",
@@ -2260,13 +2260,13 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Legionnaire",
         "roleTitle": "Heavy Frontline Shield",
         "weapon": "Meteorite Lance",
-        "shieldOrHelm": "Greatshield of Fortitude",
+        "shieldOrHelm": "Unyielding Shield",
         "accessory1": "Guardian Gloves",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
           "bestInSlot": "Meteorite Lance",
           "optimalAlternatives": [
-            "Heavy Iron Lance",
+            "Iron Spear",
             "Bronze Spear",
             "Carnelian Spear"
           ],
@@ -2274,10 +2274,10 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +24, Max HP +20"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Greatshield of Fortitude",
+          "bestInSlot": "Unyielding Shield",
           "optimalAlternatives": [
-            "Heavy Guard Shield",
-            "Tower Shield",
+            "Azure Crest Shield",
+            "Greatwood Shield",
             "Azure Crest Shield"
           ],
           "slotType": "Shield",
@@ -2288,7 +2288,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Defender's Ring",
             "Defensive Ring",
-            "Heavy Guard Ring"
+            "Defender's Ring"
           ],
           "slotType": "Accessory",
           "notes": "Guard Rate +15%"
@@ -2320,8 +2320,8 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Vanguard",
         "roleTitle": "Anti-Ranged Arrow Cover Vanguard",
         "weapon": "Meteorite Sword",
-        "shieldOrHelm": "Deflect Shield",
-        "accessory1": "Heavy Guard Ring",
+        "shieldOrHelm": "Parrying Shield",
+        "accessory1": "Defender's Ring",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
           "bestInSlot": "Meteorite Sword",
@@ -2334,17 +2334,17 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +24, HP +20"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Deflect Shield",
+          "bestInSlot": "Parrying Shield",
           "optimalAlternatives": [
-            "Silver Shield",
-            "Knight Shield",
+            "Steel Shield",
+            "Chivalric Shield",
             "Azure Crest Shield"
           ],
           "slotType": "Shield",
           "notes": "Arrow Deflect: Negates 100% arrow damage"
         },
         "slot3Accessory": {
-          "bestInSlot": "Heavy Guard Ring",
+          "bestInSlot": "Defender's Ring",
           "optimalAlternatives": [
             "Defender's Ring",
             "Guardian Gloves",
@@ -2428,8 +2428,8 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
     "description": "The Elven Sisters combo (Rosalinde & Eltolinde). Rosalinde opens with Rage of the Faeries (Turn-0 Front Row Stun), channels Elemental Roar (210 potency hybrid nuke), followed immediately by Eltolinde's second Elemental Roar boosted by Faerie charges, while Ithilion and Railanor provide agile hybrid frontline evasion and Galadmir freezes backline threats.",
     "keyItems": [
       "Kingslance Elhal",
-      "Sylphid Spear",
-      "Elven Crown",
+      "Sacral Spear",
+      "Ancient Crown",
       "Familiar's Choker"
     ],
     "frontRow": [
@@ -2471,12 +2471,12 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Rosalinde",
         "className": "Elven Augur",
         "roleTitle": "Start-of-Battle Stun & Elemental Nuke Lead",
-        "weapon": "Sylphid Spear",
-        "shieldOrHelm": "Elven Crown",
+        "weapon": "Sacral Spear",
+        "shieldOrHelm": "Ancient Crown",
         "accessory1": "Familiar's Choker",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
-          "bestInSlot": "Sylphid Spear",
+          "bestInSlot": "Sacral Spear",
           "optimalAlternatives": [
             "Kingslance Elhal",
             "Runic Spear",
@@ -2486,7 +2486,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +22, Mag Atk +20, Initiative +8"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Elven Crown",
+          "bestInSlot": "Ancient Crown",
           "optimalAlternatives": [
             "Ancient Crown",
             "Sage's Hood",
@@ -2532,13 +2532,13 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Elven Sibyl",
         "roleTitle": "Faerie Barrier Buffer & Secondary Nuke",
         "weapon": "Kingslance Elhal",
-        "shieldOrHelm": "Elven Tiara",
+        "shieldOrHelm": "Dream Crown",
         "accessory1": "Lapis Pendant",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
           "bestInSlot": "Kingslance Elhal",
           "optimalAlternatives": [
-            "Sylphid Spear",
+            "Sacral Spear",
             "Runic Spear",
             "Meteorite Lance"
           ],
@@ -2546,7 +2546,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +28, All Stats +5"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Elven Tiara",
+          "bestInSlot": "Dream Crown",
           "optimalAlternatives": [
             "Archbishop's Mitre",
             "Silk Hood",
@@ -2592,7 +2592,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Elven Fencer",
         "roleTitle": "Hybrid Lightning Stun Duelist",
         "weapon": "Phantom Knight's Sword",
-        "shieldOrHelm": "Mirage Cloak",
+        "shieldOrHelm": "Illusory Cloak",
         "accessory1": "Raven Plume",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
@@ -2606,7 +2606,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Mag Atk +22, Mag Def +5, Initiative +3"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Mirage Cloak",
+          "bestInSlot": "Illusory Cloak",
           "optimalAlternatives": [
             "Thief's Mantle",
             "Silk Hood",
@@ -2690,7 +2690,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Ruby Pendant",
             "Lucky Coin",
-            "Critical Ring"
+            "Lucky Coin"
           ],
           "slotType": "Accessory",
           "notes": "AP +1 for Windstorm Blade"
@@ -2713,7 +2713,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "roleTitle": "Backline Freeze & Row Cleanse",
         "weapon": "Runic Bow",
         "shieldOrHelm": "Silk Hood",
-        "accessory1": "Pure Light Amulet",
+        "accessory1": "Celestial Talisman",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
           "bestInSlot": "Runic Bow",
@@ -2736,7 +2736,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Mag Def +4, Initiative +3"
         },
         "slot3Accessory": {
-          "bestInSlot": "Pure Light Amulet",
+          "bestInSlot": "Celestial Talisman",
           "optimalAlternatives": [
             "Clearsight Amulet",
             "Detoxifying Amulet",
@@ -2827,10 +2827,10 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
     "pveRating": "Godly (Shatters all heavy armor, boss & coliseum encounters)",
     "description": "Amalia channels colossal greatsword damage (120 base Phys Atk) with Grand Crusher Greatsword and Penetrate, ignoring 50% physical defense across full columns. Bertrand (Werebear) taunts physical threats with Indomitable Guard and Ground Slam stuns, Monica provides Magic Barrier and healing, Aramis executes scouts, and Mandrin deletes fliers.",
     "keyItems": [
-      "Grand Crusher Greatsword",
-      "Berserker Band",
-      "Heavy Guard Shield",
-      "Radiant Shield"
+      "Mason's Hammer",
+      "Riot Belt",
+      "Azure Crest Shield",
+      "Luminous Shield"
     ],
     "frontRow": [
       "amalia-dreadnought",
@@ -2872,12 +2872,12 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Amalia",
         "className": "Dreadnought",
         "roleTitle": "Colossal Greatsword Boss Obliterator",
-        "weapon": "Grand Crusher Greatsword",
-        "shieldOrHelm": "Heavy Guard Shield",
-        "accessory1": "Berserker Band",
+        "weapon": "Mason's Hammer",
+        "shieldOrHelm": "Azure Crest Shield",
+        "accessory1": "Riot Belt",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
-          "bestInSlot": "Grand Crusher Greatsword",
+          "bestInSlot": "Mason's Hammer",
           "optimalAlternatives": [
             "Kingsblade Cornix",
             "Meteorite Sword",
@@ -2887,17 +2887,17 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +28, Guard Piercing +50%"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Heavy Guard Shield",
+          "bestInSlot": "Azure Crest Shield",
           "optimalAlternatives": [
-            "Greatshield of Fortitude",
-            "Silver Shield",
+            "Unyielding Shield",
+            "Steel Shield",
             "Azure Crest Shield"
           ],
           "slotType": "Shield",
           "notes": "Phys Def +14, Guard Rate +30%"
         },
         "slot3Accessory": {
-          "bestInSlot": "Berserker Band",
+          "bestInSlot": "Riot Belt",
           "optimalAlternatives": [
             "Warrior's Medallion",
             "Power Belt",
@@ -2911,7 +2911,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Ruby Pendant",
             "Sniper's Amber Lens",
-            "Critical Ring"
+            "Lucky Coin"
           ],
           "slotType": "Accessory",
           "notes": "AP +1 for Penetrate column strikes"
@@ -2933,24 +2933,24 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Werebear",
         "roleTitle": "Bestral Frontline Taunt Wall",
         "weapon": "Boreas's Axe",
-        "shieldOrHelm": "Greatshield of Fortitude",
+        "shieldOrHelm": "Unyielding Shield",
         "accessory1": "Vitality Talisman",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
           "bestInSlot": "Boreas's Axe",
           "optimalAlternatives": [
             "Meteorite Axe",
-            "Carnat Axe",
+            "Carnelian Axe",
             "Dragonbone Axe"
           ],
           "slotType": "Weapon",
           "notes": "Phys Atk +26, Initiative +5"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Greatshield of Fortitude",
+          "bestInSlot": "Unyielding Shield",
           "optimalAlternatives": [
-            "Heavy Guard Shield",
-            "Tower Shield",
+            "Azure Crest Shield",
+            "Greatwood Shield",
             "Azure Crest Shield"
           ],
           "slotType": "Shield",
@@ -2970,7 +2970,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Heavy Guard Ring",
+            "Defender's Ring",
             "Defender's Ring"
           ],
           "slotType": "Accessory",
@@ -2993,7 +2993,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Sainted Knight",
         "roleTitle": "Support Knight & Magic Barrier Protector",
         "weapon": "Runic Sword",
-        "shieldOrHelm": "Radiant Shield",
+        "shieldOrHelm": "Luminous Shield",
         "accessory1": "Lapis Pendant",
         "accessory2": "First Aid Kit",
         "slot1Weapon": {
@@ -3007,11 +3007,11 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +18, Mag Atk +24"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Radiant Shield",
+          "bestInSlot": "Luminous Shield",
           "optimalAlternatives": [
-            "Silver Shield",
+            "Steel Shield",
             "Azure Crest Shield",
-            "Knight Shield"
+            "Chivalric Shield"
           ],
           "slotType": "Shield",
           "notes": "Phys Def +12, Mag Def +12, Magic Barrier"
@@ -3020,7 +3020,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "White Knight Plume",
+            "Dove Plume",
             "Amethyst Pendant"
           ],
           "slotType": "Accessory",
@@ -3053,34 +3053,34 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Swordmaster",
         "roleTitle": "Scout Executioner & True-Strike Finisher",
         "weapon": "Notos's Sword",
-        "shieldOrHelm": "Parrying Dagger (Second Blade)",
+        "shieldOrHelm": "Pursuant's Blade",
         "accessory1": "Parrying Amulet",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
           "bestInSlot": "Notos's Sword",
           "optimalAlternatives": [
             "Meteorite Sword",
-            "Keen Broadsword",
+            "Iron Sword",
             "Kingsblade Cornix"
           ],
           "slotType": "Weapon",
           "notes": "Phys Atk +25, Initiative +5"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Parrying Dagger (Second Blade)",
+          "bestInSlot": "Pursuant's Blade",
           "optimalAlternatives": [
             "Pursuant's Blade",
             "Carnelian Blade",
-            "Steel Blade"
+            "Iron Sword"
           ],
-          "slotType": "Offhand",
+          "slotType": "Weapon",
           "notes": "Evasion +15, Parrying Slash"
         },
         "slot3Accessory": {
           "bestInSlot": "Parrying Amulet",
           "optimalAlternatives": [
             "Lucky Coin",
-            "Critical Ring",
+            "Lucky Coin",
             "Skillful Amulet"
           ],
           "slotType": "Accessory",
@@ -3091,7 +3091,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Ruby Pendant",
             "Warrior's Medallion",
-            "Critical Ring"
+            "Lucky Coin"
           ],
           "slotType": "Accessory",
           "notes": "AP +1 for Meteor Slash executions"
@@ -3113,21 +3113,21 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Sniper",
         "roleTitle": "Anti-Air True Strike Sniper",
         "weapon": "Apeliotes's Bow",
-        "shieldOrHelm": "Sniper Hood",
+        "shieldOrHelm": "Sniper's Lens",
         "accessory1": "Sniper's Lens",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
           "bestInSlot": "Apeliotes's Bow",
           "optimalAlternatives": [
             "Meteorite Bow",
-            "Eagle Eye Bow",
+            "Apeliotes's Bow",
             "Carnelian Bow"
           ],
           "slotType": "Weapon",
           "notes": "Phys Atk +25, Initiative +5, True Strike"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Sniper Hood",
+          "bestInSlot": "Sniper's Lens",
           "optimalAlternatives": [
             "Silk Hood",
             "Elite Beret",
@@ -3141,7 +3141,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Sniper's Amber Lens",
             "Skillful Amulet",
-            "Archer's Eyepatch"
+            "Sniper's Lens"
           ],
           "slotType": "Accessory",
           "notes": "Hawkeye: 100% True Strike"
@@ -3229,9 +3229,9 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
     "description": "Dinah and Govil unleash Bestral Night ferocity. Wolfpack Gauntlets grants +20% Phys Atk to all bestrals, Raenys inflicts Turn-0 Blindness with Shining Arrow, Dinah and Govil shred armor with Piercing Claw and chain Chasing Slash pursuit executions, while Morpan holds the front with tower guard and Jeremy delivers Following Slash finishes.",
     "keyItems": [
       "Wolfpack Gauntlets",
-      "Wolf-Fang Bracelet",
-      "Shadow Dagger",
-      "Divine Bow"
+      "Wolf Fang Bracelet",
+      "Phantom Knight's Sword",
+      "Kingsbow Bastorik"
     ],
     "frontRow": [
       "dinah-werewolf",
@@ -3274,8 +3274,8 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Werewolf",
         "roleTitle": "Bestral Alpha Assassin & Pursuit Lead",
         "weapon": "Wolfpack Gauntlets",
-        "shieldOrHelm": "Wolf Cap",
-        "accessory1": "Wolf-Fang Bracelet",
+        "shieldOrHelm": "Wolf Fang Bracelet",
+        "accessory1": "Wolf Fang Bracelet",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
           "bestInSlot": "Wolfpack Gauntlets",
@@ -3288,7 +3288,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Wolfpack Strike: +20% Bestral Atk, Phys Atk +5, Crit +10%"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Wolf Cap",
+          "bestInSlot": "Wolf Fang Bracelet",
           "optimalAlternatives": [
             "Leather Hood",
             "Elite Beret",
@@ -3298,9 +3298,9 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Initiative +5, Crit Rate +10%"
         },
         "slot3Accessory": {
-          "bestInSlot": "Wolf-Fang Bracelet",
+          "bestInSlot": "Wolf Fang Bracelet",
           "optimalAlternatives": [
-            "Beast Ring",
+            "Wolf Fang Bracelet",
             "Lucky Coin",
             "Warrior's Medallion"
           ],
@@ -3334,21 +3334,21 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Werewolf",
         "roleTitle": "Armor Shredder & Pursuit Striker",
         "weapon": "Carnelian Blade",
-        "shieldOrHelm": "Fox Cloak",
+        "shieldOrHelm": "Twilight Cloak",
         "accessory1": "Raven Plume",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
           "bestInSlot": "Carnelian Blade",
           "optimalAlternatives": [
             "Meteorite Sword",
-            "Shadow Dagger",
+            "Phantom Knight's Sword",
             "Iron Sword"
           ],
           "slotType": "Weapon",
           "notes": "Phys Atk +25, AP +1"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Fox Cloak",
+          "bestInSlot": "Twilight Cloak",
           "optimalAlternatives": [
             "Thief's Mantle",
             "Silk Hood",
@@ -3361,7 +3361,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "bestInSlot": "Raven Plume",
           "optimalAlternatives": [
             "Dove Plume",
-            "Wolf-Fang Bracelet",
+            "Wolf Fang Bracelet",
             "Lucky Coin"
           ],
           "slotType": "Accessory",
@@ -3394,7 +3394,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Werebear",
         "roleTitle": "Bestral Frontline Shield & Ground Slammer",
         "weapon": "Meteorite Axe",
-        "shieldOrHelm": "Greatshield of Fortitude",
+        "shieldOrHelm": "Unyielding Shield",
         "accessory1": "Vitality Talisman",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
@@ -3402,16 +3402,16 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Giant's Greataxe",
             "Juggernaut",
-            "Carnat Axe"
+            "Carnelian Axe"
           ],
           "slotType": "Weapon",
           "notes": "Phys Atk +24, Max HP +20"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Greatshield of Fortitude",
+          "bestInSlot": "Unyielding Shield",
           "optimalAlternatives": [
-            "Heavy Guard Shield",
-            "Tower Shield",
+            "Azure Crest Shield",
+            "Greatwood Shield",
             "Azure Crest Shield"
           ],
           "slotType": "Shield",
@@ -3431,7 +3431,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Heavy Guard Ring",
+            "Defender's Ring",
             "Defender's Ring"
           ],
           "slotType": "Accessory",
@@ -3461,7 +3461,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "bestInSlot": "Apeliotes's Bow",
           "optimalAlternatives": [
             "Meteorite Bow",
-            "Divine Bow",
+            "Kingsbow Bastorik",
             "Carnelian Bow"
           ],
           "slotType": "Weapon",
@@ -3514,7 +3514,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Landsknecht",
         "roleTitle": "Following Slash Executioner",
         "weapon": "Kingsblade Cornix",
-        "shieldOrHelm": "Silver Shield",
+        "shieldOrHelm": "Steel Shield",
         "accessory1": "Carnelian Pendant",
         "accessory2": "Power Belt",
         "slot1Weapon": {
@@ -3522,15 +3522,15 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Meteorite Sword",
             "Hallowed Blade",
-            "Iron Broadsword"
+            "Iron Sword"
           ],
           "slotType": "Weapon",
           "notes": "Phys Atk +28, All Stats +5"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Silver Shield",
+          "bestInSlot": "Steel Shield",
           "optimalAlternatives": [
-            "Knight Shield",
+            "Chivalric Shield",
             "Cloth Gauntlets",
             "Bronze Shield"
           ],
@@ -3542,7 +3542,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Ruby Pendant",
             "Warrior's Medallion",
-            "Critical Ring"
+            "Lucky Coin"
           ],
           "slotType": "Accessory",
           "notes": "AP +1 for Killing Chain executions"
@@ -3552,7 +3552,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Lapis Pendant",
             "Earrings of Pursuit",
-            "Gauntlets of Power"
+            "Master's Gauntlets"
           ],
           "slotType": "Accessory",
           "notes": "Phys Atk +5, Following Slash booster"
@@ -3629,9 +3629,9 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
     "pveRating": "Godly (Invincible against all Magic, Affliction & Heavy Nukes)",
     "description": "Sanatio protects the squad with Sacred Barrier on Turn 0 (granting a 2-hit complete damage nullification barrier to the entire squad). Ochlys and Umerus counter aerial and melee threats with evasive spiral thrusts and magic reflection, Tatiana maintains 100% squad health, and Gloucester delivers devastating revenge damage with Dark Flame.",
     "keyItems": [
-      "Sacred Feather Rod",
-      "Angel's Reflection Shield",
-      "Ring of the Maiden",
+      "Kingstaff Albiore",
+      "Heavenswing Shield",
+      "Holy Unicorn Signet",
       "Dark Knight Cleaver"
     ],
     "frontRow": [
@@ -3674,12 +3674,12 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Sanatio",
         "className": "Featherstaff",
         "roleTitle": "Divine Barrier Leader & Sacred Guardian",
-        "weapon": "Sacred Feather Rod",
+        "weapon": "Kingstaff Albiore",
         "shieldOrHelm": "Archbishop's Mitre",
-        "accessory1": "Ring of the Maiden",
+        "accessory1": "Holy Unicorn Signet",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
-          "bestInSlot": "Sacred Feather Rod",
+          "bestInSlot": "Kingstaff Albiore",
           "optimalAlternatives": [
             "Kingstaff Albiore",
             "Euros's Staff",
@@ -3692,16 +3692,16 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "bestInSlot": "Archbishop's Mitre",
           "optimalAlternatives": [
             "Monk's Mitre",
-            "Angel Cap",
+            "Angel Plume",
             "Silk Hood"
           ],
           "slotType": "Helm",
           "notes": "Row Refresh, Mag Def +10, Healing +20"
         },
         "slot3Accessory": {
-          "bestInSlot": "Ring of the Maiden",
+          "bestInSlot": "Holy Unicorn Signet",
           "optimalAlternatives": [
-            "Holy Maiden Ring",
+            "Holy Unicorn Signet",
             "Holy Broach",
             "Celestial Talisman"
           ],
@@ -3735,35 +3735,35 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Feathersword",
         "roleTitle": "Evasive Flying Tank & Magic Reflector",
         "weapon": "Notos's Sword",
-        "shieldOrHelm": "Angel's Reflection Shield",
-        "accessory1": "Angel Shield (Feather Amulet)",
+        "shieldOrHelm": "Heavenswing Shield",
+        "accessory1": "Angel Hunter's Buckler",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
           "bestInSlot": "Notos's Sword",
           "optimalAlternatives": [
             "Hallowed Blade",
             "Meteorite Sword",
-            "Divine Sword"
+            "Kingsblade Cornix"
           ],
           "slotType": "Weapon",
           "notes": "Phys Atk +25, Initiative +5, Evasion +10"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Angel's Reflection Shield",
+          "bestInSlot": "Heavenswing Shield",
           "optimalAlternatives": [
             "Azure Crest Shield",
-            "Silver Shield",
-            "Knight Shield"
+            "Steel Shield",
+            "Chivalric Shield"
           ],
           "slotType": "Shield",
           "notes": "Magic Reflect: Reflects magic damage back at attacker"
         },
         "slot3Accessory": {
-          "bestInSlot": "Angel Shield (Feather Amulet)",
+          "bestInSlot": "Angel Hunter's Buckler",
           "optimalAlternatives": [
             "Thief's Mantle",
             "Lucky Coin",
-            "Silverscale Shield"
+            "Dragonbone Shield"
           ],
           "slotType": "Accessory",
           "notes": "Evasion +15, Initiative +5"
@@ -3795,7 +3795,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "className": "Feathersword",
         "roleTitle": "Evasive Counter Aerial Duelist",
         "weapon": "Hallowed Blade",
-        "shieldOrHelm": "Silver Shield",
+        "shieldOrHelm": "Steel Shield",
         "accessory1": "Wingline Standard",
         "accessory2": "Carnelian Pendant",
         "slot1Weapon": {
@@ -3803,17 +3803,17 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Notos's Sword",
             "Meteorite Sword",
-            "Divine Sword"
+            "Kingsblade Cornix"
           ],
           "slotType": "Weapon",
           "notes": "Phys Atk +24, HP Regen +10%"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Silver Shield",
+          "bestInSlot": "Steel Shield",
           "optimalAlternatives": [
             "Azure Crest Shield",
-            "Angel Shield",
-            "Knight Shield"
+            "Angel Hunter's Buckler",
+            "Chivalric Shield"
           ],
           "slotType": "Shield",
           "notes": "Phys Def +11, Guard Rate +25%"
@@ -3821,7 +3821,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "slot3Accessory": {
           "bestInSlot": "Wingline Standard",
           "optimalAlternatives": [
-            "Feather Amulet",
+            "Angel Plume",
             "Skillful Amulet",
             "Lucky Coin"
           ],
@@ -3873,7 +3873,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "optimalAlternatives": [
             "Archbishop's Mitre",
             "Monk's Mitre",
-            "Cleric Hat"
+            "Archbishop's Mitre"
           ],
           "slotType": "Helm",
           "notes": "Mag Def +4, Initiative +3"
@@ -3914,12 +3914,12 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Gloucester",
         "className": "Doom Knight",
         "roleTitle": "Vengeful Magic Dark Flame Striker",
-        "weapon": "Dark Knight Cleaver (Dark Flame Spear)",
-        "shieldOrHelm": "Doom Shield",
+        "weapon": "Black-Iron Spear",
+        "shieldOrHelm": "Zenoiran Shield",
         "accessory1": "Carnelian Pendant",
-        "accessory2": "Cursed Ring (Power Belt)",
+        "accessory2": "Power Belt",
         "slot1Weapon": {
-          "bestInSlot": "Dark Knight Cleaver (Dark Flame Spear)",
+          "bestInSlot": "Black-Iron Spear",
           "optimalAlternatives": [
             "Kingslance Elhal",
             "Meteorite Lance",
@@ -3929,10 +3929,10 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Phys Atk +25, Mag Atk +15, Vengeance Multiplier"
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Doom Shield",
+          "bestInSlot": "Zenoiran Shield",
           "optimalAlternatives": [
-            "Silver Shield",
-            "Knight Shield",
+            "Steel Shield",
+            "Chivalric Shield",
             "Azure Crest Shield"
           ],
           "slotType": "Shield",
@@ -3949,7 +3949,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "AP +1 for Dark Flame row attacks"
         },
         "slot4Accessory": {
-          "bestInSlot": "Cursed Ring (Power Belt)",
+          "bestInSlot": "Power Belt",
           "optimalAlternatives": [
             "Lapis Pendant",
             "Retaliation Earrings",

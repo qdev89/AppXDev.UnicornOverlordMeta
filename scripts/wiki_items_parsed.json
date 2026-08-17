@@ -1,0 +1,6287 @@
+{
+  "baroque sword": {
+    "title": "Baroque Sword",
+    "physAtk": 13,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Accuracy +5"
+    ],
+    "statBoosts": "Phys Atk +13, Accuracy +5",
+    "acquisition": "Reward for completing level 6 quest The Mercenary's Trial."
+  },
+  "baroque axe": {
+    "title": "Baroque Axe",
+    "physAtk": 13,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Accuracy +5"
+    ],
+    "statBoosts": "Phys Atk +13, Accuracy +5",
+    "acquisition": "Can be obtained for 2000 G at various Armorer Shops."
+  },
+  "baroque spear": {
+    "title": "Baroque Spear",
+    "physAtk": 13,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Accuracy +5"
+    ],
+    "statBoosts": "Phys Atk +13, Accuracy +5",
+    "acquisition": "Can be obtained for 2000 G at Armorer Shops (full list below)."
+  },
+  "baroque bow": {
+    "title": "Baroque Bow",
+    "physAtk": 13,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Accuracy +5"
+    ],
+    "statBoosts": "Phys Atk +13, Accuracy +5",
+    "acquisition": "Can be obtained for 2000 G at Armorer Shops (full list below)."
+  },
+  "bronze sword": {
+    "title": "Bronze Sword",
+    "physAtk": 8,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +8",
+    "acquisition": "Starting Equipment of Alain, Lex, Travis, Berenice, and some other characters."
+  },
+  "bronze spear": {
+    "title": "Bronze Spear",
+    "physAtk": 8,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +8",
+    "acquisition": "Starting Equipment of Chloe, Hodrick, Clive, Adel and some other characters."
+  },
+  "bronze axe": {
+    "title": "Bronze Axe",
+    "physAtk": 8,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +8",
+    "acquisition": "Starting Equipment of Bruno, and some other characters."
+  },
+  "bronze bow": {
+    "title": "Bronze Bow",
+    "physAtk": 8,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +8",
+    "acquisition": "Starting Equipment of Rolf and some other characters."
+  },
+  "bronze staff": {
+    "title": "Bronze Staff",
+    "physAtk": 0,
+    "magAtk": 8,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Mag Atk +8",
+    "acquisition": "Starting Equipment of Scarlett, Sharon, Auch, Selvie and some other characters."
+  },
+  "baroque rod": {
+    "title": "Baroque Rod",
+    "physAtk": 0,
+    "magAtk": 13,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Accuracy +5"
+    ],
+    "statBoosts": "Mag Atk +13, Accuracy +5",
+    "acquisition": "Reward for completing level 5 quest The Self-Effacing Sorcerer."
+  },
+  "carnelian blade": {
+    "title": "Carnelian Blade",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +1"
+    ],
+    "statBoosts": "Phys Atk +21, Base AP +1",
+    "acquisition": "Can be obtained for 500 CC (Coliseum Coins) at the Coliseum Prize Echange in Baumratte."
+  },
+  "carnelian axe": {
+    "title": "Carnelian Axe",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +1"
+    ],
+    "statBoosts": "Phys Atk +21, Base AP +1",
+    "acquisition": "Can be obtained for 500 CC (Coliseum Coins) at the Coliseum Prize Echange in Baumratte."
+  },
+  "bandit's handaxe": {
+    "title": "Bandit's Handaxe",
+    "physAtk": 16,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "User's Unit Earns +100% Gold",
+      "Evasion +10"
+    ],
+    "statBoosts": "Phys Atk +16, User's Unit Earns +100% Gold, Evasion +10",
+    "acquisition": "Can be obtained for 5000 G at the Black Market Dealer Shop (Elheim)."
+  },
+  "bloodmoon rod": {
+    "title": "Bloodmoon Rod",
+    "physAtk": 0,
+    "magAtk": 18,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Sanguine Darts"
+    ],
+    "statBoosts": "Mag Atk +18, Sanguine Darts",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Sanguine Darts",
+      "cost": "1 AP",
+      "description": "Attack a column of enemies with piercing magick.Recover HP equal to 50% of damage dealt."
+    }
+  },
+  "alminster": {
+    "title": "Alminster",
+    "physAtk": 25,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Checkmate",
+      "Accuracy +30"
+    ],
+    "statBoosts": "Phys Atk +25, Checkmate, Accuracy +30",
+    "acquisition": "Can be obtained for ??? CC (Coliseum Coins) at the Coliseum Prize Exchange.",
+    "grantedSkill": {
+      "name": "Checkmate",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts Passive Seal.+100 potency if the target's HP is 50% or less."
+    }
+  },
+  "carnat sword": {
+    "title": "Carnat Sword",
+    "physAtk": 19,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative +2"
+    ],
+    "statBoosts": "Phys Atk +19, Initiative +2",
+    "acquisition": "Can be obtained for 4000 G at various Armorer Shops (some of them below)."
+  },
+  "carnat axe": {
+    "title": "Carnat Axe",
+    "physAtk": 19,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative +2"
+    ],
+    "statBoosts": "Phys Atk +19, Initiative +2",
+    "acquisition": "Can be obtained for 4000 G at various Armorer Shops (some of them below)."
+  },
+  "carnat spear": {
+    "title": "Carnat Spear",
+    "physAtk": 19,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative +2"
+    ],
+    "statBoosts": "Phys Atk +19, Initiative +2",
+    "acquisition": "Can be obtained for 4000 G at various Armorer Shops (some of them below)."
+  },
+  "carnat bow": {
+    "title": "Carnat Bow",
+    "physAtk": 19,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative +2"
+    ],
+    "statBoosts": "Phys Atk +19, Initiative +2",
+    "acquisition": "Can be obtained for 4000 G at various Armorer Shops (some of them below)."
+  },
+  "carnat rod": {
+    "title": "Carnat Rod",
+    "physAtk": 0,
+    "magAtk": 19,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative +2"
+    ],
+    "statBoosts": "Mag Atk +19, Initiative +2",
+    "acquisition": "Can be obtained for 4000 G at various Armorer Shops (some of them below)."
+  },
+  "black-iron sword": {
+    "title": "Black-Iron Sword",
+    "physAtk": 17,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Critical Rate +5%"
+    ],
+    "statBoosts": "Phys Atk +17, Critical Rate +5%",
+    "acquisition": "Can be obtained for 3000 G at various Armorer Shops (some of them below)."
+  },
+  "black-iron axe": {
+    "title": "Black-Iron Axe",
+    "physAtk": 17,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Critical Rate +5%"
+    ],
+    "statBoosts": "Phys Atk +17, Critical Rate +5%",
+    "acquisition": "Can be obtained for 3000 G at various Armorer Shops (some of them below)."
+  },
+  "black-iron spear": {
+    "title": "Black-Iron Spear",
+    "physAtk": 17,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Critical Rate +5%"
+    ],
+    "statBoosts": "Phys Atk +17, Critical Rate +5%",
+    "acquisition": "Can be obtained for 3000 G at various Armorer Shops (some of them below)."
+  },
+  "black-iron bow": {
+    "title": "Black-Iron Bow",
+    "physAtk": 17,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Critical Rate +5%"
+    ],
+    "statBoosts": "Phys Atk +17, Critical Rate +5%",
+    "acquisition": "Can be obtained for 3000 G at various Armorer Shops (some of them below)."
+  },
+  "black-iron staff": {
+    "title": "Black-Iron Staff",
+    "physAtk": 0,
+    "magAtk": 17,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Critical Rate +5%"
+    ],
+    "statBoosts": "Mag Atk +17, Critical Rate +5%",
+    "acquisition": "Can be obtained for 3000 G at various Armorer Shops (some of them below)."
+  },
+  "bow of swiftness": {
+    "title": "Bow of Swiftness",
+    "physAtk": 16,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Rapid Shot"
+    ],
+    "statBoosts": "Phys Atk +16, Rapid Shot",
+    "acquisition": "Can be obtained for 10000 G at few Armorer Shops.",
+    "grantedSkill": {
+      "name": "Rapid Shot",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Attack a single enemy with a first strike.Inflicts Stun."
+    }
+  },
+  "bloody spear": {
+    "title": "Bloody Spear",
+    "physAtk": 16,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Sanguine Attack"
+    ],
+    "statBoosts": "Phys Atk +16, Sanguine Attack",
+    "acquisition": "Can be obtained for 15000 G at the Yaniss Town Armorer Shop",
+    "grantedSkill": {
+      "name": "Sanguine Attack",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Recover HP equal to 50% of damage dealt."
+    }
+  },
+  "barbarian's might": {
+    "title": "Barbarian's Might",
+    "physAtk": 14,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Provoking Slash",
+      "Max HP +5"
+    ],
+    "statBoosts": "Phys Atk +14, Provoking Slash, Max HP +5",
+    "acquisition": "Can be obtained for 3000 G at few Armorer Shops.",
+    "grantedSkill": {
+      "name": "Provoking Slash",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Forces the target to focus attacks on the user."
+    }
+  },
+  "banishing hammer": {
+    "title": "Banishing Hammer",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Banishing Smite"
+    ],
+    "statBoosts": "Phys Atk +21, Banishing Smite",
+    "acquisition": "Can be obtained for 12000 G at the Proszruni Town Armorer Shop.",
+    "grantedSkill": {
+      "name": "Banishing Smite",
+      "cost": "1 AP",
+      "description": "Attack a row of enemies.Removes all of target's buffs."
+    }
+  },
+  "cardinal's mace": {
+    "title": "Cardinal's Mace",
+    "physAtk": 0,
+    "magAtk": 20,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Holy Cradle"
+    ],
+    "statBoosts": "Mag Atk +20, Holy Cradle",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Holy Cradle",
+      "cost": "1 AP",
+      "description": "Grants a row of allies the abilityto withstand one lethal blow."
+    }
+  },
+  "bandit longsword": {
+    "title": "Bandit Longsword",
+    "physAtk": 18,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative +3",
+      "Evasion +10",
+      "User's Unit Earns +100% Gold"
+    ],
+    "statBoosts": "Phys Atk +18, Initiative +3, Evasion +10, User's Unit Earns +100% Gold",
+    "acquisition": "Complete the Quest:\"The Battle for Adopti\"."
+  },
+  "blue rose": {
+    "title": "Blue Rose",
+    "physAtk": 20,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Icestorm",
+      "Base PP +1",
+      "Critical Damage +15%"
+    ],
+    "statBoosts": "Phys Atk +20, Icestorm, Base PP +1, Critical Damage +15%",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Icestorm",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts Freeze.+50 potency v. burning targets."
+    }
+  },
+  "canyon lance": {
+    "title": "Canyon Lance",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Shattering Pursuit"
+    ],
+    "statBoosts": "Phys Atk +21, Shattering Pursuit",
+    "acquisition": "Can be obtained at Nibessamost Harbor for ??? G.",
+    "grantedSkill": {
+      "name": "Shattering Pursuit",
+      "cost": "1 PP",
+      "description": "Activates after an ally attacks (Active).Follow-up attack a column of enemies witha piercing strike. Inflicts Phys. Defense -25%."
+    }
+  },
+  "apeliotes's bow": {
+    "title": "Apeliotes's Bow",
+    "physAtk": 25,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +1",
+      "Initiative +10",
+      "Evasion +10"
+    ],
+    "statBoosts": "Phys Atk +25, Base AP +1, Initiative +10, Evasion +10",
+    "acquisition": "Head directly east of Nestascheft Town to find this monument."
+  },
+  "boreas's axe": {
+    "title": "Boreas's Axe",
+    "physAtk": 25,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +1",
+      "Initiative +10",
+      "Evasion +10"
+    ],
+    "statBoosts": "Phys Atk +25, Base AP +1, Initiative +10, Evasion +10",
+    "acquisition": "At Nibessamost Harbor, board the ship to set sail for the secluded shore."
+  },
+  "black axe of the abyss": {
+    "title": "Black Axe of the Abyss",
+    "physAtk": 13,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Accuracy +5",
+      "Take +50% Less Poison Damage",
+      "Base AP +2",
+      "Accuracy +10",
+      "Take +70% Less Poison Damage"
+    ],
+    "statBoosts": "Phys Atk +13, Accuracy +5, Take +50% Less Poison Damage, Base AP +2, Accuracy +10, Take +70% Less Poison Damage",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "berserker's battleaxe": {
+    "title": "Berserker's Battleaxe",
+    "physAtk": 10,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Demolition"
+    ],
+    "statBoosts": "Phys Atk +10, Demolition",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Demolition",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.User takes 50% of damage dealt."
+    }
+  },
+  "barbarian's axe": {
+    "title": "Barbarian's Axe",
+    "physAtk": 13,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Provoking Slash"
+    ],
+    "statBoosts": "Phys Atk +13, Provoking Slash",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Provoking Slash",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Forces the target to focus attacks on the user."
+    }
+  },
+  "adept's shortspear": {
+    "title": "Adept's Shortspear",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Passive Seal Immunity",
+      "Critical Rate +15%"
+    ],
+    "statBoosts": "Phys Atk +21, Passive Seal Immunity, Critical Rate +15%",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "astral pike": {
+    "title": "Astral Pike",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +15",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "crushing axe": {
+    "title": "Crushing Axe",
+    "physAtk": 13,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Crush"
+    ],
+    "statBoosts": "Phys Atk +13, Crush",
+    "acquisition": "Starting equipment of Aubin.",
+    "grantedSkill": {
+      "name": "Crush",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts Stun."
+    }
+  },
+  "crimson épée": {
+    "title": "Crimson Épée",
+    "physAtk": 14,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Active Shatter",
+      "Initiative +3"
+    ],
+    "statBoosts": "Phys Atk +14, Active Shatter, Initiative +3",
+    "acquisition": "Can be obtained for 10000 G at few Armorer Shops (some of them below).",
+    "grantedSkill": {
+      "name": "Active Shatter",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts 💎AP -1."
+    }
+  },
+  "cleric's cane": {
+    "title": "Cleric's Cane",
+    "physAtk": 0,
+    "magAtk": 18,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Protection",
+      "Base PP +1"
+    ],
+    "statBoosts": "Mag Atk +18, Protection, Base PP +1",
+    "acquisition": "Can be obtained for 15 divine shards at the Rondmort Church location as a Divine Shard Exchange to Ochlys."
+  },
+  "flame bow": {
+    "title": "Flame Bow",
+    "physAtk": 11,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Flame Arrow"
+    ],
+    "statBoosts": "Phys Atk +11, Flame Arrow",
+    "acquisition": "Obtained during level 4 quest The Winged Knight, after defeating Mandrin's unit.",
+    "grantedSkill": {
+      "name": "Flame Arrow",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts Burn."
+    }
+  },
+  "defender's mace": {
+    "title": "Defender's Mace",
+    "physAtk": 0,
+    "magAtk": 13,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Quick Barrier",
+      "Base PP +1"
+    ],
+    "statBoosts": "Mag Atk +13, Quick Barrier, Base PP +1",
+    "acquisition": "Can be obtained for 10000 G at few Armorer Shops (some of them below).",
+    "grantedSkill": {
+      "name": "Quick Barrier",
+      "cost": "1 PP",
+      "description": "Activates before an ally is attacked.Reduce damage taken by an allyby 50% for one attack."
+    }
+  },
+  "carnelian spear": {
+    "title": "Carnelian Spear",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +1"
+    ],
+    "statBoosts": "Phys Atk +21, Base AP +1",
+    "acquisition": "Can be obtained for 500 CC (Coliseum Coins) at the Coliseum Prize Echange in Baumratte."
+  },
+  "carnelian bow": {
+    "title": "Carnelian Bow",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +1"
+    ],
+    "statBoosts": "Phys Atk +21, Base AP +1",
+    "acquisition": "Can be obtained for 500 CC (Coliseum Coins) at the Coliseum Prize Echange in Baumratte."
+  },
+  "carnelian staff": {
+    "title": "Carnelian Staff",
+    "physAtk": 0,
+    "magAtk": 21,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +1"
+    ],
+    "statBoosts": "Mag Atk +21, Base AP +1",
+    "acquisition": "Can be obtained for 500 CC (Coliseum Coins) at the Coliseum Prize Echange in Baumratte."
+  },
+  "cutthroat's boon": {
+    "title": "Cutthroat's Boon",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Assassin's Nail",
+      "Evasion +10",
+      "Blindness Immunity"
+    ],
+    "statBoosts": "Phys Atk +21, Assassin's Nail, Evasion +10, Blindness Immunity",
+    "acquisition": "Can be obtained for 12000 G at the Black Market Dealer Shop (Bastorias).",
+    "grantedSkill": {
+      "name": "Assassin's Nail",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts Blindness.+50 potency and critical hit at nighttime."
+    }
+  },
+  "elfeater": {
+    "title": "Elfeater",
+    "physAtk": 20,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Elfslayer",
+      "Magick Defense +5"
+    ],
+    "statBoosts": "Phys Atk +20, Elfslayer, Magick Defense +5",
+    "acquisition": "Can be obtained for 10000 G at the Black Market Dealer Shop (Elheim).",
+    "grantedSkill": {
+      "name": "Elfslayer",
+      "cost": "1 AP",
+      "description": "Attack a column of enemies with a piercing strike.Inflicts 💎AP -1, 💎PP -1,and Defense -50% to elven targets."
+    }
+  },
+  "dragonbone blade": {
+    "title": "Dragonbone Blade",
+    "physAtk": 15,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "Initiative -10"
+    ],
+    "statBoosts": "Phys Atk +15, Base PP +1, Initiative -10",
+    "acquisition": "Can be obtained for 8000 G at few Armorer shops."
+  },
+  "dragonbone axe": {
+    "title": "Dragonbone Axe",
+    "physAtk": 15,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "Initiative -10"
+    ],
+    "statBoosts": "Phys Atk +15, Base PP +1, Initiative -10",
+    "acquisition": "Can be obtained for 8000 G at few Armorer shops (some of them below)."
+  },
+  "dragonbone spear": {
+    "title": "Dragonbone Spear",
+    "physAtk": 15,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "Initiative -10"
+    ],
+    "statBoosts": "Phys Atk +15, Base PP +1, Initiative -10",
+    "acquisition": "Can be obtained for 8000 G at few Armorer shops (some of them below)."
+  },
+  "dragonbone bow": {
+    "title": "Dragonbone Bow",
+    "physAtk": 15,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "Initiative -10"
+    ],
+    "statBoosts": "Phys Atk +15, Base PP +1, Initiative -10",
+    "acquisition": "Can be obtained for 8000 G at few Armorer shops (some of them below)."
+  },
+  "dragonbone staff": {
+    "title": "Dragonbone Staff",
+    "physAtk": 0,
+    "magAtk": 15,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "Initiative -10"
+    ],
+    "statBoosts": "Mag Atk +15, Base PP +1, Initiative -10",
+    "acquisition": "Can be obtained for 8000 G at few Armorer shops (some of them below)."
+  },
+  "flame-hex staff": {
+    "title": "Flame-Hex Staff",
+    "physAtk": 0,
+    "magAtk": 16,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Fire Curse"
+    ],
+    "statBoosts": "Mag Atk +16, Fire Curse",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Fire Curse",
+      "cost": "1 AP",
+      "description": "Inflicts Burn on a row of enemies."
+    }
+  },
+  "corroded spear": {
+    "title": "Corroded Spear",
+    "physAtk": 17,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Shadow Thrust"
+    ],
+    "statBoosts": "Phys Atk +17, Shadow Thrust",
+    "acquisition": "Can be obtained for 8000 G at few Armorer shops.",
+    "grantedSkill": {
+      "name": "Shadow Thrust",
+      "cost": "1 AP",
+      "description": "Attack a column of enemies with a piercing strike.Inflicts Blindness."
+    }
+  },
+  "dancer's delight": {
+    "title": "Dancer's Delight",
+    "physAtk": 16,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Leaping Slash",
+      "Critical Rate +10%"
+    ],
+    "statBoosts": "Phys Atk +16, Leaping Slash, Critical Rate +10%",
+    "acquisition": "Can be obtained for 8000 G at the Znova Town Armorer Shop.",
+    "grantedSkill": {
+      "name": "Leaping Slash",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Grants the user +1 💎AP if the attack is critical.Grants the user -30% Critical Rate. (Effect stacks.)"
+    }
+  },
+  "dustbound staff": {
+    "title": "Dustbound Staff",
+    "physAtk": 0,
+    "magAtk": 16,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Sandstorm"
+    ],
+    "statBoosts": "Mag Atk +16, Sandstorm",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Sandstorm",
+      "cost": "1 AP",
+      "description": "Inflicts Blindness on all enemies."
+    }
+  },
+  "dragoon's warspear": {
+    "title": "Dragoon's Warspear",
+    "physAtk": 20,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Dragoon Dive",
+      "Max HP +15",
+      "Initiative +5"
+    ],
+    "statBoosts": "Phys Atk +20, Dragoon Dive, Max HP +15, Initiative +5",
+    "acquisition": "Can be obtained for ??? G at the Castle Soldraga Armorer Shop",
+    "grantedSkill": {
+      "name": "Dragoon Dive",
+      "cost": "1 AP",
+      "description": "Attack all enemies.+50 potency v. ground-based targets.(User cannot evade of use passive skills while charging.)"
+    }
+  },
+  "flamberge": {
+    "title": "Flamberge",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Grisly Fire",
+      "Burn Immunity"
+    ],
+    "statBoosts": "Phys Atk +21, Grisly Fire, Burn Immunity",
+    "acquisition": "Can be obtained for 10000 G at the Devolpis Harbor Armorer Shop.",
+    "grantedSkill": {
+      "name": "Grisly Fire",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts Burn.+50 potency and critical hit v. burning targets."
+    }
+  },
+  "gallian crossbow": {
+    "title": "Gallian Crossbow",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Harpoon Bolt",
+      "Accuracy +10",
+      "Critical Damage +30%"
+    ],
+    "statBoosts": "Phys Atk +21, Harpoon Bolt, Accuracy +10, Critical Damage +30%",
+    "acquisition": "Can be obtained for 15000 G at the Dracodorina Citadel Armorer Shop (Bastorias).",
+    "grantedSkill": {
+      "name": "Harpoon Bolt",
+      "cost": "1 AP",
+      "description": "Attack a column of enemies with a piercing strike."
+    }
+  },
+  "death pillar": {
+    "title": "Death Pillar",
+    "physAtk": 20,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Lethal Venom",
+      "AP -1",
+      "HP -50%"
+    ],
+    "statBoosts": "Phys Atk +20, Lethal Venom, AP -1, HP -50%",
+    "acquisition": "Can be obtained for 20000 G at the Fortified City of Solvaquad Armorer Shop.",
+    "grantedSkill": {
+      "name": "Lethal Venom",
+      "cost": "1 AP",
+      "description": "Attack a column of enemies with a piercing strike.Inflicts Poison.Inflicts a deathblow v. poisoned targets."
+    }
+  },
+  "frozen battleaxe": {
+    "title": "Frozen Battleaxe",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Icy Crush",
+      "Freeze Immunity"
+    ],
+    "statBoosts": "Phys Atk +21, Icy Crush, Freeze Immunity",
+    "acquisition": "Can be obtained for 10000 G at the Tzontiesta Town Armorer Shop.",
+    "grantedSkill": {
+      "name": "Icy Crush",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts Freeze.+100 potency v. frozen targets."
+    }
+  },
+  "crane bow": {
+    "title": "Crane Bow",
+    "physAtk": 22,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Triple Shatter",
+      "Initiative +5"
+    ],
+    "statBoosts": "Phys Atk +22, Triple Shatter, Initiative +5",
+    "acquisition": "Can be obtained for 20000 G at the Walled City of Peyston Armorer Shop (Albion).",
+    "grantedSkill": {
+      "name": "Triple Shatter",
+      "cost": "1 AP",
+      "description": "Attack three enemy.Inflicts Phys. Attack -50% and Mag. Attack -50%."
+    }
+  },
+  "eliminator": {
+    "title": "Eliminator",
+    "physAtk": 23,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Execution",
+      "Magick Defense -10"
+    ],
+    "statBoosts": "Phys Atk +23, Execution, Magick Defense -10",
+    "acquisition": "Can be obtained for 15000 G at the Greige Town Armorer Shop.",
+    "grantedSkill": {
+      "name": "Execution",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts Passive Seal.Inflicts a deathblow if target is at 25% HP or less."
+    }
+  },
+  "galecutter": {
+    "title": "Galecutter",
+    "physAtk": 22,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Double Blast",
+      "Evasion +20"
+    ],
+    "statBoosts": "Phys Atk +22, Double Blast, Evasion +20",
+    "acquisition": "Can be obtained for 12000 G at the Heavensriver Town Armorer Shop",
+    "grantedSkill": {
+      "name": "Double Blast",
+      "cost": "1 AP",
+      "description": "Attack two enemies.+80 potency v. flying targets."
+    }
+  },
+  "cursed blade of the abyss": {
+    "title": "Cursed Blade of the Abyss",
+    "physAtk": 23,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Passive Seal Immunity",
+      "Deathblow Immunity",
+      "Take +50% Less Poison Damage",
+      "Passive Seal Immunity",
+      "Deathblow Immunity",
+      "Take +50% Less Poison Damage"
+    ],
+    "statBoosts": "Phys Atk +23, Passive Seal Immunity, Deathblow Immunity, Take +50% Less Poison Damage",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "euros's staff": {
+    "title": "Euros's Staff",
+    "physAtk": 0,
+    "magAtk": 25,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +1",
+      "Initiative +10",
+      "Evasion +10"
+    ],
+    "statBoosts": "Mag Atk +25, Base AP +1, Initiative +10, Evasion +10",
+    "acquisition": "To reach this Monument of Anemoi, head to the Quarry in Albion then pass through the area on the south side of the quarry."
+  },
+  "cursed axe of the abyss": {
+    "title": "Cursed Axe of the Abyss",
+    "physAtk": 20,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Passive Seal Immunity",
+      "Deathblow Immunity",
+      "Take +50% Less Poison Damage",
+      "Passive Seal Immunity",
+      "Deathblow Immunity",
+      "Take +50% Less Poison Damage"
+    ],
+    "statBoosts": "Phys Atk +20, Passive Seal Immunity, Deathblow Immunity, Take +50% Less Poison Damage",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "dark knight cleaver": {
+    "title": "Dark Knight Cleaver",
+    "physAtk": 9,
+    "magAtk": 18,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Desperation"
+    ],
+    "statBoosts": "Phys Atk +9, Mag Atk +18, Desperation",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Desperation",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Deals damage based on user's missing HP.(This attack cannot be a critical.)"
+    }
+  },
+  "cursed lance of the abyss": {
+    "title": "Cursed Lance of the Abyss",
+    "physAtk": 22,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Passive Seal Immunity",
+      "Deathblow Immunity",
+      "Take +50% Less Poison Damage",
+      "Passive Seal Immunity",
+      "Deathblow Immunity",
+      "Take +50% Less Poison Damage"
+    ],
+    "statBoosts": "Phys Atk +22, Passive Seal Immunity, Deathblow Immunity, Take +50% Less Poison Damage",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "desert bow": {
+    "title": "Desert Bow",
+    "physAtk": 15,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Critical Rate +10%",
+      "Accuracy +20"
+    ],
+    "statBoosts": "Phys Atk +15, Critical Rate +10%, Accuracy +20",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "frostbloom bow": {
+    "title": "Frostbloom Bow",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Critical Rate +15%",
+      "Evasion +20"
+    ],
+    "statBoosts": "Phys Atk +21, Critical Rate +15%, Evasion +20",
+    "acquisition": "Starting equipment of Yunifi."
+  },
+  "chiropteran staff": {
+    "title": "Chiropteran Staff",
+    "physAtk": 0,
+    "magAtk": 12,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Evasion +5",
+      "Initiative +3"
+    ],
+    "statBoosts": "Mag Atk +12, Evasion +5, Initiative +3",
+    "acquisition": "Starting equipment of Yahna."
+  },
+  "cursed staff of the abyss": {
+    "title": "Cursed Staff of the Abyss",
+    "physAtk": 0,
+    "magAtk": 20,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Passive Seal Immunity",
+      "Deathblow Immunity",
+      "Take +50% Less Poison Damage",
+      "Passive Seal Immunity",
+      "Deathblow Immunity",
+      "Take +50% Less Poison Damage"
+    ],
+    "statBoosts": "Mag Atk +20, Passive Seal Immunity, Deathblow Immunity, Take +50% Less Poison Damage",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "chlorotic": {
+    "title": "Chlorotic",
+    "physAtk": 0,
+    "magAtk": 13,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Fire Burst"
+    ],
+    "statBoosts": "Mag Atk +13, Fire Burst",
+    "acquisition": "Can be obtained during level 5 quest The Self-Effacing Sorcerer, after defeating Auch's unit.",
+    "grantedSkill": {
+      "name": "Fire Burst",
+      "cost": "1 PP",
+      "description": "Activates at the end of a battle.Attack a single enemy with magick.Hits all enemies if target is burning."
+    }
+  },
+  "ein seeker": {
+    "title": "Ein Seeker",
+    "physAtk": 0,
+    "magAtk": 21,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Magick Shell"
+    ],
+    "statBoosts": "Mag Atk +21, Magick Shell",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Magick Shell",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Completely negate attacks up to three hits."
+    }
+  },
+  "crimson sarissa": {
+    "title": "Crimson Sarissa",
+    "physAtk": 13,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Sanguine Attack",
+      "Max HP +15",
+      "Guard Rate +5%"
+    ],
+    "statBoosts": "Phys Atk +13, Sanguine Attack, Max HP +15, Guard Rate +5%",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Sanguine Attack",
+      "cost": "1 AP",
+      "description": "Attack a single ennemy.Recover HP equal to 50% of damage dealt."
+    }
+  },
+  "flame javelin": {
+    "title": "Flame Javelin",
+    "physAtk": 18,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Flame Javelin",
+      "Burn Immunity"
+    ],
+    "statBoosts": "Phys Atk +18, Flame Javelin, Burn Immunity",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "hallowed mace": {
+    "title": "Hallowed Mace",
+    "physAtk": 0,
+    "magAtk": 13,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Reheal",
+      "Heals 10% HP when using Active Skill",
+      "Max HP +5"
+    ],
+    "statBoosts": "Mag Atk +13, Reheal, Heals 10% HP when using Active Skill, Max HP +5",
+    "acquisition": "Can be obtained for 5000 G at few Armorer Shops (some of them below).",
+    "grantedSkill": {
+      "name": "Reheal",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Grants a row of allies HP regeneration."
+    }
+  },
+  "interrogator's bow": {
+    "title": "Interrogator's Bow",
+    "physAtk": 16,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Healing Hunter",
+      "Base PP +1",
+      "Magick Defense +3"
+    ],
+    "statBoosts": "Phys Atk +16, Healing Hunter, Base PP +1, Magick Defense +3",
+    "acquisition": "Can be obtained for 12000 G at few Armorer Shops.",
+    "grantedSkill": {
+      "name": "Healing Hunter",
+      "cost": "1 PP",
+      "description": "Activates after an enemy uses healing magick.Attack a single enemy.Ignores 30% of the target's Defense."
+    }
+  },
+  "iron sword": {
+    "title": "Iron Sword",
+    "physAtk": 15,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +15",
+    "acquisition": "Can be obtained for 2000 G at various Armorer Shops."
+  },
+  "iron spear": {
+    "title": "Iron Spear",
+    "physAtk": 15,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +15",
+    "acquisition": "Can be obtained for 2000 G at various Armorer Shops (some of them below)."
+  },
+  "iron axe": {
+    "title": "Iron Axe",
+    "physAtk": 15,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +15",
+    "acquisition": "Can be obtained for 2000 G at various Armorer Shops (some of them below)."
+  },
+  "iron bow": {
+    "title": "Iron Bow",
+    "physAtk": 15,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +15",
+    "acquisition": "Can be obtained for 2000 G at various Armorer Shops (some of them below)."
+  },
+  "iron staff": {
+    "title": "Iron Staff",
+    "physAtk": 0,
+    "magAtk": 15,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Mag Atk +15",
+    "acquisition": "Can be obtained for 2000 G at various Armorer Shops (some of them below)."
+  },
+  "hoarfrost axe": {
+    "title": "Hoarfrost Axe",
+    "physAtk": 13,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Icy Blow"
+    ],
+    "statBoosts": "Phys Atk +13, Icy Blow",
+    "acquisition": "Can be obtained for 6000 G at few armorer shops (some of them below).",
+    "grantedSkill": {
+      "name": "Icy Blow",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts Freeze."
+    }
+  },
+  "headsman's axe": {
+    "title": "Headsman's Axe",
+    "physAtk": 16,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Execution",
+      "Magick Defense -10"
+    ],
+    "statBoosts": "Phys Atk +16, Execution, Magick Defense -10",
+    "acquisition": "Can be obtained for 5000 G at few Armorer Shops (some of them below).",
+    "grantedSkill": {
+      "name": "Execution",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts Passive Seal.Inflicts a deathblow if target is at 25% HP or less."
+    }
+  },
+  "greatwood sword": {
+    "title": "Greatwood Sword",
+    "physAtk": 8,
+    "magAtk": 16,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Magick Defense +3"
+    ],
+    "statBoosts": "Phys Atk +8, Mag Atk +16, Magick Defense +3",
+    "acquisition": "Can be obtained for 4000 G at various Armorer Shops."
+  },
+  "greatwood axe": {
+    "title": "Greatwood Axe",
+    "physAtk": 8,
+    "magAtk": 16,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Magick Defense +3"
+    ],
+    "statBoosts": "Phys Atk +8, Mag Atk +16, Magick Defense +3",
+    "acquisition": "Can be obtained for 4000 G at various Armorer Shops."
+  },
+  "greatwood spear": {
+    "title": "Greatwood Spear",
+    "physAtk": 8,
+    "magAtk": 16,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Magick Defense +3"
+    ],
+    "statBoosts": "Phys Atk +8, Mag Atk +16, Magick Defense +3",
+    "acquisition": "Can be obtained for 4000 G at various Armorer Shops."
+  },
+  "greatwood bow": {
+    "title": "Greatwood Bow",
+    "physAtk": 8,
+    "magAtk": 16,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Magick Defense +3"
+    ],
+    "statBoosts": "Phys Atk +8, Mag Atk +16, Magick Defense +3",
+    "acquisition": "Can be obtained for 4000 G at various Armorer Shops."
+  },
+  "greatwood staff": {
+    "title": "Greatwood Staff",
+    "physAtk": 8,
+    "magAtk": 16,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Magick Defense +3"
+    ],
+    "statBoosts": "Phys Atk +8, Mag Atk +16, Magick Defense +3",
+    "acquisition": "Can be obtained for 4000 G at various Armorer Shops."
+  },
+  "icefall blade": {
+    "title": "Icefall Blade",
+    "physAtk": 19,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "Guard Rate -20%"
+    ],
+    "statBoosts": "Phys Atk +19, Base PP +1, Guard Rate -20%",
+    "acquisition": "Can be obtained Vosfraga Town for 12000 G."
+  },
+  "icefall axe": {
+    "title": "Icefall Axe",
+    "physAtk": 19,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "Guard Rate -20%"
+    ],
+    "statBoosts": "Phys Atk +19, Base PP +1, Guard Rate -20%",
+    "acquisition": "Can be obtained at Vosfraga Town for 12000 G."
+  },
+  "icefall spear": {
+    "title": "Icefall Spear",
+    "physAtk": 19,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "Guard Rate -20%"
+    ],
+    "statBoosts": "Phys Atk +19, Base PP +1, Guard Rate -20%",
+    "acquisition": "Can be obtained at Vosfraga Town for 12000 G."
+  },
+  "icefall bow": {
+    "title": "Icefall Bow",
+    "physAtk": 19,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "Guard Rate -20%"
+    ],
+    "statBoosts": "Phys Atk +19, Base PP +1, Guard Rate -20%",
+    "acquisition": "Can be obtained at Vosfraga Town for 12000 G."
+  },
+  "icefall staff": {
+    "title": "Icefall Staff",
+    "physAtk": 0,
+    "magAtk": 19,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "Guard Rate -20%"
+    ],
+    "statBoosts": "Mag Atk +19, Base PP +1, Guard Rate -20%",
+    "acquisition": "Can be obtained at Vosfraga Town for 12000 G."
+  },
+  "holy unicorn blade": {
+    "title": "Holy Unicorn Blade",
+    "physAtk": 28,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +1",
+      "Base PP +1",
+      "Debuff Immunity"
+    ],
+    "statBoosts": "Phys Atk +28, Base AP +1, Base PP +1, Debuff Immunity",
+    "acquisition": "Can be obtained for completing the quest: \"The Royal Mausoleaum\" which unlocks automatically when you reach Renown Rank S."
+  },
+  "giant's greataxe": {
+    "title": "Giant's Greataxe",
+    "physAtk": 18,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Heavy Smash",
+      "Max HP +20",
+      "Initiative -10"
+    ],
+    "statBoosts": "Phys Atk +18, Heavy Smash, Max HP +20, Initiative -10",
+    "acquisition": "Can be obtained for 10000 G at the Früth Harbor Armorer Shop.",
+    "grantedSkill": {
+      "name": "Heavy Smash",
+      "cost": "1 AP",
+      "description": "Attack a row of enemies.Inflicts Stun."
+    }
+  },
+  "general's pike": {
+    "title": "General's Pike",
+    "physAtk": 17,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Phalanx Shift",
+      "Base PP +1"
+    ],
+    "statBoosts": "Phys Atk +17, Phalanx Shift, Base PP +1",
+    "acquisition": "Can be obtained at Castle Laurhal for ??? G.",
+    "grantedSkill": {
+      "name": "Phalanx Shift",
+      "cost": "1 PP",
+      "description": "Activates after an ally is attacked with an active skill.Buff a row of allies.Grants +20% Attack and +40% Critical Rate to cavalry allies."
+    }
+  },
+  "hailstorm edge": {
+    "title": "Hailstorm Edge",
+    "physAtk": 20,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Icicle Dart",
+      "Accuracy +20",
+      "Freeze Immunity"
+    ],
+    "statBoosts": "Phys Atk +20, Icicle Dart, Accuracy +20, Freeze Immunity",
+    "acquisition": "Can be obtained for 8000 G at the Prigaschari Harbor Armorer Shop",
+    "grantedSkill": {
+      "name": "Icicle Dart",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts Freeze."
+    }
+  },
+  "helix spear": {
+    "title": "Helix Spear",
+    "physAtk": 23,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Penetrate",
+      "Guard Rate +10%"
+    ],
+    "statBoosts": "Phys Atk +23, Penetrate, Guard Rate +10%",
+    "acquisition": "Can be obtained for ??? G at the Zagatul Harbor Armorer Shop.",
+    "grantedSkill": {
+      "name": "Penetrate",
+      "cost": "1 AP",
+      "description": "Attack a column of enemies with a piercing strike.Inflicts Phys. Defense -30%."
+    }
+  },
+  "glaive": {
+    "title": "Glaive",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Follow-up Skills Deals +20 Damage",
+      "Critical Rate +10%"
+    ],
+    "statBoosts": "Phys Atk +21, Follow-up Skills Deals +20 Damage, Critical Rate +10%",
+    "acquisition": "Can be obtained for 8000 G at the Ancient City of Bastoritza Armorer Shop."
+  },
+  "hunter's claymore": {
+    "title": "Hunter's Claymore",
+    "physAtk": 22,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Follow-up Skills Deal +20 Damage",
+      "Critical Rate +10%"
+    ],
+    "statBoosts": "Phys Atk +22, Follow-up Skills Deal +20 Damage, Critical Rate +10%",
+    "acquisition": "Can be obtained for 8000 G at the Drynarot Town Armorer Shop."
+  },
+  "hunter's halberd": {
+    "title": "Hunter's Halberd",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Follow-up Skills Deal +20 Damage",
+      "Critical Rate +10%"
+    ],
+    "statBoosts": "Phys Atk +21, Follow-up Skills Deal +20 Damage, Critical Rate +10%",
+    "acquisition": "Can be obtained for 8000 G at the Walled City of Peyston Armorer Shop."
+  },
+  "gleaming mace": {
+    "title": "Gleaming Mace",
+    "physAtk": 0,
+    "magAtk": 18,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Holy Smite"
+    ],
+    "statBoosts": "Mag Atk +18, Holy Smite",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Holy Smite",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Removes all of the target's buffs."
+    }
+  },
+  "grand magus staff": {
+    "title": "Grand Magus Staff",
+    "physAtk": 0,
+    "magAtk": 20,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Magick Burst"
+    ],
+    "statBoosts": "Mag Atk +20, Magick Burst",
+    "acquisition": "Can be obtained for 20000 G at the Cherrywell Town Armorer Shop (Albion).",
+    "grantedSkill": {
+      "name": "Magick Burst",
+      "cost": "1 PP",
+      "description": "Activates after an enemy attacks with an active skill.Counterattack all enemies with magick.Inflicts Initiative -10."
+    }
+  },
+  "hallowed blade": {
+    "title": "Hallowed Blade",
+    "physAtk": 14,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Heal 10% HP when using Active Skill",
+      "Max HP +5"
+    ],
+    "statBoosts": "Phys Atk +14, Heal 10% HP when using Active Skill, Max HP +5",
+    "acquisition": "Can be obtained by doing the quest \"Cornia Treasure Map 1\"."
+  },
+  "general's longbow": {
+    "title": "General's Longbow",
+    "physAtk": 17,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Aerial Shift",
+      "Base PP +1"
+    ],
+    "statBoosts": "Phys Atk +17, Aerial Shift, Base PP +1",
+    "acquisition": "Complete the quest:\"Cornia Treasure Map 4\".",
+    "grantedSkill": {
+      "name": "Aerial Shift",
+      "cost": "1 PP",
+      "description": "Activates after an ally is attacked with an active skill.Buff a row of allies.Grants +20% Attack and +40% Critical Rate to flying allies."
+    }
+  },
+  "helleborus axe": {
+    "title": "Helleborus Axe",
+    "physAtk": 25,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "HP Recovery +30%"
+    ],
+    "statBoosts": "Phys Atk +25, Base PP +1, HP Recovery +30%",
+    "acquisition": "Can be obtained by doing the quest:\"Drakenhold Treasure Map 6\"."
+  },
+  "heavenswing sword": {
+    "title": "Heavenswing Sword",
+    "physAtk": 16,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Accuracy +10",
+      "Evasion +10"
+    ],
+    "statBoosts": "Phys Atk +16, Accuracy +10, Evasion +10",
+    "acquisition": "Recruit Ochlys"
+  },
+  "greatsword": {
+    "title": "Greatsword",
+    "physAtk": 25,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +25",
+    "acquisition": "Recruit Amalia"
+  },
+  "greatsword of the abyss": {
+    "title": "Greatsword of the Abyss",
+    "physAtk": 25,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Passive Seal Immunity",
+      "Deathblow Immunity",
+      "Take +50% Less Poison Damage"
+    ],
+    "statBoosts": "Phys Atk +25, Passive Seal Immunity, Deathblow Immunity, Take +50% Less Poison Damage",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "infamous bow": {
+    "title": "Infamous Bow",
+    "physAtk": 18,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Accuracy +50",
+      "Critical Rate -30%"
+    ],
+    "statBoosts": "Phys Atk +18, Accuracy +50, Critical Rate -30%",
+    "acquisition": "Complete the quest:\"Elheim Treasure Map 1\"."
+  },
+  "golden ram axe": {
+    "title": "Golden Ram Axe",
+    "physAtk": 17,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Accuracy +20",
+      "Physickal Defense +4"
+    ],
+    "statBoosts": "Phys Atk +17, Accuracy +20, Physickal Defense +4",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "greatwood spiritbow": {
+    "title": "Greatwood Spiritbow",
+    "physAtk": 10,
+    "magAtk": 16,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Magick Defense +5"
+    ],
+    "statBoosts": "Phys Atk +10, Mag Atk +16, Magick Defense +5",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "heavenswing staff": {
+    "title": "Heavenswing Staff",
+    "physAtk": 0,
+    "magAtk": 23,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +20",
+      "Initiative +10"
+    ],
+    "statBoosts": "Mag Atk +23, Max HP +20, Initiative +10",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "icestorm staff": {
+    "title": "Icestorm Staff",
+    "physAtk": 0,
+    "magAtk": 22,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Blizzard",
+      "Freeze Immunity",
+      "Evasion +10"
+    ],
+    "statBoosts": "Mag Atk +22, Blizzard, Freeze Immunity, Evasion +10",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Blizzard",
+      "cost": "1 AP",
+      "description": "Attack all enemies with magick.Inflicts Freeze.(User cannot evade or use passive skills while charging.)"
+    }
+  },
+  "kingsblade cornix": {
+    "title": "Kingsblade Cornix",
+    "physAtk": 15,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "All Stats +5"
+    ],
+    "statBoosts": "Phys Atk +15, All Stats +5",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "lyrical wand": {
+    "title": "Lyrical Wand",
+    "physAtk": 0,
+    "magAtk": 13,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Active Heal",
+      "Base AP +1"
+    ],
+    "statBoosts": "Mag Atk +13, Active Heal, Base AP +1",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "millenium scepter": {
+    "title": "Millenium Scepter",
+    "physAtk": 0,
+    "magAtk": 24,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Trinity Rain"
+    ],
+    "statBoosts": "Mag Atk +24, Trinity Rain",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Trinity Rain",
+      "cost": "1 AP",
+      "description": "Attack all enemies with magick.(User cannot evade or use passive skills while charging.)"
+    }
+  },
+  "morningstar": {
+    "title": "Morningstar",
+    "physAtk": 18,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Painful Smash"
+    ],
+    "statBoosts": "Phys Atk +18, Painful Smash",
+    "acquisition": "Can be obtained for 8000 G at the Sarlicotti Town Armorer Shop.",
+    "grantedSkill": {
+      "name": "Painful Smash",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Deals 25% of target's HPin additional damage."
+    }
+  },
+  "lifeblood staff": {
+    "title": "Lifeblood Staff",
+    "physAtk": 0,
+    "magAtk": 13,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Resurrection",
+      "Max HP +10"
+    ],
+    "statBoosts": "Mag Atk +13, Resurrection, Max HP +10",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Resurrection",
+      "cost": "1 AP",
+      "description": "Revive one ally, restoring them to 1 HP."
+    }
+  },
+  "juggernaut": {
+    "title": "Juggernaut",
+    "physAtk": 24,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Ground Strike",
+      "Critical Damage +30%",
+      "Stun Immunity"
+    ],
+    "statBoosts": "Phys Atk +24, Ground Strike, Critical Damage +30%, Stun Immunity",
+    "acquisition": "Can be obtained for ??? G at the Dracodorina Citadel Armorer Shop.",
+    "grantedSkill": {
+      "name": "Ground Strike",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Ignores 100% Defense v. cavalry targets."
+    }
+  },
+  "moonlight rapier": {
+    "title": "Moonlight Rapier",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Nocturnal Strike"
+    ],
+    "statBoosts": "Phys Atk +21, Nocturnal Strike",
+    "acquisition": "Can be obtained for 12000 G at the Dyregulf Town Armorer Shop.",
+    "grantedSkill": {
+      "name": "Nocturnal Strike",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Attack a single enemy with a first strike.Grants the user +1 💎PP at night."
+    }
+  },
+  "liberator's staff": {
+    "title": "Liberator's Staff",
+    "physAtk": 0,
+    "magAtk": 14,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Dispel All"
+    ],
+    "statBoosts": "Mag Atk +14, Dispel All",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Dispel All",
+      "cost": "1 AP",
+      "description": "Remove all buffs from all enemies."
+    }
+  },
+  "kingsaxe drakenash": {
+    "title": "Kingsaxe Drakenash",
+    "physAtk": 20,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "All Stats +5"
+    ],
+    "statBoosts": "Phys Atk +20, All Stats +5",
+    "acquisition": "Can be obtained when completing the quest:\"Carved of Drakenhold Stone\"."
+  },
+  "kingslance elhal": {
+    "title": "Kingslance Elhal",
+    "physAtk": 9,
+    "magAtk": 18,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "All Stats +5"
+    ],
+    "statBoosts": "Phys Atk +9, Mag Atk +18, All Stats +5",
+    "acquisition": "Can be obtained when completing the quest:\"Carved of Elheim Stone\"."
+  },
+  "kingsbow bastorik": {
+    "title": "Kingsbow Bastorik",
+    "physAtk": 25,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "All Stats +5"
+    ],
+    "statBoosts": "Phys Atk +25, All Stats +5",
+    "acquisition": "Can be obtained when completing the quest:\"Carved of Bastorias Stone\"."
+  },
+  "kingstaff albiore": {
+    "title": "Kingstaff Albiore",
+    "physAtk": 0,
+    "magAtk": 25,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "All Stats +5"
+    ],
+    "statBoosts": "Mag Atk +25, All Stats +5",
+    "acquisition": "Can be obtained when completing the quest:\"Carved of Albion Stone\"."
+  },
+  "libera": {
+    "title": "Libera",
+    "physAtk": 0,
+    "magAtk": 20,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Reincarnation"
+    ],
+    "statBoosts": "Mag Atk +20, Reincarnation",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Reincarnation",
+      "cost": "1 AP",
+      "description": "Revive one ally, restoring them to 1 HP.Grants the target immunity to damage for one attack."
+    }
+  },
+  "orchis spear": {
+    "title": "Orchis Spear",
+    "physAtk": 25,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "HP Recovery +30%"
+    ],
+    "statBoosts": "Phys Atk +25, Base PP +1, HP Recovery +30%",
+    "acquisition": "Can be obtained by doing the quest:\"Elheim Treasure Map 6\"."
+  },
+  "lupinus staff": {
+    "title": "Lupinus Staff",
+    "physAtk": 0,
+    "magAtk": 25,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "HP Recovery +30%"
+    ],
+    "statBoosts": "Mag Atk +25, Base PP +1, HP Recovery +30%",
+    "acquisition": "Can be obtained by doing the quest:\"Albion Treasure Map 6\"."
+  },
+  "notos's sword": {
+    "title": "Notos's Sword",
+    "physAtk": 25,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +1",
+      "Initiative +10",
+      "Evasion +10"
+    ],
+    "statBoosts": "Phys Atk +25, Base AP +1, Initiative +10, Evasion +10",
+    "acquisition": "From Ysveda Harbor, set sail for the secluded shore where you’ll find this monument."
+  },
+  "meteorite sword": {
+    "title": "Meteorite Sword",
+    "physAtk": 24,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +20",
+      "Guard Rate +10%"
+    ],
+    "statBoosts": "Phys Atk +24, Max HP +20, Guard Rate +10%",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "mist scimitar": {
+    "title": "Mist Scimitar",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Evade",
+      "Evasion +10"
+    ],
+    "statBoosts": "Evade, Evasion +10",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Evade",
+      "cost": "1 PP",
+      "description": "Activates before being attacked.Evade a single hit."
+    }
+  },
+  "obsidian sword": {
+    "title": "Obsidian Sword",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "???",
+      "???",
+      "???"
+    ],
+    "statBoosts": "???",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "nameless greatsword": {
+    "title": "Nameless Greatsword",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "???",
+      "???",
+      "???"
+    ],
+    "statBoosts": "???",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "meteorite axe": {
+    "title": "Meteorite Axe",
+    "physAtk": 24,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +20",
+      "Guard Rate +10%"
+    ],
+    "statBoosts": "Phys Atk +24, Max HP +20, Guard Rate +10%",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "meteorite bow": {
+    "title": "Meteorite Bow",
+    "physAtk": 24,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +20",
+      "Guard Rate +10%"
+    ],
+    "statBoosts": "Phys Atk +24, Max HP +20, Guard Rate +10%",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "meteorite rod": {
+    "title": "Meteorite Rod",
+    "physAtk": 0,
+    "magAtk": 24,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +20",
+      "Guard Rate +10%"
+    ],
+    "statBoosts": "Mag Atk +24, Max HP +20, Guard Rate +10%",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "knot of ruin": {
+    "title": "Knot of Ruin",
+    "physAtk": 22,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +1",
+      "HP -30",
+      "Initiative -10"
+    ],
+    "statBoosts": "Phys Atk +22, Base AP +1, HP -30, Initiative -10",
+    "acquisition": "Complete the quest:\"Drakenhold Treasure Map 3\"."
+  },
+  "meteorite lance": {
+    "title": "Meteorite Lance",
+    "physAtk": 24,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +20",
+      "Guard Rate +10%"
+    ],
+    "statBoosts": "Phys Atk +24, Max HP +20, Guard Rate +10%",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "obsidian axe": {
+    "title": "Obsidian Axe",
+    "physAtk": 10,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +10",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "nameless greataxe": {
+    "title": "Nameless Greataxe",
+    "physAtk": 10,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +10",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "labrys": {
+    "title": "Labrys",
+    "physAtk": 18,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative +5",
+      "Guard Rate +20%"
+    ],
+    "statBoosts": "Phys Atk +18, Initiative +5, Guard Rate +20%",
+    "acquisition": "Starting equipment of Celeste."
+  },
+  "mason's hammer": {
+    "title": "Mason's Hammer",
+    "physAtk": 10,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Powerful Impact"
+    ],
+    "statBoosts": "Phys Atk +10, Powerful Impact",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Powerful Impact",
+      "cost": "1 AP",
+      "description": "Attack a single enemy."
+    }
+  },
+  "obsidian spear": {
+    "title": "Obsidian Spear",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +15",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "nameless greatspear": {
+    "title": "Nameless Greatspear",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +15",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "lance of devotion": {
+    "title": "Lance of Devotion",
+    "physAtk": 25,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +25",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "magebane bow": {
+    "title": "Magebane Bow",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +15",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "nameless greatbow": {
+    "title": "Nameless Greatbow",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +15",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "obsidian bow": {
+    "title": "Obsidian Bow",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +15",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "nameless greatstaff": {
+    "title": "Nameless Greatstaff",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +15",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "obsidian staff": {
+    "title": "Obsidian Staff",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Phys Atk +15",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "mother laelia's staff": {
+    "title": "Mother Laelia's Staff",
+    "physAtk": 0,
+    "magAtk": 15,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Parting Resurrection",
+      "Base PP +1"
+    ],
+    "statBoosts": "Mag Atk +15, Parting Resurrection, Base PP +1",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Parting Resurrection",
+      "cost": "1 PP",
+      "description": "Activates at the end of a battle.Revive one ally, restoring them to 1 HP."
+    }
+  },
+  "nameless guard's spear": {
+    "title": "Nameless Guard's Spear",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Eagle Eye",
+      "Blindness Immunity",
+      "Accuracy +20"
+    ],
+    "statBoosts": "Phys Atk +21, Eagle Eye, Blindness Immunity, Accuracy +20",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Eagle Eye",
+      "cost": "1 PP",
+      "description": "Activates before attacking with an active skill.Makes the user's next attack a truestrike."
+    }
+  },
+  "nameless guard's bow": {
+    "title": "Nameless Guard's Bow",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Eagle Eye",
+      "Blindness Immunity",
+      "Accuracy +20"
+    ],
+    "statBoosts": "Phys Atk +21, Eagle Eye, Blindness Immunity, Accuracy +20",
+    "acquisition": "Watchtower west of Tem Vakran Harbor",
+    "grantedSkill": {
+      "name": "Eagle Eye",
+      "cost": "1 PP",
+      "description": "Activates before attacking with an active skill.Makes the user's next attack a truestrike."
+    }
+  },
+  "runic sword": {
+    "title": "Runic Sword",
+    "physAtk": 8,
+    "magAtk": 14,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Magick Attack",
+      "Magick Defense +3"
+    ],
+    "statBoosts": "Phys Atk +8, Mag Atk +14, Magick Attack, Magick Defense +3",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Magick Attack",
+      "cost": "1 AP",
+      "description": "Attack a single enemy."
+    }
+  },
+  "recruit's shortsword": {
+    "title": "Recruit's Shortsword",
+    "physAtk": 11,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +3",
+      "User Earns +20% EXP"
+    ],
+    "statBoosts": "Phys Atk +11, Max HP +3, User Earns +20% EXP",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "recruit's handaxe": {
+    "title": "Recruit's Handaxe",
+    "physAtk": 11,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +3",
+      "User Earns +20% EXP"
+    ],
+    "statBoosts": "Phys Atk +11, Max HP +3, User Earns +20% EXP",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "recruit's shortspear": {
+    "title": "Recruit's Shortspear",
+    "physAtk": 11,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +3",
+      "User Earns +20% EXP"
+    ],
+    "statBoosts": "Phys Atk +11, Max HP +3, User Earns +20% EXP",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "recruit's shortbow": {
+    "title": "Recruit's Shortbow",
+    "physAtk": 11,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +3",
+      "User Earns +20% EXP"
+    ],
+    "statBoosts": "Phys Atk +11, Max HP +3, User Earns +20% EXP",
+    "acquisition": "Reward for completing level 3 quest A Solitary Resistance."
+  },
+  "recruit's staff": {
+    "title": "Recruit's Staff",
+    "physAtk": 0,
+    "magAtk": 11,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +3",
+      "User Earns +20% EXP"
+    ],
+    "statBoosts": "Mag Atk +11, Max HP +3, User Earns +20% EXP",
+    "acquisition": "Can be obtained for 1500 G at various Armorer Shops (complete list below)."
+  },
+  "runic spear": {
+    "title": "Runic Spear",
+    "physAtk": 8,
+    "magAtk": 14,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Magick Attack",
+      "Magick Defense +3"
+    ],
+    "statBoosts": "Phys Atk +8, Mag Atk +14, Magick Attack, Magick Defense +3",
+    "acquisition": "Can be obtained for 12000 G at few Armorer Shops.",
+    "grantedSkill": {
+      "name": "Magick Attack",
+      "cost": "1 AP",
+      "description": "Attack a single enemy."
+    }
+  },
+  "pheasant bow": {
+    "title": "Pheasant Bow",
+    "physAtk": 13,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Passive Shatter"
+    ],
+    "statBoosts": "Phys Atk +13, Passive Shatter",
+    "acquisition": "Can be obtained for 5000 G at few Armorer Shops (some of them below).",
+    "grantedSkill": {
+      "name": "Passive Shatter",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts 💎PP -1."
+    }
+  },
+  "quartz rod": {
+    "title": "Quartz Rod",
+    "physAtk": 0,
+    "magAtk": 15,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Gravity"
+    ],
+    "statBoosts": "Mag Atk +15, Gravity",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Gravity",
+      "cost": "1 AP",
+      "description": "Attack all enemies.Deals damage equal to 50% of each target's HP.(User cannot evade or use passive skills while charging.)"
+    }
+  },
+  "pestilent staff": {
+    "title": "Pestilent Staff",
+    "physAtk": 0,
+    "magAtk": 15,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Poison Burst"
+    ],
+    "statBoosts": "Mag Atk +15, Poison Burst",
+    "acquisition": "Can be obtained for 8000 G at the Black Market Dealer Shop (Drakenhold).",
+    "grantedSkill": {
+      "name": "Poison Burst",
+      "cost": "1 PP",
+      "description": "Activates at the end of a battle.Attack a single enemy with magick.Hits all enemies if target is poisoned."
+    }
+  },
+  "purifier": {
+    "title": "Purifier",
+    "physAtk": 0,
+    "magAtk": 20,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Sacred Cure"
+    ],
+    "statBoosts": "Mag Atk +20, Sacred Cure",
+    "acquisition": "Can be obtained for 500 CC (Coliseum Coins) at the Coliseum Prize Exchange.",
+    "grantedSkill": {
+      "name": "'''Protection'''",
+      "cost": "1 PP",
+      "description": "Activates after an ally is debuffed.Remove all debuffts from a row of allies.Grants targets immunity to one debuff."
+    }
+  },
+  "piercing bow": {
+    "title": "Piercing Bow",
+    "physAtk": 14,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Armor Shatter"
+    ],
+    "statBoosts": "Phys Atk +14, Armor Shatter",
+    "acquisition": "Can be obtained for 3000 G at various Armorer Shops.",
+    "grantedSkill": {
+      "name": "Armor Shatter",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts Phys. Defense -30%."
+    }
+  },
+  "poison-hex staff": {
+    "title": "Poison-Hex Staff",
+    "physAtk": 0,
+    "magAtk": 16,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Poison Curse"
+    ],
+    "statBoosts": "Mag Atk +16, Poison Curse",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Poison Curse",
+      "cost": "1 AP",
+      "description": "Inflicts Poison on a row of enemies."
+    }
+  },
+  "ringed staff": {
+    "title": "Ringed Staff",
+    "physAtk": 0,
+    "magAtk": 20,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Circle Heal",
+      "Initiative +5"
+    ],
+    "statBoosts": "Mag Atk +20, Circle Heal, Initiative +5",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Circle Heal",
+      "cost": "1 AP",
+      "description": "Restore major HP to all allies.Removes all of target's debuffs.(User cannot evade or use passive skills while charging.)"
+    }
+  },
+  "papal crosier": {
+    "title": "Papal Crosier",
+    "physAtk": 0,
+    "magAtk": 25,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +1",
+      "Base PP +1"
+    ],
+    "statBoosts": "Mag Atk +25, Base AP +1, Base PP +1",
+    "acquisition": "Can be obtained for completing the main quest: \"The Holy March\" (Beat Albion Area)."
+  },
+  "piercing strongbow": {
+    "title": "Piercing Strongbow",
+    "physAtk": 21,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Armor Shatter II",
+      "Accuracy +5",
+      "Critical Rate +20%"
+    ],
+    "statBoosts": "Phys Atk +21, Armor Shatter II, Accuracy +5, Critical Rate +20%",
+    "acquisition": "Can be obtained for 12000 G at the Gorazmak Town Armorer Shop (Bastorias).",
+    "grantedSkill": {
+      "name": "Armor Shatter II",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts Phys. Defense -50%."
+    }
+  },
+  "pursuant's blade": {
+    "title": "Pursuant's Blade",
+    "physAtk": 20,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Pursuit"
+    ],
+    "statBoosts": "Phys Atk +20, Pursuit",
+    "acquisition": "Can be obtained for 10000 G at the Gorazmak Town Armorer Shop.",
+    "grantedSkill": {
+      "name": "Pursuit",
+      "cost": "1 PP",
+      "description": "Activates after an enemy attacks (Active).Follow-up attack a single enemy."
+    }
+  },
+  "phosphorescent staff": {
+    "title": "Phosphorescent Staff",
+    "physAtk": 0,
+    "magAtk": 20,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Radiant Heal",
+      "Initiative +5"
+    ],
+    "statBoosts": "Mag Atk +20, Radiant Heal, Initiative +5",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Radiant Heal",
+      "cost": "1 AP",
+      "description": "Restore major HP to all allies.Grants the ability to survive one lethal blow.(User cannot evade or use passive skills while charging.)"
+    }
+  },
+  "phantom knight's spear": {
+    "title": "Phantom Knight's Spear",
+    "physAtk": 0,
+    "magAtk": 16,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Phantom Attack",
+      "Magick Defense +5"
+    ],
+    "statBoosts": "Mag Atk +16, Phantom Attack, Magick Defense +5",
+    "acquisition": "Complete the quest:\"The Sigil's Trial, Moderate 1 (Lv.13)\".",
+    "grantedSkill": {
+      "name": "Phantom Attack",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts 💎PP -1."
+    }
+  },
+  "phantom knight's axe": {
+    "title": "Phantom Knight's Axe",
+    "physAtk": 0,
+    "magAtk": 16,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Phantom Attack",
+      "Magick Defense +5"
+    ],
+    "statBoosts": "Mag Atk +16, Phantom Attack, Magick Defense +5",
+    "acquisition": "Complete the quest:\"The Sigil's Trial, Moderate 2 (Lv.15)\".",
+    "grantedSkill": {
+      "name": "Phantom Attack",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts 💎PP -1."
+    }
+  },
+  "phantom knight's sword": {
+    "title": "Phantom Knight's Sword",
+    "physAtk": 0,
+    "magAtk": 16,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Phantom Attack",
+      "Magick Defense +5"
+    ],
+    "statBoosts": "Mag Atk +16, Phantom Attack, Magick Defense +5",
+    "acquisition": "Complete the quest:\"The Sigil's Trial, Advanced 1 (Lv.21)\".",
+    "grantedSkill": {
+      "name": "Phantom Attack",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts 💎PP -1."
+    }
+  },
+  "phantom knight's bow": {
+    "title": "Phantom Knight's Bow",
+    "physAtk": 0,
+    "magAtk": 16,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Phantom Attack",
+      "Magick Defense +5"
+    ],
+    "statBoosts": "Mag Atk +16, Phantom Attack, Magick Defense +5",
+    "acquisition": "Complete the quest:\"The Sigil's Trial, Advanced 3 (Lv.29)\".",
+    "grantedSkill": {
+      "name": "Phantom Attack",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts 💎PP -1."
+    }
+  },
+  "phantom knight's staff": {
+    "title": "Phantom Knight's Staff",
+    "physAtk": 0,
+    "magAtk": 16,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Phantom Veil",
+      "Magick Defense +5"
+    ],
+    "statBoosts": "Mag Atk +16, Phantom Veil, Magick Defense +5",
+    "acquisition": "Complete the quest:\"The Sigil's Trial, Zenith (Lv.38)\".",
+    "grantedSkill": {
+      "name": "Phantom Veil",
+      "cost": "1 AP",
+      "description": "Grants a row of allies the ability to evade a single attack."
+    }
+  },
+  "rosularis sword": {
+    "title": "Rosularis Sword",
+    "physAtk": 25,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "HP Recovery +30%"
+    ],
+    "statBoosts": "Phys Atk +25, Base PP +1, HP Recovery +30%",
+    "acquisition": "Can be obtained by doing the quest:\"Cornia Treasure Map 6\"."
+  },
+  "quince bow": {
+    "title": "Quince Bow",
+    "physAtk": 25,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "HP Recovery +30%"
+    ],
+    "statBoosts": "Phys Atk +25, Base PP +1, HP Recovery +30%",
+    "acquisition": "Can be obtained by doing the quest:\"Bastorias Treasure Map 6\"."
+  },
+  "rose knight sword": {
+    "title": "Rose Knight Sword",
+    "physAtk": 14,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative +3",
+      "Accuracy +10"
+    ],
+    "statBoosts": "Phys Atk +14, Initiative +3, Accuracy +10",
+    "acquisition": "Starting equipment of Miriam."
+  },
+  "royal saber": {
+    "title": "Royal Saber",
+    "physAtk": 18,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative +5"
+    ],
+    "statBoosts": "Phys Atk +18, Initiative +5",
+    "acquisition": "Recruit Gilbert"
+  },
+  "red rose": {
+    "title": "Red Rose",
+    "physAtk": 20,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Firestorm",
+      "Base AP +1",
+      "Critical Damage +15%"
+    ],
+    "statBoosts": "Phys Atk +20, Firestorm, Base AP +1, Critical Damage +15%",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Firestorm",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts Burn.+50 potency v. frozen targets."
+    }
+  },
+  "precious rod": {
+    "title": "Precious Rod",
+    "physAtk": 0,
+    "magAtk": 20,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Limited Heal"
+    ],
+    "statBoosts": "Mag Atk +20, Limited Heal",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Limited Heal",
+      "cost": "1 AP",
+      "description": "Restore minor HP to all allies above their limits.Potency increases with fewer allies (Maximum: +200)(Can heal up to 150% above maximum HP.)"
+    }
+  },
+  "sacral rod": {
+    "title": "Sacral Rod",
+    "physAtk": 0,
+    "magAtk": 25,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Affliction Immunity",
+      "Heal 20% HP when using Active Skill"
+    ],
+    "statBoosts": "Mag Atk +25, Affliction Immunity, Heal 20% HP when using Active Skill",
+    "acquisition": "Albion Sanctuary"
+  },
+  "sacral bow": {
+    "title": "Sacral Bow",
+    "physAtk": 25,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Affliction Immunity",
+      "Heal 20% HP when using Active Skill"
+    ],
+    "statBoosts": "Phys Atk +25, Affliction Immunity, Heal 20% HP when using Active Skill",
+    "acquisition": "Bastorias Sanctuary"
+  },
+  "sacral spear": {
+    "title": "Sacral Spear",
+    "physAtk": 25,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Affliction Immunity",
+      "Heal 20% HP when using Active Skill"
+    ],
+    "statBoosts": "Phys Atk +25, Affliction Immunity, Heal 20% HP when using Active Skill",
+    "acquisition": "Elheim Sanctuary"
+  },
+  "sacral axe": {
+    "title": "Sacral Axe",
+    "physAtk": 25,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Affliction Immunity",
+      "Heal 20% HP when using Active Skill"
+    ],
+    "statBoosts": "Phys Atk +25, Affliction Immunity, Heal 20% HP when using Active Skill",
+    "acquisition": "Drakenhold Sanctuary"
+  },
+  "rose knight axe": {
+    "title": "Rose Knight Axe",
+    "physAtk": 14,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative +3",
+      "Accuracy +10"
+    ],
+    "statBoosts": "Phys Atk +14, Initiative +3, Accuracy +10",
+    "acquisition": "Starting equipment of Fran."
+  },
+  "rose knight hammer": {
+    "title": "Rose Knight Hammer",
+    "physAtk": 15,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative +3",
+      "Accuracy +10"
+    ],
+    "statBoosts": "Phys Atk +15, Initiative +3, Accuracy +10",
+    "acquisition": "Starting equipment of Kitra."
+  },
+  "runic axe": {
+    "title": "Runic Axe",
+    "physAtk": 8,
+    "magAtk": 14,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Magick Attack",
+      "Magick Defense +3"
+    ],
+    "statBoosts": "Phys Atk +8, Mag Atk +14, Magick Attack, Magick Defense +3",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Magick Attack",
+      "cost": "1 AP",
+      "description": "Attack a single enemy."
+    }
+  },
+  "replica alminster": {
+    "title": "Replica Alminster",
+    "physAtk": 22,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Accuracy +30",
+      "AP -1"
+    ],
+    "statBoosts": "Phys Atk +22, Accuracy +30, AP -1",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "raven staff": {
+    "title": "Raven Staff",
+    "physAtk": 0,
+    "magAtk": 20,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Mag Atk +20",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "red-bark staff": {
+    "title": "Red-Bark Staff",
+    "physAtk": 0,
+    "magAtk": 21,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Passive Seal Immunity"
+    ],
+    "statBoosts": "Mag Atk +21, Passive Seal Immunity",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "runic bow": {
+    "title": "Runic Bow",
+    "physAtk": 8,
+    "magAtk": 14,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Magick Attack",
+      "Magick Defense +3"
+    ],
+    "statBoosts": "Phys Atk +8, Mag Atk +14, Magick Attack, Magick Defense +3",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Magick Attack",
+      "cost": "1 AP",
+      "description": "Attack a single enemy."
+    }
+  },
+  "recruit's shield": {
+    "title": "Recruit's Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 3,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Max HP +3",
+      "User Earns +10% EXP"
+    ],
+    "statBoosts": "Phys Def +3, Guard Efficiency +25%, Max HP +3, User Earns +10% EXP",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "azure crest shield": {
+    "title": "Azure Crest Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 5,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Base PP +1"
+    ],
+    "statBoosts": "Phys Def +5, Guard Efficiency +25%, Base PP +1",
+    "acquisition": "Can be obtained as a gift from an old woman in the house after fixing the bridge in NE Baumratte in Drakenhold"
+  },
+  "baroque shield": {
+    "title": "Baroque Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 4,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Accuracy +5"
+    ],
+    "statBoosts": "Phys Def +4, Guard Efficiency +25%, Accuracy +5",
+    "acquisition": "Obtained during level 6 quest Province of Famine, after defeating Gaston's unit."
+  },
+  "cavalry hunter's buckler": {
+    "title": "Cavalry Hunter's Buckler",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 5,
+    "magDef": 0,
+    "effects": [
+      "Cavalry Guard",
+      "Guard Efficiency +25%"
+    ],
+    "statBoosts": "Phys Def +5, Cavalry Guard, Guard Efficiency +25%",
+    "acquisition": "Can be bought for 8000 G at few Armorer Shops (some of them below).",
+    "grantedSkill": {
+      "name": "Cavalry Guard",
+      "cost": "1 PP",
+      "description": "Activates before being hit by a physickal attack.Block an enemy attack with a medium guard.Becomes a heavy Guard and grants the user+1 💎PP if the enemy is cavalry."
+    }
+  },
+  "iron shield": {
+    "title": "Iron Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 5,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%"
+    ],
+    "statBoosts": "Phys Def +5, Guard Efficiency +25%",
+    "acquisition": "Can be bought for 1500 G at various Armorer Shops."
+  },
+  "bronze shield": {
+    "title": "Bronze Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 3,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%"
+    ],
+    "statBoosts": "Phys Def +3, Guard Efficiency +25%",
+    "acquisition": "Starting Equipment of Alain, Clive, and some other game characters."
+  },
+  "battler's shield": {
+    "title": "Battler's Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Physickal Attack +2"
+    ],
+    "statBoosts": "Phys Def +2, Guard Efficiency +25%, Physickal Attack +2",
+    "acquisition": "Starting equipment of Adel."
+  },
+  "ironclad buckler": {
+    "title": "Ironclad Buckler",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 5,
+    "magDef": 0,
+    "effects": [
+      "Wall",
+      "Guard Efficiency +25%"
+    ],
+    "statBoosts": "Phys Def +5, Wall, Guard Efficiency +25%",
+    "acquisition": "Can be bought for 5000 G at few Armorer Shops.",
+    "grantedSkill": {
+      "name": "Wall",
+      "cost": "1 AP",
+      "description": "Grants the user a buff that negatesone physickal attack."
+    }
+  },
+  "scarlet crest shield": {
+    "title": "Scarlet Crest Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Base♦️AP +1"
+    ],
+    "statBoosts": "Phys Def +6, Guard Efficiency +25%, Base♦️AP +1",
+    "acquisition": "Can be bought at Gran Corrine for 15000 G at the Armorer Shop."
+  },
+  "holy knight's shield": {
+    "title": "Holy Knight's Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 7,
+    "magDef": 0,
+    "effects": [
+      "Holy Guard",
+      "Guard Efficiency +25%",
+      "Heal 10% HP when using Active Skill"
+    ],
+    "statBoosts": "Phys Def +7, Holy Guard, Guard Efficiency +25%, Heal 10% HP when using Active Skill",
+    "acquisition": "Can be obtained for 15 Divine Shards at the Divine Shard Exchange shop.",
+    "grantedSkill": {
+      "name": "Holy Guard",
+      "cost": "1 PP",
+      "description": "Activates before being hit by a physickal attack.Block an enemy attack with a medium guard.Prevents debuffs."
+    }
+  },
+  "blessed roundshield": {
+    "title": "Blessed Roundshield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Heal 10% HP when using Active Skill",
+      "Max HP +5"
+    ],
+    "statBoosts": "Phys Def +2, Guard Efficiency +25%, Heal 10% HP when using Active Skill, Max HP +5",
+    "acquisition": "Can be bought for 5000 G at few Armorer Shops."
+  },
+  "carnat shield": {
+    "title": "Carnat Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Initiative +1"
+    ],
+    "statBoosts": "Phys Def +6, Guard Efficiency +25%, Initiative +1",
+    "acquisition": "Can be bought for 4000 G at few Armorer Shops (some of them below)."
+  },
+  "squire's shield": {
+    "title": "Squire's Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 5,
+    "magDef": 0,
+    "effects": [
+      "Quick Cover",
+      "Guard Efficiency +25%"
+    ],
+    "statBoosts": "Phys Def +5, Quick Cover, Guard Efficiency +25%",
+    "acquisition": "Can be bought for 10000 G at few Armorer Shops (some of them below).",
+    "grantedSkill": {
+      "name": "Quick Cover",
+      "cost": "1 PP",
+      "description": "Activates before an ally is attacked.Cover an ally with a medium guard."
+    }
+  },
+  "angel hunter's buckler": {
+    "title": "Angel Hunter's Buckler",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 5,
+    "magDef": 0,
+    "effects": [
+      "Aerial Guard",
+      "Guard Efficiency +25%"
+    ],
+    "statBoosts": "Phys Def +5, Aerial Guard, Guard Efficiency +25%",
+    "acquisition": "Can be bought for 8000 G at few Armorer Shops.",
+    "grantedSkill": {
+      "name": "Aerial Guard",
+      "cost": "1 PP",
+      "description": "Activates before being hit by a physickal attack.Block an enemy attack with a medium guard.Becomes an heavy guard and grants the user+1 💎PP if the enemy is flying."
+    }
+  },
+  "black-iron shield": {
+    "title": "Black-Iron Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Critickal Rate +4%"
+    ],
+    "statBoosts": "Phys Def +6, Guard Efficiency +25%, Critickal Rate +4%",
+    "acquisition": "Can be bought for 3000 G at various Armorer Shops (some of them below)."
+  },
+  "dragonbone shield": {
+    "title": "Dragonbone Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 5,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Base PP +1",
+      "Initiative -10"
+    ],
+    "statBoosts": "Phys Def +5, Guard Efficiency +25%, Base PP +1, Initiative -10",
+    "acquisition": "Can be obtained for 8000 G at few Armorer shops (some of them below)."
+  },
+  "searing shield": {
+    "title": "Searing Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 5,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Burn Immunity"
+    ],
+    "statBoosts": "Phys Def +5, Guard Efficiency +25%, Burn Immunity",
+    "acquisition": "Can be bought for 3000 G at few Armorer shops (some of them below)."
+  },
+  "manalith buckler": {
+    "title": "Manalith Buckler",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 5,
+    "magDef": 0,
+    "effects": [
+      "Magick Wall",
+      "Guard Efficiency +25%"
+    ],
+    "statBoosts": "Phys Def +5, Magick Wall, Guard Efficiency +25%",
+    "acquisition": "Can be bought for 10000 G at few Armorer Shops (some of them below).",
+    "grantedSkill": {
+      "name": "Magick Wall",
+      "cost": "1 AP",
+      "description": "Grants the user a buff that negatesone magick attack or one affliction."
+    }
+  },
+  "greatwood shield": {
+    "title": "Greatwood Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 4,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Magick Defense +2"
+    ],
+    "statBoosts": "Phys Def +4, Guard Efficiency +25%, Magick Defense +2",
+    "acquisition": "Can be bought at Voinikola Harbor for 4000 G."
+  },
+  "steel shield": {
+    "title": "Steel Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 7,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%"
+    ],
+    "statBoosts": "Phys Def +7, Guard Efficiency +25%",
+    "acquisition": "Can be bought at Lornivisch Harbor for 3000 G."
+  },
+  "guard's shield": {
+    "title": "Guard's Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 4,
+    "magDef": 0,
+    "effects": [
+      "Quick Guard",
+      "Guard Efficiency +25%"
+    ],
+    "statBoosts": "Phys Def +4, Quick Guard, Guard Efficiency +25%",
+    "acquisition": "Can be bought at Lornivisch Harbor for 5000 G.",
+    "grantedSkill": {
+      "name": "Quick Guard",
+      "cost": "1 PP",
+      "description": "Activates before being hit by a physickal attack.Block an enemy attack with a medium guard."
+    }
+  },
+  "hoarfrost shield": {
+    "title": "Hoarfrost Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 5,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Freeze Immunity"
+    ],
+    "statBoosts": "Phys Def +5, Guard Efficiency +25%, Freeze Immunity",
+    "acquisition": "Can be bought at Lornivisch Harbor for 3000 G."
+  },
+  "spellsteel shield": {
+    "title": "Spellsteel Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Magick Defense +5"
+    ],
+    "statBoosts": "Phys Def +6, Guard Efficiency +25%, Magick Defense +5",
+    "acquisition": "Can be bought at Dachananya Town for 6000 G."
+  },
+  "icefall shield": {
+    "title": "Icefall Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 7,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Base PP +1",
+      "Guard Rate -20%"
+    ],
+    "statBoosts": "Phys Def +7, Guard Efficiency +25%, Base PP +1, Guard Rate -20%",
+    "acquisition": "Can be obtained at Mostonega Town for 12000 G."
+  },
+  "luminous shield": {
+    "title": "Luminous Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Poison Immunity",
+      "Blindness Immunity"
+    ],
+    "statBoosts": "Phys Def +6, Guard Efficiency +25%, Poison Immunity, Blindness Immunity",
+    "acquisition": "Can be bought at Warnby Town for 5000 G."
+  },
+  "chivalric shield": {
+    "title": "Chivalric Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Stun Immunity",
+      "Guard Seal Immunity"
+    ],
+    "statBoosts": "Phys Def +6, Guard Efficiency +25%, Stun Immunity, Guard Seal Immunity",
+    "acquisition": "Can be bought at Voitarafi Town for 5000 G."
+  },
+  "holy unicorn shield": {
+    "title": "Holy Unicorn Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 8,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Debuff Immunity"
+    ],
+    "statBoosts": "Phys Def +8, Guard Efficiency +25%, Debuff Immunity",
+    "acquisition": "Can be obtained for completing the main quest: \"Unicorn Overlord\" (The last main story quest)."
+  },
+  "beast hunter's buckler": {
+    "title": "Beast Hunter's Buckler",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 0,
+    "effects": [
+      "Bestral Guard",
+      "Guard Efficiency +25%"
+    ],
+    "statBoosts": "Phys Def +6, Bestral Guard, Guard Efficiency +25%",
+    "acquisition": "Can be bought at Zagavona Harbor for 8000 G.",
+    "grantedSkill": {
+      "name": "Bestral Guard",
+      "cost": "1 PP",
+      "description": "Activates before being hit by a physickal attack.Block an enemy attack with a medium guard.Becomes an heavy guard and grants the user+1 💎PP if the enemy is a bestral."
+    }
+  },
+  "parrying shield": {
+    "title": "Parrying Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 0,
+    "effects": [
+      "Parry",
+      "Guard Efficiency +25%",
+      "Counterattack Skills Deal +50 Damage"
+    ],
+    "statBoosts": "Phys Def +2, Parry, Guard Efficiency +25%, Counterattack Skills Deal +50 Damage",
+    "acquisition": "Can be bought at Mostonega Town for 12000 G.",
+    "grantedSkill": {
+      "name": "Parry",
+      "cost": "1 AP",
+      "description": "Activates before being hit by a melee attack.Negate melee damage for a single hit.Grants the user +1 💎AP."
+    }
+  },
+  "hunter's buckler": {
+    "title": "Hunter's Buckler",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Follow-up Skills Deal +20 Damage",
+      "Critical Rate +5%"
+    ],
+    "statBoosts": "Phys Def +6, Guard Efficiency +25%, Follow-up Skills Deal +20 Damage, Critical Rate +5%",
+    "acquisition": "Can be bought at Proszruni Town for 5000 G."
+  },
+  "mercenary's shield": {
+    "title": "Mercenary's Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 0,
+    "effects": [
+      "Vengeful Guard",
+      "Guard Efficiency +25%",
+      "Critical Rate +5%"
+    ],
+    "statBoosts": "Phys Def +6, Vengeful Guard, Guard Efficiency +25%, Critical Rate +5%",
+    "acquisition": "Can be bought at Drynarot Town for 10000 G.",
+    "grantedSkill": {
+      "name": "Vengeful Guard",
+      "cost": "1 PP",
+      "description": "Activates before being hit by a physickal attack.Block an enemy attack with a medium guard.Grants the user +20% Phys. Attack. (Effect stacks.)"
+    }
+  },
+  "phantom knight's shield": {
+    "title": "Phantom Knight's Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Magick Defense +20"
+    ],
+    "statBoosts": "Guard Efficiency +25%, Magick Defense +20",
+    "acquisition": "Complete the quest:\"The Sigil's Trial, Beginner 2 (Lv.10)\"."
+  },
+  "moonlight shield": {
+    "title": "Moonlight Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 0,
+    "effects": [
+      "Nocturnal Guard",
+      "Guard Efficiency +25%"
+    ],
+    "statBoosts": "Phys Def +6, Nocturnal Guard, Guard Efficiency +25%",
+    "acquisition": "Complete the quest:\"Bastorias Treasure Map 1\".",
+    "grantedSkill": {
+      "name": "Nocturnal Guard",
+      "cost": "1 PP",
+      "description": "Activates before being hit by a physickal attack.Block an enemy attack with a medium guard.Grants the user +1 💎PP at night."
+    }
+  },
+  "kaikias's shield": {
+    "title": "Kaikias's Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 8,
+    "magDef": 0,
+    "effects": [
+      "Hastened Cover",
+      "Guard Efficiency +25%",
+      "Initiative +10"
+    ],
+    "statBoosts": "Phys Def +8, Hastened Cover, Guard Efficiency +25%, Initiative +10",
+    "acquisition": "This Monument of Anemoi can be found northeast of the Ancient City of Bastoritza along the frozen shore.",
+    "grantedSkill": {
+      "name": "Hastened Cover",
+      "cost": "1 PP",
+      "description": "Activates before an ally is attacked.Cover an ally with a medium guard.Grants that ally max Initiative for their next action."
+    }
+  },
+  "golden ram shield": {
+    "title": "Golden Ram Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 5,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Max HP +10",
+      "Stun Immunity"
+    ],
+    "statBoosts": "Phys Def +5, Guard Efficiency +25%, Max HP +10, Stun Immunity",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "heavenswing shield": {
+    "title": "Heavenswing Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 5,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Accuracy +10",
+      "Evasion +10"
+    ],
+    "statBoosts": "Phys Def +5, Guard Efficiency +25%, Accuracy +10, Evasion +10",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "obsidian shield": {
+    "title": "Obsidian Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%"
+    ],
+    "statBoosts": "Guard Efficiency +25%",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "nameless guard's shield": {
+    "title": "Nameless Guard's Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 0,
+    "effects": [
+      "Radiant Cover",
+      "Guard Efficiency +25%",
+      "Blindness Immunity"
+    ],
+    "statBoosts": "Phys Def +6, Radiant Cover, Guard Efficiency +25%, Blindness Immunity",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Radiant Cover",
+      "cost": "1 PP",
+      "description": "Activates before an ally is attacked.Cover an ally with a medium guard.Makes that ally's next attack a truestrike."
+    }
+  },
+  "arrowshield": {
+    "title": "Arrowshield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 0,
+    "effects": [
+      "Arrow Cover",
+      "Guard Efficiency +25%"
+    ],
+    "statBoosts": "Phys Def +2, Arrow Cover, Guard Efficiency +25%",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Arrow Cover",
+      "cost": "1 PP",
+      "description": "Activates before an ally is hit by a ranged phys. attack.Cover an ally and nullify all damage."
+    }
+  },
+  "blue rose shield": {
+    "title": "Blue Rose Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 0,
+    "effects": [
+      "Royal Guard",
+      "Guard Efficiency +25%",
+      "Base PP +1"
+    ],
+    "statBoosts": "Phys Def +6, Royal Guard, Guard Efficiency +25%, Base PP +1",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Royal Guard",
+      "cost": "1 PP",
+      "description": "Activatesbefore being hit by a physickal attack.Block an enemy attack with a medium guard.User recovers 25% HP."
+    }
+  },
+  "carnelian pendant": {
+    "title": "Carnelian Pendant",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +1"
+    ],
+    "statBoosts": "Base AP +1",
+    "acquisition": "Can be obtained for 10000 G at the Black Market Dealer at Cornia."
+  },
+  "bronze bangle": {
+    "title": "Bronze Bangle",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 2,
+    "effects": [],
+    "statBoosts": "Phys Def +2, Mag Def +2",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "bronze circlet": {
+    "title": "Bronze Circlet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 4,
+    "effects": [],
+    "statBoosts": "Mag Def +4",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "citadel guard's sabatons": {
+    "title": "Citadel Guard's Sabatons",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 0,
+    "effects": [
+      "Guarding Impetus"
+    ],
+    "statBoosts": "Phys Def +2, Guarding Impetus",
+    "acquisition": "Can be obtained for 12000 G at few Armorer Shops.",
+    "grantedSkill": {
+      "name": "Guarding Impetus",
+      "cost": "1 AP",
+      "description": "Activates after guarding an attack.Grants the user +1 💎AP."
+    }
+  },
+  "brown beret": {
+    "title": "Brown Beret",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Physickal Attack +8%"
+    ],
+    "statBoosts": "Phys Def +1, Physickal Attack +8%",
+    "acquisition": "Starting equipment of Berenice."
+  },
+  "blue spectacles": {
+    "title": "Blue Spectacles",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Accuracy +20"
+    ],
+    "statBoosts": "Phys Def +1, Accuracy +20",
+    "acquisition": "Can be bought for 1500 G at various Armorer Shops (some of them below)."
+  },
+  "awakening amulet": {
+    "title": "Awakening Amulet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Stun Cure",
+      "Stun Immunity"
+    ],
+    "statBoosts": "Mag Def +1, Stun Cure, Stun Immunity",
+    "acquisition": "Can be obtained for 1000 G at various Armorer Shops (some of them below).",
+    "grantedSkill": {
+      "name": "Stun Cure",
+      "cost": "1 PP",
+      "description": "Activates after an ally is debuffed.Removes Stun from an ally.Restores 10% of target's HP."
+    }
+  },
+  "viper shield": {
+    "title": "Viper Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 5,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Poison immunity"
+    ],
+    "statBoosts": "Phys Def +5, Guard Efficiency +25%, Poison immunity",
+    "acquisition": "Can be bought for 3000 G at various Armorer Shops."
+  },
+  "acrobat's shoes": {
+    "title": "Acrobat's Shoes",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Impetus Stance"
+    ],
+    "statBoosts": "Phys Def +1, Impetus Stance",
+    "acquisition": "Can be obtained for 10000 G at few Armorer Shops.",
+    "grantedSkill": {
+      "name": "Impetus Stance",
+      "cost": "1 AP",
+      "description": "Activates at the start of battle.Grants the user +1 💎AP and -50% Attack."
+    }
+  },
+  "amethyst pendant": {
+    "title": "Amethyst Pendant",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +1",
+      "Base PP +1"
+    ],
+    "statBoosts": "Base AP +1, Base PP +1",
+    "acquisition": "Can be obtained for 80000 G at the Gran Corrine Armorer Shop at Cornia."
+  },
+  "templar's shield": {
+    "title": "Templar's Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 5,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "HP Recovery +20%"
+    ],
+    "statBoosts": "Phys Def +5, Guard Efficiency +25%, HP Recovery +20%",
+    "acquisition": "Starting equipment of Josef."
+  },
+  "charm of warding": {
+    "title": "Charm of Warding",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 3,
+    "effects": [
+      "Magick Barrier"
+    ],
+    "statBoosts": "Mag Def +3, Magick Barrier",
+    "acquisition": "Can be obtained for 10 Divine Shards at the Divine Shard Exchange shop.",
+    "grantedSkill": {
+      "name": "Magick Barrier",
+      "cost": "1 PP",
+      "description": "Activates before an ally is hit with a magick attack.Negate the next magick attack dealt to an ally.Also negates afflictions."
+    }
+  },
+  "angel plume": {
+    "title": "Angel Plume",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Tailwind",
+      "Initiative +20"
+    ],
+    "statBoosts": "Tailwind, Initiative +20",
+    "acquisition": "Can be obtained for 20 Divine Shards at the Divine Shard Exchange shop.",
+    "grantedSkill": {
+      "name": "Tailwing",
+      "cost": "1 PP",
+      "description": "Activates after using an active skill.Grants a row of allies +10 Initiative. (Effect stacks.)Effect is doubled for flying targets."
+    }
+  },
+  "zenoiran shield": {
+    "title": "Zenoiran Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 3,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Max HP +10"
+    ],
+    "statBoosts": "Phys Def +3, Guard Efficiency +25%, Max HP +10",
+    "acquisition": "Can be obtained for 5000 G at the Black Market Dealer Shop (Drakenhold)."
+  },
+  "zenoiran knight's shield": {
+    "title": "Zenoiran Knight's Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 0,
+    "effects": [
+      "Enduring Guard",
+      "Guard Efficiency +25%",
+      "Max HP +15"
+    ],
+    "statBoosts": "Phys Def +6, Enduring Guard, Guard Efficiency +25%, Max HP +15",
+    "acquisition": "Can be obtained for 10000 G at the Black Market Dealer Shop (Albion).",
+    "grantedSkill": {
+      "name": "Enduring Guard",
+      "cost": "1 PP",
+      "description": "Activates before being hit by a physickal attack.Block an enemy attack with a heavy guard.Grants the user a buff to endure one lethal blow."
+    }
+  },
+  "bloodmoon earrings": {
+    "title": "Bloodmoon Earrings",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Drain Skill Efficiency +30%"
+    ],
+    "statBoosts": "Phys Def +1, Drain Skill Efficiency +30%",
+    "acquisition": "Can be obtained for 5000 G at the Black Market Dealer Shop (Elheim)."
+  },
+  "clearsight amulet": {
+    "title": "Clearsight Amulet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Blind Cure",
+      "Blindness"
+    ],
+    "statBoosts": "Mag Def +1, Blind Cure, Blindness",
+    "acquisition": "Can be obtained for 1000 G at various Armorer Shops (some of them below).",
+    "grantedSkill": {
+      "name": "Blind Cure",
+      "cost": "1 PP",
+      "description": "Activates after an ally is debuffed.Removes Blindness from an ally.Restores 10% of target's HP."
+    }
+  },
+  "bloodbrand tome": {
+    "title": "Bloodbrand Tome",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Sanguine Conferral",
+      "Magick Attack +2"
+    ],
+    "statBoosts": "Sanguine Conferral, Magick Attack +2",
+    "acquisition": "Can be obtained for 8000 G at the Black Market Dealer Shop (Elheim).",
+    "grantedSkill": {
+      "name": "Sanguine Conferral",
+      "cost": "1 PP",
+      "description": "Activates before an ally's physickal attack (Active).Add magick damage to an ally's next attack.(50 potency.) User recovers HP equal to50% of damage dealt."
+    }
+  },
+  "black cat-ear hood": {
+    "title": "Black Cat-Ear Hood",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 5,
+    "effects": [
+      "Quick Impetus",
+      "Base PP +1",
+      "Initiative +10"
+    ],
+    "statBoosts": "Mag Def +5, Quick Impetus, Base PP +1, Initiative +10",
+    "acquisition": "Can be obtained for 1,000 CC (Coliseum Coins) at the Coliseum Prize Exchange.",
+    "grantedSkill": {
+      "name": "Quick Impetus",
+      "cost": "1 AP",
+      "description": "Activates an ally uses an active skill.Allow an ally to act again.Grants the target +1 💎AP."
+    }
+  },
+  "aurora ring": {
+    "title": "Aurora Ring",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Mighty Shield"
+    ],
+    "statBoosts": "Phys Def +1, Mighty Shield",
+    "acquisition": "Can be obtained for ??? CC (Coliseum Coins) at the Coliseum Prize Echange in Baumratte.",
+    "grantedSkill": {
+      "name": "Mighty Shield",
+      "cost": "1 PP",
+      "description": "Activates before an ally is attacked.Negate the next damage dealt to an ally."
+    }
+  },
+  "thorn shield": {
+    "title": "Thorn Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 5,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Base PP +1",
+      "HP -15"
+    ],
+    "statBoosts": "Phys Def +5, Guard Efficiency +25%, Base PP +1, HP -15",
+    "acquisition": "Can be obtained at Palanspelt Palace for 10000 G."
+  },
+  "barbed ribbon": {
+    "title": "Barbed Ribbon",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Stun Immunity"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Stun Immunity",
+    "acquisition": "Can be bought at the Subterranean City of Quantipelt for 3000 G."
+  },
+  "vorpal shield": {
+    "title": "Vorpal Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 7,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Max HP +5",
+      "Initiative +3"
+    ],
+    "statBoosts": "Phys Def +7, Guard Efficiency +25%, Max HP +5, Initiative +3",
+    "acquisition": "Can be bought at Lornivisch Harbor for 6000 G."
+  },
+  "wingcrest shield": {
+    "title": "Wingcrest Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 7,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Base PP +1",
+      "Critical Rate -20%"
+    ],
+    "statBoosts": "Phys Def +7, Guard Efficiency +25%, Base PP +1, Critical Rate -20%",
+    "acquisition": "Can be obtained Burbury Town for 14000 G."
+  },
+  "celestial talisman": {
+    "title": "Celestial Talisman",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Hastened Charge",
+      "AP -1"
+    ],
+    "statBoosts": "Hastened Charge, AP -1",
+    "acquisition": "Can be obtained for completing the main quest: \"A Fleeting Dream\".",
+    "grantedSkill": {
+      "name": "Hastened Cast",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Immediatly activate one charge attack."
+    }
+  },
+  "charm of land & sea": {
+    "title": "Charm of Land & Sea",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 2,
+    "effects": [
+      "Max HP +10",
+      "Physickal Attack +4"
+    ],
+    "statBoosts": "Phys Def +2, Mag Def +2, Max HP +10, Physickal Attack +4",
+    "acquisition": "Can be obtained by completing the quest: \"The Witch's word\"."
+  },
+  "charm of sun & moon": {
+    "title": "Charm of Sun & Moon",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 2,
+    "effects": [
+      "Max HP +10",
+      "Magick Attack +4"
+    ],
+    "statBoosts": "Phys Def +2, Mag Def +2, Max HP +10, Magick Attack +4",
+    "acquisition": "Can be obtained during the quest: \"O'er Wood and Water\" by defeating Eltolinde."
+  },
+  "unfettered shield": {
+    "title": "Unfettered Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Guard Seal Immunity",
+      "Passive Seal Immunity"
+    ],
+    "statBoosts": "Phys Def +6, Guard Efficiency +25%, Guard Seal Immunity, Passive Seal Immunity",
+    "acquisition": "Can be bought at Tem Vakram Harbor for 5000 G."
+  },
+  "armored gauntlets": {
+    "title": "Armored Gauntlets",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 3,
+    "magDef": 0,
+    "effects": [
+      "Binding Guard",
+      "Physickal Attack +3"
+    ],
+    "statBoosts": "Phys Def +3, Binding Guard, Physickal Attack +3",
+    "acquisition": "Can be bought for 10000 G at the Devolpis Harbor Armorer Shop.",
+    "grantedSkill": {
+      "name": "Binding Guard",
+      "cost": "1 PP",
+      "description": "Activates before attacking with an active skill.User's next attack will inflict Guard Seal."
+    }
+  },
+  "battleline standard": {
+    "title": "Battleline Standard",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Heavy Alignment"
+    ],
+    "statBoosts": "Heavy Alignment",
+    "acquisition": "Can be obtained for 12000 G at the Cherrywell Town in Albion.",
+    "grantedSkill": {
+      "name": "Heavy Alignment",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Grants all allies buffs based on the numberof armored targets.1: Grants +20% Guard Rate.2: Grants Stun Immunity.3: Grants +20% Defense."
+    }
+  },
+  "unyielding shield": {
+    "title": "Unyielding Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 7,
+    "magDef": 0,
+    "effects": [
+      "Enduring Guard",
+      "Guard Efficiency +25%"
+    ],
+    "statBoosts": "Phys Def +7, Enduring Guard, Guard Efficiency +25%",
+    "acquisition": "Can be obtained for 10000 G at the Alledge Town Armorer Shop.",
+    "grantedSkill": {
+      "name": "Enduring Guard",
+      "cost": "1 PP",
+      "description": "Activates before being hit by a physickal attack.Block an enemy attack with a heavy guard.Grants the user a buff to endure one lethal blow."
+    }
+  },
+  "archbishop's mitre": {
+    "title": "Archbishop's Mitre",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Relic Heal",
+      "Magick Attack +5"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Relic Heal, Magick Attack +5",
+    "acquisition": "Can be bought for 10000 G at the Heavensriver Town Armorer Shop.",
+    "grantedSkill": {
+      "name": "Relic Heal",
+      "cost": "1 PP",
+      "description": "Activates after an ally is hit by an attack.Restore moderate HP to an ally.Grants HP regeneration."
+    }
+  },
+  "ancient crown": {
+    "title": "Ancient Crown",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1",
+      "All Stats +5"
+    ],
+    "statBoosts": "Base PP +1, All Stats +5",
+    "acquisition": "Can be obtained by doing the quest \"Bastorias Treasure Map 5\"."
+  },
+  "bloodstained ribbon": {
+    "title": "Bloodstained Ribbon",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 5,
+    "effects": [
+      "All Stats +3",
+      "Drain Skill Efficiency +30%"
+    ],
+    "statBoosts": "Mag Def +5, All Stats +3, Drain Skill Efficiency +30%",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "chloe's charm": {
+    "title": "Chloe's Charm",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "User Earns +30% EXP"
+    ],
+    "statBoosts": "User Earns +30% EXP",
+    "acquisition": "Starting equipment of Chloe."
+  },
+  "badger gauntlets": {
+    "title": "Badger Gauntlets",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 0,
+    "effects": [
+      "Bear's Den"
+    ],
+    "statBoosts": "Phys Def +2, Bear's Den",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Bear's Den",
+      "cost": "1 PP",
+      "description": "Activates at the start of battle.Grants +20% Phys. Defense to all allies.Grants +50% Guard Rate to bestral targets."
+    }
+  },
+  "twin dragon shield": {
+    "title": "Twin Dragon Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Burn Immunity",
+      "Freeze Immunity"
+    ],
+    "statBoosts": "Phys Def +6, Guard Efficiency +25%, Burn Immunity, Freeze Immunity",
+    "acquisition": "Complete the quest:\"Drakenhold Treasure Map 2\"."
+  },
+  "watchman's buckler": {
+    "title": "Watchman's Buckler",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 4,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Blindness Immunity"
+    ],
+    "statBoosts": "Phys Def +4, Guard Efficiency +25%, Blindness Immunity",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "white rider's shield": {
+    "title": "White Rider's Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 7,
+    "magDef": 0,
+    "effects": [
+      "Guard Efficiency +25%",
+      "Stun Immunity",
+      "Guard Seal Immunity"
+    ],
+    "statBoosts": "Phys Def +7, Guard Efficiency +25%, Stun Immunity, Guard Seal Immunity",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "white knight's shield": {
+    "title": "White Knight's Shield",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 4,
+    "magDef": 0,
+    "effects": [
+      "Lifeshare",
+      "Guard Efficiency +25%",
+      "Max HP +15"
+    ],
+    "statBoosts": "Phys Def +4, Lifeshare, Guard Efficiency +25%, Max HP +15",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Lifeshare",
+      "cost": "1 PP",
+      "description": "Activates after an ally is hit by an attack.Share HP with an ally.(50% of the user's HP)."
+    }
+  },
+  "dancer's bracelet": {
+    "title": "Dancer's Bracelet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Powerful Call"
+    ],
+    "statBoosts": "Powerful Call",
+    "acquisition": "Can be obtained for 2000 G at various Armorer Shops."
+  },
+  "first aid kit": {
+    "title": "First Aid Kit",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "First Aid"
+    ],
+    "statBoosts": "First Aid",
+    "acquisition": "Starting equipment of Colm.",
+    "grantedSkill": {
+      "name": "First Aid",
+      "cost": "1 PP",
+      "description": "Activates at the end of a battle.Restores +25% HP to an ally."
+    }
+  },
+  "frostbrand tome": {
+    "title": "Frostbrand Tome",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Ice Conferral",
+      "Magick attack +2"
+    ],
+    "statBoosts": "Ice Conferral, Magick attack +2",
+    "acquisition": "Can be obtained in the tower next to Lebouge Hamlet in the swamps.",
+    "grantedSkill": {
+      "name": "Ice Conferral",
+      "cost": "1 PP",
+      "description": "Activates before an ally's physickal attack (Active).Add magick damage and Freeze to an ally's next attack.(50 potency.)"
+    }
+  },
+  "counter belt": {
+    "title": "Counter Belt",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Counter"
+    ],
+    "statBoosts": "Phys Def +1, Counter",
+    "acquisition": "Can be obtained  in the main quest line by beating a certain boss in the southern part of Cornia.",
+    "grantedSkill": {
+      "name": "Counter",
+      "cost": "1 PP",
+      "description": "Activates after an enemy attacks with an active skill.Counterattack a single enemy."
+    }
+  },
+  "dancer's anklet": {
+    "title": "Dancer's Anklet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Blade Dance",
+      "Critical Rate +5%"
+    ],
+    "statBoosts": "Blade Dance, Critical Rate +5%",
+    "acquisition": "Can be obtained by doing the quest \"Cornia Treasure Map 3\".",
+    "grantedSkill": {
+      "name": "Blade Dance",
+      "cost": "1 PP",
+      "description": "Activates after using an active skill.Grants the user +20% Critical Rate and +20% Critical damage.(Effect stacks.)"
+    }
+  },
+  "dove plume": {
+    "title": "Dove Plume",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative +10"
+    ],
+    "statBoosts": "Initiative +10",
+    "acquisition": "Starting equipment of Selvie."
+  },
+  "gambler's coin": {
+    "title": "Gambler's Coin",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Inspiration"
+    ],
+    "statBoosts": "Inspiration",
+    "acquisition": "Can be obtained for 2000 G at various Armorer Shops.",
+    "grantedSkill": {
+      "name": "Inspiration",
+      "cost": "1 PP",
+      "description": "Activates before an ally attacks (Active).Buff an ally for their next attack.Grants +30% Attack, +50% Critical Damage, and -50 Accuracy."
+    }
+  },
+  "gauntlets": {
+    "title": "Gauntlets",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Guard Rate +20%"
+    ],
+    "statBoosts": "Phys Def +1, Guard Rate +20%",
+    "acquisition": "Starting equipment of Hodrick and Clive."
+  },
+  "crude tasset": {
+    "title": "Crude Tasset",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 0,
+    "effects": [
+      "War Cry"
+    ],
+    "statBoosts": "Phys Def +2, War Cry",
+    "acquisition": "Can be obtained for 5000 G at various Armorer Shops.",
+    "grantedSkill": {
+      "name": "War Cry",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Grants the user +20% Phys. Attack."
+    }
+  },
+  "gold bangle": {
+    "title": "Gold Bangle",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 6,
+    "magDef": 6,
+    "effects": [],
+    "statBoosts": "Phys Def +6, Mag Def +6",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "gold circlet": {
+    "title": "Gold Circlet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 8,
+    "effects": [],
+    "statBoosts": "Mag Def +8",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "elite beret": {
+    "title": "Elite Beret",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 3,
+    "magDef": 0,
+    "effects": [
+      "Physickal Attack +12%"
+    ],
+    "statBoosts": "Phys Def +3, Physickal Attack +12%",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "cloth gauntlets": {
+    "title": "Cloth Gauntlets",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 0,
+    "effects": [
+      "Guard Rate +30%"
+    ],
+    "statBoosts": "Phys Def +2, Guard Rate +30%",
+    "acquisition": "Can be bought in various shops of the second part of the game."
+  },
+  "detoxifying amulet": {
+    "title": "Detoxifying Amulet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Poison Cure",
+      "Poison Immunity"
+    ],
+    "statBoosts": "Mag Def +1, Poison Cure, Poison Immunity",
+    "acquisition": "Can be obtained for 1000 G at various Armorer Shops.",
+    "grantedSkill": {
+      "name": "Poison Cure",
+      "cost": "1 PP",
+      "description": "Activates after an ally is debuffed.Removes Poison from an ally.Restores 10% of target's HP."
+    }
+  },
+  "defrosting amulet": {
+    "title": "Defrosting Amulet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Freeze Cure",
+      "Freeze Immunity"
+    ],
+    "statBoosts": "Mag Def +1, Freeze Cure, Freeze Immunity",
+    "acquisition": "Can be obtained for 1000 G at various Armorer Shops (some of them below).",
+    "grantedSkill": {
+      "name": "Freeze Cure",
+      "cost": "1 PP",
+      "description": "Activates after an ally is debuffed.Removes Freeze from an ally.Restores 10% of target's HP."
+    }
+  },
+  "cleric's medallion": {
+    "title": "Cleric's Medallion",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Magick Defense +2",
+      "Magick Defense +10%",
+      "Guard Rate +10%"
+    ],
+    "statBoosts": "Magick Defense +2, Magick Defense +10%, Guard Rate +10%",
+    "acquisition": "Can be purchased for 50 CC at the Coliseum Prize Exchange in Baumratte."
+  },
+  "daemon's shackles": {
+    "title": "Daemon's Shackles",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative -20",
+      "Take 15% Less Damage"
+    ],
+    "statBoosts": "Initiative -20, Take 15% Less Damage",
+    "acquisition": "Can be obtained for 10000 G at the Black Market Dealer Shop (Albion)."
+  },
+  "familiar's choker": {
+    "title": "Familiar's Choker",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Sorcerous Connection"
+    ],
+    "statBoosts": "Sorcerous Connection",
+    "acquisition": "Can be obtained for 3000 G at few Armorer Shops.",
+    "grantedSkill": {
+      "name": "Sorcerous Connection",
+      "cost": "1 PP",
+      "description": "Activates before ally uses a magick attack (Active).Grants an ally +50% Mag. Attack.Grants the user -50% Mag. Attack."
+    }
+  },
+  "elite standard": {
+    "title": "Elite Standard",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "United Front"
+    ],
+    "statBoosts": "United Front",
+    "acquisition": "Can be obtained for ??? CC (Coliseum Coins) at the Coliseum Prize Echange in Baumratte.",
+    "grantedSkill": {
+      "name": "United Front",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Grants all allies buffs based on the number of enemiesminus the number of allies.1: Grants +30 Initiative.2: Grants +50% Defense.3: Negates attacks up to five hits."
+    }
+  },
+  "glory sash": {
+    "title": "Glory Sash",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Reinforce"
+    ],
+    "statBoosts": "Reinforce",
+    "acquisition": "Can be obtained for ??? CC (Coliseum Coins) at the Coliseum Prize Echange in Baumratte.",
+    "grantedSkill": {
+      "name": "Reinforce",
+      "cost": "1 AP",
+      "description": "Activates before an ally attacks (Active).Allow an ally to act once without consuming AP."
+    }
+  },
+  "cooling bandana": {
+    "title": "Cooling Bandana",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Burn Immunity"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Burn Immunity",
+    "acquisition": "Can be obtained for 3000 G at various Armorer shops (some of them below)."
+  },
+  "defensive ring": {
+    "title": "Defensive Ring",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Quick Barrier"
+    ],
+    "statBoosts": "Phys Def +1, Quick Barrier",
+    "acquisition": "Can be obtained for 5000 G at few Armorer shops.",
+    "grantedSkill": {
+      "name": "Quick Barrier",
+      "cost": "1 PP",
+      "description": "Activates before an ally is attacked.Reduce damage taken by an allyby 50% for one attack."
+    }
+  },
+  "flamebrand tome": {
+    "title": "Flamebrand Tome",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Flame Conferral",
+      "Magick Attack +2"
+    ],
+    "statBoosts": "Flame Conferral, Magick Attack +2",
+    "acquisition": "Can be bought for 5000 G at few Armorer Shops.",
+    "grantedSkill": {
+      "name": "Flame Conferral",
+      "cost": "1 PP",
+      "description": "Activates before an ally's physickal attack (Active).Add magick damage and Burn to an ally's next attack.(50 potency.)"
+    }
+  },
+  "dirty gambler's coin": {
+    "title": "Dirty Gambler's Coin",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Wide Inspiration"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Wide Inspiration",
+    "acquisition": "Can be obtained for 5000 G at the Znova Town Armorer Shop.",
+    "grantedSkill": {
+      "name": "Wide Inspiration",
+      "cost": "1 PP",
+      "description": "Activates before an ally attacks (Active).Buff a row of allies for their next attack.Grants +30% Attack, +50% Critical Damage, and -50 Accuracy."
+    }
+  },
+  "fluffy cape": {
+    "title": "Fluffy Cape",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Poison Immunity",
+      "Blindness Immunity"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Poison Immunity, Blindness Immunity",
+    "acquisition": "Can be bought at Burbury Town for 3000 G."
+  },
+  "ervélda's talisman": {
+    "title": "Ervélda's Talisman",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +30",
+      "Max HP +10%"
+    ],
+    "statBoosts": "Max HP +30, Max HP +10%",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "druid's robes": {
+    "title": "Druid's Robes",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Cursed Impetus"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Cursed Impetus",
+    "acquisition": "Can be obtained for 12000 G at the Tarvihai Town Shop (Elheim).",
+    "grantedSkill": {
+      "name": "Cursed Impetus",
+      "cost": "1 AP",
+      "description": "Activates after the user is debuffed.Grants the user +1 💎AP."
+    }
+  },
+  "courser's reins": {
+    "title": "Courser's Reins",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Dynamic Glide",
+      "Initiative +3"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Dynamic Glide, Initiative +3",
+    "acquisition": "Can be obtained for 8000 G at the Subterranean City of Quantipelt Armorer shop.",
+    "grantedSkill": {
+      "name": "Dynamic Glide",
+      "cost": "1 PP",
+      "description": "Activates before being attacked.Evade a single hit.Grants the user +20% Phys. Attack."
+    }
+  },
+  "defensive gauntlets": {
+    "title": "Defensive Gauntlets",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 3,
+    "magDef": 0,
+    "effects": [
+      "Quick Guard"
+    ],
+    "statBoosts": "Phys Def +3, Quick Guard",
+    "acquisition": "Can be bought for 5000 G at the Subterranean City of Silmapelt Armorer Shop.",
+    "grantedSkill": {
+      "name": "Quick Guard",
+      "cost": "1 PP",
+      "description": "Activates before being hit by a physickal attack.Block an enemy attack with a medium guard."
+    }
+  },
+  "dusk robes": {
+    "title": "Dusk Robes",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Nocturnal Impetus"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Nocturnal Impetus",
+    "acquisition": "Can be obtained for ??? G at the Palanspelt Palace Armorer Shop.",
+    "grantedSkill": {
+      "name": "Nocturnal Impetus",
+      "cost": "1 AP",
+      "description": "Activates after using an active skill.Grants the user +20% Mag. Attack.Grants the user +1 💎AP at night."
+    }
+  },
+  "dawn robes": {
+    "title": "Dawn Robes",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Diurnal Impetus"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Diurnal Impetus",
+    "acquisition": "Can be obtained for ??? G at the Castle Laurhal Armorer Shop.",
+    "grantedSkill": {
+      "name": "Diurnal Impetus",
+      "cost": "1 AP",
+      "description": "Activates after using an active skill.Grants the user +20% Mag. Attack.Grants the user +1 💎AP during the day."
+    }
+  },
+  "glacial ring": {
+    "title": "Glacial Ring",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 8,
+    "effects": [
+      "Freeze Immunity",
+      "Max HP +5"
+    ],
+    "statBoosts": "Mag Def +8, Freeze Immunity, Max HP +5",
+    "acquisition": "Can be obtained at Vastokgora Town for 15000 G."
+  },
+  "cleric's bracelet": {
+    "title": "Cleric's Bracelet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Healing Pursuit"
+    ],
+    "statBoosts": "Healing Pursuit",
+    "acquisition": "Can be obtained by completing the quest:\"The Cemeteries of Elheim\".",
+    "grantedSkill": {
+      "name": "Healing Pursuit",
+      "cost": "1 PP",
+      "description": "Activates after an ally is healed.Restore minor HP to one ally above their limits.(Can heal up to 150% above maximum HP.)"
+    }
+  },
+  "gold goblet": {
+    "title": "Gold Goblet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "User's Unit Earns +200% Gold"
+    ],
+    "statBoosts": "User's Unit Earns +200% Gold",
+    "acquisition": "Can be obtained by doing the quest \"Albion Treasure Map 1\"."
+  },
+  "dream crown": {
+    "title": "Dream Crown",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +1",
+      "All Stats +5"
+    ],
+    "statBoosts": "Base AP +1, All Stats +5",
+    "acquisition": "Can be obtained by doing the quest \"Albion Treasure Map 5\"."
+  },
+  "earrings of pursuit": {
+    "title": "Earrings of Pursuit",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Follow-up Skills Deal +40 Damage"
+    ],
+    "statBoosts": "Phys Def +1, Follow-up Skills Deal +40 Damage",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "gauntlets of the abyss": {
+    "title": "Gauntlets of the Abyss",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 3,
+    "magDef": 3,
+    "effects": [
+      "Take 10% Less Damage",
+      "Guard Rate +20%"
+    ],
+    "statBoosts": "Phys Def +3, Mag Def +3, Take 10% Less Damage, Guard Rate +20%",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "crown of the abyss": {
+    "title": "Crown of the Abyss",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 3,
+    "magDef": 3,
+    "effects": [
+      "Base PP +2",
+      "All Stats +5"
+    ],
+    "statBoosts": "Phys Def +3, Mag Def +3, Base PP +2, All Stats +5",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "critical damage +": {
+    "title": "Critical Damage +",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Critical Damage +100%"
+    ],
+    "statBoosts": "Critical Damage +100%",
+    "acquisition": "Dev Item, unobtainable legitimately."
+  },
+  "defender's ring": {
+    "title": "Defender's Ring",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Honed Shield"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Honed Shield",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Honed Shield",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Grants an ally +100% Guard Rate.Grants the ability to nullify piercing strikes."
+    }
+  },
+  "golden egg": {
+    "title": "Golden Egg",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "User's Unit Earns +100% Gold"
+    ],
+    "statBoosts": "User's Unit Earns +100% Gold",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "lapis pendant": {
+    "title": "Lapis Pendant",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +1"
+    ],
+    "statBoosts": "Base PP +1",
+    "acquisition": "Can be obtained for 10000 G at few Armorer Shops (some of them below)."
+  },
+  "guardian gloves": {
+    "title": "Guardian Gloves",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 0,
+    "effects": [
+      "Guarding Fighter"
+    ],
+    "statBoosts": "Phys Def +2, Guarding Fighter",
+    "acquisition": "Can be obtained by doing the quest \"Cornia Treasure Map 2\".",
+    "grantedSkill": {
+      "name": "Guarding Fighter",
+      "cost": "1 PP",
+      "description": "Activates after guarding an attack.Grants the user +20% Phys. Attack and +30% Critical damage.(Effect stacks.)"
+    }
+  },
+  "green beret": {
+    "title": "Green Beret",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 0,
+    "effects": [
+      "Physickal Attack +10%"
+    ],
+    "statBoosts": "Phys Def +2, Physickal Attack +10%",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "leather hood": {
+    "title": "Leather Hood",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Magick Attack +8%"
+    ],
+    "statBoosts": "Mag Def +1, Magick Attack +8%",
+    "acquisition": "Starting equipment of Yahna."
+  },
+  "mirrored spectacles": {
+    "title": "Mirrored Spectacles",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 0,
+    "effects": [
+      "Accuracy +30"
+    ],
+    "statBoosts": "Phys Def +2, Accuracy +30",
+    "acquisition": "Can be bought in various shops in the second part of the game."
+  },
+  "mercenary's eyepatch": {
+    "title": "Mercenary's Eyepatch",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Critical Rate +20%"
+    ],
+    "statBoosts": "Phys Def +1, Critical Rate +20%",
+    "acquisition": "Starting equipment of Adel."
+  },
+  "knight's medallion": {
+    "title": "Knight's Medallion",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Physickal Defense +2",
+      "Physickal Defense +10%",
+      "Guard Rate +10%"
+    ],
+    "statBoosts": "Physickal Defense +2, Physickal Defense +10%, Guard Rate +10%",
+    "acquisition": "Can be purchased for 50  CC at the Coliseum Prize Exchange in Baumratte."
+  },
+  "magia heart": {
+    "title": "Magia Heart",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Hastened Cast",
+      "HP -20%"
+    ],
+    "statBoosts": "Hastened Cast, HP -20%",
+    "acquisition": "Can be obtained for ??? CC (Coliseum Coins) at the Coliseum Prize Echange in Baumratte.",
+    "grantedSkill": {
+      "name": "Hastened Cast",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Grants an ally max Initiative for their next action."
+    }
+  },
+  "magia soul": {
+    "title": "Magia Soul",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Recast",
+      "HP -20%"
+    ],
+    "statBoosts": "Recast, HP -20%",
+    "acquisition": "Can be obtained for ??? CC (Coliseum Coins) at the Coliseum Prize Echange in Baumratte.",
+    "grantedSkill": {
+      "name": "Recast",
+      "cost": "1 PP",
+      "description": "Activates after using a magickal attack.Cast the same magick again."
+    }
+  },
+  "holy broach": {
+    "title": "Holy Broach",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 2,
+    "effects": [
+      "Heal 20% HP when using Active skill"
+    ],
+    "statBoosts": "Phys Def +2, Mag Def +2, Heal 20% HP when using Active skill",
+    "acquisition": "Can be obtained for 20 Divine Shards at the Divine Shard Exchange shop."
+  },
+  "heavensteed reins": {
+    "title": "Heavensteed Reins",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 3,
+    "magDef": 3,
+    "effects": [
+      "Dynamic Glide",
+      "Initiative +6",
+      "Max HP +10"
+    ],
+    "statBoosts": "Phys Def +3, Mag Def +3, Dynamic Glide, Initiative +6, Max HP +10",
+    "acquisition": "Can be obtained for 20 Divine Shards at the Divine Shard Exchange shop.",
+    "grantedSkill": {
+      "name": "Dynamic Glide",
+      "cost": "1 PP",
+      "description": "Activates before being attacked.Evade a single hit.Grants the user +20% Phys. Attack."
+    }
+  },
+  "heavenwyvern reins": {
+    "title": "Heavenwyvern Reins",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 3,
+    "magDef": 3,
+    "effects": [
+      "Aerial Wing",
+      "Initiative +6",
+      "Max HP +10"
+    ],
+    "statBoosts": "Phys Def +3, Mag Def +3, Aerial Wing, Initiative +6, Max HP +10",
+    "acquisition": "Can be obtained for 20 Divine Shards at the Divine Shard Exchange shop.",
+    "grantedSkill": {
+      "name": "Aerial Wing",
+      "cost": "1 PP",
+      "description": "Activates before attacking with an active skill.Makes the user's next attack a truestrike.Grants the user +20% Attack if the user is at 100% HP."
+    }
+  },
+  "iron shackles": {
+    "title": "Iron Shackles",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative -10",
+      "Take 5% Less Damage"
+    ],
+    "statBoosts": "Initiative -10, Take 5% Less Damage",
+    "acquisition": "Can be obtained for 3000 G at the Black Market Dealer Shop (Cornia, Drakenhold)."
+  },
+  "gravekeeper boots": {
+    "title": "Gravekeeper Boots",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Grave Impetus",
+      "Poison Immunity",
+      "Deathblow Immunity"
+    ],
+    "statBoosts": "Mag Def +1, Grave Impetus, Poison Immunity, Deathblow Immunity",
+    "acquisition": "Can be bought for 10000 G at few Armorer shops (some of them below).",
+    "grantedSkill": {
+      "name": "Grave Impetus",
+      "cost": "1 AP",
+      "description": "Activates after an ally is defeated by an attack.Grants the user +1 💎AP."
+    }
+  },
+  "liberator's bracelet": {
+    "title": "Liberator's Bracelet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Banishing Pursuit"
+    ],
+    "statBoosts": "Banishing Pursuit",
+    "acquisition": "Can be obtained for 10000 G at few Armorer shops (some of them below).",
+    "grantedSkill": {
+      "name": "Banishing Pursuit",
+      "cost": "1 PP",
+      "description": "Activates after an ally attacks (Active).Follow-up attack a single enemy.Removes all of target's buffs."
+    }
+  },
+  "leaf broach": {
+    "title": "Leaf Broach",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Heal 10% HP when using Active skill"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Heal 10% HP when using Active skill",
+    "acquisition": "Reward for completing level 5 quest The Ravaged Swamp."
+  },
+  "holy unicorn signet": {
+    "title": "Holy Unicorn Signet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 3,
+    "magDef": 3,
+    "effects": [
+      "Debuff Immunity"
+    ],
+    "statBoosts": "Phys Def +3, Mag Def +3, Debuff Immunity",
+    "acquisition": "Can be obtained for completing the quest: \"The Royal Mausoleaum\" which unlocks automatically when you reach Renown Rank S."
+  },
+  "large aid kit": {
+    "title": "Large Aid Kit",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Party Aid"
+    ],
+    "statBoosts": "Party Aid",
+    "acquisition": "Can be bought for ??? G at Karayaksunn Town Armorer Shop.",
+    "grantedSkill": {
+      "name": "Party Aid",
+      "cost": "1 PP",
+      "description": "Activates at the end of a battle.Restores 25% HP to all allies."
+    }
+  },
+  "mage's gloves": {
+    "title": "Mage's Gloves",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Magick Counter"
+    ],
+    "statBoosts": "Phys Def +1, Magick Counter",
+    "acquisition": "Can be bought for 5000 G at the Karayaksunn Town Armorer Shop (Elheim).",
+    "grantedSkill": {
+      "name": "Magick Counter",
+      "cost": "1 PP",
+      "description": "Activates after an enemy attacks with an active skill.Counterattack a single enemy with magick."
+    }
+  },
+  "monk's mitre": {
+    "title": "Monk's Mitre",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Quick Heal"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Quick Heal",
+    "acquisition": "Can be bought for 5000 G at the Quentari Town Armorer Shop.",
+    "grantedSkill": {
+      "name": "Quick Heal",
+      "cost": "1 PP",
+      "description": "Activates after an ally is hit by an attack.Restore minor HP to an ally."
+    }
+  },
+  "lapis bell": {
+    "title": "Lapis Bell",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Passive Gift"
+    ],
+    "statBoosts": "Passive Gift",
+    "acquisition": "Can be obtained for 10000 G at the Chetretatsia Town Armorer Shop (Bastorias).",
+    "grantedSkill": {
+      "name": "Passive Gift",
+      "cost": "1 PP",
+      "description": "Activates after an ally uses a passive skill.Grants an ally +1 💎PP."
+    }
+  },
+  "lifeblood talisman": {
+    "title": "Lifeblood Talisman",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +20"
+    ],
+    "statBoosts": "Max HP +20",
+    "acquisition": "Can be bought at Voronagru Town for ??? G."
+  },
+  "illusory cloak": {
+    "title": "Illusory Cloak",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Phantom Step"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Phantom Step",
+    "acquisition": "Complete the quest:\"The Sigil's Trial, Expert 2 (Lv.34)\".",
+    "grantedSkill": {
+      "name": "Phantom Step",
+      "cost": "1 PP",
+      "description": "Activates before being attacked.??? (To complete)Evade a single hit."
+    }
+  },
+  "gravekeeper lantern": {
+    "title": "Gravekeeper Lantern",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Poison Immunity",
+      "Deathblow Immunity"
+    ],
+    "statBoosts": "Mag Def +1, Poison Immunity, Deathblow Immunity",
+    "acquisition": "Can be obtained by completing the quest:\"The Cemeteries of Drakenhold\"."
+  },
+  "lucky coin": {
+    "title": "Lucky Coin",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Critical Rate +20%",
+      "Evasion +20"
+    ],
+    "statBoosts": "Critical Rate +20%, Evasion +20",
+    "acquisition": "Starting equipment of Sharon."
+  },
+  "hero's medallion": {
+    "title": "Hero's Medallion",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Base AP +1",
+      "Base PP +1",
+      "Physickal Attack +20%"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Base AP +1, Base PP +1, Physickal Attack +20%",
+    "acquisition": "Beat Amalia (Final battle of the Coliseum Battles)"
+  },
+  "lionheart": {
+    "title": "Lionheart",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 3,
+    "magDef": 3,
+    "effects": [
+      "Physickal Attack +10%",
+      "Critical Rate +10%",
+      "Physickal Attack +20"
+    ],
+    "statBoosts": "Phys Def +3, Mag Def +3, Physickal Attack +10%, Critical Rate +10%, Physickal Attack +20",
+    "acquisition": "Morard's default accessory."
+  },
+  "mistletoe charm": {
+    "title": "Mistletoe Charm",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Guard Seal Immunity",
+      "Passive Seal Immunity",
+      "Evasion +20"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Guard Seal Immunity, Passive Seal Immunity, Evasion +20",
+    "acquisition": "Dinah's default accessory."
+  },
+  "miser's bracelet": {
+    "title": "Miser's Bracelet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "User's Unit Earns +200% Gold",
+      "PP -1"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, User's Unit Earns +200% Gold, PP -1",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "hp +50": {
+    "title": "HP +50",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +50"
+    ],
+    "statBoosts": "Max HP +50",
+    "acquisition": "Dev Item, unobtainable legitimately."
+  },
+  "hp +200": {
+    "title": "HP +200",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +200"
+    ],
+    "statBoosts": "Max HP +200",
+    "acquisition": "Dev Item, unobtainable legitimately."
+  },
+  "magical attack +": {
+    "title": "Magical Attack +",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Magick Attack +100%"
+    ],
+    "statBoosts": "Magick Attack +100%",
+    "acquisition": "Dev Item, unobtainable legitimately."
+  },
+  "master's gauntlets": {
+    "title": "Master's Gauntlets",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Nimble Fighter",
+      "Evasion +10"
+    ],
+    "statBoosts": "Phys Def +1, Nimble Fighter, Evasion +10",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Nimble Fighter",
+      "cost": "1 PP",
+      "description": "Activates after evading an attack.Grants the user +20% Phys. Attack and +30% Critical damage.(Effect stacks.)"
+    }
+  },
+  "liberator's belt": {
+    "title": "Liberator's Belt",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Banishing Counter"
+    ],
+    "statBoosts": "Phys Def +1, Banishing Counter",
+    "acquisition": "Elheim Treasure Map 3",
+    "grantedSkill": {
+      "name": "Banishing Counter",
+      "cost": "1 PP",
+      "description": "Activates after an enemy attacks with an active skill.Counterattack a single enemy.Removes all of target's buffs."
+    }
+  },
+  "medical kit": {
+    "title": "Medical Kit",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Medical Aid"
+    ],
+    "statBoosts": "Medical Aid",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Medical Aid",
+      "cost": "1 PP",
+      "description": "Activates at the end of a battle.Restores +15% HP to a row of allies.Healing doubles if target's HP is 50% or less."
+    }
+  },
+  "gust bracelet": {
+    "title": "Gust Bracelet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Hastened Strike"
+    ],
+    "statBoosts": "Hastened Strike",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Hastened Strike",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Attack a single enemy with a first strike."
+    }
+  },
+  "lips's ring": {
+    "title": "Lips's Ring",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Hastened Action"
+    ],
+    "statBoosts": "Hastened Action",
+    "acquisition": "This monument can be found directly east of the Elheim's Black Market Dealer.",
+    "grantedSkill": {
+      "name": "Hastened Action",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Grants an ally max Initiative for their next action.(Cannot target self.)"
+    }
+  },
+  "necromancer's lantern": {
+    "title": "Necromancer's Lantern",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Vanitas",
+      "Poison Immunity",
+      "Deathblow Immunity"
+    ],
+    "statBoosts": "Mag Def +1, Vanitas, Poison Immunity, Deathblow Immunity",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Vanitas",
+      "cost": "1 PP",
+      "description": "Activates after an ally is hit by an attack.Counterattack a single enemy.Inflicts Blindness and Poison."
+    }
+  },
+  "lamplight ring": {
+    "title": "Lamplight Ring",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Glowing Light",
+      "Blindness Immunity",
+      "Heal 10% HP when using Active Skill"
+    ],
+    "statBoosts": "Mag Def +1, Glowing Light, Blindness Immunity, Heal 10% HP when using Active Skill",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Glowing Light",
+      "cost": "1 AP",
+      "description": "Grants all allies +30 Accuracy and immunity to Blindness.(This buff cannot be removed.)"
+    }
+  },
+  "ring of the unicorn": {
+    "title": "Ring of the Unicorn",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +5",
+      "Guard Rate +10%",
+      "Base AP +1",
+      "All Stats +5",
+      "Astral Blade",
+      "Base AP +1",
+      "All Stats +5"
+    ],
+    "statBoosts": "Max HP +5, Guard Rate +10%, Base AP +1, All Stats +5, Astral Blade",
+    "acquisition": "Starting accessory of Alain, the main character.",
+    "grantedSkill": {
+      "name": "Astral Blade",
+      "cost": "1 AP",
+      "description": "Unleash its true power amidst a sea of miasma."
+    }
+  },
+  "scarlett's ribbon": {
+    "title": "Scarlett's Ribbon",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Quick Heal",
+      "Max HP +3",
+      "Evasion +10"
+    ],
+    "statBoosts": "Mag Def +1, Quick Heal, Max HP +3, Evasion +10",
+    "acquisition": "Starting accessory of Scarlett.",
+    "grantedSkill": {
+      "name": "Quick Heal",
+      "cost": "1 PP",
+      "description": "Activates after an ally is hit by an attack.Restore minor HP to an ally."
+    }
+  },
+  "pursuant's bracelet": {
+    "title": "Pursuant's Bracelet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Pursuit"
+    ],
+    "statBoosts": "Pursuit",
+    "acquisition": "Can be obtained for 5000 G at few Armorer Shops (some of them below).",
+    "grantedSkill": {
+      "name": "Pursuit",
+      "cost": "1 PP",
+      "description": "Activates after an ally attacks (Active).Follow-up attack a single enemy."
+    }
+  },
+  "ruby pendant": {
+    "title": "Ruby Pendant",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +2"
+    ],
+    "statBoosts": "Base AP +2",
+    "acquisition": "Can be obtained for 40000 G at the Black Market Dealer at Bastorias."
+  },
+  "sapphire pendant": {
+    "title": "Sapphire Pendant",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base PP +2"
+    ],
+    "statBoosts": "Base PP +2",
+    "acquisition": "Can be obtained for 40000 G at the Black Market Dealer at Bastorias."
+  },
+  "silver bangle": {
+    "title": "Silver Bangle",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 4,
+    "magDef": 4,
+    "effects": [],
+    "statBoosts": "Phys Def +4, Mag Def +4",
+    "acquisition": "Can be obtained for 3000 G at various Armorer Shops."
+  },
+  "silver circlet": {
+    "title": "Silver Circlet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 6,
+    "effects": [],
+    "statBoosts": "Mag Def +6",
+    "acquisition": "Can be obtained for 2500 G at various Armorer Shops."
+  },
+  "silk hood": {
+    "title": "Silk Hood",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 2,
+    "effects": [
+      "Magick Attack +10%"
+    ],
+    "statBoosts": "Mag Def +2, Magick Attack +10%",
+    "acquisition": "Starting equipment of Auch."
+  },
+  "sage's hood": {
+    "title": "Sage's Hood",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 3,
+    "effects": [
+      "Magick Attack +12%"
+    ],
+    "statBoosts": "Mag Def +3, Magick Attack +12%",
+    "acquisition": "Can be bought in various end game shops."
+  },
+  "silken scarf": {
+    "title": "Silken Scarf",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Evasion +20"
+    ],
+    "statBoosts": "Phys Def +1, Evasion +20",
+    "acquisition": "Starting equipment of Travis, Fran."
+  },
+  "royal scarf": {
+    "title": "Royal Scarf",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 0,
+    "effects": [
+      "Evasion +30"
+    ],
+    "statBoosts": "Phys Def +2, Evasion +30",
+    "acquisition": "Can be bought in various shops in the second part of the game including the Ancient City of Bastoritza."
+  },
+  "sorcerer's medallion": {
+    "title": "Sorcerer's Medallion",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Magick Attack +2",
+      "Magick Attack +10%",
+      "Critical Rate +10%"
+    ],
+    "statBoosts": "Magick Attack +2, Magick Attack +10%, Critical Rate +10%",
+    "acquisition": "Can be obtained for 10000 G at few Armorer Shops."
+  },
+  "quenching amulet": {
+    "title": "Quenching Amulet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Fire Cure",
+      "Burn Immunity"
+    ],
+    "statBoosts": "Mag Def +1, Fire Cure, Burn Immunity",
+    "acquisition": "Reward for completing level 6 quest Province of Famine.",
+    "grantedSkill": {
+      "name": "Fire Cure",
+      "cost": "1 PP",
+      "description": "Activates after an ally is debuffed.Removes Burn from an ally.Restores 10% of target's HP."
+    }
+  },
+  "parrying amulet": {
+    "title": "Parrying Amulet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Guard Cure",
+      "Guard Seal Immunity"
+    ],
+    "statBoosts": "Mag Def +1, Guard Cure, Guard Seal Immunity",
+    "acquisition": "Can be obtained for 1000 G at various Armorer Shops (some of them below).",
+    "grantedSkill": {
+      "name": "Guard Cure",
+      "cost": "1 PP",
+      "description": "Activates after an ally is debuffed.Removes Guard Seal from an ally.Restores 10% of target's HP."
+    }
+  },
+  "outlaw's bracelet": {
+    "title": "Outlaw's Bracelet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Wide Pursuit"
+    ],
+    "statBoosts": "Wide Pursuit",
+    "acquisition": "Can be obtained for 20000 G at the Sorm Town Armorer Shop",
+    "grantedSkill": {
+      "name": "Wide Pursuit",
+      "cost": "1 PP",
+      "description": "Activates after an enemy attacks (Active).Follow-up attack a row of enemies."
+    }
+  },
+  "rookie egg": {
+    "title": "Rookie Egg",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "User's Earns +100% EXP"
+    ],
+    "statBoosts": "User's Earns +100% EXP",
+    "acquisition": "Can be bought for 10000 G at few Armorer Shops (some of them below)."
+  },
+  "prisoner's shackles": {
+    "title": "Prisoner's Shackles",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative -15",
+      "Take 10% Less Damage"
+    ],
+    "statBoosts": "Initiative -15, Take 10% Less Damage",
+    "acquisition": "Can be obtained for 6000 G at the Black Market Dealer Shop (Elheim, Bastorias)."
+  },
+  "phoenix's plume": {
+    "title": "Phoenix's Plume",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Reincarnation",
+      "Initiative +5"
+    ],
+    "statBoosts": "Reincarnation, Initiative +5",
+    "acquisition": "Can be obtained for ??? CC (Coliseum Coins) at the Coliseum Prize Echange in Baumratte.",
+    "grantedSkill": {
+      "name": "Reincarnation",
+      "cost": "1 AP",
+      "description": "Revive one ally, restoring them to 1 HP.Grants target immunity for one attack."
+    }
+  },
+  "power belt": {
+    "title": "Power Belt",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Toughness",
+      "Max HP +10"
+    ],
+    "statBoosts": "Phys Def +1, Toughness, Max HP +10",
+    "acquisition": "Can be bought for 10000 G at few Armorer shops (some of them below).",
+    "grantedSkill": {
+      "name": "Toughness",
+      "cost": "1 PP",
+      "description": "Activates before being attacked.Grants the user a buff to endure one lethal blow."
+    }
+  },
+  "shawl of repose": {
+    "title": "Shawl of Repose",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Wing Rest"
+    ],
+    "statBoosts": "Phys Def +1, Wing Rest",
+    "acquisition": "Can be obtained for 3000 G at few Armorer Shops.",
+    "grantedSkill": {
+      "name": "Wing Rest",
+      "cost": "1 PP",
+      "description": "Activates at the end of a battle.Recover 25% HP.Recovered HP doubles if afflicted."
+    }
+  },
+  "retaliation earrings": {
+    "title": "Retaliation Earrings",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Counterattack Skills Deal +40 Damage"
+    ],
+    "statBoosts": "Phys Def +1, Counterattack Skills Deal +40 Damage",
+    "acquisition": "Can be obtained for 5000 G at the Castle Soldraga Armorer Shop (Drakenhold)."
+  },
+  "self-aid kit": {
+    "title": "Self-Aid Kit",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Self-Care",
+      "Max HP +3"
+    ],
+    "statBoosts": "Self-Care, Max HP +3",
+    "acquisition": "Can be obtained for 5000 G at few Armorer Shops.",
+    "grantedSkill": {
+      "name": "Self-Care",
+      "cost": "1 PP",
+      "description": "Activates after the user is debuffed.Remove all debuffs from the user."
+    }
+  },
+  "skillful amulet": {
+    "title": "Skillful Amulet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Passive Cure",
+      "Passive Seal Immunity"
+    ],
+    "statBoosts": "Mag Def +1, Passive Cure, Passive Seal Immunity",
+    "acquisition": "Can be obtained for 1000 G at the Devolpis Harbor Armorer Shop.",
+    "grantedSkill": {
+      "name": "Passive Cure",
+      "cost": "1 PP",
+      "description": "Activates after an ally is debuffed.Removes Passive Seal from an ally.Restores 10% of target's HP."
+    }
+  },
+  "raven plume": {
+    "title": "Raven Plume",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Initiative +15"
+    ],
+    "statBoosts": "Initiative +15",
+    "acquisition": "Can be obtained for ??? G at the Dracodorina Citadel Armorer Shop."
+  },
+  "sniper's amber lens": {
+    "title": "Sniper's Amber Lens",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Hawk Eye",
+      "Accuracy +20"
+    ],
+    "statBoosts": "Phys Def +1, Hawk Eye, Accuracy +20",
+    "acquisition": "Can be obtained for ??? G at the Dracodorina Citadel Armorer Shop.",
+    "grantedSkill": {
+      "name": "Hawk Eye",
+      "cost": "1 PP",
+      "description": "Activates before attacking with an active skill.Makes the user's next attack a truestrikeand guaranteed critical."
+    }
+  },
+  "sniper's lens": {
+    "title": "Sniper's Lens",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Eagle Eye",
+      "Accuracy +10"
+    ],
+    "statBoosts": "Phys Def +1, Eagle Eye, Accuracy +10",
+    "acquisition": "Can be obtained for 5000 G at the Citronpool Harbor Armorer Shop.",
+    "grantedSkill": {
+      "name": "Eagle Eye",
+      "cost": "1 PP",
+      "description": "Activates before attacking with an active skill.Makes the user's next attack a truestrike."
+    }
+  },
+  "spirit's necklace": {
+    "title": "Spirit's Necklace",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Quick Cure"
+    ],
+    "statBoosts": "Phys Def +1, Quick Cure",
+    "acquisition": "Can be obtained for 10000 G at the Walled City of Peyston Armorer Shop.",
+    "grantedSkill": {
+      "name": "Quick Cure",
+      "cost": "1 PP",
+      "description": "Activates after an ally is debuffed.Removes all debuffs from an ally.Grants the target immunity to one debuff."
+    }
+  },
+  "soothing plume": {
+    "title": "Soothing Plume",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Healing Wind",
+      "Initiative +5"
+    ],
+    "statBoosts": "Healing Wind, Initiative +5",
+    "acquisition": "Can be obtained for 20000 G at the Bisfaine Basilica Armorer Shop.",
+    "grantedSkill": {
+      "name": "Healing Wind",
+      "cost": "1 AP",
+      "description": "Restore HP to a row of allies.Healing equal to the user's HP."
+    }
+  },
+  "sorcerer's gauntlets": {
+    "title": "Sorcerer's Gauntlets",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 3,
+    "magDef": 0,
+    "effects": [
+      "Sorcerous Blow"
+    ],
+    "statBoosts": "Phys Def +3, Sorcerous Blow",
+    "acquisition": "Can be obtained for 10000 G at the Fortified City of Solvaquad Armorer Shop.",
+    "grantedSkill": {
+      "name": "Sorcerous Blow",
+      "cost": "1 AP",
+      "description": "Attack a single enemy.Inflicts stun."
+    }
+  },
+  "squall bracelet": {
+    "title": "Squall Bracelet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Hastened Shatter"
+    ],
+    "statBoosts": "Hastened Shatter",
+    "acquisition": "Can be obtained for 15000 G at the Burnpool Town Armorer Shop (Albion).",
+    "grantedSkill": {
+      "name": "Hastened Shatter",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Attack a single enemy with a first strike.Inflicts Phys. Defense -50%."
+    }
+  },
+  "rose broach": {
+    "title": "Rose Broach",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Heal 15% HP when using Active skill"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Heal 15% HP when using Active skill",
+    "acquisition": "Can be obtained for 10000 G at the Wingsabbey Town Armorer shop."
+  },
+  "silver goblet": {
+    "title": "Silver Goblet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "User's Earns +200% EXP"
+    ],
+    "statBoosts": "User's Earns +200% EXP",
+    "acquisition": "Complete the quest:\"Sigils of the Ancients\". (Finish all sigil stones at least once)"
+  },
+  "onyx pendant": {
+    "title": "Onyx Pendant",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Base AP +2",
+      "Base PP +2",
+      "All Stats -15"
+    ],
+    "statBoosts": "Base AP +2, Base PP +2, All Stats -15",
+    "acquisition": "Beat all the Coliseum Battles of the second Coliseum (You unlock the second Coliseum after beating Amalia at the top of the first)."
+  },
+  "sacral broach": {
+    "title": "Sacral Broach",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 3,
+    "magDef": 3,
+    "effects": [
+      "Heal 20% HP when using Active Skill",
+      "Affliction Immunity"
+    ],
+    "statBoosts": "Phys Def +3, Mag Def +3, Heal 20% HP when using Active Skill, Affliction Immunity",
+    "acquisition": "In the the main quest \"To the Sanctuaries,\" visit the Zenoiran sanctuary ."
+  },
+  "salamander ring": {
+    "title": "Salamander Ring",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 8,
+    "effects": [
+      "Burn Immunity",
+      "Max HP +5"
+    ],
+    "statBoosts": "Mag Def +8, Burn Immunity, Max HP +5",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "str +100": {
+    "title": "STR +100",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Physickal Attack +100"
+    ],
+    "statBoosts": "Physickal Attack +100",
+    "acquisition": "Dev Item, unobtainable legitimately."
+  },
+  "physical attack +": {
+    "title": "Physical Attack +",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Physickal Attack +100%"
+    ],
+    "statBoosts": "Physickal Attack +100%",
+    "acquisition": "Dev Item, unobtainable legitimately."
+  },
+  "old witch's ring": {
+    "title": "Old Witch's Ring",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 3,
+    "effects": [
+      "Magick Conversion",
+      "Magick Attack +2"
+    ],
+    "statBoosts": "Mag Def +3, Magick Conversion, Magick Attack +2",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Magick Conversion",
+      "cost": "1 PP",
+      "description": "Activates before being hit by a magick attack.Negate a single magick attack targeting the user.Grants the user +2 💎PP."
+    }
+  },
+  "riot belt": {
+    "title": "Riot Belt",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Wide Counter"
+    ],
+    "statBoosts": "Phys Def +1, Wide Counter",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Wide Counter",
+      "cost": "1 PP",
+      "description": "Activates after an enemy attacks with an active skill.Counterattack a row of enemies."
+    }
+  },
+  "sage owl's shawl": {
+    "title": "Sage Owl's Shawl",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Quick Dispel"
+    ],
+    "statBoosts": "Quick Dispel",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Quick Dispel",
+      "cost": "1 PP",
+      "description": "Activates after an enemy is buffed.Remove all buffs from a single enemy."
+    }
+  },
+  "vitality talisman": {
+    "title": "Vitality Talisman",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Max HP +10"
+    ],
+    "statBoosts": "Max HP +10",
+    "acquisition": "Can be bought for 5000 G at various Armorer Shops."
+  },
+  "tailwind cape": {
+    "title": "Tailwind Cape",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Quick Action"
+    ],
+    "statBoosts": "Quick Action",
+    "acquisition": "Can be obtained for 10000 G at few Armorer Shops (some of them below).",
+    "grantedSkill": {
+      "name": "Quick Action",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Grants an ally +15 Initiative for their next action.(Cannot target self.)"
+    }
+  },
+  "warrior's medallion": {
+    "title": "Warrior's Medallion",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Physickal Attack +2",
+      "Physickal Attack +10%",
+      "Critical Rate +10%"
+    ],
+    "statBoosts": "Physickal Attack +2, Physickal Attack +10%, Critical Rate +10%",
+    "acquisition": "Obtained during level 5 quest, after defeating Mordon's unit."
+  },
+  "veteran's eyepatch": {
+    "title": "Veteran's Eyepatch",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 0,
+    "effects": [
+      "Critical Rate +30%"
+    ],
+    "statBoosts": "Phys Def +2, Critical Rate +30%",
+    "acquisition": "Can be bought in various shops in the second part of the game."
+  },
+  "white cat-ear hood": {
+    "title": "White Cat-Ear Hood",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 5,
+    "effects": [
+      "Quick Impetus",
+      "Base PP +1",
+      "Initiative +10"
+    ],
+    "statBoosts": "Mag Def +5, Quick Impetus, Base PP +1, Initiative +10",
+    "acquisition": "Can be obtained for 20 Divine Shards at the Divine Shard Exchange shop.",
+    "grantedSkill": {
+      "name": "Quick Impetus",
+      "cost": "1 AP",
+      "description": "Activates an ally uses an active skill.Allow an ally to act again.Grants the target +1 💎AP."
+    }
+  },
+  "thief's mantle": {
+    "title": "Thief's Mantle",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Evade"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Evade",
+    "acquisition": "Can be obtained for 20000 G at the Black Market Dealer Shop (Cornia).",
+    "grantedSkill": {
+      "name": "Evade",
+      "cost": "1 PP",
+      "description": "Activates before being attacked.Evade a single hit."
+    }
+  },
+  "thief's bell": {
+    "title": "Thief's Bell",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Grant Evade"
+    ],
+    "statBoosts": "Grant Evade",
+    "acquisition": "Can be obtained for 8000 G at the Black Market Dealer Shop (Drakenhold).",
+    "grantedSkill": {
+      "name": "Grant Evade",
+      "cost": "1 PP",
+      "description": "Activates before an ally is attacked.Allow an ally to evade one hit."
+    }
+  },
+  "twilight cloak": {
+    "title": "Twilight Cloak",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Nocturnal Evade"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Nocturnal Evade",
+    "acquisition": "Can be obtained for 30000 G at the Black Market Dealer Shop (Bastorias).",
+    "grantedSkill": {
+      "name": "Nocturnal Evade",
+      "cost": "1 PP",
+      "description": "Activates before being attacked.Evade a single hit.Grants the user +1 💎PP at night."
+    }
+  },
+  "wyvern reins": {
+    "title": "Wyvern Reins",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Aerial Wing",
+      "Initiative +3"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Aerial Wing, Initiative +3",
+    "acquisition": "Can be obtained for 8000 G at few Armorer Shops.",
+    "grantedSkill": {
+      "name": "Aerial Wing",
+      "cost": "1 PP",
+      "description": "Activates before attacking with an active skill.Makes the user's next attack a truestrike.Grants the user +20% Attack if the user is at 100% HP."
+    }
+  },
+  "wooly mittens": {
+    "title": "Wooly Mittens",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 1,
+    "effects": [
+      "Freeze Immunity"
+    ],
+    "statBoosts": "Phys Def +1, Mag Def +1, Freeze Immunity",
+    "acquisition": "Can be bought at Vosfraga Town for 3000 G."
+  },
+  "wyvern claw": {
+    "title": "Wyvern Claw",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Ground Counter"
+    ],
+    "statBoosts": "Ground Counter",
+    "acquisition": "Can be obtained for 3000 G at the Citronpool Harbor Armorer Shop.",
+    "grantedSkill": {
+      "name": "Ground Counter",
+      "cost": "1 PP",
+      "description": "Activates after an enemy attacks with an active skill.Counterattack a single enemy.+100 potency v. cavalry targets."
+    }
+  },
+  "thunderbrand tome": {
+    "title": "Thunderbrand Tome",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Thunderous Conferral",
+      "Magick Attack +2"
+    ],
+    "statBoosts": "Thunderous Conferral, Magick Attack +2",
+    "acquisition": "Can be bought for 5000 G at Subterranean City of Quantipelt Armorer shop.",
+    "grantedSkill": {
+      "name": "Thunderous Conferral",
+      "cost": "1 PP",
+      "description": "Activates before an ally's physickal attack (Active).Add magick damage and Stun to an ally's next attack.(50 potency.)"
+    }
+  },
+  "vengeful caligae": {
+    "title": "Vengeful Caligae",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 1,
+    "magDef": 0,
+    "effects": [
+      "Vengeful Impetus",
+      "Physickal Attack +2"
+    ],
+    "statBoosts": "Phys Def +1, Vengeful Impetus, Physickal Attack +2",
+    "acquisition": "Can be obtained for ??? G at the Silphakom Town Armorer Shop.",
+    "grantedSkill": {
+      "name": "Vengeful Impetus",
+      "cost": "1 AP",
+      "description": "Activates after being attacked.Grants the user +1 💎AP."
+    }
+  },
+  "wingline standard": {
+    "title": "Wingline Standard",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Aerial Alignment"
+    ],
+    "statBoosts": "Aerial Alignment",
+    "acquisition": "Can be obtained for 12000 G at the Oakford Town in Albion.",
+    "grantedSkill": {
+      "name": "Aerial Alignment",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Grants all allies buffs based on the numberof flying targets.1: Grants +20% Critical Rate.2: Grants +20 Accuracy.3: Grants +20% Attack."
+    }
+  },
+  "undead ring": {
+    "title": "Undead Ring",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Poison Immunity",
+      "Deathblow Immunity",
+      "Base PP +1"
+    ],
+    "statBoosts": "Mag Def +1, Poison Immunity, Deathblow Immunity, Base PP +1",
+    "acquisition": "Can be obtained by completing the quest:\"The Cemeteries of Albion\"."
+  },
+  "white ribbon": {
+    "title": "White Ribbon",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Mag Def +3",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "verdant ribbon": {
+    "title": "Verdant Ribbon",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [],
+    "statBoosts": "Mag Def +3",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "watchman's lantern": {
+    "title": "Watchman's Lantern",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Blindness Immunity",
+      "Burn Immunity"
+    ],
+    "statBoosts": "Mag Def +1, Blindness Immunity, Burn Immunity",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "thunderclap ring": {
+    "title": "Thunderclap Ring",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 8,
+    "effects": [
+      "Stun Immunity",
+      "Max HP +5"
+    ],
+    "statBoosts": "Mag Def +8, Stun Immunity, Max HP +5",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "talisman of the abyss": {
+    "title": "Talisman of the Abyss",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Blindness Immunity",
+      "Deathblow Immunity",
+      "Passive Seal Immunity"
+    ],
+    "statBoosts": "Blindness Immunity, Deathblow Immunity, Passive Seal Immunity",
+    "acquisition": "Armorer / World Quest / Treasure"
+  },
+  "wolf fang bracelet": {
+    "title": "Wolf Fang Bracelet",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Killing Pursuit"
+    ],
+    "statBoosts": "Killing Pursuit",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Killing Pursuit",
+      "cost": "1 AP",
+      "description": "Activates after an ally attacks (Active).Follow-up attack a single enemy.Grants the user +1 💎AP if the target is defeated."
+    }
+  },
+  "truestrike star": {
+    "title": "Truestrike Star",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Focus Sight"
+    ],
+    "statBoosts": "Focus Sight",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Focus Sight",
+      "cost": "1 PP",
+      "description": "Activates before an ally attacks (Active).Make an ally's next attack a truestrike."
+    }
+  },
+  "wind faerie's bell": {
+    "title": "Wind Faerie's Bell",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 0,
+    "effects": [
+      "Sylphic Barrier"
+    ],
+    "statBoosts": "Sylphic Barrier",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Sylphic Barrier",
+      "cost": "1 PP",
+      "description": "Activates before an ally is hit by a ranged phys. attack.Allow an ally to evade one attack."
+    }
+  },
+  "wolfpack gauntlets": {
+    "title": "Wolfpack Gauntlets",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 2,
+    "magDef": 0,
+    "effects": [
+      "Wolf Pack"
+    ],
+    "statBoosts": "Phys Def +2, Wolf Pack",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Wolf Pack",
+      "cost": "1 PP",
+      "description": "Activates at the start of battle.Grants +20% Phys. Attack to all allies.Grants +50% Critical Rate to bestral targets."
+    }
+  },
+  "watchman's horn": {
+    "title": "Watchman's Horn",
+    "physAtk": 0,
+    "magAtk": 0,
+    "physDef": 0,
+    "magDef": 1,
+    "effects": [
+      "Dawn Horn",
+      "Blindness Immunity",
+      "Burn Immunity"
+    ],
+    "statBoosts": "Mag Def +1, Dawn Horn, Blindness Immunity, Burn Immunity",
+    "acquisition": "Armorer / World Quest / Treasure",
+    "grantedSkill": {
+      "name": "Dawn Horn",
+      "cost": "1 PP",
+      "description": "Activates at the start of a battle.Grants all allies immunity to Stunand +20% Guard Rate."
+    }
+  }
+}

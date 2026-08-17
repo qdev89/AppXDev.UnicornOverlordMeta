@@ -31,6 +31,8 @@ import { TacticsEditorModal } from '@/components/builder/TacticsEditorModal';
 import { EquipmentModal } from '@/components/builder/EquipmentModal';
 import { BattleSimulator } from '@/components/builder/BattleSimulator';
 import { calculateUnitApPp } from '@/utils/apPpCalculator';
+import { getUnitClass, getUnitGearConfig, convertBuildToSlots, getHeroPortraitImage } from '@/utils/squadUtils';
+import { HeroFrame } from '@/components/common/HeroFrame';
 
 interface SquadBuilderProps {
   initialSquad?: SquadBuild | null;
@@ -72,8 +74,20 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
   // 1. Load Preset from initialSquad prop
   React.useEffect(() => {
     if (initialSquad) {
-      setSlots(convertBuildToSlots(initialSquad));
+      const converted = convertBuildToSlots(initialSquad);
+      setSlots(converted);
       setSquadName(initialSquad.name);
+      try {
+        localStorage.setItem(
+          'unicorn_squad_builder_wip',
+          JSON.stringify({
+            squadName: initialSquad.name,
+            slots: converted,
+          })
+        );
+      } catch (e) {
+        // ignore
+      }
     }
   }, [initialSquad]);
 
@@ -99,7 +113,7 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
             console.error('Failed to decode share code from hash', e);
           }
         }
-      } else {
+      } else if (!initialSquad) {
         const savedWip = localStorage.getItem('unicorn_squad_builder_wip');
         if (savedWip) {
           try {
@@ -121,11 +135,11 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
 
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
+  }, [initialSquad]);
 
   // 3. Auto-save current WIP to localStorage on slot or name change
   React.useEffect(() => {
-    const isWipNotEmpty = slots.some(s => s.unitId !== null);
+    const isWipNotEmpty = slots.some((s) => s.unitId !== null);
     if (isWipNotEmpty) {
       const wipData = {
         squadName,
@@ -134,41 +148,6 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
       localStorage.setItem('unicorn_squad_builder_wip', JSON.stringify(wipData));
     }
   }, [slots, squadName]);
-
-  function convertBuildToSlots(squad: SquadBuild): SquadSlot[] {
-    return [
-      { slotId: 'front-0', row: 'front', index: 0, unitId: squad.frontRow[0] || null },
-      { slotId: 'front-1', row: 'front', index: 1, unitId: squad.frontRow[1] || null },
-      { slotId: 'back-0', row: 'back', index: 0, unitId: squad.backRow[0] || null },
-      { slotId: 'back-1', row: 'back', index: 1, unitId: squad.backRow[1] || null },
-      { slotId: 'back-2', row: 'back', index: 2, unitId: squad.backRow[2] || null },
-    ];
-  }
-
-  const getUnitClass = (unitId: string | null): UnitClass | null => {
-    if (!unitId) return null;
-    const aliasMap: Record<string, string> = {
-      'virginia-crusader': 'valkyria',
-      'fencer': 'elven-fencer',
-      'berengaria-dark-marquess': 'berengaria-renegade',
-      'eltolinde-elven-prophet': 'eltolinde-elven-sibyl',
-      'arbalest': 'arbalist',
-      'valkyrie': 'valkyria',
-      'snow-ranger': 'yunifi-snow-ranger',
-      'elven-augur': 'eltolinde-elven-sibyl',
-      'dark-marquess': 'berengaria-renegade',
-      'prince': 'gilbert-prince',
-      'featherbow': 'raenys-feather-sword',
-      'high-priestess': 'scarlett-high-priestess',
-      'druid': 'selvie-druid',
-    };
-    const targetId = aliasMap[unitId] || unitId;
-    return (
-      CLASSES_DATA.find((c) => c.id === targetId || c.id === unitId) ||
-      CLASSES_DATA.find((c) => c.name.toLowerCase().includes(unitId.toLowerCase().replace(/-/g, ' '))) ||
-      null
-    );
-  };
 
   // Real-Time Synergy & Logic Analyzer Engine
   const synergy: SynergyAnalysis = useMemo(() => {
@@ -597,13 +576,13 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
                               <>
                                 <div className="flex items-start justify-between">
                                   <div className="flex items-center gap-3">
-                                    <div className="w-16 h-16 rounded-xl bg-slate-950 border-2 border-amber-400/60 flex items-center justify-center text-3xl group-hover:scale-105 transition-transform overflow-hidden relative shrink-0 shadow-lg">
-                                      {unit.image ? (
-                                        <img src={unit.image} alt={unit.name} className="w-full h-full object-cover" />
-                                      ) : (
-                                        unit.icon
-                                      )}
-                                    </div>
+                                    <HeroFrame
+                                      image={unit.image || getHeroPortraitImage(slot.unitId)}
+                                      name={unit.name}
+                                      icon={unit.icon}
+                                      size="lg"
+                                      frameVariant="gold"
+                                    />
                                     <div>
                                       <h4 className="font-serif font-bold text-base text-amber-100 group-hover:text-amber-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                                         {unit.name}
@@ -650,15 +629,15 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
                                     </button>
                                   </div>
 
-                                  <div className="flex items-center gap-1">
-                                    <span className="ap-gem text-[10px] px-1.5 py-0.2 rounded font-serif">{slotApPp.totalAp} AP</span>
-                                    <span className="pp-gem text-[10px] px-1.5 py-0.2 rounded font-serif">{slotApPp.totalPp} PP</span>
+                                  <div className="flex items-center gap-1.5">
+                                    <span className="ap-gem text-xs px-2 py-0.5 rounded font-serif">{slotApPp.totalAp} AP</span>
+                                    <span className="pp-gem text-xs px-2 py-0.5 rounded font-serif">{slotApPp.totalPp} PP</span>
                                   </div>
                                 </div>
                               </>
                             ) : (
-                              <div className="flex flex-col items-center justify-center h-full text-slate-500 space-y-1.5 py-4">
-                                <PlusCircle className="w-7 h-7 text-amber-400/60 group-hover:scale-110 transition" />
+                              <div className="flex flex-col items-center justify-center h-full text-slate-500 py-4">
+                                <PlusCircle className="w-8 h-8 text-amber-500/40 mb-2 group-hover:scale-110 transition-transform" />
                                 <span className="text-xs font-serif font-bold text-amber-200/80 uppercase tracking-wider">Assign Frontliner</span>
                                 <span className="text-[10px] text-slate-400 font-sans">Front Slot #{slot.index + 1}</span>
                               </div>
@@ -702,13 +681,13 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
                               <>
                                 <div className="flex items-center justify-between">
                                   <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 rounded-xl bg-slate-950 border border-purple-400/60 flex items-center justify-center text-xl group-hover:scale-105 transition-transform overflow-hidden relative shrink-0 shadow">
-                                      {unit.image ? (
-                                        <img src={unit.image} alt={unit.name} className="w-full h-full object-cover" />
-                                      ) : (
-                                        unit.icon
-                                      )}
-                                    </div>
+                                    <HeroFrame
+                                      image={unit.image || getHeroPortraitImage(slot.unitId)}
+                                      name={unit.name}
+                                      icon={unit.icon}
+                                      size="md"
+                                      frameVariant="purple"
+                                    />
                                     <div>
                                       <h4 className="font-serif font-bold text-sm text-purple-100 group-hover:text-purple-300">
                                         {unit.name}
@@ -782,43 +761,49 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
               </h3>
 
               <div className="space-y-2">
-                {synergy.initiativeTimeline.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center justify-between p-2.5 rounded-lg bg-slate-950 border border-slate-800 text-xs"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-[10px] flex items-center justify-center border border-amber-500/30">
-                        {idx + 1}
-                      </span>
-                      <span className="font-semibold text-slate-200">{item.unitName}</span>
-                      <span className="text-[10px] text-slate-500">({item.position})</span>
+                {synergy.initiativeTimeline.map((item, idx) => {
+                  const itemClass = getUnitClass(item.slotId) || getUnitClass(item.unitName);
+                  return (
+                    <div
+                      key={idx}
+                      className="flex items-center justify-between p-2.5 rounded-lg bg-slate-950 border border-slate-800 text-xs"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-[10px] flex items-center justify-center border border-amber-500/30">
+                          {idx + 1}
+                        </span>
+                        <HeroFrame
+                          image={itemClass?.image || getHeroPortraitImage(item.unitName)}
+                          name={item.unitName}
+                          icon={itemClass?.icon}
+                          size="xs"
+                        />
+                        <span className="font-serif font-bold text-slate-200">{item.unitName}</span>
+                        <span className="text-[10px] text-slate-400 font-serif">({item.position})</span>
+                      </div>
+                      <span className="font-mono text-cyan-300 font-bold">SPD {item.speed}</span>
                     </div>
-                    <span className="font-mono text-cyan-400 font-bold">SPD {item.speed}</span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
-            {/* Multipliers & Metrics Breakdown */}
-            <div className="p-5 rounded-2xl bg-slate-900/80 border border-purple-500/20 shadow-xl space-y-4">
-              <h3 className="font-serif text-sm font-bold text-purple-300 uppercase tracking-wider flex items-center gap-2 border-b border-slate-800 pb-2">
-                <Sliders className="w-4 h-4 text-purple-400" />
-                <span>Synergy Multipliers & Ratings</span>
+            {/* Battle Synergy Analyzer */}
+            <div className="p-5 rounded-2xl bg-slate-900/80 border border-amber-500/20 shadow-xl space-y-3">
+              <h3 className="font-serif text-sm font-bold text-amber-300 uppercase tracking-wider flex items-center gap-2 border-b border-slate-800 pb-2">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>Squad Composition Synergy Engine</span>
               </h3>
 
-              <div className="space-y-3 text-xs">
-                {/* Cavalry Call Multiplier */}
+              <div className="space-y-2 text-xs">
+                {/* Cavalry Call Bonus */}
                 <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
                   <div className="flex items-center justify-between font-semibold">
-                    <span className="text-amber-200">🐴 Cavalry Call Stack:</span>
-                    <span className="text-emerald-400 font-mono font-bold">
-                      +{synergy.cavalryCallBonus}% Physical Attack
+                    <span className="text-amber-200">🐴 Cavalry Count ({synergy.cavalryCount}):</span>
+                    <span className={synergy.cavalryCount >= 2 ? 'text-emerald-400 font-bold' : 'text-slate-500'}>
+                      {synergy.cavalryCount >= 2 ? `+${synergy.cavalryCallBonus}% Phys Atk Bonus` : 'Requires 2+ Cavalry'}
                     </span>
                   </div>
-                  <p className="text-[11px] text-slate-400">
-                    {synergy.cavalryCount} Cavalry units present in squad ({synergy.cavalryCount * 20}% attack bonus).
-                  </p>
                 </div>
 
                 {/* Flying Squad Evasion Bonus */}
@@ -910,9 +895,12 @@ export const SquadBuilder: React.FC<SquadBuilderProps> = ({ initialSquad }) => {
                     className="p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/50 hover:bg-slate-800/80 cursor-pointer flex items-center justify-between transition group"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-2xl group-hover:scale-110 transition-transform">
-                        {cls.icon}
-                      </span>
+                      <HeroFrame
+                        image={cls.image}
+                        name={cls.name}
+                        icon={cls.icon}
+                        size="sm"
+                      />
                       <div>
                         <h4 className="font-semibold text-xs text-slate-100 group-hover:text-amber-300">
                           {cls.name}

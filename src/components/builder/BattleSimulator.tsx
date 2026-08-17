@@ -22,6 +22,7 @@ import { SquadSlot, SimulatedTurnStep, UnitClass, Battle5v5Result } from '@/type
 import { CLASSES_DATA } from '@/data/classes';
 import { SQUADS_DATA } from '@/data/squads';
 import { ITEMS_DATA } from '@/data/items';
+import { getUnitClass } from '@/utils/squadUtils';
 
 interface BattleSimulatorProps {
   slots: SquadSlot[];
@@ -41,7 +42,7 @@ export const BattleSimulator: React.FC<BattleSimulatorProps> = ({ slots }) => {
   // Helper to map unit ID to UnitClass
   const getUnit = (id: string | null): UnitClass | undefined => {
     if (!id) return undefined;
-    return CLASSES_DATA.find((c) => c.id === id);
+    return getUnitClass(id) || undefined;
   };
 
   // Generate 5v5 Combat Steps & Win Rate Simulation

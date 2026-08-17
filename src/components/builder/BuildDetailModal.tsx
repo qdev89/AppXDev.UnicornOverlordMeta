@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   X,
@@ -28,6 +28,8 @@ import { CLASSES_DATA } from '@/data/classes';
 import { ITEMS_DATA } from '@/data/items';
 import { downloadSquadAsJson, generateSquadImageCard } from '@/utils/exportUtils';
 import { calculateUnitApPp } from '@/utils/apPpCalculator';
+import { getUnitClass, getUnitGearConfig, getHeroPortraitImage } from '@/utils/squadUtils';
+import { HeroFrame } from '@/components/common/HeroFrame';
 
 interface BuildDetailModalProps {
   squad: SquadBuild | null;
@@ -50,42 +52,22 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
   const [selectedTacticsIndex, setSelectedTacticsIndex] = useState<number>(0);
   const [copiedLink, setCopiedLink] = useState<boolean>(false);
 
+  // Reset selected unit state whenever squad changes or modal opens
+  useEffect(() => {
+    if (isOpen && squad) {
+      const initialUnit = squad.frontRow[0] || squad.backRow[0] || null;
+      setSelectedUnitId(initialUnit);
+      setSelectedTacticsIndex(0);
+    }
+  }, [squad?.id, isOpen]);
+
   if (!isOpen || !squad) return null;
 
-  const allUnitsInSquad = [...squad.frontRow, ...squad.backRow].filter(Boolean);
-  const activeUnitId = selectedUnitId || squad.frontRow[0] || squad.backRow[0] || allUnitsInSquad[0];
-
-  const getUnitClass = (unitId: string | null): UnitClass | null => {
-    if (!unitId) return null;
-    const lower = unitId.toLowerCase();
-    return (
-      CLASSES_DATA.find(
-        (c) =>
-          c.id.toLowerCase() === lower ||
-          c.id.toLowerCase().includes(lower) ||
-          lower.includes(c.id.toLowerCase()) ||
-          c.name.toLowerCase().includes(lower) ||
-          lower.includes(c.name.toLowerCase().split(' ')[0])
-      ) || null
-    );
-  };
+  const allUnitsInSquad = [...(squad.frontRow || []), ...(squad.backRow || [])].filter(Boolean) as string[];
+  const activeUnitId = (selectedUnitId && allUnitsInSquad.includes(selectedUnitId) ? selectedUnitId : allUnitsInSquad[0]) || allUnitsInSquad[0];
 
   const currentUnitClass = getUnitClass(activeUnitId);
-  const currentUnitGearConfig =
-    squad.unitGearConfigs?.find((g) => {
-      if (!activeUnitId) return false;
-      const gId = g.unitId.toLowerCase();
-      const actId = activeUnitId.toLowerCase();
-      const uName = g.unitName.toLowerCase();
-      const clsName = currentUnitClass?.name.toLowerCase() || '';
-      return (
-        gId === actId ||
-        gId.includes(actId) ||
-        actId.includes(gId) ||
-        (clsName && uName.includes(clsName)) ||
-        (clsName && uName.includes(clsName.split(' ')[0]))
-      );
-    }) || squad.unitGearConfigs?.find((_, idx) => allUnitsInSquad.indexOf(activeUnitId) === idx) || squad.unitGearConfigs?.[0];
+  const currentUnitGearConfig = getUnitGearConfig(squad, activeUnitId);
 
   const handleShare = () => {
     const shareUrl = `${window.location.origin}${window.location.pathname}#build=${squad.id}`;
@@ -151,52 +133,34 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
       });
     }
 
-    // Priority 2: Granted Item Active Skill or Secondary Active Skill (Single Target / Finisher / Sustain / Lower AP)
-    const activeItemSkill = grantedItemSkills.find((g) => g.cost.includes('AP'));
-    if (activeItemSkill && !steps.some((s) => s.skill === activeItemSkill.name)) {
+    // Priority 2: Granted Item Active Skills (e.g. Trinity Rain, Dragoon Dive, Arrow Rain, Glacial Tempest)
+    grantedItemSkills.forEach((gSkill) => {
+      if (gSkill.cost.includes('AP') && !steps.some((s) => s.skill === gSkill.name)) {
+        steps.push({
+          step: steps.length + 1,
+          unit: unitDisplayName,
+          skill: gSkill.name,
+          condition1: '[Target: All Enemies (Turn 1)]',
+          condition2: `[Self AP >= ${parseInt(gSkill.cost) || 4}]`,
+          notes: `${gSkill.description} (Granted from equipped weapon/relic loadout)`,
+        });
+      }
+    });
+
+    // Priority 3: Start of Battle Passive Trigger
+    const startOfBattleSkill = (uClass.passiveSkills || []).find((s) => s.isStartOfBattle || s.trigger === 'Start of Battle');
+    if (startOfBattleSkill) {
       steps.push({
         step: steps.length + 1,
         unit: unitDisplayName,
-        skill: activeItemSkill.name,
-        condition1: activeItemSkill.name.includes('Trinity') ? '[Target: All Enemies]' : '[Target: Highest ATK Combatant]',
-        condition2: `[Self AP >= ${parseInt(activeItemSkill.cost) || 2}]`,
-        notes: `${activeItemSkill.description} (Granted from equipped weapon/relic loadout)`,
-      });
-    }
-
-    const secondaryActive = activeSkillsList.find((s) => s.name !== steps[0]?.skill);
-    if (secondaryActive) {
-      let cond1 = '[Target: Lowest HP %]';
-      if (secondaryActive.flags?.includes('Sustain')) cond1 = '[Self HP <= 75%]';
-      else if (secondaryActive.flags?.includes('Magic')) cond1 = '[Target: Prioritize Armored]';
-      else if (secondaryActive.flags?.includes('Ranged')) cond1 = '[Target: Prioritize Flying]';
-
-      steps.push({
-        step: steps.length + 1,
-        unit: unitDisplayName,
-        skill: secondaryActive.name,
-        condition1: cond1,
-        condition2: `[Self AP >= ${secondaryActive.apCost || 1}]`,
-        notes: secondaryActive.description || `Tactical execution strike to finish weakened enemy combatants.`,
-      });
-    }
-
-    // Priority 3: Start-of-Battle Passive Skill (if applicable)
-    const startOfBattlePassive = (uClass.passiveSkills || []).find(
-      (s) => s.isStartOfBattle || s.trigger?.toLowerCase().includes('start of battle')
-    );
-    if (startOfBattlePassive) {
-      steps.push({
-        step: steps.length + 1,
-        unit: unitDisplayName,
-        skill: startOfBattlePassive.name,
+        skill: startOfBattleSkill.name,
         condition1: '[Start of Battle]',
-        condition2: '[Target: All Enemies / Front Row]',
-        notes: startOfBattlePassive.description || 'Start-of-Battle passive advantage triggering immediately upon combat opening.',
+        condition2: `[Self PP >= ${startOfBattleSkill.ppCost || 1}]`,
+        notes: startOfBattleSkill.description || 'Start of Battle tactical field activation.',
       });
     }
 
-    // Priority 4: Reaction / Defensive / Protective Passive Skill
+    // Priority 4: Defensive Reaction / Cover / Guard / Sustain Passives
     const defPassives = (uClass.passiveSkills || []).filter(
       (s) =>
         !s.isStartOfBattle &&
@@ -309,11 +273,13 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
     const classIdLower = currentUnitClass?.id.toLowerCase() || '';
     const gearUnitNameLower = currentUnitGearConfig?.unitName.toLowerCase() || '';
     const gearUnitIdLower = currentUnitGearConfig?.unitId.toLowerCase() || '';
+    const charNameLower = currentUnitGearConfig?.characterName?.toLowerCase() || '';
 
     const firstWordGear = gearUnitNameLower.split(' ')[0];
     const firstWordClass = classNameLower.split(' ')[0];
 
     return (
+      (charNameLower && (tUnitLower.includes(charNameLower) || charNameLower.includes(tUnitLower))) ||
       (classNameLower && tUnitLower.includes(classNameLower)) ||
       (classNameLower && classNameLower.includes(tUnitLower)) ||
       (classIdLower && tUnitLower.includes(classIdLower.split('-')[0])) ||
@@ -434,10 +400,14 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                 <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
                   {allUnitsInSquad.map((unitId, idx) => {
                     const uCls = getUnitClass(unitId);
+                    const uGear = getUnitGearConfig(squad, unitId);
                     const isSelected = unitId === activeUnitId;
+                    const displayName = uGear?.characterName || uGear?.unitName?.split(' ')[0] || uCls?.name || unitId;
+                    const classSubtitle = uGear?.className || uCls?.role || 'Lv. 40';
+                    const heroImg = getHeroPortraitImage(unitId, uGear?.characterName, uCls?.id) || uCls?.image;
                     return (
                       <button
-                        key={idx}
+                        key={unitId || idx}
                         onClick={() => {
                           setSelectedUnitId(unitId);
                           setSelectedTacticsIndex(0);
@@ -448,18 +418,19 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                             : 'bg-slate-900 border-slate-800 hover:border-amber-500/40 text-slate-400'
                         }`}
                       >
-                        <div className="w-9 h-9 rounded-lg bg-slate-950 border border-amber-400/50 overflow-hidden shrink-0 flex items-center justify-center text-lg">
-                          {uCls?.image ? (
-                            <img src={uCls.image} alt={uCls.name} className="w-full h-full object-cover" />
-                          ) : (
-                            uCls?.icon || '⚔️'
-                          )}
-                        </div>
+                        <HeroFrame
+                          image={heroImg}
+                          name={displayName}
+                          icon={uCls?.icon || '⚔️'}
+                          size="sm"
+                          frameVariant={isSelected ? 'gold' : 'silver'}
+                          showGlow={isSelected}
+                        />
                         <div className="text-left pr-1 hidden sm:block">
                           <span className={`text-xs font-serif font-bold block ${isSelected ? 'text-amber-200' : 'text-slate-300'}`}>
-                            {uCls?.name || 'Unit'}
+                            {displayName}
                           </span>
-                          <span className="text-[9px] font-mono text-emerald-400">Lv. 40</span>
+                          <span className="text-[9px] font-mono text-emerald-400">{classSubtitle}</span>
                         </div>
                       </button>
                     );
@@ -485,11 +456,12 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                     {squad.frontRow.map((uId, i) => {
                       const u = getUnitClass(uId);
                       const isSelected = uId === activeUnitId;
-                      const uGearConfig = squad.unitGearConfigs?.[i];
+                      const uGearConfig = getUnitGearConfig(squad, uId);
                       const uApPp = calculateUnitApPp(u, uGearConfig);
+                      const heroImg = getHeroPortraitImage(uId, uGearConfig?.characterName, u?.id) || u?.image;
                       return (
                         <div
-                          key={i}
+                          key={uId || i}
                           onClick={() => {
                             if (uId) {
                               setSelectedUnitId(uId);
@@ -508,16 +480,17 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                             <>
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
-                                  <div className="w-10 h-10 rounded-lg bg-slate-950 border border-amber-400/60 flex items-center justify-center text-xl overflow-hidden shrink-0 shadow">
-                                    {u.image ? (
-                                      <img src={u.image} alt={u.name} className="w-full h-full object-cover" />
-                                    ) : (
-                                      u.icon
-                                    )}
-                                  </div>
+                                  <HeroFrame
+                                    image={heroImg}
+                                    name={uGearConfig?.characterName || uGearConfig?.unitName || u.name}
+                                    icon={u.icon || '⚔️'}
+                                    size="md"
+                                    frameVariant={isSelected ? 'gold' : 'silver'}
+                                    showGlow={isSelected}
+                                  />
                                   <div>
                                     <span className="font-serif font-bold text-xs text-amber-200 truncate block">
-                                      {uGearConfig?.characterName || u.name}
+                                      {uGearConfig?.characterName || uGearConfig?.unitName || u.name}
                                     </span>
                                     <span className="text-[9px] font-mono text-emerald-400 font-bold">
                                       HP {u.baseStats.hp || 100}/100
@@ -557,12 +530,12 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                     {squad.backRow.map((uId, i) => {
                       const u = getUnitClass(uId);
                       const isSelected = uId === activeUnitId;
-                      const idx = squad.frontRow.length + i;
-                      const uGearConfig = squad.unitGearConfigs?.[idx];
+                      const uGearConfig = getUnitGearConfig(squad, uId);
                       const uApPp = calculateUnitApPp(u, uGearConfig);
+                      const heroImg = getHeroPortraitImage(uId, uGearConfig?.characterName, u?.id) || u?.image;
                       return (
                         <div
-                          key={i}
+                          key={uId || i}
                           onClick={() => {
                             if (uId) {
                               setSelectedUnitId(uId);
@@ -581,16 +554,17 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                             <>
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
-                                  <div className="w-10 h-10 rounded-lg bg-slate-950 border border-purple-400/60 flex items-center justify-center text-xl overflow-hidden shrink-0 shadow">
-                                    {u.image ? (
-                                      <img src={u.image} alt={u.name} className="w-full h-full object-cover" />
-                                    ) : (
-                                      u.icon
-                                    )}
-                                  </div>
+                                  <HeroFrame
+                                    image={heroImg}
+                                    name={uGearConfig?.characterName || uGearConfig?.unitName || u.name}
+                                    icon={u.icon || '⚔️'}
+                                    size="md"
+                                    frameVariant={isSelected ? 'purple' : 'silver'}
+                                    showGlow={isSelected}
+                                  />
                                   <div>
                                     <span className="font-serif font-bold text-xs text-purple-200 truncate block">
-                                      {uGearConfig?.characterName || u.name}
+                                      {uGearConfig?.characterName || uGearConfig?.unitName || u.name}
                                     </span>
                                     <span className="text-[9px] font-mono text-emerald-400 font-bold">
                                       HP {u.baseStats.hp || 90}/90
@@ -643,16 +617,19 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
               {/* Selected Unit Header Badge with Calculated Total AP & PP */}
               {(() => {
                 const inspectedApPp = calculateUnitApPp(currentUnitClass, currentUnitGearConfig);
+                const activeHeroImg = getHeroPortraitImage(activeUnitId, currentUnitGearConfig?.characterName, currentUnitClass?.id) || currentUnitClass?.image;
                 return (
                   <div className="p-4 rounded-xl bg-gradient-to-r from-slate-950 via-[#10192e] to-slate-950 border border-amber-500/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow filigree-box">
                     <div className="flex items-center gap-3">
-                      <div className="w-14 h-14 rounded-xl bg-slate-950 border-2 border-amber-400 flex items-center justify-center text-3xl overflow-hidden shrink-0 shadow">
-                        {currentUnitClass?.image ? (
-                          <img src={currentUnitClass.image} alt={currentUnitClass.name} className="w-full h-full object-cover" />
-                        ) : (
-                          currentUnitClass?.icon || '👑'
-                        )}
-                      </div>
+                      <HeroFrame
+                        image={activeHeroImg}
+                        name={currentUnitGearConfig?.characterName || currentUnitClass?.name || 'Selected Unit'}
+                        icon={currentUnitClass?.icon || '👑'}
+                        size="lg"
+                        frameVariant="gold"
+                        showGlow={true}
+                        tier={currentUnitClass?.tier}
+                      />
                       <div>
                         <div className="flex items-center gap-2">
                           <h3 className="font-serif font-bold text-lg text-amber-100">
@@ -861,7 +838,7 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
               <div className="p-4 rounded-xl bg-slate-950 border border-amber-500/40 space-y-3 filigree-box">
                 <div className="flex items-center justify-between border-b border-slate-800 pb-2">
                   <h4 className="font-serif text-xs font-bold text-amber-300 uppercase tracking-wider">
-                    In-Game Tactics Programming Table for {currentUnitClass?.name}
+                    In-Game Tactics Programming Table for {currentUnitGearConfig?.characterName || currentUnitClass?.name}
                   </h4>
                   <span className="text-[10px] text-slate-400 font-sans">Click tactic row to inspect logic</span>
                 </div>

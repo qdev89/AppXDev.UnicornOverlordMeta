@@ -2,45 +2,56 @@ import { UnitClass } from '@/types';
 
 export const CLASSES_DATA: UnitClass[] = [
   {
-    "id": "alain-high-lord",
-    "image": "/images/characters/alain-high-lord.png",
-    "name": "Alain (High Lord)",
-    "category": "Cavalry",
-    "role": "Physical DPS",
+    "id": "high-lord",
+    "name": "High Lord",
+    "category": "Unique",
+    "role": "Tank",
     "tier": "SS",
     "icon": "👑",
     "baseStats": {
       "hp": 110,
       "physAtk": 95,
-      "magAtk": 45,
-      "physDef": 85,
+      "magAtk": 35,
+      "physDef": 90,
       "magDef": 65,
-      "initiative": 34,
-      "evasion": 40,
+      "initiative": 42,
+      "evasion": 45,
       "critRate": 15
     },
     "activeSkills": [
-      {
-        "name": "Spinning Edge",
-        "apCost": 2,
-        "potency": 150,
-        "target": "Full Row",
-        "description": "Deals heavy physical damage to a full row of enemies. Grants +1 AP on kill.",
-        "flags": [
-          "Physical",
-          "Row"
-        ]
-      },
       {
         "name": "Lean Edge",
         "apCost": 1,
         "potency": 100,
         "target": "Single Enemy",
-        "description": "Attacks a single target and restores HP proportional to damage dealt.",
         "flags": [
           "Physical",
           "Sustain"
-        ]
+        ],
+        "description": "Strike a single target and heal HP equal to 50% of damage dealt."
+      },
+      {
+        "name": "Spinning Edge",
+        "apCost": 2,
+        "potency": 150,
+        "target": "Enemy Row",
+        "flags": [
+          "Physical",
+          "Row",
+          "AP Restore"
+        ],
+        "description": "Cleave an entire enemy row with heavy physical damage. Grants +1 AP on kill."
+      },
+      {
+        "name": "Shield Bash",
+        "apCost": 1,
+        "potency": 100,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Stun"
+        ],
+        "description": "Strike with shield, dealing physical damage and inflicting Stun."
       }
     ],
     "passiveSkills": [
@@ -48,13 +59,32 @@ export const CLASSES_DATA: UnitClass[] = [
         "name": "Luminous Cover",
         "ppCost": 1,
         "trigger": "Before Ally Attacked",
-        "description": "Covers an ally from incoming attacks and increases physical defense by 50%."
+        "flags": [
+          "Cover",
+          "Defense"
+        ],
+        "description": "Cover an ally from incoming attacks and increase physical defense by 50%."
       },
       {
         "name": "Noble Guard",
         "ppCost": 1,
         "trigger": "Before Attacked",
-        "description": "Grants heavy guard and restores 1 PP when guarding successfully."
+        "flags": [
+          "Guard",
+          "PP Restore"
+        ],
+        "description": "Execute a heavy guard and restore 1 PP upon guarding successfully."
+      },
+      {
+        "name": "Cavalry Call",
+        "ppCost": 1,
+        "trigger": "Start of Battle",
+        "isStartOfBattle": true,
+        "flags": [
+          "Buff",
+          "Cavalry"
+        ],
+        "description": "At Start of Battle, grant all cavalry allies +20% Physical Attack."
       }
     ],
     "bestGrowthTypes": [
@@ -62,234 +92,24 @@ export const CLASSES_DATA: UnitClass[] = [
       "Offensive"
     ],
     "synergiesWith": [
-      "scarlett-high-priestess",
-      "clive-great-knight",
-      "chloe-sergeant",
-      "melisandre-swordmaster"
+      "Great Knight",
+      "Sergeant",
+      "High Priestess",
+      "Swordmaster"
     ],
     "recommendedEquipment": [
       "Holy Unicorn Blade",
-      "Ring of the Unicorn"
-    ],
-    "overview": "Alain in his High Lord promoted class gains a mount, massive HP/Def scaling, and row-wiping physical power while shielding backline allies."
-  },
-  {
-    "id": "scarlett-high-priestess",
-    "image": "/images/characters/high-priestess.png",
-    "name": "Scarlett (High Priestess)",
-    "category": "Infantry",
-    "role": "Support",
-    "tier": "SS",
-    "icon": "✨",
-    "baseStats": {
-      "hp": 80,
-      "physAtk": 35,
-      "magAtk": 90,
-      "physDef": 50,
-      "magDef": 95,
-      "initiative": 32,
-      "evasion": 35,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Innocent Light",
-        "apCost": 1,
-        "potency": 120,
-        "target": "Single Enemy",
-        "description": "Deals magic damage and removes all buffs from the target.",
-        "flags": [
-          "Magical",
-          "Dispel"
-        ]
-      },
-      {
-        "name": "Holy Light",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Ally",
-        "description": "Restores HP to an ally and cleanses all debuffs.",
-        "flags": [
-          "Healing",
-          "Cleanse"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Sacred Light",
-        "ppCost": 1,
-        "isStartOfBattle": true,
-        "trigger": "Start of Battle",
-        "description": "Start of Battle: Bestows HP regeneration and affliction immunity on the squad."
-      },
-      {
-        "name": "Passive Supply",
-        "ppCost": 1,
-        "trigger": "End of Turn",
-        "description": "Restores 1 PP to the lowest PP ally."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Guardian",
-      "Defender"
-    ],
-    "synergiesWith": [
-      "alain-high-lord",
-      "clive-great-knight"
-    ],
-    "recommendedEquipment": [
-      "Scarlett's Ribbon",
-      "Ring of the Maiden"
-    ],
-    "overview": "Unique promoted support capable of dispelling enemy buffs, granting passive squad HP regen, and providing emergency medical cover."
-  },
-  {
-    "id": "chloe-sergeant",
-    "image": "/images/characters/soldier.png",
-    "name": "Chloe (Sergeant)",
-    "category": "Infantry",
-    "role": "Support",
-    "tier": "S+",
-    "icon": "🛡️",
-    "baseStats": {
-      "hp": 88,
-      "physAtk": 82,
-      "magAtk": 45,
-      "physDef": 65,
-      "magDef": 60,
-      "initiative": 36,
-      "evasion": 38,
-      "critRate": 18
-    },
-    "activeSkills": [
-      {
-        "name": "Javelin Strike",
-        "apCost": 1,
-        "potency": 110,
-        "target": "Column",
-        "description": "Pierces through a column of enemies with true-thrust damage.",
-        "flags": [
-          "Physical",
-          "Column"
-        ]
-      },
-      {
-        "name": "Keen Edge",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Attacks an enemy and boosts self critical rate.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Keen Call",
-        "ppCost": 1,
-        "trigger": "Before Ally Attacked",
-        "description": "Grants 100% Guaranteed Critical Hit to an ally about to execute an active attack."
-      },
-      {
-        "name": "Active Heal",
-        "ppCost": 1,
-        "trigger": "After Ally Action",
-        "description": "Heals an ally after they take an action."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Speedster",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord",
-      "clive-great-knight",
-      "hilda-wyvern-master"
-    ],
-    "recommendedEquipment": [
-      "Chloe's Charm",
-      "Lapis Pendant"
-    ],
-    "overview": "Promoted from Soldier to Sergeant. Chloe is the meta engine behind guaranteed 100% Critical setups via Keen Call."
-  },
-  {
-    "id": "clive-great-knight",
-    "image": "/images/characters/great-knight.png",
-    "name": "Clive (Great Knight)",
-    "category": "Cavalry",
-    "role": "Physical DPS",
-    "tier": "SS",
-    "icon": "🐎",
-    "baseStats": {
-      "hp": 102,
-      "physAtk": 96,
-      "magAtk": 30,
-      "physDef": 78,
-      "magDef": 52,
-      "initiative": 35,
-      "evasion": 30,
-      "critRate": 18
-    },
-    "activeSkills": [
-      {
-        "name": "Line Charge",
-        "apCost": 2,
-        "potency": 150,
-        "target": "Row",
-        "description": "Charges a full row of enemies. Deals 200% damage to infantry targets.",
-        "flags": [
-          "Physical",
-          "Row",
-          "Anti-Infantry"
-        ]
-      },
-      {
-        "name": "Assaulting Lance",
-        "apCost": 1,
-        "potency": 120,
-        "target": "Single Enemy",
-        "description": "Heavy thrust that refunds 1 AP upon killing the enemy.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Cavalry Synergy",
-        "ppCost": 1,
-        "trigger": "Start of Battle",
-        "description": "Increases Phys Atk by +15% for all cavalry allies in squad."
-      },
-      {
-        "name": "Heavy Shield Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Reduces incoming physical damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Offensive"
-    ],
-    "synergiesWith": [
-      "alain-high-lord",
-      "chloe-sergeant",
-      "adel-great-knight"
-    ],
-    "recommendedEquipment": [
-      "Heavensteed Reins",
+      "Azure Crest Shield",
+      "Ring of the Unicorn",
       "Carnelian Pendant"
     ],
-    "overview": "Devastating cavalry sweeper who tramples enemy infantry rows with Line Charge and stacks cavalry synergy attack buffs."
+    "overview": "Alain's promoted class. Supreme frontline leader with heavy guard sustain, row-cleaving attack power, and cavalry offensive synergy.",
+    "image": "/images/characters/high-lord.png"
   },
   {
-    "id": "melisandre-swordmaster",
-    "image": "/images/characters/swordmaster.png",
-    "name": "Melisandre (Swordmaster)",
-    "category": "Infantry",
+    "id": "swordmaster",
+    "name": "Swordmaster",
+    "category": "Promoted",
     "role": "Physical DPS",
     "tier": "S+",
     "icon": "⚔️",
@@ -300,49 +120,85 @@ export const CLASSES_DATA: UnitClass[] = [
       "physDef": 52,
       "magDef": 50,
       "initiative": 46,
-      "evasion": 68,
+      "evasion": 72,
       "critRate": 35
     },
     "activeSkills": [
       {
-        "name": "Meteor Slash",
-        "apCost": 2,
-        "potency": 180,
-        "target": "Single Enemy",
-        "description": "Strikes 9 times in rapid succession with high critical chance.",
-        "flags": [
-          "Physical",
-          "Multi-Hit"
-        ]
-      },
-      {
-        "name": "True Strike Blade",
+        "name": "First Strike",
         "apCost": 1,
         "potency": 100,
         "target": "Single Enemy",
-        "description": "Undodgeable attack that bypasses evasion entirely.",
         "flags": [
           "Physical",
-          "True-Strike"
-        ]
+          "High Speed"
+        ],
+        "description": "Swift strike that attacks before the enemy can act."
+      },
+      {
+        "name": "Keen Edge",
+        "apCost": 1,
+        "potency": 100,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Crit Boost"
+        ],
+        "description": "Strike an enemy, granting self +50% Critical Rate for the rest of the battle."
+      },
+      {
+        "name": "Meteor Slash",
+        "apCost": 2,
+        "potency": 225,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Multi-Hit",
+          "Critical"
+        ],
+        "description": "Unleash a 9-hit blinding flurry of slashes against a single target with guaranteed critical hits."
+      },
+      {
+        "name": "Hastened Strike",
+        "apCost": 1,
+        "potency": 100,
+        "target": "Single Enemy",
+        "flags": [
+          "Start of Battle",
+          "Truestrike"
+        ],
+        "description": "At Start of Battle, immediately strike a priority enemy before any turns begin."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Parrying Slash",
+        "name": "Parry",
         "ppCost": 1,
-        "trigger": "When Attacked by Melee",
-        "description": "Negates 100% damage from incoming physical melee attack and counters immediately.",
+        "trigger": "Before Attacked",
         "flags": [
-          "Parry",
-          "Counter"
-        ]
+          "Nullify",
+          "AP Restore"
+        ],
+        "description": "Completely nullify an incoming melee physical attack and restore +1 AP."
       },
       {
-        "name": "Keen Edge",
+        "name": "Focus",
         "ppCost": 1,
-        "trigger": "After Landing Critical",
-        "description": "Restores 1 AP when scoring a critical hit."
+        "trigger": "Before Active Action",
+        "flags": [
+          "Self Buff",
+          "Crit Rate"
+        ],
+        "description": "Sharpen focus, granting +30% Accuracy and +30% Critical Rate."
+      },
+      {
+        "name": "Following Slash",
+        "ppCost": 1,
+        "trigger": "After Ally Attacks",
+        "flags": [
+          "Pursuit"
+        ],
+        "description": "Follow up an ally's attack with a rapid physical strike."
       }
     ],
     "bestGrowthTypes": [
@@ -350,269 +206,355 @@ export const CLASSES_DATA: UnitClass[] = [
       "Keen"
     ],
     "synergiesWith": [
-      "alain-high-lord",
-      "chloe-sergeant",
-      "gilbert-prince"
+      "High Lord",
+      "Sergeant",
+      "Prince"
     ],
     "recommendedEquipment": [
-      "Parrying Amulet",
+      "Kingsblade Cornix",
+      "Pursuant's Blade",
+      "Lucky Coin",
       "Carnelian Pendant"
     ],
-    "overview": "Dual-wielding Swordmaster capable of parrying physical attacks, nullifying damage, and deleting evasive scouts with True Strike."
+    "overview": "Dual-wielding master duelist capable of parrying physical strikes, earning extra AP, and shredding targets with 9-hit Meteor Slash.",
+    "image": "/images/characters/swordmaster.png"
   },
   {
-    "id": "auch-sorcerer",
-    "image": "/images/characters/warlock.png",
-    "name": "Auch (Sorcerer)",
-    "category": "Infantry",
-    "role": "Magic DPS",
-    "tier": "SS",
-    "icon": "🧙‍♂️",
-    "baseStats": {
-      "hp": 74,
-      "physAtk": 25,
-      "magAtk": 104,
-      "physDef": 40,
-      "magDef": 90,
-      "initiative": 33,
-      "evasion": 30,
-      "critRate": 15
-    },
-    "activeSkills": [
-      {
-        "name": "Trinity Rain",
-        "apCost": 4,
-        "potency": 210,
-        "target": "All Enemies",
-        "description": "Charged Skill: Calls down 3 waves of magic rain dealing devastating multi-target damage.",
-        "flags": [
-          "Magical",
-          "AOE"
-        ]
-      },
-      {
-        "name": "Fireball",
-        "apCost": 1,
-        "potency": 110,
-        "target": "Single Enemy",
-        "description": "Deals fire magic damage and inflicts Burn.",
-        "flags": [
-          "Magical",
-          "Burn"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Focus Sight",
-        "ppCost": 1,
-        "trigger": "Before Magic Attack",
-        "description": "Increases magic accuracy and guarantees True Strike."
-      },
-      {
-        "name": "Magick Boost",
-        "ppCost": 1,
-        "trigger": "Start of Turn",
-        "description": "Increases own Mag Atk by +20%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "sharon-bishop",
-      "yahna-sorceress",
-      "selvie-druid"
-    ],
-    "recommendedEquipment": [
-      "Millennium Scepter",
-      "Sniper's Amber Lens"
-    ],
-    "overview": "Promoted from Wizard to Sorcerer. The premier channeler of Trinity Rain capable of wiping entire enemy boards on Turn 1."
-  },
-  {
-    "id": "yahna-sorceress",
-    "image": "/images/characters/sorceress.png",
-    "name": "Yahna (Sorceress)",
-    "category": "Infantry",
-    "role": "Magic DPS",
-    "tier": "SS",
-    "icon": "🧙‍♀️",
-    "baseStats": {
-      "hp": 72,
-      "physAtk": 20,
-      "magAtk": 102,
-      "physDef": 38,
-      "magDef": 92,
-      "initiative": 38,
-      "evasion": 45,
-      "critRate": 15
-    },
-    "activeSkills": [
-      {
-        "name": "Ice Coffin",
-        "apCost": 2,
-        "potency": 120,
-        "target": "Row",
-        "description": "Freezes an enemy row with ice magic.",
-        "flags": [
-          "Magical",
-          "Freeze",
-          "Row"
-        ]
-      },
-      {
-        "name": "Magick Missile",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Fires tracking magic missiles that cannot be guarded.",
-        "flags": [
-          "Magical",
-          "True-Strike"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Sorcerous Connection",
-        "ppCost": 2,
-        "trigger": "When Ally Casts Magic",
-        "description": "Grants +50% Magic Attack to the casting ally via Familiar's Choker."
-      },
-      {
-        "name": "Quick Cast",
-        "ppCost": 2,
-        "isStartOfBattle": true,
-        "trigger": "Start of Battle",
-        "description": "Takes the immediate first turn of battle before all other combatants."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Speedster",
-      "Speedster"
-    ],
-    "synergiesWith": [
-      "auch-sorcerer",
-      "sharon-bishop",
-      "selvie-druid"
-    ],
-    "recommendedEquipment": [
-      "Familiar's Choker",
-      "Raven Plume"
-    ],
-    "overview": "Promoted from Witch to Sorceress. Provides massive +50% magic attack buffs and row-freezing ice magic."
-  },
-  {
-    "id": "sharon-bishop",
-    "image": "/images/characters/bishop.png",
-    "name": "Sharon (Bishop)",
-    "category": "Infantry",
+    "id": "high-priestess",
+    "name": "High Priestess",
+    "category": "Unique",
     "role": "Support",
     "tier": "SS",
-    "icon": "🕊️",
+    "icon": "✨",
     "baseStats": {
-      "hp": 78,
-      "physAtk": 25,
-      "magAtk": 85,
-      "physDef": 50,
-      "magDef": 94,
-      "initiative": 30,
-      "evasion": 30,
+      "hp": 80,
+      "physAtk": 30,
+      "magAtk": 90,
+      "physDef": 45,
+      "magDef": 95,
+      "initiative": 35,
+      "evasion": 40,
       "critRate": 10
     },
     "activeSkills": [
       {
-        "name": "Row Heal",
+        "name": "Holy Light",
         "apCost": 1,
         "potency": 100,
-        "target": "Row",
-        "description": "Heals all allies in a row and removes negative afflictions.",
+        "target": "Ally / Undead",
         "flags": [
           "Healing",
-          "Cleanse"
-        ]
+          "Cleanse",
+          "Anti-Undead"
+        ],
+        "description": "Heal an ally's HP and cleanse all status ailments. Deals heavy magic damage to Undead."
       },
       {
-        "name": "Resurrection",
+        "name": "Innocent Ray",
         "apCost": 2,
-        "potency": 100,
-        "target": "Fallen Ally",
-        "description": "Revives a fallen ally with 50% HP.",
+        "potency": 150,
+        "target": "Enemy Column",
         "flags": [
-          "Revive"
-        ]
+          "Magical",
+          "Column"
+        ],
+        "description": "Blast a radiant pillar of light piercing through an enemy column."
+      },
+      {
+        "name": "Curative Heal",
+        "apCost": 1,
+        "potency": 120,
+        "target": "Single Ally",
+        "flags": [
+          "Healing"
+        ],
+        "description": "Restore high HP to target ally and grant continuous HP regeneration."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Quick Impetus",
-        "ppCost": 3,
-        "trigger": "When Ally Channels Charge",
-        "description": "Immediately grants +100% Turn Bar to the charging ally and refunds 1 AP via Cat-Ear Hood."
+        "name": "Passive Supply",
+        "ppCost": 1,
+        "trigger": "Start of Turn",
+        "flags": [
+          "Support",
+          "PP Grant"
+        ],
+        "description": "Transfer 1 Passive Point to an ally with low PP."
       },
       {
-        "name": "Holy Guard",
+        "name": "Quick Heal",
         "ppCost": 1,
-        "trigger": "Before Ally Attacked",
-        "description": "Grants a protective barrier shielding an ally."
+        "trigger": "When Ally Attacked",
+        "flags": [
+          "Reactive Healing"
+        ],
+        "description": "Immediately heal an ally when they sustain significant damage."
+      },
+      {
+        "name": "Parting Resurrection",
+        "ppCost": 2,
+        "trigger": "End of Battle",
+        "flags": [
+          "Revive"
+        ],
+        "description": "Resurrect a fallen ally at the conclusion of combat with 50% HP."
       }
     ],
     "bestGrowthTypes": [
       "Guardian",
-      "Defender"
+      "All-Rounder"
     ],
     "synergiesWith": [
-      "auch-sorcerer",
-      "yahna-sorceress",
-      "hodrick-legionnaire"
+      "High Lord",
+      "Great Knight",
+      "Legionnaire"
     ],
     "recommendedEquipment": [
-      "Cat-Ear Hood",
+      "Sacral Rod",
+      "Blessed Roundshield",
+      "Scarlett's Ribbon",
       "Lapis Pendant"
     ],
-    "overview": "Promoted from Cleric to Bishop. The essential accelerator in Turn-1 nuke strategies through Cat-Ear Hood Quick Impetus."
+    "overview": "Scarlett's unique high priestess class. Combines column magic nuking with supreme single-target sustain, ailment dispelling, and passive PP supply.",
+    "image": "/images/characters/high-priestess.png"
   },
   {
-    "id": "hodrick-legionnaire",
-    "image": "/images/characters/legionnaire.png",
-    "name": "Hodrick (Legionnaire)",
-    "category": "Armored",
-    "role": "Tank",
-    "tier": "SS",
-    "icon": "🛡️",
+    "id": "great-knight",
+    "name": "Great Knight",
+    "category": "Promoted",
+    "role": "Physical DPS",
+    "tier": "S+",
+    "icon": "🐎",
     "baseStats": {
-      "hp": 120,
-      "physAtk": 70,
-      "magAtk": 20,
-      "physDef": 105,
+      "hp": 102,
+      "physAtk": 92,
+      "magAtk": 25,
+      "physDef": 75,
       "magDef": 45,
-      "initiative": 18,
-      "evasion": 10,
-      "critRate": 8
+      "initiative": 40,
+      "evasion": 30,
+      "critRate": 15
     },
     "activeSkills": [
       {
-        "name": "Heavy Shield Bash",
+        "name": "Assaulting Lance",
         "apCost": 1,
         "potency": 100,
         "target": "Single Enemy",
-        "description": "Bashes an enemy with tower shield and inflicts Stun.",
         "flags": [
           "Physical",
-          "Stun"
-        ]
+          "AP On Kill"
+        ],
+        "description": "Powerful spear strike that restores +1 AP upon defeating the target."
       },
       {
-        "name": "Fortress Wall",
+        "name": "Wild Rush",
+        "apCost": 2,
+        "potency": 150,
+        "target": "Enemy Column",
+        "flags": [
+          "Physical",
+          "Column",
+          "Stun",
+          "Anti-Infantry"
+        ],
+        "description": "Trample through an enemy column with 200% bonus damage to infantry and inflict Stun."
+      },
+      {
+        "name": "Pile Thrust",
+        "apCost": 1,
+        "potency": 120,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Armor Piercing"
+        ],
+        "description": "Heavy thrust piercing through 30% of target Physical Defense."
+      }
+    ],
+    "passiveSkills": [
+      {
+        "name": "Knight's Pursuit",
+        "ppCost": 1,
+        "trigger": "After Ally Attacks",
+        "flags": [
+          "Pursuit",
+          "Cavalry"
+        ],
+        "description": "Trample in with a pursuit spear strike following an ally's attack."
+      },
+      {
+        "name": "Cavalry Call",
+        "ppCost": 1,
+        "trigger": "Start of Battle",
+        "isStartOfBattle": true,
+        "flags": [
+          "Buff",
+          "Cavalry"
+        ],
+        "description": "Increase Physical Attack of all cavalry allies in the squad by 20%."
+      }
+    ],
+    "bestGrowthTypes": [
+      "Offensive",
+      "All-Rounder"
+    ],
+    "synergiesWith": [
+      "High Lord",
+      "Sergeant",
+      "Radiant Knight"
+    ],
+    "recommendedEquipment": [
+      "Dragoon's Warspear",
+      "Chivalric Shield",
+      "Heavensteed Reins",
+      "Carnelian Pendant"
+    ],
+    "overview": "Devastating cavalry powerhouse. Wild Rush column sweeps annihilate infantry, while Assaulting Lance chains kills.",
+    "image": "/images/characters/great-knight.png"
+  },
+  {
+    "id": "sergeant",
+    "name": "Sergeant",
+    "category": "Promoted",
+    "role": "Support",
+    "tier": "SS",
+    "icon": "🚩",
+    "baseStats": {
+      "hp": 88,
+      "physAtk": 78,
+      "magAtk": 35,
+      "physDef": 60,
+      "magDef": 60,
+      "initiative": 44,
+      "evasion": 40,
+      "critRate": 20
+    },
+    "activeSkills": [
+      {
+        "name": "Javelin",
+        "apCost": 1,
+        "potency": 100,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Ranged"
+        ],
+        "description": "Hurl a spear at any target, ignoring frontline protection."
+      },
+      {
+        "name": "Long Thrust",
+        "apCost": 1,
+        "potency": 120,
+        "target": "Enemy Column",
+        "flags": [
+          "Physical",
+          "Column",
+          "Truestrike"
+        ],
+        "description": "Pierce through an enemy column with 100% Truestrike accuracy."
+      },
+      {
+        "name": "Wide Needle",
+        "apCost": 2,
+        "potency": 150,
+        "target": "Enemy Row",
+        "flags": [
+          "Physical",
+          "Row"
+        ],
+        "description": "Sweep spear across an entire enemy row, piercing armor."
+      }
+    ],
+    "passiveSkills": [
+      {
+        "name": "Keen Call",
+        "ppCost": 1,
+        "trigger": "When Ally Attacks",
+        "flags": [
+          "Buff",
+          "Guaranteed Crit"
+        ],
+        "description": "Grant 100% Guaranteed Critical Hit on an attacking ally's active skill."
+      },
+      {
+        "name": "First Aid",
+        "ppCost": 1,
+        "trigger": "End of Battle",
+        "flags": [
+          "Healing"
+        ],
+        "description": "Heal all wounded squad members for 25% HP at the end of combat."
+      },
+      {
+        "name": "Active Supply",
+        "ppCost": 1,
+        "trigger": "Start of Turn",
+        "flags": [
+          "Support",
+          "AP Grant"
+        ],
+        "description": "Grant +1 AP to an adjacent ally."
+      }
+    ],
+    "bestGrowthTypes": [
+      "Speedster",
+      "Guardian"
+    ],
+    "synergiesWith": [
+      "High Lord",
+      "Great Knight",
+      "Swordmaster",
+      "Breaker"
+    ],
+    "recommendedEquipment": [
+      "Sacral Spear",
+      "Chloe's Charm",
+      "Dove Plume",
+      "Lapis Pendant"
+    ],
+    "overview": "The core engine of burst damage teams. Keen Call guarantees critical hits for heavy nukers, while Long Thrust pierces evasion units.",
+    "image": "/images/characters/soldier.png"
+  },
+  {
+    "id": "legionnaire",
+    "name": "Legionnaire",
+    "category": "Promoted",
+    "role": "Tank",
+    "tier": "S+",
+    "icon": "🛡️",
+    "baseStats": {
+      "hp": 120,
+      "physAtk": 65,
+      "magAtk": 15,
+      "physDef": 105,
+      "magDef": 30,
+      "initiative": 18,
+      "evasion": 10,
+      "critRate": 5
+    },
+    "activeSkills": [
+      {
+        "name": "Heavy Slash",
+        "apCost": 1,
+        "potency": 100,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical"
+        ],
+        "description": "Deliver a heavy shield-assisted sword strike."
+      },
+      {
+        "name": "Guard Stance",
         "apCost": 1,
         "potency": 0,
         "target": "Self",
-        "description": "Increases own Guard Rate to 100% and halves all incoming damage.",
         "flags": [
-          "Buff"
-        ]
+          "Self Buff",
+          "Guard 100%"
+        ],
+        "description": "Enter defensive stance, guaranteeing 100% heavy guards on all incoming hits."
       }
     ],
     "passiveSkills": [
@@ -620,46 +562,66 @@ export const CLASSES_DATA: UnitClass[] = [
         "name": "Heavy Cover",
         "ppCost": 1,
         "trigger": "Before Ally Attacked",
-        "description": "Covers an ally and reduces damage taken by 75%."
+        "flags": [
+          "Cover",
+          "Damage Immunity"
+        ],
+        "description": "Cover an ally with Greatshield, taking 0 damage from ranged and physical attacks."
       },
       {
-        "name": "Greatshield Fortitude",
+        "name": "Row Cover",
+        "ppCost": 2,
+        "trigger": "Before Row Attacked",
+        "flags": [
+          "Row Cover",
+          "Protection"
+        ],
+        "description": "Cover an entire row of allies from wide sweep attacks."
+      },
+      {
+        "name": "Indomitable",
         "ppCost": 1,
-        "trigger": "After Guarding",
-        "description": "Recovers 1 PP whenever a heavy guard is triggered."
+        "trigger": "Upon Lethal Damage",
+        "flags": [
+          "Survive"
+        ],
+        "description": "Survive lethal damage with 1 HP remaining."
       }
     ],
     "bestGrowthTypes": [
       "Guardian",
-      "Guardian"
+      "Tough"
     ],
     "synergiesWith": [
-      "sharon-bishop",
-      "selvie-druid",
-      "auch-sorcerer"
+      "Sorcerer",
+      "Sorceress",
+      "Bishop",
+      "Druid"
     ],
     "recommendedEquipment": [
-      "Greatshield of the Maiden",
-      "Heavy Guard Shield"
+      "General's Pike",
+      "Azure Crest Shield",
+      "Azure Crest Shield",
+      "Lapis Pendant"
     ],
-    "overview": "Promoted from Hoplite to Legionnaire. The ultimate impenetrable physical fortress who absorbs all damage aimed at backline casters."
+    "overview": "Impentrable physical fortress. Heavy Cover and Row Cover completely protect fragile backline casters from all physical harm.",
+    "image": "/images/characters/legionnaire.png"
   },
   {
-    "id": "selvie-druid",
-    "image": "/images/characters/selvie-druid.png",
-    "name": "Selvie (Druid)",
-    "category": "Infantry",
+    "id": "druid",
+    "name": "Druid",
+    "category": "Promoted",
     "role": "Debuffer",
     "tier": "SS",
     "icon": "🔮",
     "baseStats": {
       "hp": 75,
       "physAtk": 20,
-      "magAtk": 65,
+      "magAtk": 80,
       "physDef": 40,
-      "magDef": 80,
+      "magDef": 90,
       "initiative": 45,
-      "evasion": 55,
+      "evasion": 35,
       "critRate": 10
     },
     "activeSkills": [
@@ -667,580 +629,170 @@ export const CLASSES_DATA: UnitClass[] = [
         "name": "Defensive Curse",
         "apCost": 1,
         "potency": 0,
-        "target": "Full Row",
-        "description": "Reduces physical and magic defense of an enemy row by 50% and removes Guard.",
+        "target": "Enemy Row",
         "flags": [
           "Debuff",
-          "Row"
-        ]
+          "Row",
+          "Armor Break"
+        ],
+        "description": "Reduce enemy row Physical Defense and Magical Defense by 50% and disable guard."
       },
       {
         "name": "Offensive Curse",
         "apCost": 1,
         "potency": 0,
-        "target": "Full Row",
-        "description": "Reduces physical and magic attack of an enemy row by 50%.",
+        "target": "Enemy Row",
         "flags": [
           "Debuff",
-          "Row"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Sandstorm",
-        "ppCost": 2,
-        "isStartOfBattle": true,
-        "trigger": "Start of Battle",
-        "description": "Start of Battle: Inflicts Blindness on all enemy units, causing their first attack to miss."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Speedster",
-      "Guardian"
-    ],
-    "synergiesWith": [
-      "auch-sorcerer",
-      "yahna-sorceress",
-      "berengaria-renegade"
-    ],
-    "recommendedEquipment": [
-      "Sandstorm Staff",
-      "Lapis Pendant"
-    ],
-    "overview": "Promoted from Shaman to Druid. The undisputed queen of debuffs who strips 50% defenses and blinds enemy teams at battle start."
-  },
-  {
-    "id": "hilda-wyvern-master",
-    "image": "/images/characters/wyvern-master.png",
-    "name": "Hilda (Wyvern Master)",
-    "category": "Flying",
-    "role": "Physical DPS",
-    "tier": "SS",
-    "icon": "🐉",
-    "baseStats": {
-      "hp": 98,
-      "physAtk": 98,
-      "magAtk": 35,
-      "physDef": 75,
-      "magDef": 55,
-      "initiative": 38,
-      "evasion": 60,
-      "critRate": 20
-    },
-    "activeSkills": [
-      {
-        "name": "Dragoon Dive",
-        "apCost": 4,
-        "potency": 220,
-        "target": "All Enemies",
-        "description": "Charged Skill: Takes flight and crashes down dealing colossal physical damage to all 5 enemies.",
-        "flags": [
-          "Physical",
-          "Flying",
-          "AOE"
-        ]
-      },
-      {
-        "name": "Fire Breath",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Row",
-        "description": "Breathes flames across an enemy row inflicting Burn.",
-        "flags": [
-          "Physical",
-          "Burn",
-          "Row"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Dragon Roar",
-        "ppCost": 1,
-        "isStartOfBattle": true,
-        "trigger": "Start of Battle",
-        "description": "Start of Battle: Reduces Initiative of all enemy units by -15."
-      },
-      {
-        "name": "Deflect Airborne",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Evades incoming ground attacks."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "gilbert-prince",
-      "primm-bishop",
-      "fran-gryphon-master"
-    ],
-    "recommendedEquipment": [
-      "Dragoon's War Spear",
-      "Sniper's Amber Lens"
-    ],
-    "overview": "Promoted from Wyvern Knight to Wyvern Master. Channels Dragoon Dive to annihilate entire enemy formations from above."
-  },
-  {
-    "id": "fran-gryphon-master",
-    "image": "/images/characters/gryphon-master.png",
-    "name": "Fran (Gryphon Master)",
-    "category": "Flying",
-    "role": "Physical DPS",
-    "tier": "S+",
-    "icon": "🦅",
-    "baseStats": {
-      "hp": 92,
-      "physAtk": 94,
-      "magAtk": 30,
-      "physDef": 60,
-      "magDef": 65,
-      "initiative": 42,
-      "evasion": 65,
-      "critRate": 22
-    },
-    "activeSkills": [
-      {
-        "name": "High Gale",
-        "apCost": 2,
-        "potency": 150,
-        "target": "Row",
-        "description": "Sweeps an enemy row dealing 200% bonus damage to cavalry units.",
-        "flags": [
-          "Physical",
-          "Flying",
-          "Anti-Cavalry",
-          "Row"
-        ]
-      },
-      {
-        "name": "Aerial Slicer",
-        "apCost": 1,
-        "potency": 110,
-        "target": "Single Enemy",
-        "description": "Swift axe strike targeting backline units directly.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Tailwind Boost",
-        "ppCost": 1,
-        "trigger": "Start of Turn",
-        "description": "Increases own Initiative and physical attack."
-      },
-      {
-        "name": "Winged Evasion",
-        "ppCost": 1,
-        "trigger": "When Attacked",
-        "description": "Grants 100% evasion against ground melee strikes."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Speedster"
-    ],
-    "synergiesWith": [
-      "hilda-wyvern-master",
-      "gilbert-prince",
-      "miriam-sainted-knight"
-    ],
-    "recommendedEquipment": [
-      "Boreas's Axe",
-      "Wingline Standard"
-    ],
-    "overview": "Promoted from Gryphon Knight to Gryphon Master. Sweeps enemy backlines and demolishes enemy cavalry with High Gale."
-  },
-  {
-    "id": "miriam-sainted-knight",
-    "image": "/images/characters/sainted-knight.png",
-    "name": "Miriam (Sainted Knight)",
-    "category": "Cavalry",
-    "role": "Support",
-    "tier": "S+",
-    "icon": "🛡️",
-    "baseStats": {
-      "hp": 94,
-      "physAtk": 65,
-      "magAtk": 80,
-      "physDef": 70,
-      "magDef": 92,
-      "initiative": 36,
-      "evasion": 35,
-      "critRate": 12
-    },
-    "activeSkills": [
-      {
-        "name": "Row Heal",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Row",
-        "description": "Restores HP to an entire row of allies.",
-        "flags": [
-          "Healing",
-          "Row"
-        ]
-      },
-      {
-        "name": "Holy Blade",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Attacks with magic sword and recovers HP.",
-        "flags": [
-          "Magical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Magic Barrier",
-        "ppCost": 1,
-        "trigger": "When Ally Hit by Magic",
-        "description": "Nullifies magic damage aimed at an allied row."
-      },
-      {
-        "name": "Row Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Increases squad Magic Defense by +30%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Defender",
-      "All-Rounder"
-    ],
-    "synergiesWith": [
-      "hilda-wyvern-master",
-      "primm-bishop",
-      "gilbert-prince"
-    ],
-    "recommendedEquipment": [
-      "Runic Sword",
-      "Radiant Shield"
-    ],
-    "overview": "Promoted from Radiant Knight to Sainted Knight. Grants total squad immunity against enemy magic nukes while healing frontline fliers."
-  },
-  {
-    "id": "primm-bishop",
-    "image": "/images/characters/cleric.png",
-    "name": "Primm (Bishop)",
-    "category": "Infantry",
-    "role": "Support",
-    "tier": "S+",
-    "icon": "🕊️",
-    "baseStats": {
-      "hp": 76,
-      "physAtk": 24,
-      "magAtk": 84,
-      "physDef": 48,
-      "magDef": 92,
-      "initiative": 30,
-      "evasion": 30,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Quick Refresh",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Ally",
-        "description": "Cleanses all debuffs and restores health.",
-        "flags": [
-          "Healing",
-          "Cleanse"
-        ]
-      },
-      {
-        "name": "Holy Shield",
-        "apCost": 1,
-        "potency": 0,
-        "target": "Row",
-        "description": "Grants a 1-hit nullification barrier to a row of allies.",
-        "flags": [
-          "Barrier"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Quick Impetus",
-        "ppCost": 3,
-        "trigger": "When Ally Channels Charge",
-        "description": "Instantly fires Hilda's Dragoon Dive via White Cat-Ear Hood."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Guardian",
-      "Speedster"
-    ],
-    "synergiesWith": [
-      "hilda-wyvern-master",
-      "gilbert-prince",
-      "fran-gryphon-master"
-    ],
-    "recommendedEquipment": [
-      "White Cat-Ear Hood",
-      "Lapis Pendant"
-    ],
-    "overview": "Promoted from Cleric to Bishop. The turn accelerator for Hilda's Turn-1 Dragoon Dive bombardment."
-  },
-  {
-    "id": "gilbert-prince",
-    "image": "/images/characters/gilbert-prince.png",
-    "name": "Gilbert (Prince)",
-    "category": "Cavalry",
-    "role": "Support",
-    "tier": "SS",
-    "icon": "👑",
-    "baseStats": {
-      "hp": 95,
-      "physAtk": 60,
-      "magAtk": 50,
-      "physDef": 70,
-      "magDef": 65,
-      "initiative": 46,
-      "evasion": 45,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Offensive Order",
-        "apCost": 1,
-        "potency": 0,
-        "target": "All Allies",
-        "description": "Increases physical and magic attack of all allies by +20%.",
-        "flags": [
-          "Buff"
-        ]
-      },
-      {
-        "name": "Defensive Order",
-        "apCost": 1,
-        "potency": 0,
-        "target": "All Allies",
-        "description": "Increases physical and magic defense of all allies by +20%.",
-        "flags": [
-          "Buff"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Rapid Order",
-        "ppCost": 1,
-        "isStartOfBattle": true,
-        "trigger": "Start of Battle",
-        "description": "Start of Battle: Increases Initiative of all allies by +15."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Speedster",
-      "Guardian"
-    ],
-    "synergiesWith": [
-      "hilda-wyvern-master",
-      "fran-gryphon-master",
-      "miriam-sainted-knight"
-    ],
-    "recommendedEquipment": [
-      "Royal Banner",
-      "Lapis Pendant"
-    ],
-    "overview": "Unique Prince class giving start-of-battle initiative dominance (+15 Initiative) and massive squad attack buffs (+20% Atk)."
-  },
-  {
-    "id": "berengaria-renegade",
-    "image": "/images/characters/berengaria-renegade.png",
-    "name": "Berengaria (Dark Marquess - Axe)",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "tier": "SS",
-    "icon": "⛓️",
-    "baseStats": {
-      "hp": 105,
-      "physAtk": 96,
-      "magAtk": 25,
-      "physDef": 75,
-      "magDef": 50,
-      "initiative": 35,
-      "evasion": 35,
-      "critRate": 20
-    },
-    "activeSkills": [
-      {
-        "name": "Death Spin",
-        "apCost": 1,
-        "potency": 120,
-        "target": "Full Row",
-        "description": "Deals physical damage to a full row. Deals +50% extra damage if targets are afflicted with debuffs.",
-        "flags": [
-          "Physical",
-          "Row"
-        ]
-      },
-      {
-        "name": "Sanguine Pursuit",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Attacks and recovers 1 PP upon landing a hit on afflicted enemies.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Eye of the Crimson Bear",
-        "ppCost": 1,
-        "isStartOfBattle": true,
-        "trigger": "Start of Battle",
-        "description": "Start of Battle: Inflicts Atk/Def debuff (-20%) and Initiative debuff (-10) on all enemies."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "travis-rogue",
-      "nina-breaker",
-      "liza-shieldshooter"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Greataxe",
-      "Executioner's Eye"
-    ],
-    "overview": "Dominates debuffed teams with Eye of the Crimson Bear start-of-battle debuff and endless pursuit executions."
-  },
-  {
-    "id": "travis-rogue",
-    "image": "/images/characters/rogue.png",
-    "name": "Travis (Rogue)",
-    "category": "Infantry",
-    "role": "Debuffer",
-    "tier": "SS",
-    "icon": "🗡️",
-    "baseStats": {
-      "hp": 80,
-      "physAtk": 78,
-      "magAtk": 20,
-      "physDef": 45,
-      "magDef": 45,
-      "initiative": 48,
-      "evasion": 95,
-      "critRate": 25
-    },
-    "activeSkills": [
-      {
-        "name": "Shadowbite",
-        "apCost": 2,
-        "potency": 100,
-        "target": "Row",
-        "description": "Attacks an enemy row and inflicts Blindness & Affliction.",
-        "flags": [
-          "Physical",
           "Row",
-          "Blind"
-        ]
+          "Attack Break"
+        ],
+        "description": "Reduce enemy row Physical Attack and Magical Attack by 50%."
       },
       {
-        "name": "Passive Steal",
+        "name": "Gravity",
         "apCost": 1,
-        "potency": 80,
-        "target": "Single Enemy",
-        "description": "Steals 1 PP from the enemy and grants it to self.",
+        "potency": 0,
+        "target": "Enemy Row",
         "flags": [
-          "Physical",
-          "Steal"
-        ]
+          "Debuff",
+          "Initiative Down"
+        ],
+        "description": "Reduce enemy row Initiative by 20 and drain 1 AP."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Evade",
+        "name": "Quick Curse",
         "ppCost": 1,
-        "trigger": "When Attacked",
-        "description": "Completely dodges 1 incoming physical attack.",
+        "trigger": "Before Enemy Attacks",
         "flags": [
-          "Dodge"
-        ]
+          "Reaction",
+          "Debuff"
+        ],
+        "description": "Reduce an enemy's damage output by 50% immediately before they hit."
       },
       {
-        "name": "Sneak Attack",
-        "ppCost": 1,
+        "name": "Cursed Swamp",
+        "ppCost": 2,
         "trigger": "Start of Battle",
-        "description": "Inflicts defense debuff on target."
+        "isStartOfBattle": true,
+        "flags": [
+          "Start of Battle",
+          "Row Debuff"
+        ],
+        "description": "At Start of Battle, reduce all ground enemies' Initiative by 15 and remove their Guard capability."
+      },
+      {
+        "name": "Parting Curse",
+        "ppCost": 1,
+        "trigger": "Upon Death",
+        "flags": [
+          "Retaliation Debuff"
+        ],
+        "description": "Inflict heavy stat debuffs on all enemies upon falling."
       }
     ],
     "bestGrowthTypes": [
       "Speedster",
-      "Speedster"
+      "Guardian"
     ],
     "synergiesWith": [
-      "berengaria-renegade",
-      "nina-breaker",
-      "liza-shieldshooter"
+      "Sorcerer",
+      "Sorceress",
+      "Legionnaire",
+      "Berengaria"
     ],
     "recommendedEquipment": [
-      "Poisoner's Dagger",
-      "Raven Plume"
+      "Dustbound Staff",
+      "Druid's Robes",
+      "Dustbound Staff",
+      "Lapis Pendant"
     ],
-    "overview": "Promoted from Thief to Rogue. Blinds entire enemy rows with Shadowbite and acts as an untouchable evasion tank."
+    "overview": "Selvie's class. The most dominant debuffer in the game. Strips 50% of enemy defenses and negates enemy turn advantage with Cursed Swamp.",
+    "image": "/images/characters/selvie-druid.png"
   },
   {
-    "id": "nina-breaker",
-    "image": "/images/characters/breaker.png",
-    "name": "Nina (Breaker)",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "tier": "S+",
-    "icon": "🔨",
+    "id": "sorcerer",
+    "name": "Sorcerer",
+    "category": "Promoted",
+    "role": "Magic DPS",
+    "tier": "SS",
+    "icon": "⚡",
     "baseStats": {
-      "hp": 96,
-      "physAtk": 108,
-      "magAtk": 15,
-      "physDef": 60,
-      "magDef": 35,
-      "initiative": 28,
+      "hp": 74,
+      "physAtk": 20,
+      "magAtk": 105,
+      "physDef": 30,
+      "magDef": 95,
+      "initiative": 33,
       "evasion": 25,
       "critRate": 20
     },
     "activeSkills": [
       {
-        "name": "Enraged Strike",
+        "name": "Fireball",
         "apCost": 1,
-        "potency": 150,
+        "potency": 100,
         "target": "Single Enemy",
-        "description": "Shatters enemy armor, bypassing 100% of Physical Defense.",
         "flags": [
-          "Physical",
-          "Armor-Pierce"
-        ]
+          "Magical",
+          "Burn"
+        ],
+        "description": "Cast a blazing fireball that inflicts Burn."
       },
       {
-        "name": "Assault Blow",
-        "apCost": 1,
-        "potency": 120,
-        "target": "Single Enemy",
-        "description": "Crushing blow that refunds 1 AP upon killing the target.",
+        "name": "Flame Burst",
+        "apCost": 2,
+        "potency": 150,
+        "target": "Enemy Column",
         "flags": [
-          "Physical"
-        ]
+          "Magical",
+          "Column",
+          "Burn"
+        ],
+        "description": "Explode a column with volcanic flames, inflicting heavy Burn."
+      },
+      {
+        "name": "Volcano",
+        "apCost": 3,
+        "potency": 200,
+        "target": "All Enemies",
+        "flags": [
+          "Magical",
+          "All Enemies",
+          "Charge"
+        ],
+        "description": "Erupt a massive volcano raining fiery devastation on all enemies."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Heavy Impact",
+        "name": "Focus Sight",
         "ppCost": 1,
-        "trigger": "After Attack",
-        "description": "Increases own physical attack by +15% per hit landed."
+        "trigger": "Before Active Action",
+        "flags": [
+          "Truestrike"
+        ],
+        "description": "Grant 100% Truestrike and +30% Magic Crit to next active spell."
+      },
+      {
+        "name": "Sorcerous Connection",
+        "ppCost": 1,
+        "trigger": "When Ally Casts Magic",
+        "flags": [
+          "Magic Boost"
+        ],
+        "description": "Grant +50% Magic Attack and +30% Magic Crit to casting ally."
+      },
+      {
+        "name": "Magic Pursuit",
+        "ppCost": 1,
+        "trigger": "After Ally Attacks",
+        "flags": [
+          "Magic Pursuit"
+        ],
+        "description": "Follow up an ally's strike with a magical bolt."
       }
     ],
     "bestGrowthTypes": [
@@ -1248,552 +800,777 @@ export const CLASSES_DATA: UnitClass[] = [
       "Offensive"
     ],
     "synergiesWith": [
-      "berengaria-renegade",
-      "travis-rogue",
-      "bruno-berserker"
+      "Sorceress",
+      "Bishop",
+      "Legionnaire",
+      "Druid"
     ],
     "recommendedEquipment": [
-      "Juggernaut",
+      "Millenium Scepter",
+      "Sniper's Amber Lens",
+      "Black Cat-Ear Hood",
       "Carnelian Pendant"
     ],
-    "overview": "Promoted from Warrior to Breaker. Obliterates armored Legionnaires with 100% defense-bypassing Enraged Strike."
+    "overview": "Auch's class. Supreme magic damage dealer capable of board-wiping with Millenium Scepter's Trinity Rain when fueled by Quick Impetus.",
+    "image": "/images/characters/warlock.png"
   },
   {
-    "id": "liza-shieldshooter",
-    "image": "/images/characters/arbalist.png",
-    "name": "Liza (Shieldshooter)",
-    "category": "Infantry",
+    "id": "sorceress",
+    "name": "Sorceress",
+    "category": "Promoted",
     "role": "Support",
-    "tier": "S+",
-    "icon": "🏹",
+    "tier": "SS",
+    "icon": "🧙‍♀️",
     "baseStats": {
-      "hp": 90,
-      "physAtk": 84,
-      "magAtk": 30,
-      "physDef": 72,
-      "magDef": 55,
-      "initiative": 32,
-      "evasion": 30,
-      "critRate": 15
-    },
-    "activeSkills": [
-      {
-        "name": "Medical Shot",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Ally",
-        "description": "Fires healing medicinal bolt restoring ally HP and removing afflictions.",
-        "flags": [
-          "Healing"
-        ]
-      },
-      {
-        "name": "Heavy Bolt",
-        "apCost": 1,
-        "potency": 120,
-        "target": "Flying Enemy",
-        "description": "Deals 200% damage to flying targets.",
-        "flags": [
-          "Physical",
-          "Anti-Flying"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Greatshield Cover",
-        "ppCost": 1,
-        "trigger": "Before Ally Attacked",
-        "description": "Covers backline ally with heavy shield."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Guardian",
-      "Defender"
-    ],
-    "synergiesWith": [
-      "berengaria-renegade",
-      "travis-rogue"
-    ],
-    "recommendedEquipment": [
-      "First Aid Kit",
-      "Lapis Pendant"
-    ],
-    "overview": "Promoted from Arbalist to Shieldshooter. Provides cross-field healing bolts and shields allies with greatshield cover."
-  },
-  {
-    "id": "bruno-berserker",
-    "image": "/images/characters/berserker.png",
-    "name": "Bruno (Berserker)",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "tier": "S+",
-    "icon": "🪓",
-    "baseStats": {
-      "hp": 125,
-      "physAtk": 102,
-      "magAtk": 10,
-      "physDef": 55,
-      "magDef": 30,
-      "initiative": 25,
-      "evasion": 20,
+      "hp": 72,
+      "physAtk": 22,
+      "magAtk": 98,
+      "physDef": 32,
+      "magDef": 92,
+      "initiative": 40,
+      "evasion": 38,
       "critRate": 18
     },
     "activeSkills": [
       {
-        "name": "Wide Smash",
+        "name": "Ice Coffin",
         "apCost": 2,
-        "potency": 140,
-        "target": "Row",
-        "description": "Devastating greataxe swing hitting an entire enemy row.",
+        "potency": 150,
+        "target": "Single Enemy",
         "flags": [
-          "Physical",
-          "Row"
-        ]
+          "Magical",
+          "Freeze"
+        ],
+        "description": "Trap an enemy in an ice crystal, inflicting Freeze."
       },
       {
-        "name": "Heavy Swing",
+        "name": "Thunderous",
         "apCost": 1,
-        "potency": 110,
+        "potency": 100,
         "target": "Single Enemy",
-        "description": "High damage strike with armor break.",
         "flags": [
-          "Physical"
-        ]
+          "Magical",
+          "Stun"
+        ],
+        "description": "Strike target with lightning and inflict Stun."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Bulk Up",
+        "name": "Magic Weapon",
         "ppCost": 1,
-        "trigger": "Start of Turn",
-        "description": "Restores 30% of max HP and cures all status afflictions."
+        "trigger": "When Ally Attacks",
+        "flags": [
+          "Buff",
+          "Magic Infusion"
+        ],
+        "description": "Infuse an ally's physical attack with +50 potency magical damage."
       },
       {
-        "name": "Toughness",
+        "name": "Focus Sight",
         "ppCost": 1,
-        "trigger": "Before Fatal Hit",
-        "description": "Survives lethal blow with 1 HP remaining."
+        "trigger": "When Ally Attacks",
+        "flags": [
+          "Buff",
+          "Truestrike"
+        ],
+        "description": "Grant 100% Truestrike and +30% Crit to an attacking ally."
+      },
+      {
+        "name": "Quick Impetus",
+        "ppCost": 2,
+        "trigger": "When Ally Charges",
+        "flags": [
+          "Instant Turn",
+          "Meta Core"
+        ],
+        "description": "Trigger Cat-Ear Hood to give charging ally an instant action."
       }
     ],
     "bestGrowthTypes": [
-      "Offensive",
+      "Speedster",
       "Guardian"
     ],
     "synergiesWith": [
-      "berengaria-renegade",
-      "nina-breaker"
+      "Sorcerer",
+      "Legionnaire",
+      "Bishop",
+      "Druid"
     ],
     "recommendedEquipment": [
-      "Dragonbone Axe",
-      "Carnelian Pendant"
+      "Black Cat-Ear Hood",
+      "Familiar's Choker",
+      "Lapis Pendant",
+      "Dove Plume"
     ],
-    "overview": "Promoted from Gladiator to Berserker. Boasts colossal HP pools, row-wide greataxe cleaves, and self-healing Bulk Up."
+    "overview": "Yahna's class. Enables Trinity Rain / Glacial Rain instant turns via Cat-Ear Hood Quick Impetus and buffs magic attack.",
+    "image": "/images/characters/sorceress.png"
   },
   {
-    "id": "virginia-valkyria",
-    "image": "/images/characters/valkyria.png",
-    "name": "Virginia (Valkyria)",
-    "category": "Infantry",
+    "id": "bishop",
+    "name": "Bishop",
+    "category": "Promoted",
+    "role": "Support",
+    "tier": "S+",
+    "icon": "⛪",
+    "baseStats": {
+      "hp": 78,
+      "physAtk": 25,
+      "magAtk": 88,
+      "physDef": 42,
+      "magDef": 98,
+      "initiative": 34,
+      "evasion": 30,
+      "critRate": 8
+    },
+    "activeSkills": [
+      {
+        "name": "Heal",
+        "apCost": 1,
+        "potency": 100,
+        "target": "Single Ally",
+        "flags": [
+          "Healing"
+        ],
+        "description": "Restore 100% Mag Atk HP to target ally."
+      },
+      {
+        "name": "Row Heal",
+        "apCost": 2,
+        "potency": 100,
+        "target": "Ally Row",
+        "flags": [
+          "Healing",
+          "Row"
+        ],
+        "description": "Restore HP to an entire row of allies."
+      },
+      {
+        "name": "Refresh",
+        "apCost": 1,
+        "potency": 0,
+        "target": "Ally Row",
+        "flags": [
+          "Cleanse",
+          "Row"
+        ],
+        "description": "Cleanse all status ailments and debuffs from an ally row."
+      }
+    ],
+    "passiveSkills": [
+      {
+        "name": "Quick Heal",
+        "ppCost": 1,
+        "trigger": "When Ally Attacked",
+        "flags": [
+          "Reaction Healing"
+        ],
+        "description": "Immediately cast a healing light on damaged ally."
+      },
+      {
+        "name": "Sacred Barrier",
+        "ppCost": 1,
+        "trigger": "Start of Battle",
+        "isStartOfBattle": true,
+        "flags": [
+          "Barrier"
+        ],
+        "description": "Absorb up to 2 instances of incoming magic or physical damage for allies."
+      },
+      {
+        "name": "Endure",
+        "ppCost": 1,
+        "trigger": "Upon Lethal Damage",
+        "flags": [
+          "Survive"
+        ],
+        "description": "Survive lethal damage with 1 HP."
+      }
+    ],
+    "bestGrowthTypes": [
+      "Guardian",
+      "Guardian"
+    ],
+    "synergiesWith": [
+      "Legionnaire",
+      "Sorcerer",
+      "Sorceress"
+    ],
+    "recommendedEquipment": [
+      "Sacral Rod",
+      "Archbishop's Mitre",
+      "Holy Broach",
+      "Lapis Pendant"
+    ],
+    "overview": "Sharon's class. Supreme dedicated group healer and debuff cleanser with Row Heal and Refresh.",
+    "image": "/images/characters/bishop.png"
+  },
+  {
+    "id": "valkyria",
+    "name": "Valkyria",
+    "category": "Unique",
     "role": "Tank",
     "tier": "SS",
-    "icon": "👑",
+    "icon": "🛡️",
     "baseStats": {
-      "hp": 108,
-      "physAtk": 92,
+      "hp": 100,
+      "physAtk": 88,
       "magAtk": 40,
-      "physDef": 95,
-      "magDef": 70,
-      "initiative": 35,
-      "evasion": 35,
+      "physDef": 85,
+      "magDef": 75,
+      "initiative": 36,
+      "evasion": 40,
       "critRate": 20
     },
     "activeSkills": [
       {
-        "name": "Maiden's Hammer",
-        "apCost": 2,
-        "potency": 150,
-        "target": "Guarding Enemy",
-        "description": "Shatters enemy guard and deals 200% bonus damage to shielded foes.",
-        "flags": [
-          "Physical",
-          "Guard-Break"
-        ]
-      },
-      {
         "name": "Vertical Edge",
         "apCost": 1,
-        "potency": 110,
-        "target": "Column",
-        "description": "Strikes through an enemy column with dual blades.",
+        "potency": 120,
+        "target": "Single Enemy",
         "flags": [
           "Physical",
-          "Column"
-        ]
+          "Anti-Flying",
+          "Anti-Infantry"
+        ],
+        "description": "Vertical overhead slash dealing bonus damage against flying and infantry."
+      },
+      {
+        "name": "Maiden's Hammer",
+        "apCost": 2,
+        "potency": 180,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Guard Break",
+          "Anti-Armor"
+        ],
+        "description": "Shatter enemy guard with a crushing blow that ignores physical defense on armored targets."
+      },
+      {
+        "name": "Shield Smite",
+        "apCost": 1,
+        "potency": 130,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Stun"
+        ],
+        "description": "Smash target with dual shields, inflicting Stun."
       }
     ],
     "passiveSkills": [
       {
         "name": "Iron Veil",
         "ppCost": 1,
-        "isStartOfBattle": true,
         "trigger": "Start of Battle",
-        "description": "Start of Battle: Increases physical and guard defense of entire squad by +30%."
+        "isStartOfBattle": true,
+        "flags": [
+          "Start of Battle",
+          "Buff",
+          "Defense"
+        ],
+        "description": "At Start of Battle, grant all squad allies +30% Physical Defense and +20% Guard Rate."
       },
       {
-        "name": "Retaliation Counter",
+        "name": "Impassioned Guard",
         "ppCost": 1,
-        "trigger": "After Guarding Strike",
-        "description": "Launches an immediate high potency counterattack."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Guardian"
-    ],
-    "synergiesWith": [
-      "leah-swordmaster",
-      "kitra-breaker",
-      "rolf-sniper",
-      "colm-vanguard"
-    ],
-    "recommendedEquipment": [
-      "Maiden's Sword",
-      "Rose Shield"
-    ],
-    "overview": "Promoted from Crusader to Valkyria. Dual-wields sword and shield to create an impenetrable counter-attack fortress."
-  },
-  {
-    "id": "leah-swordmaster",
-    "image": "/images/characters/swordmaster.png",
-    "name": "Leah (Swordmaster)",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "tier": "S+",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 80,
-      "physAtk": 90,
-      "magAtk": 28,
-      "physDef": 50,
-      "magDef": 48,
-      "initiative": 48,
-      "evasion": 70,
-      "critRate": 35
-    },
-    "activeSkills": [
-      {
-        "name": "Meteor Slash",
-        "apCost": 2,
-        "potency": 180,
-        "target": "Single Enemy",
-        "description": "9-hit rapid sword thrust flurry with high critical scaling.",
+        "trigger": "Before Attacked",
         "flags": [
-          "Physical",
-          "Multi-Hit"
-        ]
-      }
-    ],
-    "passiveSkills": [
+          "Heavy Guard",
+          "AP Gain"
+        ],
+        "description": "Execute a heavy guard, take reduced damage, and gain +1 AP."
+      },
       {
-        "name": "Parrying Slash",
+        "name": "Unwavering Stance",
         "ppCost": 1,
-        "trigger": "When Attacked by Melee",
-        "description": "Negates 100% damage and counters instantly.",
+        "trigger": "Passive",
         "flags": [
-          "Parry"
-        ]
-      }
-    ],
-    "bestGrowthTypes": [
-      "Keen",
-      "Offensive"
-    ],
-    "synergiesWith": [
-      "virginia-valkyria",
-      "kitra-breaker"
-    ],
-    "recommendedEquipment": [
-      "Parrying Amulet",
-      "Carnelian Pendant"
-    ],
-    "overview": "Promoted from Swordfighter to Swordmaster. Punishes incoming melee attacks with lethal parries and True Strike."
-  },
-  {
-    "id": "kitra-breaker",
-    "image": "/images/characters/breaker.png",
-    "name": "Kitra (Breaker)",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "tier": "S+",
-    "icon": "🔨",
-    "baseStats": {
-      "hp": 95,
-      "physAtk": 106,
-      "magAtk": 15,
-      "physDef": 62,
-      "magDef": 36,
-      "initiative": 27,
-      "evasion": 22,
-      "critRate": 20
-    },
-    "activeSkills": [
-      {
-        "name": "Enraged Strike",
-        "apCost": 1,
-        "potency": 150,
-        "target": "Armored Enemy",
-        "description": "Ignores 100% of enemy physical defense.",
-        "flags": [
-          "Physical",
-          "Armor-Pierce"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Heavy Smash",
-        "ppCost": 1,
-        "trigger": "After Attack",
-        "description": "Increases own physical attack."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Offensive"
-    ],
-    "synergiesWith": [
-      "virginia-valkyria",
-      "rolf-sniper"
-    ],
-    "recommendedEquipment": [
-      "Meteorite Axe",
-      "Carnelian Pendant"
-    ],
-    "overview": "Promoted from Warrior to Breaker. High-potency armor crusher supporting Virginia's frontline counter squad."
-  },
-  {
-    "id": "rolf-sniper",
-    "image": "/images/characters/sniper.png",
-    "name": "Rolf (Sniper)",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "tier": "S+",
-    "icon": "🏹",
-    "baseStats": {
-      "hp": 82,
-      "physAtk": 92,
-      "magAtk": 25,
-      "physDef": 50,
-      "magDef": 50,
-      "initiative": 44,
-      "evasion": 40,
-      "critRate": 28
-    },
-    "activeSkills": [
-      {
-        "name": "Aerial Snipe",
-        "apCost": 1,
-        "potency": 120,
-        "target": "Flying Enemy",
-        "description": "Deals 200% critical damage to flying foes with True Strike.",
-        "flags": [
-          "Physical",
-          "Anti-Flying",
-          "True-Strike"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Eagle Eye",
-        "ppCost": 1,
-        "trigger": "Before Attack",
-        "description": "Guarantees True Strike and 100% Critical Hit."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "virginia-valkyria",
-      "colm-vanguard"
-    ],
-    "recommendedEquipment": [
-      "Apeliotes's Bow",
-      "Sniper's Amber Lens"
-    ],
-    "overview": "Promoted from Hunter to Sniper. Deletes enemy fliers with 100% True Strike precision."
-  },
-  {
-    "id": "colm-vanguard",
-    "image": "/images/characters/vanguard.png",
-    "name": "Colm (Vanguard)",
-    "category": "Infantry",
-    "role": "Tank",
-    "tier": "S+",
-    "icon": "🛡️",
-    "baseStats": {
-      "hp": 98,
-      "physAtk": 78,
-      "magAtk": 20,
-      "physDef": 85,
-      "magDef": 55,
-      "initiative": 32,
-      "evasion": 30,
-      "critRate": 15
-    },
-    "activeSkills": [
-      {
-        "name": "Shield Bash",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Stuns the target with heavy shield impact.",
-        "flags": [
-          "Physical",
-          "Stun"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Arrow Cover",
-        "ppCost": 1,
-        "trigger": "When Ally Targeted by Arrow",
-        "description": "Negates 100% damage from incoming ranged missile attacks."
+          "Immunity"
+        ],
+        "description": "Immune to Stun, Freeze, and Knockback effects."
       }
     ],
     "bestGrowthTypes": [
       "Guardian",
-      "Defender"
+      "Offensive"
     ],
     "synergiesWith": [
-      "virginia-valkyria",
-      "leah-swordmaster"
+      "Swordmaster",
+      "Breaker",
+      "Sniper",
+      "Radiant Knight"
     ],
     "recommendedEquipment": [
-      "Deflect Shield",
-      "Lapis Pendant"
+      "Kingsblade Cornix",
+      "Blue Rose Shield",
+      "Azure Crest Shield",
+      "Rose Broach"
     ],
-    "overview": "Promoted from Fighter to Vanguard. Shields backline allies from anti-infantry and bow strikes with Arrow Cover."
+    "overview": "Virginia's unique dual-shield class. Grants Start-of-Battle squad defense with Iron Veil, counters melee attackers, and shatters guards with Maiden's Hammer.",
+    "image": "/images/characters/valkyria.png"
   },
   {
-    "id": "yunifi-snow-ranger",
-    "image": "/images/characters/yunifi-snow-ranger.png",
-    "name": "Yunifi (Snow Ranger)",
-    "category": "Infantry",
+    "id": "snow-ranger",
+    "name": "Snow Ranger",
+    "category": "Unique",
     "role": "Physical DPS",
     "tier": "SS",
     "icon": "🏹",
     "baseStats": {
-      "hp": 88,
-      "physAtk": 98,
-      "magAtk": 30,
-      "physDef": 50,
-      "magDef": 55,
-      "initiative": 42,
-      "evasion": 65,
-      "critRate": 25
+      "hp": 85,
+      "physAtk": 92,
+      "magAtk": 60,
+      "physDef": 55,
+      "magDef": 65,
+      "initiative": 48,
+      "evasion": 55,
+      "critRate": 30
     },
     "activeSkills": [
       {
         "name": "Glacial Rain",
-        "apCost": 4,
-        "potency": 200,
+        "apCost": 2,
+        "potency": 150,
         "target": "All Enemies",
-        "description": "Charged Skill: Takes 1 turn to prepare, then rains frozen arrows dealing massive physical/ice damage and Freeze to all enemies.",
         "flags": [
           "Physical",
-          "Ranged",
-          "AOE",
+          "Charge",
+          "All Enemies",
           "Freeze"
-        ]
+        ],
+        "description": "Charge a devastating blizzard arrow volley striking all enemies and inflicting Freeze."
       },
       {
-        "name": "Triple Shot",
+        "name": "Triple Snipe",
         "apCost": 2,
-        "potency": 120,
+        "potency": 180,
         "target": "Single Enemy",
-        "description": "Fires 3 consecutive arrows at a single target with increased crit chance.",
         "flags": [
           "Physical",
-          "Ranged"
-        ]
+          "3 Hits"
+        ],
+        "description": "Loose 3 rapid-fire piercing frost arrows at a priority target."
+      },
+      {
+        "name": "Sonic Shaft",
+        "apCost": 1,
+        "potency": 100,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Truestrike"
+        ],
+        "description": "High-speed arrow with guaranteed 100% Truestrike."
       }
     ],
     "passiveSkills": [
       {
         "name": "Triple Counter",
         "ppCost": 1,
-        "trigger": "After Being Attacked",
-        "description": "Fires 3 immediate counterattack arrows with 100% Guaranteed Critical Hit."
+        "trigger": "When Attacked",
+        "flags": [
+          "Counter",
+          "3 Hits"
+        ],
+        "description": "Evade and retaliate with 3 frost counter-arrows against the attacker."
       },
       {
-        "name": "Snow White Guard",
+        "name": "Eagle Eye",
+        "ppCost": 1,
+        "trigger": "Before Active Action",
+        "flags": [
+          "Truestrike",
+          "Guaranteed Crit"
+        ],
+        "description": "Grant 100% Truestrike and 100% Critical Hit on the next arrow attack."
+      },
+      {
+        "name": "White Out",
         "ppCost": 1,
         "trigger": "Start of Battle",
-        "description": "Increases evasion by 30% and grants immunity to Freeze."
+        "isStartOfBattle": true,
+        "flags": [
+          "Start of Battle",
+          "Freeze"
+        ],
+        "description": "At Start of Battle, unleash a snow squall inflicting -20 Initiative on all enemies."
       }
     ],
     "bestGrowthTypes": [
       "Offensive",
-      "Keen"
+      "Speedster"
     ],
     "synergiesWith": [
-      "ramona-wereowl",
-      "ridiel-elven-archer",
-      "bryce-legionnaire"
+      "Wereowl",
+      "Elven Archer",
+      "Shieldshooter"
     ],
     "recommendedEquipment": [
       "Icefall Bow",
-      "Sniper's Amber Lens"
+      "Black Cat-Ear Hood",
+      "Sniper's Amber Lens",
+      "Carnelian Pendant"
     ],
-    "overview": "Unique Bestral Snow Ranger. Freezes entire enemy armies on Turn 1 with Glacial Rain."
+    "overview": "Yunifi's unique Bastorias class. Instant Absolute Zero board-wipe enabler with Glacial Rain, backed by deadly Triple Counter reactions.",
+    "image": "/images/characters/yunifi-snow-ranger.png"
   },
   {
-    "id": "ramona-wereowl",
-    "image": "/images/characters/cleric.png",
-    "name": "Ramona (Wereowl)",
-    "category": "Flying",
-    "role": "Support",
+    "id": "wyvern-master",
+    "name": "Wyvern Master",
+    "category": "Promoted",
+    "role": "Physical DPS",
     "tier": "SS",
-    "icon": "🦉",
+    "icon": "🐉",
     "baseStats": {
-      "hp": 82,
-      "physAtk": 30,
-      "magAtk": 88,
-      "physDef": 45,
-      "magDef": 95,
-      "initiative": 45,
-      "evasion": 65,
-      "critRate": 10
+      "hp": 98,
+      "physAtk": 94,
+      "magAtk": 30,
+      "physDef": 72,
+      "magDef": 40,
+      "initiative": 38,
+      "evasion": 52,
+      "critRate": 20
     },
     "activeSkills": [
       {
-        "name": "Restore",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Ally",
-        "description": "Heals an ally and grants magic defense bonus.",
+        "name": "Dragoon Dive",
+        "apCost": 2,
+        "potency": 220,
+        "target": "All Enemies",
         "flags": [
-          "Healing"
-        ]
+          "Physical",
+          "Charge",
+          "All Enemies",
+          "Flying"
+        ],
+        "description": "Leap into the clouds and crash down onto all enemies with apocalyptic physical force."
+      },
+      {
+        "name": "Fire Breath",
+        "apCost": 2,
+        "potency": 140,
+        "target": "Enemy Row",
+        "flags": [
+          "Magical",
+          "Row",
+          "Burn"
+        ],
+        "description": "Spew intense flames across an entire enemy row, inflicting Burn."
+      },
+      {
+        "name": "Ground Thrust",
+        "apCost": 1,
+        "potency": 120,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Anti-Ground"
+        ],
+        "description": "Dive from the skies to impale a ground enemy, ignoring 30% Physical Defense."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Owl Eyes",
+        "name": "Dragon's Roar",
         "ppCost": 1,
-        "trigger": "When Ally Uses Active Skill",
-        "description": "Restores 1 PP to the attacking ally."
+        "trigger": "Start of Battle",
+        "isStartOfBattle": true,
+        "flags": [
+          "Start of Battle",
+          "Debuff",
+          "Initiative"
+        ],
+        "description": "At Start of Battle, roar to reduce all enemies' Initiative by 15."
       },
       {
-        "name": "Quick Reload",
+        "name": "Tailwind",
         "ppCost": 1,
-        "trigger": "After Ally Action",
-        "description": "Restores 1 AP to ally."
+        "trigger": "Passive",
+        "flags": [
+          "Buff",
+          "Flying Speed"
+        ],
+        "description": "Boost Initiative of all flying allies by 15."
+      },
+      {
+        "name": "Aerial Guard",
+        "ppCost": 1,
+        "trigger": "Before Attacked",
+        "flags": [
+          "Guard"
+        ],
+        "description": "Guard against incoming ranged and melee strikes with sturdy dragon scales."
+      }
+    ],
+    "bestGrowthTypes": [
+      "Offensive",
+      "Speedster"
+    ],
+    "synergiesWith": [
+      "Gryphon Master",
+      "Prince",
+      "Druid",
+      "Sainted Knight"
+    ],
+    "recommendedEquipment": [
+      "Dragoon's Warspear",
+      "Heavenwyvern Reins",
+      "Sniper's Amber Lens",
+      "Black Cat-Ear Hood"
+    ],
+    "overview": "Hilda's class. Top-tier flying nuke enabler with Dragon's Roar speed control and devastating Dragoon Dive board wipes.",
+    "image": "/images/characters/wyvern-master.png"
+  },
+  {
+    "id": "gryphon-master",
+    "name": "Gryphon Master",
+    "category": "Promoted",
+    "role": "Physical DPS",
+    "tier": "S+",
+    "icon": "🦅",
+    "baseStats": {
+      "hp": 90,
+      "physAtk": 92,
+      "magAtk": 25,
+      "physDef": 60,
+      "magDef": 60,
+      "initiative": 46,
+      "evasion": 65,
+      "critRate": 25
+    },
+    "activeSkills": [
+      {
+        "name": "High Gale",
+        "apCost": 2,
+        "potency": 160,
+        "target": "Enemy Row",
+        "flags": [
+          "Physical",
+          "Row",
+          "Anti-Cavalry",
+          "Flying"
+        ],
+        "description": "Sweep across an enemy row with heavy gale force, dealing 200% bonus damage to cavalry."
+      },
+      {
+        "name": "Fatal Dive",
+        "apCost": 1,
+        "potency": 150,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Anti-Ground"
+        ],
+        "description": "Plunge from the sky onto a single ground target."
+      }
+    ],
+    "passiveSkills": [
+      {
+        "name": "Feathering",
+        "ppCost": 1,
+        "trigger": "Start of Battle",
+        "isStartOfBattle": true,
+        "flags": [
+          "Start of Battle",
+          "Row Speed"
+        ],
+        "description": "At Start of Battle, grant all allies in the same row +15 Initiative."
+      },
+      {
+        "name": "Aerial Wing",
+        "ppCost": 1,
+        "trigger": "When Attacked by Ground",
+        "flags": [
+          "Evasion"
+        ],
+        "description": "Evade incoming ground melee attacks effortlessly."
+      }
+    ],
+    "bestGrowthTypes": [
+      "Speedster",
+      "Offensive"
+    ],
+    "synergiesWith": [
+      "Wyvern Master",
+      "Prince",
+      "Sainted Knight"
+    ],
+    "recommendedEquipment": [
+      "Kingsaxe Drakenash",
+      "Heavenwyvern Reins",
+      "Carnelian Axe",
+      "Dove Plume"
+    ],
+    "overview": "Fran / Celeste's class. Premium anti-cavalry sweeper with High Gale row cleaves and row-wide Initiative acceleration.",
+    "image": "/images/characters/gryphon-master.png"
+  },
+  {
+    "id": "sainted-knight",
+    "name": "Sainted Knight",
+    "category": "Promoted",
+    "role": "Support",
+    "tier": "SS",
+    "icon": "🛡️✨",
+    "baseStats": {
+      "hp": 96,
+      "physAtk": 70,
+      "magAtk": 80,
+      "physDef": 70,
+      "magDef": 85,
+      "initiative": 39,
+      "evasion": 35,
+      "critRate": 15
+    },
+    "activeSkills": [
+      {
+        "name": "Holy Blade",
+        "apCost": 1,
+        "potency": 120,
+        "target": "Single Enemy",
+        "flags": [
+          "Magical",
+          "Physical",
+          "Hybrid"
+        ],
+        "description": "Hybrid holy strike that heals user for 50% of damage dealt."
+      },
+      {
+        "name": "Row Heal",
+        "apCost": 2,
+        "potency": 100,
+        "target": "Ally Row",
+        "flags": [
+          "Healing",
+          "Row"
+        ],
+        "description": "Restore health to an entire row of allies."
+      },
+      {
+        "name": "Hallowed Blade",
+        "apCost": 2,
+        "potency": 150,
+        "target": "Single Enemy",
+        "flags": [
+          "Magical",
+          "Anti-Armor"
+        ],
+        "description": "Smite target with heavy magic damage piercing armor."
+      }
+    ],
+    "passiveSkills": [
+      {
+        "name": "Magic Barrier",
+        "ppCost": 1,
+        "trigger": "Before Ally Magically Attacked",
+        "flags": [
+          "Cover",
+          "Magic Defense"
+        ],
+        "description": "Cover an ally and completely absorb incoming magic damage."
+      },
+      {
+        "name": "Row Barrier",
+        "ppCost": 2,
+        "trigger": "Before Row Magically Attacked",
+        "flags": [
+          "Row Cover",
+          "Magic Nullify"
+        ],
+        "description": "Nullify incoming magic area-of-effect spells for the entire squad row."
+      }
+    ],
+    "bestGrowthTypes": [
+      "Guardian",
+      "All-Rounder"
+    ],
+    "synergiesWith": [
+      "High Lord",
+      "Great Knight",
+      "Wyvern Master"
+    ],
+    "recommendedEquipment": [
+      "Runic Sword",
+      "Azure Crest Shield",
+      "Lapis Pendant",
+      "Heavensteed Reins"
+    ],
+    "overview": "Monica / Miriam's promoted class. Mounted hybrid paladin capable of nullifying enemy magic nukes with Row Barrier while sustaining squad HP.",
+    "image": "/images/characters/sainted-knight.png"
+  },
+  {
+    "id": "prince",
+    "name": "Prince",
+    "category": "Unique",
+    "role": "Support",
+    "tier": "SS",
+    "icon": "🤴",
+    "baseStats": {
+      "hp": 92,
+      "physAtk": 72,
+      "magAtk": 60,
+      "physDef": 65,
+      "magDef": 70,
+      "initiative": 46,
+      "evasion": 45,
+      "critRate": 15
+    },
+    "activeSkills": [
+      {
+        "name": "Rapid Order",
+        "apCost": 1,
+        "potency": 0,
+        "target": "All Allies",
+        "flags": [
+          "Start of Battle",
+          "Initiative Boost"
+        ],
+        "description": "At Start of Battle, grant all allies +15 Initiative for the battle."
+      },
+      {
+        "name": "Offensive Order",
+        "apCost": 1,
+        "potency": 0,
+        "target": "All Allies",
+        "flags": [
+          "Buff",
+          "Attack Boost"
+        ],
+        "description": "Grant all allies +20% Physical Attack and +20% Magical Attack."
+      },
+      {
+        "name": "Defensive Order",
+        "apCost": 1,
+        "potency": 0,
+        "target": "All Allies",
+        "flags": [
+          "Buff",
+          "Defense Boost"
+        ],
+        "description": "Grant all allies +20% Physical Defense and +20% Magical Defense."
+      }
+    ],
+    "passiveSkills": [
+      {
+        "name": "Sniping Order",
+        "ppCost": 1,
+        "trigger": "When Ally Attacks",
+        "flags": [
+          "Buff",
+          "Truestrike"
+        ],
+        "description": "Grant 100% Truestrike to an attacking ally."
+      },
+      {
+        "name": "Guarding Order",
+        "ppCost": 1,
+        "trigger": "When Ally Attacked",
+        "flags": [
+          "Buff",
+          "Guard Boost"
+        ],
+        "description": "Increase ally Guard Rate by 50%."
       }
     ],
     "bestGrowthTypes": [
@@ -1801,103 +1578,341 @@ export const CLASSES_DATA: UnitClass[] = [
       "Guardian"
     ],
     "synergiesWith": [
-      "yunifi-snow-ranger",
-      "ridiel-elven-archer"
+      "Wyvern Master",
+      "Gryphon Master",
+      "Swordmaster",
+      "Dreadnought"
     ],
     "recommendedEquipment": [
-      "Meteorite Rod",
-      "Lapis Pendant"
+      "Kingsblade Cornix",
+      "Battleline Standard",
+      "Lapis Pendant",
+      "Dove Plume"
     ],
-    "overview": "Unique Bestral Wereowl. Acts as an infinite PP/AP battery through Owl Eyes."
+    "overview": "Gilbert's unique class. The ultimate team buffer with Rapid Order teamwide speed dominance and Offensive Order damage scaling.",
+    "image": "/images/characters/gilbert-prince.png"
   },
   {
-    "id": "ridiel-elven-archer",
-    "image": "/images/characters/elven-fencer.png",
-    "name": "Ridiel (Elven Archer)",
-    "category": "Infantry",
-    "role": "Support",
-    "tier": "S+",
-    "icon": "🧝‍♀️",
+    "id": "renegade",
+    "name": "Renegade",
+    "category": "Unique",
+    "role": "Tank",
+    "tier": "SS",
+    "icon": "🪓",
     "baseStats": {
-      "hp": 84,
-      "physAtk": 78,
-      "magAtk": 82,
-      "physDef": 50,
-      "magDef": 75,
-      "initiative": 40,
-      "evasion": 45,
-      "critRate": 18
+      "hp": 105,
+      "physAtk": 95,
+      "magAtk": 40,
+      "physDef": 82,
+      "magDef": 65,
+      "initiative": 44,
+      "evasion": 48,
+      "critRate": 25
     },
     "activeSkills": [
       {
-        "name": "Icicle Arrow",
+        "name": "Eye of the Crimson Bear",
         "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Inflicts Freeze on target.",
+        "potency": 0,
+        "target": "All Enemies",
         "flags": [
-          "Magical",
-          "Freeze"
-        ]
+          "Start of Battle",
+          "Affliction",
+          "Debuff"
+        ],
+        "description": "At Start of Battle, reduce all enemies' Initiative by 15 and inflict Guard Seal."
+      },
+      {
+        "name": "Death Spin",
+        "apCost": 2,
+        "potency": 150,
+        "target": "Enemy Row",
+        "flags": [
+          "Physical",
+          "Row",
+          "Affliction Bonus"
+        ],
+        "description": "Whirl axe across enemy row dealing +50% bonus damage to afflicted targets."
+      },
+      {
+        "name": "Guarded Strike",
+        "apCost": 1,
+        "potency": 120,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Guard"
+        ],
+        "description": "Strike target and enter impenetrable defensive stance."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Pure Light",
+        "name": "Sanguine Pursuit",
         "ppCost": 1,
-        "trigger": "When Ally Afflicted",
-        "description": "Instantly cleanses debuffs row-wide and heals."
+        "trigger": "After Ally Attacks Afflicted",
+        "flags": [
+          "Pursuit",
+          "Life Drain"
+        ],
+        "description": "Strike afflicted enemy, dealing heavy damage and healing user for 50% damage."
       },
       {
-        "name": "Mystic Conferral",
+        "name": "Boundless Rage",
         "ppCost": 1,
-        "trigger": "Before Ally Attack",
-        "description": "Adds magic damage to ally attacks."
+        "trigger": "When Damaged",
+        "flags": [
+          "Self Buff",
+          "AP Gain"
+        ],
+        "description": "Gain +1 AP and +20% Phys Atk whenever sustaining damage."
       }
     ],
     "bestGrowthTypes": [
-      "All-Rounder",
-      "Speedster"
+      "Offensive",
+      "Guardian"
     ],
     "synergiesWith": [
-      "yunifi-snow-ranger",
-      "ramona-wereowl"
+      "Rogue",
+      "Druid",
+      "Breaker",
+      "Berserker"
     ],
     "recommendedEquipment": [
-      "Runic Bow",
-      "Pure Light Amulet"
+      "Kingsaxe Drakenash",
+      "Thorn Shield",
+      "Carnelian Pendant",
+      "Lapis Pendant"
     ],
-    "overview": "Advanced Elven Archer offering row cleansing with Pure Light and magic damage conferral."
+    "overview": "Berengaria's unique class. Dominates through affliction synergy, draining life with Sanguine Pursuit and crushing rows with Death Spin.",
+    "image": "/images/characters/berengaria-renegade.png"
   },
   {
-    "id": "bryce-legionnaire",
-    "image": "/images/characters/legionnaire.png",
-    "name": "Bryce (Legionnaire)",
-    "category": "Armored",
-    "role": "Tank",
+    "id": "rogue",
+    "name": "Rogue",
+    "category": "Promoted",
+    "role": "Physical DPS",
     "tier": "S+",
-    "icon": "🛡️",
+    "icon": "🗡️",
     "baseStats": {
-      "hp": 118,
-      "physAtk": 72,
-      "magAtk": 18,
-      "physDef": 102,
-      "magDef": 44,
-      "initiative": 19,
-      "evasion": 10,
-      "critRate": 8
+      "hp": 78,
+      "physAtk": 75,
+      "magAtk": 30,
+      "physDef": 45,
+      "magDef": 50,
+      "initiative": 52,
+      "evasion": 85,
+      "critRate": 30
     },
     "activeSkills": [
       {
-        "name": "Heavy Shield Bash",
+        "name": "Shadowbite",
+        "apCost": 2,
+        "potency": 100,
+        "target": "Enemy Row",
+        "flags": [
+          "Physical",
+          "Row",
+          "Blind",
+          "Passive Seal"
+        ],
+        "description": "Strike an entire enemy row, inflicting Darkness (Blindness) and Passive Skill Seal."
+      },
+      {
+        "name": "Toxic Throw",
+        "apCost": 1,
+        "potency": 80,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Poison"
+        ],
+        "description": "Hurl a poisoned dagger inflicting Poison."
+      },
+      {
+        "name": "Sneak Edge",
+        "apCost": 1,
+        "potency": 110,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Steal AP"
+        ],
+        "description": "Strike from the shadows and steal 1 AP from the target."
+      }
+    ],
+    "passiveSkills": [
+      {
+        "name": "Evade",
+        "ppCost": 1,
+        "trigger": "Before Attacked",
+        "flags": [
+          "Nullify",
+          "Evasion 100%"
+        ],
+        "description": "Completely nullify an incoming physical attack."
+      },
+      {
+        "name": "Plunder PP",
+        "ppCost": 1,
+        "trigger": "After Active Action",
+        "flags": [
+          "Steal PP"
+        ],
+        "description": "Steal 1 PP from target enemy."
+      }
+    ],
+    "bestGrowthTypes": [
+      "Speedster",
+      "Speedster"
+    ],
+    "synergiesWith": [
+      "Renegade",
+      "Druid",
+      "Breaker"
+    ],
+    "recommendedEquipment": [
+      "Pursuant's Blade",
+      "Royal Scarf",
+      "Lucky Coin",
+      "Carnelian Pendant"
+    ],
+    "overview": "Travis's promoted class. Supreme evasion frontline tank that blinds enemy rows with Shadowbite and steals enemy AP/PP.",
+    "image": "/images/characters/rogue.png"
+  },
+  {
+    "id": "breaker",
+    "name": "Breaker",
+    "category": "Promoted",
+    "role": "Physical DPS",
+    "tier": "SS",
+    "icon": "🔨",
+    "baseStats": {
+      "hp": 95,
+      "physAtk": 105,
+      "magAtk": 20,
+      "physDef": 65,
+      "magDef": 45,
+      "initiative": 35,
+      "evasion": 25,
+      "critRate": 25
+    },
+    "activeSkills": [
+      {
+        "name": "Enraged Strike",
+        "apCost": 1,
+        "potency": 175,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Armor Piercing",
+          "Unblockable"
+        ],
+        "description": "Crushing hammer blow that completely ignores enemy Physical Defense and cannot be guarded."
+      },
+      {
+        "name": "Row Smash",
+        "apCost": 2,
+        "potency": 150,
+        "target": "Enemy Row",
+        "flags": [
+          "Physical",
+          "Row",
+          "Guard Break"
+        ],
+        "description": "Shatter an entire enemy row, disabling guard."
+      },
+      {
+        "name": "Assault Blow",
         "apCost": 1,
         "potency": 100,
         "target": "Single Enemy",
-        "description": "Stuns the target with heavy shield bash.",
         "flags": [
           "Physical",
-          "Stun"
-        ]
+          "AP On Kill"
+        ],
+        "description": "Heavy strike that awards +1 AP upon kill."
+      }
+    ],
+    "passiveSkills": [
+      {
+        "name": "Heavy Guard",
+        "ppCost": 1,
+        "trigger": "Before Attacked",
+        "flags": [
+          "Guard"
+        ],
+        "description": "Brace with hammer to reduce incoming damage by 50%."
+      },
+      {
+        "name": "Follow-up Hammer",
+        "ppCost": 1,
+        "trigger": "After Ally Attacks",
+        "flags": [
+          "Pursuit"
+        ],
+        "description": "Follow up with a heavy hammer strike."
+      }
+    ],
+    "bestGrowthTypes": [
+      "Offensive",
+      "Offensive"
+    ],
+    "synergiesWith": [
+      "Renegade",
+      "Rogue",
+      "Druid",
+      "Valkyria"
+    ],
+    "recommendedEquipment": [
+      "Mason's Hammer",
+      "Gauntlets of the Abyss",
+      "Carnelian Pendant",
+      "Hero's Medallion"
+    ],
+    "overview": "Nina / Kitra's promoted class. Ultimate armored target deleter with 100% Armor-Piercing Enraged Strike.",
+    "image": "/images/characters/breaker.png"
+  },
+  {
+    "id": "shieldshooter",
+    "name": "Shieldshooter",
+    "category": "Promoted",
+    "role": "Physical DPS",
+    "tier": "S+",
+    "icon": "🏹🛡️",
+    "baseStats": {
+      "hp": 96,
+      "physAtk": 86,
+      "magAtk": 35,
+      "physDef": 82,
+      "magDef": 50,
+      "initiative": 38,
+      "evasion": 30,
+      "critRate": 20
+    },
+    "activeSkills": [
+      {
+        "name": "Aerial Snipe",
+        "apCost": 2,
+        "potency": 150,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Anti-Flying",
+          "Truestrike"
+        ],
+        "description": "Truestrike crossbow bolt dealing 200% bonus damage against flying enemies."
+      },
+      {
+        "name": "Heavy Bolt",
+        "apCost": 1,
+        "potency": 120,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Armor Piercing"
+        ],
+        "description": "Heavy steel quarrel piercing through armor."
       }
     ],
     "passiveSkills": [
@@ -1905,39 +1920,136 @@ export const CLASSES_DATA: UnitClass[] = [
         "name": "Heavy Cover",
         "ppCost": 1,
         "trigger": "Before Ally Attacked",
-        "description": "Covers an ally from physical damage."
+        "flags": [
+          "Cover",
+          "Greatshield"
+        ],
+        "description": "Cover an ally with Greatshield, negating physical and ranged damage."
+      },
+      {
+        "name": "Quick Reload",
+        "ppCost": 1,
+        "trigger": "After Active Action",
+        "flags": [
+          "AP Restore"
+        ],
+        "description": "Reload crossbow immediately, gaining +1 AP."
       }
     ],
     "bestGrowthTypes": [
       "Guardian",
-      "Guardian"
+      "Offensive"
     ],
     "synergiesWith": [
-      "yunifi-snow-ranger",
-      "lex-vanguard"
+      "Snow Ranger",
+      "Wereowl",
+      "Breaker"
     ],
     "recommendedEquipment": [
-      "Greatshield of Fortitude",
-      "Heavy Guard Shield"
+      "Gallian Crossbow",
+      "Azure Crest Shield",
+      "Sniper's Lens",
+      "Lapis Pendant"
     ],
-    "overview": "Promoted from Hoplite to Legionnaire. The frontline shield protecting Yunifi and Ramona."
+    "overview": "Liza's promoted class. Combines greatshield protection with lethal anti-flying truestrike crossbow fire.",
+    "image": "/images/characters/arbalist.png"
   },
   {
-    "id": "lex-vanguard",
-    "image": "/images/characters/vanguard.png",
-    "name": "Lex (Vanguard)",
-    "category": "Infantry",
+    "id": "berserker",
+    "name": "Berserker",
+    "category": "Promoted",
+    "role": "Physical DPS",
+    "tier": "S",
+    "icon": "🪓",
+    "baseStats": {
+      "hp": 130,
+      "physAtk": 100,
+      "magAtk": 15,
+      "physDef": 55,
+      "magDef": 30,
+      "initiative": 32,
+      "evasion": 20,
+      "critRate": 25
+    },
+    "activeSkills": [
+      {
+        "name": "Wide Smash",
+        "apCost": 2,
+        "potency": 150,
+        "target": "Enemy Row",
+        "flags": [
+          "Physical",
+          "Row",
+          "Stun"
+        ],
+        "description": "Massive sweeping axe strike across an entire enemy row, inflicting Stun."
+      },
+      {
+        "name": "Grand Smash",
+        "apCost": 3,
+        "potency": 200,
+        "target": "All Enemies",
+        "flags": [
+          "Physical",
+          "All Enemies"
+        ],
+        "description": "Slam ground with earth-shattering force hitting all enemies."
+      }
+    ],
+    "passiveSkills": [
+      {
+        "name": "Bulk Up",
+        "ppCost": 1,
+        "trigger": "When Damaged",
+        "flags": [
+          "Self Heal",
+          "Attack Boost"
+        ],
+        "description": "Restore 30% HP and increase Physical Attack by 20%."
+      },
+      {
+        "name": "Toughness",
+        "ppCost": 1,
+        "trigger": "Upon Lethal Damage",
+        "flags": [
+          "Survive"
+        ],
+        "description": "Survive lethal strike with 1 HP."
+      }
+    ],
+    "bestGrowthTypes": [
+      "Offensive",
+      "Tough"
+    ],
+    "synergiesWith": [
+      "Druid",
+      "Renegade",
+      "Bishop"
+    ],
+    "recommendedEquipment": [
+      "Berserker's Battleaxe",
+      "Riot Belt",
+      "Carnelian Pendant",
+      "Hero's Medallion"
+    ],
+    "overview": "Bruno's class. High-HP bruiser that stuns entire enemy rows with Wide Smash and recovers health automatically.",
+    "image": "/images/characters/berserker.png"
+  },
+  {
+    "id": "vanguard",
+    "name": "Vanguard",
+    "category": "Promoted",
     "role": "Tank",
-    "tier": "S+",
+    "tier": "S",
     "icon": "🛡️",
     "baseStats": {
-      "hp": 96,
+      "hp": 95,
       "physAtk": 80,
-      "magAtk": 22,
-      "physDef": 84,
-      "magDef": 54,
-      "initiative": 33,
-      "evasion": 30,
+      "magAtk": 25,
+      "physDef": 80,
+      "magDef": 50,
+      "initiative": 40,
+      "evasion": 40,
       "critRate": 15
     },
     "activeSkills": [
@@ -1946,189 +2058,335 @@ export const CLASSES_DATA: UnitClass[] = [
         "apCost": 1,
         "potency": 100,
         "target": "Single Enemy",
-        "description": "Stuns target with shield.",
         "flags": [
           "Physical",
           "Stun"
-        ]
+        ],
+        "description": "Strike target with shield and inflict Stun."
+      },
+      {
+        "name": "Defensive Slash",
+        "apCost": 1,
+        "potency": 110,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Guard Boost"
+        ],
+        "description": "Slash enemy and increase own Guard Rate by 30%."
       }
     ],
     "passiveSkills": [
       {
         "name": "Arrow Cover",
         "ppCost": 1,
-        "trigger": "When Ally Targeted by Arrow",
-        "description": "Interceps and negates 100% arrow damage."
+        "trigger": "When Ally Targeted by Ranged",
+        "flags": [
+          "Cover",
+          "Ranged Nullify"
+        ],
+        "description": "Cover an ally and completely nullify incoming ranged projectile damage."
+      },
+      {
+        "name": "Quick Guard",
+        "ppCost": 1,
+        "trigger": "Before Attacked",
+        "flags": [
+          "Guard"
+        ],
+        "description": "Raise shield to block incoming physical attacks."
       }
     ],
     "bestGrowthTypes": [
       "Guardian",
-      "Defender"
+      "Guardian"
     ],
     "synergiesWith": [
-      "bryce-legionnaire",
-      "yunifi-snow-ranger"
+      "Valkyria",
+      "Sniper",
+      "Breaker"
     ],
     "recommendedEquipment": [
-      "Deflect Shield",
+      "Iron Sword",
+      "Iron Shield",
+      "Defender's Ring",
       "Lapis Pendant"
     ],
-    "overview": "Promoted from Fighter to Vanguard. Covers Ramona and Yunifi against anti-flying and bow strikes."
+    "overview": "Colm / Lex's class. Protects flying allies and backline squishies from lethal archer fire with Arrow Cover.",
+    "image": "/images/characters/vanguard.png"
   },
   {
-    "id": "rosalinde-elven-augur",
-    "image": "/images/characters/rosalinde-elven-prophet.png",
-    "name": "Rosalinde (Elven Augur)",
-    "category": "Infantry",
-    "role": "Magic DPS",
-    "tier": "SS",
-    "icon": "🧝‍♀️",
+    "id": "sniper",
+    "name": "Sniper",
+    "category": "Promoted",
+    "role": "Physical DPS",
+    "tier": "S+",
+    "icon": "🏹",
     "baseStats": {
-      "hp": 82,
-      "physAtk": 75,
-      "magAtk": 96,
+      "hp": 80,
+      "physAtk": 90,
+      "magAtk": 30,
       "physDef": 45,
-      "magDef": 85,
-      "initiative": 38,
+      "magDef": 55,
+      "initiative": 48,
       "evasion": 50,
-      "critRate": 15
+      "critRate": 35
     },
     "activeSkills": [
       {
-        "name": "Elemental Roar",
-        "apCost": 3,
-        "potency": 210,
-        "target": "All Enemies",
-        "description": "Consumes Faerie charges to deal devastating hybrid physical/magical damage to all enemies.",
+        "name": "Aerial Snipe",
+        "apCost": 2,
+        "potency": 160,
+        "target": "Single Enemy",
         "flags": [
-          "Magical",
-          "AOE"
-        ]
+          "Physical",
+          "Anti-Flying",
+          "Truestrike"
+        ],
+        "description": "Truestrike arrow dealing 200% bonus damage against flying targets."
       },
       {
-        "name": "Sylvan Gale",
+        "name": "Dual Shot",
         "apCost": 1,
-        "potency": 100,
-        "target": "Full Row",
-        "description": "Attacks a row of enemies with wind magic and reduces initiative by 10.",
+        "potency": 110,
+        "target": "Enemy Column",
         "flags": [
-          "Magical",
-          "Row"
-        ]
+          "Physical",
+          "Column"
+        ],
+        "description": "Loose two arrows simultaneously piercing an enemy column."
+      },
+      {
+        "name": "Arrow Rain",
+        "apCost": 3,
+        "potency": 180,
+        "target": "All Enemies",
+        "flags": [
+          "Physical",
+          "All Enemies",
+          "Charge"
+        ],
+        "description": "Rain arrows on the entire battlefield."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Rage of the Faeries",
+        "name": "Eagle Eye",
         "ppCost": 1,
-        "isStartOfBattle": true,
-        "trigger": "Start of Battle",
-        "description": "Start of Battle: Stuns all front-row enemies immediately and summons a Faerie charge."
+        "trigger": "Before Active Action",
+        "flags": [
+          "Truestrike",
+          "Guaranteed Crit"
+        ],
+        "description": "Grant 100% Truestrike and 100% Critical Hit on the next arrow."
       },
       {
-        "name": "Faerie Heal",
+        "name": "Pursuit Arrow",
         "ppCost": 1,
-        "trigger": "After Ally Attacked",
-        "description": "Restores HP to an ally and cleanses all status afflictions."
+        "trigger": "After Ally Attacks",
+        "flags": [
+          "Pursuit"
+        ],
+        "description": "Follow up an ally's attack with a rapid arrow strike."
+      }
+    ],
+    "bestGrowthTypes": [
+      "Offensive",
+      "Speedster"
+    ],
+    "synergiesWith": [
+      "Valkyria",
+      "Shieldshooter",
+      "Prince"
+    ],
+    "recommendedEquipment": [
+      "Apeliotes's Bow",
+      "Sniper's Amber Lens",
+      "Carnelian Pendant",
+      "Dove Plume"
+    ],
+    "overview": "Rolf / Mandrin's class. Dedicated flying unit sniper with 100% Truestrike Eagle Eye and column-piercing archery.",
+    "image": "/images/characters/sniper.png"
+  },
+  {
+    "id": "wereowl",
+    "name": "Wereowl",
+    "category": "Unique",
+    "role": "Support",
+    "tier": "SS",
+    "icon": "🦉",
+    "baseStats": {
+      "hp": 76,
+      "physAtk": 25,
+      "magAtk": 88,
+      "physDef": 45,
+      "magDef": 95,
+      "initiative": 46,
+      "evasion": 45,
+      "critRate": 10
+    },
+    "activeSkills": [
+      {
+        "name": "Night Vision",
+        "apCost": 1,
+        "potency": 0,
+        "target": "All Allies",
+        "flags": [
+          "Buff",
+          "Accuracy Boost",
+          "Truestrike"
+        ],
+        "description": "Grant all allies +30% Accuracy and Truestrike capabilities."
+      },
+      {
+        "name": "Restore",
+        "apCost": 1,
+        "potency": 100,
+        "target": "Single Ally",
+        "flags": [
+          "Healing",
+          "PP Restore"
+        ],
+        "description": "Heal target ally's HP and restore +1 PP."
+      }
+    ],
+    "passiveSkills": [
+      {
+        "name": "Owl Eyes",
+        "ppCost": 1,
+        "trigger": "When Ally Uses PP",
+        "flags": [
+          "PP Battery"
+        ],
+        "description": "Immediately replenish +1 PP to an ally that just consumed PP."
+      },
+      {
+        "name": "Quick Dispel",
+        "ppCost": 1,
+        "trigger": "When Enemy Buffs",
+        "flags": [
+          "Dispel"
+        ],
+        "description": "Strip all positive status buffs from an enemy unit."
       }
     ],
     "bestGrowthTypes": [
       "Speedster",
-      "Offensive"
+      "Guardian"
     ],
     "synergiesWith": [
-      "eltolinde-elven-sibyl",
-      "ithilion-elven-fencer",
-      "railanor-elven-fencer"
+      "Snow Ranger",
+      "Elven Archer",
+      "Shieldshooter"
     ],
     "recommendedEquipment": [
-      "Sylphid Spear",
-      "Elven Crown"
+      "Kingstaff Albiore",
+      "Sage Owl's Shawl",
+      "Lapis Pendant",
+      "Sapphire Pendant"
     ],
-    "overview": "Unique Elven Augur. Stuns enemy frontlines at battle start and unleashes 210 potency Elemental Roar."
+    "overview": "Ramona's unique Bastorias class. The infinite PP battery of Unicorn Overlord, constantly recharging ally PP via Owl Eyes.",
+    "image": "/images/characters/priestess.png"
   },
   {
-    "id": "eltolinde-elven-sibyl",
-    "image": "/images/characters/eltolinde-elven-sibyl.png",
-    "name": "Eltolinde (Elven Sibyl)",
-    "category": "Infantry",
+    "id": "elven-archer",
+    "name": "Elven Archer",
+    "category": "Unique",
     "role": "Support",
     "tier": "SS",
-    "icon": "✨",
+    "icon": "🧝‍♀️🏹",
     "baseStats": {
-      "hp": 85,
-      "physAtk": 70,
-      "magAtk": 92,
+      "hp": 80,
+      "physAtk": 75,
+      "magAtk": 85,
       "physDef": 48,
-      "magDef": 88,
-      "initiative": 36,
-      "evasion": 48,
-      "critRate": 12
+      "magDef": 85,
+      "initiative": 46,
+      "evasion": 52,
+      "critRate": 20
     },
     "activeSkills": [
       {
-        "name": "Elemental Roar",
-        "apCost": 3,
-        "potency": 210,
-        "target": "All Enemies",
-        "description": "Unleashes stored Faeries into a team-wide hybrid explosion.",
+        "name": "Icicle Arrow",
+        "apCost": 1,
+        "potency": 100,
+        "target": "Single Enemy",
         "flags": [
           "Magical",
-          "AOE"
-        ]
+          "Freeze"
+        ],
+        "description": "Shoot an enchanted frost arrow that inflicts Freeze."
       },
       {
-        "name": "Primordial Heal",
+        "name": "Mystic Arrow",
         "apCost": 2,
-        "potency": 100,
-        "target": "All Allies",
-        "description": "Heals all allies and grants a magic barrier shielding against 1 attack.",
+        "potency": 140,
+        "target": "Enemy Column",
         "flags": [
-          "Healing",
-          "Barrier"
-        ]
+          "Hybrid",
+          "Column"
+        ],
+        "description": "Column-piercing enchanted arrow dealing hybrid physical and magic damage."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Boon of the Faeries",
+        "name": "Pure Light",
         "ppCost": 1,
-        "isStartOfBattle": true,
         "trigger": "Start of Battle",
-        "description": "Start of Battle: Grants row-wide magic barrier immunity."
+        "isStartOfBattle": true,
+        "flags": [
+          "Start of Battle",
+          "Row Debuff Cleanse",
+          "Immunity"
+        ],
+        "description": "At Start of Battle, cleanse all debuffs and grant affliction immunity to the row."
+      },
+      {
+        "name": "Selfless Heal",
+        "ppCost": 1,
+        "trigger": "After Acting",
+        "flags": [
+          "Row Heal"
+        ],
+        "description": "Heal the lowest HP ally for 50% Mag Atk after executing an action."
       }
     ],
     "bestGrowthTypes": [
-      "Guardian",
-      "Speedster"
+      "Speedster",
+      "Guardian"
     ],
     "synergiesWith": [
-      "rosalinde-elven-augur",
-      "galadmir-elven-archer"
+      "Snow Ranger",
+      "Wereowl",
+      "Elven Fencer",
+      "Elven Sibyl"
     ],
     "recommendedEquipment": [
-      "Kingslance Elhal",
-      "Lapis Pendant"
+      "Frostbloom Bow",
+      "Ancient Crown",
+      "Lapis Pendant",
+      "Dove Plume"
     ],
-    "overview": "Unique Elven Sibyl. Pairs with Rosalinde for consecutive Elemental Roar nukes with Faerie barriers."
+    "overview": "Ridiel / Lhinalagos / Galadmir's class. Grants Start-of-Battle debuff immunity via Pure Light and freezes priority threats.",
+    "image": "/images/characters/elven-fencer.png"
   },
   {
-    "id": "ithilion-elven-fencer",
-    "image": "/images/characters/elven-fencer.png",
-    "name": "Ithilion (Elven Fencer)",
-    "category": "Infantry",
+    "id": "elven-fencer",
+    "name": "Elven Fencer",
+    "category": "Unique",
     "role": "Physical DPS",
     "tier": "S+",
-    "icon": "⚔️",
+    "icon": "🧝‍♂️⚔️",
     "baseStats": {
-      "hp": 86,
-      "physAtk": 85,
-      "magAtk": 85,
+      "hp": 84,
+      "physAtk": 84,
+      "magAtk": 84,
       "physDef": 55,
-      "magDef": 65,
-      "initiative": 44,
-      "evasion": 72,
-      "critRate": 20
+      "magDef": 75,
+      "initiative": 48,
+      "evasion": 70,
+      "critRate": 25
     },
     "activeSkills": [
       {
@@ -2136,984 +2394,887 @@ export const CLASSES_DATA: UnitClass[] = [
         "apCost": 1,
         "potency": 120,
         "target": "Single Enemy",
-        "description": "Hybrid physical/magic thrust that inflicts Stun.",
+        "flags": [
+          "Hybrid",
+          "Stun"
+        ],
+        "description": "Strike target with thunderous sword slash, dealing hybrid damage and inflicting Stun."
+      },
+      {
+        "name": "Mirage Edge",
+        "apCost": 1,
+        "potency": 100,
+        "target": "Single Enemy",
         "flags": [
           "Physical",
-          "Magical",
-          "Stun"
-        ]
+          "Evasion Boost"
+        ],
+        "description": "Strike enemy and increase own Evasion by 30."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Mirage Step",
+        "name": "Remove Weakness",
         "ppCost": 1,
-        "trigger": "When Attacked",
-        "description": "Evades attack and increases own evasion."
+        "trigger": "When Ally Debuffed",
+        "flags": [
+          "Cleanse",
+          "Buff"
+        ],
+        "description": "Cleanse debuffs from an ally and grant them +20% Phys Atk."
+      },
+      {
+        "name": "Evade",
+        "ppCost": 1,
+        "trigger": "Before Attacked",
+        "flags": [
+          "Nullify"
+        ],
+        "description": "Nullify an incoming physical attack."
       }
     ],
     "bestGrowthTypes": [
       "Speedster",
-      "Keen"
+      "Offensive"
     ],
     "synergiesWith": [
-      "rosalinde-elven-augur",
-      "eltolinde-elven-sibyl"
+      "Elven Sibyl",
+      "Elven Augur",
+      "Elven Archer"
     ],
     "recommendedEquipment": [
-      "Phantom Knight's Sword",
-      "Raven Plume"
+      "Runic Sword",
+      "Royal Scarf",
+      "Carnelian Pendant",
+      "Lucky Coin"
     ],
-    "overview": "Advanced Elven Fencer providing agile hybrid frontline evasion and lightning stuns."
+    "overview": "Ithilion / Railanor's class. Evasive hybrid sword duelist capable of stunning targets and clearing debuffs with Remove Weakness.",
+    "image": "/images/characters/elven-fencer.png"
   },
   {
-    "id": "railanor-elven-fencer",
-    "image": "/images/characters/elven-fencer.png",
-    "name": "Railanor (Elven Fencer)",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "tier": "S+",
-    "icon": "⚔️",
+    "id": "elven-sibyl",
+    "name": "Elven Sibyl",
+    "category": "Unique",
+    "role": "Magic DPS",
+    "tier": "SS",
+    "icon": "🧝‍♀️✨",
     "baseStats": {
-      "hp": 84,
-      "physAtk": 84,
-      "magAtk": 86,
-      "physDef": 54,
-      "magDef": 66,
-      "initiative": 45,
-      "evasion": 74,
+      "hp": 86,
+      "physAtk": 78,
+      "magAtk": 100,
+      "physDef": 58,
+      "magDef": 95,
+      "initiative": 46,
+      "evasion": 55,
       "critRate": 20
     },
     "activeSkills": [
       {
-        "name": "Windstorm Blade",
-        "apCost": 1,
-        "potency": 110,
-        "target": "Row",
-        "description": "Sweeps an enemy row with wind magic.",
+        "name": "Elemental Roar",
+        "apCost": 3,
+        "potency": 250,
+        "target": "All Enemies",
         "flags": [
           "Magical",
-          "Row"
-        ]
+          "All Enemies",
+          "Faerie Nuke"
+        ],
+        "description": "Summon all gathered Faeries to unleash a cataclysmic all-enemy magical nuke."
+      },
+      {
+        "name": "Primus Javelin",
+        "apCost": 1,
+        "potency": 110,
+        "target": "Single Enemy",
+        "flags": [
+          "Hybrid",
+          "Faerie Gain"
+        ],
+        "description": "Strike with enchanted spear, generating 1 Faerie."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Mirage Step",
+        "name": "Boon of the Faeries",
         "ppCost": 1,
-        "trigger": "When Attacked",
-        "description": "Guarantees dodge against physical strikes."
+        "trigger": "Start of Battle",
+        "isStartOfBattle": true,
+        "flags": [
+          "Start of Battle",
+          "Squad Heal",
+          "Debuff Immunity"
+        ],
+        "description": "At Start of Battle, grant all squad allies continuous HP regeneration and debuff immunity."
+      },
+      {
+        "name": "Faerie Blessing",
+        "ppCost": 1,
+        "trigger": "Start of Turn",
+        "flags": [
+          "Faerie Gain",
+          "AP Boost"
+        ],
+        "description": "Gain +1 Faerie and +1 AP."
+      }
+    ],
+    "bestGrowthTypes": [
+      "Offensive",
+      "Speedster"
+    ],
+    "synergiesWith": [
+      "Elven Augur",
+      "Elven Archer",
+      "Elven Fencer",
+      "Amalia"
+    ],
+    "recommendedEquipment": [
+      "Kingslance Elhal",
+      "Dream Crown",
+      "Carnelian Pendant",
+      "Lapis Pendant"
+    ],
+    "overview": "Eltolinde's unique class. Dominates with Boon of the Faeries start-of-battle protection and massive Elemental Roar all-enemy board wipes.",
+    "image": "/images/characters/eltolinde-elven-sibyl.png"
+  },
+  {
+    "id": "elven-augur",
+    "name": "Elven Augur",
+    "category": "Unique",
+    "role": "Magic DPS",
+    "tier": "SS",
+    "icon": "🧝‍♀️⚡",
+    "baseStats": {
+      "hp": 86,
+      "physAtk": 80,
+      "magAtk": 98,
+      "physDef": 58,
+      "magDef": 94,
+      "initiative": 47,
+      "evasion": 55,
+      "critRate": 20
+    },
+    "activeSkills": [
+      {
+        "name": "Elemental Roar",
+        "apCost": 3,
+        "potency": 250,
+        "target": "All Enemies",
+        "flags": [
+          "Magical",
+          "All Enemies",
+          "Faerie Nuke"
+        ],
+        "description": "Summon gathered Faeries to devastate the entire enemy field."
+      },
+      {
+        "name": "Primus Javelin",
+        "apCost": 1,
+        "potency": 110,
+        "target": "Single Enemy",
+        "flags": [
+          "Hybrid",
+          "Faerie Gain"
+        ],
+        "description": "Strike with enchanted spear, generating 1 Faerie."
+      }
+    ],
+    "passiveSkills": [
+      {
+        "name": "Rage of the Faeries",
+        "ppCost": 1,
+        "trigger": "Start of Battle",
+        "isStartOfBattle": true,
+        "flags": [
+          "Start of Battle",
+          "Row Stun"
+        ],
+        "description": "At Start of Battle, unleash Faerie fury inflicting Stun on the entire enemy front row."
+      },
+      {
+        "name": "Faerie Blessing",
+        "ppCost": 1,
+        "trigger": "Start of Turn",
+        "flags": [
+          "Faerie Gain"
+        ],
+        "description": "Gain +1 Faerie."
       }
     ],
     "bestGrowthTypes": [
       "Speedster",
-      "Speedster"
+      "Offensive"
     ],
     "synergiesWith": [
-      "rosalinde-elven-augur",
-      "ithilion-elven-fencer"
+      "Elven Sibyl",
+      "Elven Archer",
+      "Elven Fencer",
+      "Amalia"
     ],
     "recommendedEquipment": [
-      "Runic Sword",
+      "Kingslance Elhal",
+      "Ancient Crown",
+      "Carnelian Pendant",
       "Lapis Pendant"
     ],
-    "overview": "Advanced Elven Fencer offering frontline hybrid evasion and wind sword strikes."
+    "overview": "Rosalinde's unique class. Stuns the entire enemy front row on Turn 0 with Rage of the Faeries and nukes with Elemental Roar.",
+    "image": "/images/characters/rosalinde-elven-prophet.png"
   },
   {
-    "id": "galadmir-elven-archer",
-    "image": "/images/characters/elven-fencer.png",
-    "name": "Galadmir (Elven Archer)",
-    "category": "Infantry",
-    "role": "Support",
-    "tier": "S+",
-    "icon": "🏹",
-    "baseStats": {
-      "hp": 82,
-      "physAtk": 76,
-      "magAtk": 84,
-      "physDef": 48,
-      "magDef": 78,
-      "initiative": 41,
-      "evasion": 46,
-      "critRate": 18
-    },
-    "activeSkills": [
-      {
-        "name": "Icicle Arrow",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Back Row Enemy",
-        "description": "Freezes backline casters.",
-        "flags": [
-          "Magical",
-          "Freeze"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Pure Light",
-        "ppCost": 1,
-        "trigger": "When Ally Afflicted",
-        "description": "Cleanses debuffs row-wide."
-      }
-    ],
-    "bestGrowthTypes": [
-      "All-Rounder",
-      "Speedster"
-    ],
-    "synergiesWith": [
-      "rosalinde-elven-augur",
-      "eltolinde-elven-sibyl"
-    ],
-    "recommendedEquipment": [
-      "Runic Bow",
-      "Pure Light Amulet"
-    ],
-    "overview": "Advanced Elven Archer freezing backline threats and cleansing squad debuffs."
-  },
-  {
-    "id": "amalia-dreadnought",
-    "image": "/images/characters/high-lord.png",
-    "name": "Amalia (Dreadnought)",
-    "category": "Infantry",
+    "id": "dreadnought",
+    "name": "Dreadnought",
+    "category": "Unique",
     "role": "Physical DPS",
     "tier": "SS",
-    "icon": "👑",
+    "icon": "⚔️🛡️",
     "baseStats": {
-      "hp": 130,
-      "physAtk": 120,
-      "magAtk": 10,
-      "physDef": 80,
-      "magDef": 40,
-      "initiative": 22,
+      "hp": 125,
+      "physAtk": 110,
+      "magAtk": 25,
+      "physDef": 92,
+      "magDef": 45,
+      "initiative": 28,
       "evasion": 15,
       "critRate": 25
     },
     "activeSkills": [
       {
         "name": "Penetrate",
-        "apCost": 2,
-        "potency": 180,
-        "target": "Column",
-        "description": "Shatters an entire column of enemies ignoring 50% defense.",
+        "apCost": 1,
+        "potency": 150,
+        "target": "Enemy Column",
         "flags": [
           "Physical",
           "Column",
-          "Armor-Pierce"
-        ]
+          "Armor Piercing"
+        ],
+        "description": "Devastating greatsword thrust piercing through an entire column and ignoring 50% defense."
       },
       {
-        "name": "Wild Slash",
-        "apCost": 1,
-        "potency": 140,
+        "name": "Hawk Eye Strike",
+        "apCost": 2,
+        "potency": 220,
         "target": "Single Enemy",
-        "description": "Massive greatsword cleave that breaks guard.",
         "flags": [
           "Physical",
-          "Guard-Break"
-        ]
+          "Truestrike",
+          "Guaranteed Crit",
+          "Unblockable"
+        ],
+        "description": "Unblockable massive overhead cleave with 100% Truestrike and 100% Critical Hit."
+      },
+      {
+        "name": "Infinity Guard",
+        "apCost": 1,
+        "potency": 0,
+        "target": "Self",
+        "flags": [
+          "Self Buff",
+          "Guard 100%"
+        ],
+        "description": "Enter fortress stance, guaranteeing heavy guard on all hits."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Colossal Guard",
+        "name": "Omega Counter",
         "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Reduces incoming physical damage by 50%."
+        "trigger": "When Attacked",
+        "flags": [
+          "Counter",
+          "Devastating Retaliation"
+        ],
+        "description": "Counterattack with colossal force, dealing 150% physical damage to the attacker."
       },
       {
-        "name": "Hawkeye Focus",
+        "name": "Heavy Guard",
         "ppCost": 1,
-        "trigger": "Before Attack",
-        "description": "Grants True Strike and 100% Critical Hit."
+        "trigger": "Before Attacked",
+        "flags": [
+          "Heavy Guard"
+        ],
+        "description": "Block incoming physical strikes with greatshield."
       }
     ],
     "bestGrowthTypes": [
       "Offensive",
-      "Offensive"
+      "Guardian"
     ],
     "synergiesWith": [
-      "bertrand-werebear",
-      "monica-sainted-knight",
-      "aramis-swordmaster"
+      "Elven Sibyl",
+      "Elven Augur",
+      "Prince",
+      "Werebear"
     ],
     "recommendedEquipment": [
-      "Grand Crusher Greatsword",
-      "Heavy Guard Shield"
+      "Kingsblade Cornix",
+      "Azure Crest Shield",
+      "Carnelian Pendant",
+      "Hero's Medallion"
     ],
-    "overview": "Coliseum Champion Dreadnought wielding colossal greatswords with 120 base attack and column-piercing power."
+    "overview": "Amalia's unique giantess class. Supreme coliseum champion capable of one-shotting columns with Penetrate and counter-killing with Omega Counter.",
+    "image": "/images/characters/high-lord.png"
   },
   {
-    "id": "bertrand-werebear",
-    "image": "/images/characters/gladiator.png",
-    "name": "Bertrand (Werebear)",
-    "category": "Armored",
+    "id": "werebear",
+    "name": "Werebear",
+    "category": "Unique",
     "role": "Tank",
     "tier": "S+",
     "icon": "🐻",
     "baseStats": {
       "hp": 135,
-      "physAtk": 88,
-      "magAtk": 15,
+      "physAtk": 96,
+      "magAtk": 20,
       "physDef": 95,
       "magDef": 45,
-      "initiative": 20,
-      "evasion": 10,
-      "critRate": 10
+      "initiative": 22,
+      "evasion": 15,
+      "critRate": 15
     },
     "activeSkills": [
       {
-        "name": "Ground Slam",
+        "name": "Indomitable Guard",
         "apCost": 1,
-        "potency": 110,
-        "target": "Row",
-        "description": "Slams ground and inflicts Stun on enemy row.",
+        "potency": 0,
+        "target": "Self",
+        "flags": [
+          "Self Buff",
+          "Heavy Guard"
+        ],
+        "description": "Enter towering defensive stance, reducing incoming damage by 75%."
+      },
+      {
+        "name": "Bear Hug",
+        "apCost": 2,
+        "potency": 160,
+        "target": "Single Enemy",
         "flags": [
           "Physical",
-          "Stun",
-          "Row"
-        ]
+          "Stun"
+        ],
+        "description": "Crush enemy with immense bestial strength, inflicting Stun."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Indomitable Guard",
+        "name": "Row Cover",
+        "ppCost": 2,
+        "trigger": "Before Row Attacked",
+        "flags": [
+          "Row Cover"
+        ],
+        "description": "Shield the entire squad row behind massive bulk."
+      },
+      {
+        "name": "Bestial Vigor",
         "ppCost": 1,
-        "isStartOfBattle": true,
-        "trigger": "Start of Battle",
-        "description": "Start of Battle: Boosts own Max HP and physical defense by +40%."
+        "trigger": "When Damaged",
+        "flags": [
+          "Self Heal"
+        ],
+        "description": "Restore 20% max HP whenever sustaining damage."
       }
     ],
     "bestGrowthTypes": [
       "Guardian",
-      "Defender"
+      "Tough"
     ],
     "synergiesWith": [
-      "amalia-dreadnought",
-      "monica-sainted-knight"
+      "Werewolf",
+      "Dreadnought",
+      "Wereowl"
     ],
     "recommendedEquipment": [
-      "Greatshield of Fortitude",
-      "Carnelian Pendant"
-    ],
-    "overview": "Unique Bestral Werebear. Taunts enemy physical threats with colossal HP pools and Ground Slam stuns."
-  },
-  {
-    "id": "monica-sainted-knight",
-    "image": "/images/characters/sainted-knight.png",
-    "name": "Monica (Sainted Knight)",
-    "category": "Cavalry",
-    "role": "Support",
-    "tier": "S+",
-    "icon": "🛡️",
-    "baseStats": {
-      "hp": 92,
-      "physAtk": 64,
-      "magAtk": 78,
-      "physDef": 68,
-      "magDef": 90,
-      "initiative": 35,
-      "evasion": 34,
-      "critRate": 12
-    },
-    "activeSkills": [
-      {
-        "name": "Row Heal",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Row",
-        "description": "Heals frontline allies and removes status effects.",
-        "flags": [
-          "Healing",
-          "Cleanse"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Magic Barrier",
-        "ppCost": 1,
-        "trigger": "When Hit by Magic",
-        "description": "Shields allies from magic attacks."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Defender",
-      "Speedster"
-    ],
-    "synergiesWith": [
-      "amalia-dreadnought",
-      "bertrand-werebear"
-    ],
-    "recommendedEquipment": [
-      "Radiant Shield",
+      "Kingsaxe Drakenash",
+      "Azure Crest Shield",
+      "Riot Belt",
       "Lapis Pendant"
     ],
-    "overview": "Promoted from Radiant Knight to Sainted Knight. Sustains Amalia's frontline with healing and Magic Barrier."
+    "overview": "Bertrand / Morpan's class. Colossal frontline beast tank that absorbs row-wide attacks and regenerates HP continuously.",
+    "image": "/images/characters/gladiator.png"
   },
   {
-    "id": "aramis-swordmaster",
-    "image": "/images/characters/swordmaster.png",
-    "name": "Aramis (Swordmaster)",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "tier": "S+",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 82,
-      "physAtk": 92,
-      "magAtk": 28,
-      "physDef": 52,
-      "magDef": 48,
-      "initiative": 46,
-      "evasion": 68,
-      "critRate": 35
-    },
-    "activeSkills": [
-      {
-        "name": "Meteor Slash",
-        "apCost": 2,
-        "potency": 180,
-        "target": "Single Enemy",
-        "description": "Rapid 9-hit blade flurry with high critical multiplier.",
-        "flags": [
-          "Physical",
-          "Multi-Hit"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Parrying Slash",
-        "ppCost": 1,
-        "trigger": "When Attacked",
-        "description": "Parries physical strike and retaliates.",
-        "flags": [
-          "Parry"
-        ]
-      }
-    ],
-    "bestGrowthTypes": [
-      "Keen",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "amalia-dreadnought",
-      "mandrin-sniper"
-    ],
-    "recommendedEquipment": [
-      "Notos's Sword",
-      "Parrying Amulet"
-    ],
-    "overview": "Promoted from Swordfighter to Swordmaster. Precision duelist who finishes off targets weakened by Amalia."
-  },
-  {
-    "id": "mandrin-sniper",
-    "image": "/images/characters/sniper.png",
-    "name": "Mandrin (Sniper)",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "tier": "S+",
-    "icon": "🏹",
-    "baseStats": {
-      "hp": 80,
-      "physAtk": 90,
-      "magAtk": 24,
-      "physDef": 48,
-      "magDef": 48,
-      "initiative": 43,
-      "evasion": 38,
-      "critRate": 28
-    },
-    "activeSkills": [
-      {
-        "name": "Aerial Snipe",
-        "apCost": 1,
-        "potency": 120,
-        "target": "Flying Enemy",
-        "description": "True-strike anti-flying arrow shot.",
-        "flags": [
-          "Physical",
-          "Anti-Flying",
-          "True-Strike"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Eagle Eye",
-        "ppCost": 1,
-        "trigger": "Before Attack",
-        "description": "100% Critical Hit and True Strike."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "amalia-dreadnought",
-      "aramis-swordmaster"
-    ],
-    "recommendedEquipment": [
-      "Apeliotes's Bow",
-      "Sniper's Amber Lens"
-    ],
-    "overview": "Promoted from Hunter to Sniper. Eliminates flying scouts and evasive threats with True Strike."
-  },
-  {
-    "id": "dinah-werewolf",
-    "image": "/images/characters/werewolf.png",
-    "name": "Dinah (Werewolf)",
-    "category": "Infantry",
+    "id": "werewolf",
+    "name": "Werewolf",
+    "category": "Unique",
     "role": "Physical DPS",
     "tier": "SS",
     "icon": "🐺",
     "baseStats": {
-      "hp": 92,
-      "physAtk": 104,
-      "magAtk": 20,
-      "physDef": 60,
+      "hp": 88,
+      "physAtk": 96,
+      "magAtk": 25,
+      "physDef": 62,
       "magDef": 45,
-      "initiative": 48,
-      "evasion": 65,
-      "critRate": 30
+      "initiative": 50,
+      "evasion": 60,
+      "critRate": 35
     },
     "activeSkills": [
       {
-        "name": "Piercing Claw",
-        "apCost": 1,
-        "potency": 130,
-        "target": "Column",
-        "description": "Strikes through a column of enemies with savage claws.",
-        "flags": [
-          "Physical",
-          "Column"
-        ]
-      },
-      {
-        "name": "Night Hunt",
+        "name": "Wild Fang",
         "apCost": 1,
         "potency": 120,
-        "target": "Low HP Enemy",
-        "description": "Deals 200% damage to targets below 50% HP.",
+        "target": "Single Enemy",
         "flags": [
           "Physical",
-          "Execute"
-        ]
+          "Affliction Bonus"
+        ],
+        "description": "Vicious bite dealing +50% damage to afflicted enemies."
+      },
+      {
+        "name": "Shadow Slash",
+        "apCost": 1,
+        "potency": 130,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Critical"
+        ],
+        "description": "Swift predatory slash with enhanced critical chance."
+      },
+      {
+        "name": "Killing Bite",
+        "apCost": 2,
+        "potency": 180,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "AP On Kill"
+        ],
+        "description": "Lethal throat strike that restores +2 AP upon defeating the foe."
       }
     ],
     "passiveSkills": [
       {
         "name": "Wolfpack Roar",
         "ppCost": 1,
-        "isStartOfBattle": true,
         "trigger": "Start of Battle",
-        "description": "Start of Battle: Increases Phys Atk and Initiative of Bestral allies by +20%."
+        "isStartOfBattle": true,
+        "flags": [
+          "Start of Battle",
+          "Bestial Buff"
+        ],
+        "description": "At Start of Battle, grant all Bestial allies +20% Physical Attack and +20% Critical Rate."
       },
       {
         "name": "Chasing Slash",
         "ppCost": 1,
-        "trigger": "After Ally Lands Hit",
-        "description": "Pursues the damaged enemy with an immediate claw strike."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Keen",
-      "Offensive"
-    ],
-    "synergiesWith": [
-      "govil-werewolf",
-      "morpan-werebear",
-      "raenys-featherbow"
-    ],
-    "recommendedEquipment": [
-      "Wolfpack Gauntlets",
-      "Carnelian Pendant"
-    ],
-    "overview": "Unique Bestral Werewolf leader. Stacks Bestral Night stats and executes low HP targets with Chasing Slash."
-  },
-  {
-    "id": "govil-werewolf",
-    "image": "/images/characters/werewolf.png",
-    "name": "Govil (Werewolf)",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "tier": "S+",
-    "icon": "🐺",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 100,
-      "magAtk": 20,
-      "physDef": 58,
-      "magDef": 44,
-      "initiative": 46,
-      "evasion": 62,
-      "critRate": 28
-    },
-    "activeSkills": [
-      {
-        "name": "Shadow Slash",
-        "apCost": 1,
-        "potency": 120,
-        "target": "Single Enemy",
-        "description": "Attacks enemy with armor-shredding claw.",
+        "trigger": "After Ally Attacks",
         "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Chasing Slash",
-        "ppCost": 1,
-        "trigger": "After Ally Lands Hit",
-        "description": "Follow-up pursuit strike."
+          "Pursuit",
+          "Chain Attack"
+        ],
+        "description": "Execute a pursuit attack immediately after a packmate strikes."
       }
     ],
     "bestGrowthTypes": [
       "Offensive",
-      "Keen"
+      "Speedster"
     ],
     "synergiesWith": [
-      "dinah-werewolf",
-      "morpan-werebear"
+      "Werebear",
+      "Werewolf",
+      "Wereowl"
     ],
     "recommendedEquipment": [
-      "Carnelian Blade",
-      "Raven Plume"
+      "Pursuant's Blade",
+      "Wolfpack Gauntlets",
+      "Wolf Fang Bracelet",
+      "Carnelian Pendant"
     ],
-    "overview": "Unique Bestral Werewolf striker. Chains pursuit attacks in tandem with Dinah."
+    "overview": "Dinah / Govil's class. Fast, lethal pack hunter that chains continuous pursuit attacks via Chasing Slash under Wolfpack Roar.",
+    "image": "/images/characters/werewolf.png"
   },
   {
-    "id": "morpan-werebear",
-    "image": "/images/characters/gladiator.png",
-    "name": "Morpan (Werebear)",
-    "category": "Armored",
-    "role": "Tank",
-    "tier": "S+",
-    "icon": "🐻",
-    "baseStats": {
-      "hp": 130,
-      "physAtk": 85,
-      "magAtk": 15,
-      "physDef": 92,
-      "magDef": 42,
-      "initiative": 20,
-      "evasion": 10,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Ground Slam",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Row",
-        "description": "Stuns front row enemies.",
-        "flags": [
-          "Physical",
-          "Stun"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Heavy Cover",
-        "ppCost": 1,
-        "trigger": "Before Ally Attacked",
-        "description": "Protects fragile bestrals."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Guardian",
-      "Defender"
-    ],
-    "synergiesWith": [
-      "dinah-werewolf",
-      "govil-werewolf"
-    ],
-    "recommendedEquipment": [
-      "Heavy Guard Shield",
-      "Lapis Pendant"
-    ],
-    "overview": "Bestral frontline tank absorbing blows and stunning enemy vanguards."
-  },
-  {
-    "id": "raenys-featherbow",
-    "image": "/images/characters/raenys-featherbow.png",
-    "name": "Raenys (Featherbow)",
-    "category": "Flying",
-    "role": "Debuffer",
+    "id": "featherbow",
+    "name": "Featherbow",
+    "category": "Unique",
+    "role": "Support",
     "tier": "SS",
-    "icon": "🪶",
+    "icon": "🪶🏹",
     "baseStats": {
-      "hp": 80,
-      "physAtk": 86,
-      "magAtk": 50,
+      "hp": 82,
+      "physAtk": 84,
+      "magAtk": 80,
       "physDef": 50,
       "magDef": 85,
       "initiative": 52,
-      "evasion": 88,
-      "critRate": 20
+      "evasion": 68,
+      "critRate": 25
     },
     "activeSkills": [
       {
         "name": "Shining Arrow",
         "apCost": 1,
         "potency": 100,
-        "target": "Row",
-        "description": "Fires radiant arrows that inflict Blindness on entire enemy row.",
+        "target": "Enemy Front Row",
+        "flags": [
+          "Start of Battle",
+          "Blind",
+          "Initiative Down"
+        ],
+        "description": "At Start of Battle, loose celestial arrows blinding the enemy front row and reducing their Initiative by 15."
+      },
+      {
+        "name": "Photon Arrow",
+        "apCost": 1,
+        "potency": 110,
+        "target": "Single Enemy",
         "flags": [
           "Magical",
-          "Row",
-          "Blind"
-        ]
+          "Truestrike"
+        ],
+        "description": "Truestrike radiant magic arrow that cannot be evaded."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Photon Arrow",
+        "name": "Dazzling Glare",
         "ppCost": 1,
-        "isStartOfBattle": true,
-        "trigger": "Start of Battle",
-        "description": "Start of Battle: Blinds front row enemy strikers immediately."
+        "trigger": "When Enemy Attacks",
+        "flags": [
+          "Debuff",
+          "Accuracy Down"
+        ],
+        "description": "Blind target attacker, reducing their Accuracy by 50%."
       },
       {
-        "name": "Sky Evasion",
+        "name": "Tailwind",
         "ppCost": 1,
-        "trigger": "When Attacked",
-        "description": "Evades ground attacks."
+        "trigger": "Passive",
+        "flags": [
+          "Speed Buff"
+        ],
+        "description": "Boost Initiative of all flying squadmates."
       }
     ],
     "bestGrowthTypes": [
       "Speedster",
-      "Speedster"
+      "Guardian"
     ],
     "synergiesWith": [
-      "dinah-werewolf",
-      "govil-werewolf"
+      "Feathersword",
+      "Featherstaff",
+      "Doom Knight"
     ],
     "recommendedEquipment": [
-      "Apeliotes's Bow",
-      "Angel Plume"
+      "Kingsbow Bastorik",
+      "Angel Plume",
+      "Lapis Pendant",
+      "Sniper's Lens"
     ],
-    "overview": "Unique Angel Featherbow. Highest base initiative in the game with Start-of-Battle row Blindness."
+    "overview": "Raenys's unique Albion class. Blinds enemy frontlines at Start of Battle with Shining Arrow, neutralizing physical threats.",
+    "image": "/images/characters/raenys-featherbow.png"
   },
   {
-    "id": "jeremy-landsknecht",
-    "image": "/images/characters/landsknecht.png",
-    "name": "Jeremy (Landsknecht)",
-    "category": "Infantry",
+    "id": "feathersword",
+    "name": "Feathersword",
+    "category": "Unique",
     "role": "Physical DPS",
     "tier": "S+",
-    "icon": "🗡️",
+    "icon": "🪶⚔️",
     "baseStats": {
-      "hp": 96,
-      "physAtk": 100,
-      "magAtk": 20,
+      "hp": 86,
+      "physAtk": 90,
+      "magAtk": 45,
       "physDef": 65,
-      "magDef": 40,
-      "initiative": 32,
-      "evasion": 25,
-      "critRate": 22
+      "magDef": 80,
+      "initiative": 50,
+      "evasion": 75,
+      "critRate": 25
     },
     "activeSkills": [
       {
-        "name": "Killing Chain",
+        "name": "Spiral Sword",
         "apCost": 1,
         "potency": 130,
         "target": "Single Enemy",
-        "description": "Powerful strike that refunds AP on kill.",
         "flags": [
-          "Physical"
-        ]
+          "Physical",
+          "Anti-Ground",
+          "Guard Pierce"
+        ],
+        "description": "Spiraling aerial plunge that ignores enemy guard."
+      },
+      {
+        "name": "Accelerating Blade",
+        "apCost": 1,
+        "potency": 110,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Speed Gain"
+        ],
+        "description": "Strike target and gain +10 Initiative."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Following Slash",
+        "name": "Discharge",
         "ppCost": 1,
-        "trigger": "After Ally Hits Target",
-        "description": "Performs an immediate follow-up slash."
+        "trigger": "Before Active Action",
+        "flags": [
+          "Buff Conversion",
+          "Massive Attack"
+        ],
+        "description": "Convert all active stat buffs into raw physical attack power."
+      },
+      {
+        "name": "Honorable Guard",
+        "ppCost": 1,
+        "trigger": "Before Attacked",
+        "flags": [
+          "Evasion",
+          "Guard"
+        ],
+        "description": "Evade incoming ground strikes effortlessly."
       }
     ],
     "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
+      "Speedster",
+      "Offensive"
     ],
     "synergiesWith": [
-      "dinah-werewolf",
-      "govil-werewolf"
+      "Featherbow",
+      "Featherstaff",
+      "Doom Knight"
     ],
     "recommendedEquipment": [
-      "Kingsblade Cornix",
+      "Holy Unicorn Blade",
+      "Heavenswing Shield",
+      "Angel Plume",
       "Carnelian Pendant"
     ],
-    "overview": "Promoted from Mercenary to Landsknecht. Chains Following Slash pursuits to execute damaged foes."
+    "overview": "Ochlys / Umerus's unique Albion flying sword class. Blazingly fast aerial duelist that converts buffs into massive damage with Discharge.",
+    "image": "/images/characters/swordmaster.png"
   },
   {
-    "id": "sanatio-featherstaff",
-    "image": "/images/characters/bishop.png",
-    "name": "Sanatio (Featherstaff)",
-    "category": "Flying",
+    "id": "featherstaff",
+    "name": "Featherstaff",
+    "category": "Unique",
     "role": "Support",
     "tier": "SS",
-    "icon": "🪶",
+    "icon": "🪶✨",
     "baseStats": {
-      "hp": 86,
+      "hp": 82,
       "physAtk": 30,
       "magAtk": 92,
-      "physDef": 55,
+      "physDef": 50,
       "magDef": 105,
-      "initiative": 40,
-      "evasion": 70,
+      "initiative": 42,
+      "evasion": 55,
       "critRate": 10
     },
     "activeSkills": [
       {
-        "name": "Sacred Heal",
+        "name": "Holy Breath",
         "apCost": 1,
         "potency": 120,
         "target": "All Allies",
-        "description": "Heals all allies and bestows magic resistance.",
         "flags": [
-          "Healing"
-        ]
+          "Healing",
+          "All Allies",
+          "Cleanse"
+        ],
+        "description": "Breathe radiant light across all allies, restoring HP and cleansing debuffs."
+      },
+      {
+        "name": "Divine Grace",
+        "apCost": 2,
+        "potency": 150,
+        "target": "Ally Row",
+        "flags": [
+          "Revive",
+          "Full Row"
+        ],
+        "description": "Revive and fully restore a fallen squad row."
       }
     ],
     "passiveSkills": [
       {
         "name": "Sacred Barrier",
         "ppCost": 1,
-        "isStartOfBattle": true,
         "trigger": "Start of Battle",
-        "description": "Start of Battle: Grants a 2-hit damage nullification barrier to entire squad."
+        "isStartOfBattle": true,
+        "flags": [
+          "Start of Battle",
+          "Barrier"
+        ],
+        "description": "At Start of Battle, grant all allies a barrier absorbing 2 hits of damage."
       },
       {
-        "name": "Holy Refresh",
+        "name": "Angelic Ward",
         "ppCost": 1,
-        "trigger": "When Ally Afflicted",
-        "description": "Cleanses afflictions."
+        "trigger": "When Ally Attacked",
+        "flags": [
+          "Cover"
+        ],
+        "description": "Shield ally with angel wings, taking 0 damage."
       }
     ],
     "bestGrowthTypes": [
       "Guardian",
-      "Speedster"
+      "Guardian"
     ],
     "synergiesWith": [
-      "ochlys-feathersword",
-      "umerus-feathersword",
-      "tatiana-bishop"
+      "Featherbow",
+      "Feathersword",
+      "Doom Knight"
     ],
     "recommendedEquipment": [
-      "Sacred Feather Rod",
-      "Archbishop's Mitre"
-    ],
-    "overview": "Unique Angel Featherstaff. Protects the squad with Sacred Barrier (2-hit complete damage nullification at battle start)."
-  },
-  {
-    "id": "ochlys-feathersword",
-    "image": "/images/characters/feathersword.png",
-    "name": "Ochlys (Feathersword)",
-    "category": "Flying",
-    "role": "Tank",
-    "tier": "S+",
-    "icon": "🪶",
-    "baseStats": {
-      "hp": 86,
-      "physAtk": 88,
-      "magAtk": 40,
-      "physDef": 60,
-      "magDef": 75,
-      "initiative": 48,
-      "evasion": 88,
-      "critRate": 20
-    },
-    "activeSkills": [
-      {
-        "name": "Spiral Sword",
-        "apCost": 1,
-        "potency": 110,
-        "target": "Single Enemy",
-        "description": "High speed aerial slash that bypasses guard.",
-        "flags": [
-          "Physical",
-          "Flying"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Accelerate",
-        "ppCost": 1,
-        "trigger": "After Evading Attack",
-        "description": "Increases own Initiative by +10 and Phys Atk by +15% upon dodging."
-      },
-      {
-        "name": "Shield Reflect",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Reflects incoming magic damage back."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Speedster",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "sanatio-featherstaff",
-      "umerus-feathersword"
-    ],
-    "recommendedEquipment": [
-      "Angel's Reflection Shield",
-      "Notos's Sword"
-    ],
-    "overview": "Unique Angel Feathersword. Evasion tank with stacking dodge speed buffs and magic reflection."
-  },
-  {
-    "id": "umerus-feathersword",
-    "image": "/images/characters/valkyria.png",
-    "name": "Umerus (Feathersword)",
-    "category": "Flying",
-    "role": "Physical DPS",
-    "tier": "S+",
-    "icon": "🪶",
-    "baseStats": {
-      "hp": 84,
-      "physAtk": 90,
-      "magAtk": 38,
-      "physDef": 58,
-      "magDef": 74,
-      "initiative": 47,
-      "evasion": 86,
-      "critRate": 22
-    },
-    "activeSkills": [
-      {
-        "name": "Spiral Sword",
-        "apCost": 1,
-        "potency": 110,
-        "target": "Single Enemy",
-        "description": "Guard-bypassing aerial thrust.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Accelerate",
-        "ppCost": 1,
-        "trigger": "After Evading",
-        "description": "Boosts attack and speed on dodge."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Speedster",
-      "Offensive"
-    ],
-    "synergiesWith": [
-      "sanatio-featherstaff",
-      "ochlys-feathersword"
-    ],
-    "recommendedEquipment": [
-      "Hallowed Blade",
-      "Wingline Standard"
-    ],
-    "overview": "Unique Angel Feathersword. High agility aerial duelist pairing with Ochlys."
-  },
-  {
-    "id": "tatiana-bishop",
-    "image": "/images/characters/bishop.png",
-    "name": "Tatiana (Bishop)",
-    "category": "Infantry",
-    "role": "Support",
-    "tier": "S+",
-    "icon": "🕊️",
-    "baseStats": {
-      "hp": 78,
-      "physAtk": 24,
-      "magAtk": 86,
-      "physDef": 50,
-      "magDef": 94,
-      "initiative": 31,
-      "evasion": 30,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Row Heal",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Row",
-        "description": "Heals an entire row and removes debuffs.",
-        "flags": [
-          "Healing",
-          "Cleanse"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Holy Refresh",
-        "ppCost": 1,
-        "trigger": "When Ally Afflicted",
-        "description": "Removes negative status effects."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Guardian",
-      "Defender"
-    ],
-    "synergiesWith": [
-      "sanatio-featherstaff",
-      "gloucester-doom-knight"
-    ],
-    "recommendedEquipment": [
-      "Ring of the Maiden",
+      "Kingstaff Albiore",
+      "Archbishop's Mitre",
+      "Holy Broach",
       "Lapis Pendant"
     ],
-    "overview": "Promoted from Cleric to Bishop. Maintains 100% squad health behind Sanatio's Sacred Barrier."
+    "overview": "Sanatio's unique Albion healer class. Grants squadwide damage absorption barriers and full-team healing with Holy Breath.",
+    "image": "/images/characters/bishop.png"
   },
   {
-    "id": "gloucester-doom-knight",
-    "image": "/images/characters/doom-knight.png",
-    "name": "Gloucester (Doom Knight)",
-    "category": "Cavalry",
-    "role": "Magic DPS",
-    "tier": "S+",
-    "icon": "🔥",
+    "id": "doom-knight",
+    "name": "Doom Knight",
+    "category": "Promoted",
+    "role": "Physical DPS",
+    "tier": "SS",
+    "icon": "🐎🔥",
     "baseStats": {
-      "hp": 105,
-      "physAtk": 95,
+      "hp": 115,
+      "physAtk": 102,
       "magAtk": 70,
-      "physDef": 72,
+      "physDef": 75,
       "magDef": 60,
-      "initiative": 32,
+      "initiative": 36,
       "evasion": 25,
-      "critRate": 15
+      "critRate": 20
     },
     "activeSkills": [
       {
         "name": "Dark Flame",
         "apCost": 2,
         "potency": 160,
-        "target": "Row",
-        "description": "Unleashes dark flames across an enemy row scaling with lost HP.",
+        "target": "Enemy Row",
         "flags": [
-          "Magical",
+          "Hybrid",
+          "Row",
+          "Burn",
+          "Low HP Scaling"
+        ],
+        "description": "Unleash demonic flames across an entire enemy row, inflicting Burn and dealing massive bonus damage when wounded."
+      },
+      {
+        "name": "Vengeful Slash",
+        "apCost": 1,
+        "potency": 130,
+        "target": "Single Enemy",
+        "flags": [
           "Physical",
-          "Row"
-        ]
+          "Low HP Scaling"
+        ],
+        "description": "Heavy slash that scales exponentially with lost HP."
       }
     ],
     "passiveSkills": [
       {
-        "name": "Vengeful Guard",
+        "name": "Vengeance",
         "ppCost": 1,
-        "trigger": "After Taking Damage",
-        "description": "Increases own physical and magic attack by +25%."
+        "trigger": "When Damaged",
+        "flags": [
+          "Attack Boost",
+          "PP Gain"
+        ],
+        "description": "Gain +25% Physical Attack and +1 PP whenever taking damage."
+      },
+      {
+        "name": "Demonic Drive",
+        "ppCost": 1,
+        "trigger": "Start of Battle",
+        "isStartOfBattle": true,
+        "flags": [
+          "Start of Battle",
+          "Self Buff"
+        ],
+        "description": "Sacrifice 20% HP to gain +30% Physical Attack and +30% Magical Attack."
+      }
+    ],
+    "bestGrowthTypes": [
+      "Offensive",
+      "Guardian"
+    ],
+    "synergiesWith": [
+      "Featherbow",
+      "Feathersword",
+      "Featherstaff",
+      "Landsknecht"
+    ],
+    "recommendedEquipment": [
+      "Black Axe of the Abyss",
+      "Zenoiran Shield",
+      "Carnelian Pendant",
+      "Hero's Medallion"
+    ],
+    "overview": "Gloucester's promoted class. Terrifying hybrid dark cavalry bruiser whose Dark Flame row attacks scale to monstrous damage as HP decreases.",
+    "image": "/images/characters/doom-knight.png"
+  },
+  {
+    "id": "landsknecht",
+    "name": "Landsknecht",
+    "category": "Promoted",
+    "role": "Physical DPS",
+    "tier": "S+",
+    "icon": "⚔️",
+    "baseStats": {
+      "hp": 98,
+      "physAtk": 100,
+      "magAtk": 20,
+      "physDef": 70,
+      "magDef": 45,
+      "initiative": 38,
+      "evasion": 35,
+      "critRate": 25
+    },
+    "activeSkills": [
+      {
+        "name": "Bastard Slash",
+        "apCost": 1,
+        "potency": 130,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Armor Piercing"
+        ],
+        "description": "Heavy two-handed sword strike piercing armor."
+      },
+      {
+        "name": "Heavy Slash",
+        "apCost": 1,
+        "potency": 110,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical"
+        ],
+        "description": "Basic heavy physical cut."
+      }
+    ],
+    "passiveSkills": [
+      {
+        "name": "Following Slash",
+        "ppCost": 1,
+        "trigger": "After Ally Attacks",
+        "flags": [
+          "Pursuit",
+          "Unlimited Chains"
+        ],
+        "description": "Execute a pursuit sword attack whenever any ally damages an enemy."
+      },
+      {
+        "name": "Bullseye",
+        "ppCost": 1,
+        "trigger": "Before Active Action",
+        "flags": [
+          "Truestrike"
+        ],
+        "description": "Grant 100% Truestrike to the next attack."
       }
     ],
     "bestGrowthTypes": [
@@ -3121,3635 +3282,17 @@ export const CLASSES_DATA: UnitClass[] = [
       "Offensive"
     ],
     "synergiesWith": [
-      "sanatio-featherstaff",
-      "tatiana-bishop"
+      "Doom Knight",
+      "Feathersword",
+      "Featherbow"
     ],
     "recommendedEquipment": [
-      "Dark Knight Cleaver",
-      "Carnelian Pendant"
-    ],
-    "overview": "Promoted from Dark Knight to Doom Knight. Unleashes devastating hybrid Dark Flame row nukes powered by vengeance."
-  },
-  {
-    "id": "josef-paladin",
-    "image": "/images/characters/paladin.png",
-    "name": "Josef (Paladin)",
-    "category": "Cavalry",
-    "role": "Support",
-    "tier": "S+",
-    "icon": "🛡️",
-    "baseStats": {
-      "hp": 98,
-      "physAtk": 78,
-      "magAtk": 65,
-      "physDef": 75,
-      "magDef": 80,
-      "initiative": 34,
-      "evasion": 30,
-      "critRate": 12
-    },
-    "activeSkills": [
-      {
-        "name": "Holy Strike",
-        "apCost": 1,
-        "potency": 110,
-        "target": "Single Enemy",
-        "description": "Strikes target and heals adjacent ally.",
-        "flags": [
-          "Physical",
-          "Healing"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Divine Guard",
-        "ppCost": 1,
-        "trigger": "Before Ally Attacked",
-        "description": "Covers an ally and halves damage."
-      }
-    ],
-    "bestGrowthTypes": [
-      "All-Rounder",
-      "Defender"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Hallowed Blade",
-      "Lapis Pendant"
-    ],
-    "overview": "Unique promoted Paladin offering hybrid cavalry healing and frontline cover."
-  },
-  {
-    "id": "arbalist",
-    "image": "/images/characters/arbalist.png",
-    "name": "Arbalist",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Arbalist Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Arbalist Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Arbalist specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "berserker",
-    "image": "/images/characters/berserker.png",
-    "name": "Berserker",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Berserker Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Berserker Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Berserker specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "bishop",
-    "image": "/images/characters/bishop.png",
-    "name": "Bishop",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Support",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Bishop Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Bishop Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Bishop specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "breaker",
-    "image": "/images/characters/breaker.png",
-    "name": "Breaker",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Breaker Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Breaker Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Breaker specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "cleric",
-    "image": "/images/characters/cleric.png",
-    "name": "Cleric",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Support",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Cleric Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Cleric Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Cleric specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "crusader",
-    "image": "/images/characters/crusader.png",
-    "name": "Crusader",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Crusader Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Crusader Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Crusader specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "dark-knight",
-    "image": "/images/characters/dark-knight.png",
-    "name": "Dark Knight",
-    "tier": "A+",
-    "category": "Cavalry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Dark Knight Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Dark Knight Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Dark Knight specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "dark-lord",
-    "image": "/images/characters/dark-lord.png",
-    "name": "Dark Lord",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Dark Lord Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Dark Lord Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Dark Lord specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "dark-marquess",
-    "image": "/images/characters/dark-marquess.png",
-    "name": "Dark Marquess",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Dark Marquess Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Dark Marquess Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Dark Marquess specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "dark-marquess-axe",
-    "image": "/images/characters/dark-marquess-axe.png",
-    "name": "Dark Marquess (Axe)",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Dark Marquess (Axe) Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Dark Marquess (Axe) Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Dark Marquess (Axe) specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "dark-marquess-spear",
-    "image": "/images/characters/dark-marquess-spear.png",
-    "name": "Dark Marquess (Spear)",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Dark Marquess (Spear) Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Dark Marquess (Spear) Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Dark Marquess (Spear) specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "dark-marquess-staff",
-    "image": "/images/characters/dark-marquess-staff.png",
-    "name": "Dark Marquess (Staff)",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Dark Marquess (Staff) Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Dark Marquess (Staff) Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Dark Marquess (Staff) specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "dark-marquess-sword",
-    "image": "/images/characters/dark-marquess-sword.png",
-    "name": "Dark Marquess (Sword)",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Dark Marquess (Sword) Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Dark Marquess (Sword) Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Dark Marquess (Sword) specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "doom-knight",
-    "image": "/images/characters/doom-knight.png",
-    "name": "Doom Knight",
-    "tier": "A+",
-    "category": "Cavalry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Doom Knight Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Doom Knight Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Doom Knight specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "dreadnought",
-    "image": "/images/characters/dreadnought.png",
-    "name": "Dreadnought",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Dreadnought Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Dreadnought Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Dreadnought specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "elven-archer",
-    "image": "/images/characters/elven-archer.png",
-    "name": "Elven Archer",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Elven Archer Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Elven Archer Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Elven Archer specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "elven-augur",
-    "image": "/images/characters/elven-augur.png",
-    "name": "Elven Augur",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Elven Augur Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Elven Augur Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Elven Augur specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "elven-fencer",
-    "image": "/images/characters/elven-fencer.png",
-    "name": "Elven Fencer",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Elven Fencer Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Elven Fencer Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Elven Fencer specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "elven-sibyl",
-    "image": "/images/characters/elven-sibyl.png",
-    "name": "Elven Sibyl",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Elven Sibyl Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Elven Sibyl Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Elven Sibyl specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "featherbow",
-    "image": "/images/characters/featherbow.png",
-    "name": "Featherbow",
-    "tier": "A+",
-    "category": "Flying",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Featherbow Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Featherbow Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Featherbow specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "feathershield",
-    "image": "/images/characters/feathershield.png",
-    "name": "Feathershield",
-    "tier": "A+",
-    "category": "Flying",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Feathershield Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Feathershield Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Feathershield specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "featherstaff",
-    "image": "/images/characters/featherstaff.png",
-    "name": "Featherstaff",
-    "tier": "A+",
-    "category": "Flying",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Featherstaff Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Featherstaff Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Featherstaff specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "feathersword",
-    "image": "/images/characters/feathersword.png",
-    "name": "Feathersword",
-    "tier": "A+",
-    "category": "Flying",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Feathersword Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Feathersword Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Feathersword specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "fighter",
-    "image": "/images/characters/fighter.png",
-    "name": "Fighter",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Tank",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Fighter Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Fighter Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Fighter specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "gladiator",
-    "image": "/images/characters/gladiator.png",
-    "name": "Gladiator",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Gladiator Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Gladiator Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Gladiator specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "great-knight",
-    "image": "/images/characters/great-knight.png",
-    "name": "Great Knight",
-    "tier": "A+",
-    "category": "Cavalry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Great Knight Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Great Knight Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Great Knight specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "gryphon-knight",
-    "image": "/images/characters/gryphon-knight.png",
-    "name": "Gryphon Knight",
-    "tier": "A+",
-    "category": "Cavalry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Gryphon Knight Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Gryphon Knight Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Gryphon Knight specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "gryphon-master",
-    "image": "/images/characters/gryphon-master.png",
-    "name": "Gryphon Master",
-    "tier": "A+",
-    "category": "Flying",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Gryphon Master Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Gryphon Master Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Gryphon Master specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "high-lord",
-    "image": "/images/characters/high-lord.png",
-    "name": "High Lord",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "High Lord Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "High Lord Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class High Lord specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "high-priestess",
-    "image": "/images/characters/high-priestess.png",
-    "name": "High Priestess",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Support",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "High Priestess Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "High Priestess Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class High Priestess specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "hoplite",
-    "image": "/images/characters/hoplite.png",
-    "name": "Hoplite",
-    "tier": "A+",
-    "category": "Armored",
-    "role": "Tank",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Hoplite Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Hoplite Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Hoplite specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "housecarl",
-    "image": "/images/characters/housecarl.png",
-    "name": "Housecarl",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Housecarl Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Housecarl Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Housecarl specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "hunter",
-    "image": "/images/characters/hunter.png",
-    "name": "Hunter",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Hunter Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Hunter Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Hunter specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "knight",
-    "image": "/images/characters/knight.png",
-    "name": "Knight",
-    "tier": "A+",
-    "category": "Cavalry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Knight Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Knight Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Knight specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "landsknecht",
-    "image": "/images/characters/landsknecht.png",
-    "name": "Landsknecht",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Landsknecht Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Landsknecht Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Landsknecht specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "legionnaire",
-    "image": "/images/characters/legionnaire.png",
-    "name": "Legionnaire",
-    "tier": "A+",
-    "category": "Armored",
-    "role": "Tank",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Legionnaire Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Legionnaire Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Legionnaire specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "lord",
-    "image": "/images/characters/lord.png",
-    "name": "Lord",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Lord Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Lord Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Lord specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "necromancer",
-    "image": "/images/characters/necromancer.png",
-    "name": "Necromancer",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Necromancer Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Necromancer Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Necromancer specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "overlord",
-    "image": "/images/characters/overlord.png",
-    "name": "Overlord",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Overlord Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Overlord Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Overlord specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "paladin",
-    "image": "/images/characters/paladin.png",
-    "name": "Paladin",
-    "tier": "A+",
-    "category": "Cavalry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Paladin Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Paladin Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Paladin specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "priestess",
-    "image": "/images/characters/priestess.png",
-    "name": "Priestess",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Support",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Priestess Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Priestess Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Priestess specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "prince",
-    "image": "/images/characters/prince.png",
-    "name": "Prince",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Support",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Prince Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Prince Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Prince specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "radiant-knight",
-    "image": "/images/characters/radiant-knight.png",
-    "name": "Radiant Knight",
-    "tier": "A+",
-    "category": "Cavalry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Radiant Knight Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Radiant Knight Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Radiant Knight specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "rogue",
-    "image": "/images/characters/rogue.png",
-    "name": "Rogue",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Debuffer",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Rogue Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Rogue Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Rogue specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "sainted-knight",
-    "image": "/images/characters/sainted-knight.png",
-    "name": "Sainted Knight",
-    "tier": "A+",
-    "category": "Cavalry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Sainted Knight Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Sainted Knight Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Sainted Knight specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "sellsword",
-    "image": "/images/characters/sellsword.png",
-    "name": "Sellsword",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Sellsword Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Sellsword Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Sellsword specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "sergeant",
-    "image": "/images/characters/sergeant.png",
-    "name": "Sergeant",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Sergeant Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Sergeant Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Sergeant specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "shaman",
-    "image": "/images/characters/shaman.png",
-    "name": "Shaman",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Debuffer",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Shaman Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Shaman Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Shaman specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "shieldshooter",
-    "image": "/images/characters/shieldshooter.png",
-    "name": "Shieldshooter",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Shieldshooter Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Shieldshooter Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Shieldshooter specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "sniper",
-    "image": "/images/characters/sniper.png",
-    "name": "Sniper",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Sniper Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Sniper Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Sniper specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "snow-ranger",
-    "image": "/images/characters/snow-ranger.png",
-    "name": "Snow Ranger",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Snow Ranger Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Snow Ranger Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Snow Ranger specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "soldier",
-    "image": "/images/characters/soldier.png",
-    "name": "Soldier",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Soldier Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Soldier Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Soldier specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "sorceress",
-    "image": "/images/characters/sorceress.png",
-    "name": "Sorceress",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Sorceress Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Sorceress Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Sorceress specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "swordfighter",
-    "image": "/images/characters/swordfighter.png",
-    "name": "Swordfighter",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Swordfighter Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Swordfighter Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Swordfighter specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "swordmaster",
-    "image": "/images/characters/swordmaster.png",
-    "name": "Swordmaster",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Swordmaster Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Swordmaster Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Swordmaster specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "thief",
-    "image": "/images/characters/thief.png",
-    "name": "Thief",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Debuffer",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Thief Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Thief Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Thief specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "valkyria",
-    "image": "/images/characters/valkyria.png",
-    "name": "Valkyria",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Valkyria Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Valkyria Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Valkyria specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "vanguard",
-    "image": "/images/characters/vanguard.png",
-    "name": "Vanguard",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Tank",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Vanguard Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Vanguard Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Vanguard specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "viking",
-    "image": "/images/characters/viking.png",
-    "name": "Viking",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Viking Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Viking Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Viking specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "warlock",
-    "image": "/images/characters/warlock.png",
-    "name": "Warlock",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Magic DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Warlock Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Warlock Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Warlock specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "warrior",
-    "image": "/images/characters/warrior.png",
-    "name": "Warrior",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Warrior Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Warrior Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Warrior specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "werebear",
-    "image": "/images/characters/werebear.png",
-    "name": "Werebear",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Werebear Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Werebear Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Werebear specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "werefox",
-    "image": "/images/characters/werefox.png",
-    "name": "Werefox",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Werefox Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Werefox Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Werefox specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "werelion",
-    "image": "/images/characters/werelion.png",
-    "name": "Werelion",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Werelion Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Werelion Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Werelion specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "wereowl",
-    "image": "/images/characters/wereowl.png",
-    "name": "Wereowl",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Wereowl Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Wereowl Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Wereowl specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "werewolf",
-    "image": "/images/characters/werewolf.png",
-    "name": "Werewolf",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Werewolf Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Werewolf Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Werewolf specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "witch",
-    "image": "/images/characters/witch.png",
-    "name": "Witch",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Magic DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Witch Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Witch Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Witch specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "wizard",
-    "image": "/images/characters/wizard.png",
-    "name": "Wizard",
-    "tier": "A+",
-    "category": "Infantry",
-    "role": "Magic DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Wizard Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Wizard Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Wizard specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "wyvern-knight",
-    "image": "/images/characters/wyvern-knight.png",
-    "name": "Wyvern Knight",
-    "tier": "A+",
-    "category": "Cavalry",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Wyvern Knight Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Wyvern Knight Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
-      "Carnelian Pendant",
-      "Lapis Pendant"
-    ],
-    "overview": "Official class Wyvern Knight specializing in tactical combat maneuvers."
-  },
-  {
-    "id": "wyvern-master",
-    "image": "/images/characters/wyvern-master.png",
-    "name": "Wyvern Master",
-    "tier": "A+",
-    "category": "Flying",
-    "role": "Physical DPS",
-    "icon": "⚔️",
-    "baseStats": {
-      "hp": 90,
-      "physAtk": 85,
-      "magAtk": 40,
-      "physDef": 55,
-      "magDef": 45,
-      "initiative": 35,
-      "evasion": 20,
-      "critRate": 10
-    },
-    "activeSkills": [
-      {
-        "name": "Wyvern Master Strike",
-        "apCost": 1,
-        "potency": 100,
-        "target": "Single Enemy",
-        "description": "Standard class attack scaling with physical potency.",
-        "flags": [
-          "Physical"
-        ]
-      }
-    ],
-    "passiveSkills": [
-      {
-        "name": "Wyvern Master Guard",
-        "ppCost": 1,
-        "trigger": "Before Attacked",
-        "description": "Grants medium guard and mitigates incoming damage by 50%."
-      }
-    ],
-    "bestGrowthTypes": [
-      "Offensive",
-      "Keen"
-    ],
-    "synergiesWith": [
-      "alain-high-lord"
-    ],
-    "recommendedEquipment": [
+      "Kingsblade Cornix",
+      "Armored Gauntlets",
       "Carnelian Pendant",
-      "Lapis Pendant"
+      "Hero's Medallion"
     ],
-    "overview": "Official class Wyvern Master specializing in tactical combat maneuvers."
+    "overview": "Jeremy's promoted class. Relentless pursuit attacker that chains unlimited Following Slashes upon enemy targets.",
+    "image": "/images/characters/landsknecht.png"
   }
 ];

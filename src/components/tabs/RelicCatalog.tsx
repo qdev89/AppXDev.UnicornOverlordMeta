@@ -12,7 +12,7 @@ export const RelicCatalog: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
 
-  const types = ['All', 'Weapon', 'Shield', 'Accessory', 'Tome'];
+  const types = ['All', 'Weapon', 'Shield', 'Helm', 'Accessory', 'Offhand'];
 
   const filteredItems = ITEMS_DATA.filter((item) => {
     const matchesType = selectedType === 'All' || item.type === selectedType;

@@ -21,6 +21,8 @@ import { ITEMS_DATA } from '@/data/items';
 import { SquadBuild } from '@/types';
 import { BuildDetailModal } from '@/components/builder/BuildDetailModal';
 import { calculateUnitApPp } from '@/utils/apPpCalculator';
+import { getUnitClass, getUnitGearConfig, getHeroPortraitImage } from '@/utils/squadUtils';
+import { HeroFrame } from '@/components/common/HeroFrame';
 
 interface MetaCompositionsProps {
   onLoadIntoBuilder: (squad: SquadBuild) => void;
@@ -100,30 +102,6 @@ export const MetaCompositions: React.FC<MetaCompositionsProps> = ({ onLoadIntoBu
     return matchesArchetype && matchesQuery;
   });
 
-  const getUnitClass = (unitId: string | null) => {
-    if (!unitId) return null;
-    const aliasMap: Record<string, string> = {
-      'virginia-crusader': 'valkyria',
-      'fencer': 'elven-fencer',
-      'berengaria-dark-marquess': 'berengaria-renegade',
-      'eltolinde-elven-prophet': 'eltolinde-elven-sibyl',
-      'arbalest': 'arbalist',
-      'valkyrie': 'valkyria',
-      'snow-ranger': 'yunifi-snow-ranger',
-      'elven-augur': 'eltolinde-elven-sibyl',
-      'dark-marquess': 'berengaria-renegade',
-      'prince': 'gilbert-prince',
-      'featherbow': 'raenys-feather-sword',
-      'high-priestess': 'scarlett-high-priestess',
-      'druid': 'selvie-druid',
-    };
-    const targetId = aliasMap[unitId] || unitId;
-    return (
-      CLASSES_DATA.find((c) => c.id === targetId || c.id === unitId) ||
-      CLASSES_DATA.find((c) => c.name.toLowerCase().includes(unitId.toLowerCase().replace(/-/g, ' '))) ||
-      null
-    );
-  };
 
   const getItemType = (itemName: string): 'Weapon' | 'Shield' | 'Helm' | 'Accessory' => {
     const name = itemName.toLowerCase();
@@ -360,11 +338,12 @@ export const MetaCompositions: React.FC<MetaCompositionsProps> = ({ onLoadIntoBu
                         <div className="grid grid-cols-1 gap-2">
                           {squad.frontRow.map((unitId, i) => {
                             const unit = getUnitClass(unitId);
-                            const uGearConfig = squad.unitGearConfigs?.[i];
+                            const uGearConfig = getUnitGearConfig(squad, unitId);
                             const uApPp = calculateUnitApPp(unit, uGearConfig);
+                            const heroImg = getHeroPortraitImage(unitId, uGearConfig?.characterName, unit?.id) || unit?.image;
                             return (
                               <div
-                                key={i}
+                                key={unitId || i}
                                 className={`p-2 rounded-lg border text-xs flex items-center justify-between ${
                                   unit
                                     ? 'bg-slate-950/90 border-amber-500/40 text-slate-100'
@@ -374,16 +353,16 @@ export const MetaCompositions: React.FC<MetaCompositionsProps> = ({ onLoadIntoBu
                                 {unit ? (
                                   <div className="flex items-center justify-between w-full">
                                     <div className="flex items-center gap-2 overflow-hidden">
-                                      <div className="w-12 h-12 rounded-xl bg-slate-950 border border-amber-400/50 flex items-center justify-center overflow-hidden text-xl relative shrink-0 shadow">
-                                        {unit.image ? (
-                                          <img src={unit.image} alt={unit.name} className="w-full h-full object-cover" />
-                                        ) : (
-                                          unit.icon
-                                        )}
-                                      </div>
+                                      <HeroFrame
+                                        image={heroImg}
+                                        name={uGearConfig?.characterName || uGearConfig?.unitName || unit.name}
+                                        icon={unit.icon}
+                                        size="md"
+                                        frameVariant="gold"
+                                      />
                                       <div>
                                         <span className="font-serif font-bold text-sm text-amber-200 truncate block">
-                                          {uGearConfig?.characterName || unit.name}
+                                          {uGearConfig?.characterName || uGearConfig?.unitName || unit.name}
                                         </span>
                                         <span className="text-[9px] font-mono text-emerald-400 font-bold">
                                           HP {unit.baseStats.hp || 100}/100
@@ -416,12 +395,12 @@ export const MetaCompositions: React.FC<MetaCompositionsProps> = ({ onLoadIntoBu
                         <div className="grid grid-cols-1 gap-2">
                           {squad.backRow.map((unitId, i) => {
                             const unit = getUnitClass(unitId);
-                            const idx = squad.frontRow.length + i;
-                            const uGearConfig = squad.unitGearConfigs?.[idx];
+                            const uGearConfig = getUnitGearConfig(squad, unitId);
                             const uApPp = calculateUnitApPp(unit, uGearConfig);
+                            const heroImg = getHeroPortraitImage(unitId, uGearConfig?.characterName, unit?.id) || unit?.image;
                             return (
                               <div
-                                key={i}
+                                key={unitId || i}
                                 className={`p-2 rounded-lg border text-xs flex items-center justify-between ${
                                   unit
                                     ? 'bg-slate-950/90 border-purple-500/40 text-slate-100'
@@ -431,13 +410,13 @@ export const MetaCompositions: React.FC<MetaCompositionsProps> = ({ onLoadIntoBu
                                 {unit ? (
                                   <div className="flex items-center justify-between w-full">
                                     <div className="flex items-center gap-2.5 overflow-hidden">
-                                      <div className="w-12 h-12 rounded-xl bg-slate-950 border border-purple-400/50 flex items-center justify-center overflow-hidden text-xl relative shrink-0 shadow">
-                                        {unit.image ? (
-                                          <img src={unit.image} alt={unit.name} className="w-full h-full object-cover" />
-                                        ) : (
-                                          unit.icon
-                                        )}
-                                      </div>
+                                      <HeroFrame
+                                        image={heroImg}
+                                        name={uGearConfig?.characterName || unit.name}
+                                        icon={unit.icon}
+                                        size="md"
+                                        frameVariant="purple"
+                                      />
                                       <div>
                                         <span className="font-serif font-bold text-sm text-purple-200 truncate block">
                                           {uGearConfig?.characterName || unit.name}

@@ -2,6 +2,19 @@
 
 All notable changes to the Unicorn Overlord Meta Engine & Master Tactics Hub.
 
+## [1.2.0] - 2026-08-18
+### Added
+- **Universal Hero Frame Engine (`HeroFrame.tsx`):** Created a rich, reusable hero frame component with golden filigree ornate corners, glow variants (`gold`, `purple`, `cyan`, `silver`, `ruby`), size presets (`xs`, `sm`, `md`, `lg`, `xl`, `2xl`), AP/PP badges, and Tier badges.
+- **Universal Hero Portrait Resolution (`squadUtils.ts`):** Added `HERO_IMAGE_MAP` and `getHeroPortraitImage()` resolving all 50 unique story heroes (*Alain, Berengaria, Hilda, Fran, Miriam, Primm, Gilbert, Yunifi, Virginia, Rosalinde, Eltolinde, Scarlett, Selvie, Raenys*, etc.) directly to their authentic high-res PNG portraits.
+- **Complete Class Image Mapping (`classes.ts`):** Attached canonical image paths to all 36 classes in `CLASSES_DATA`.
+- **UI-Wide HeroFrame Integration:** Upgraded `BuildDetailModal.tsx`, `ZeroOverlapTop10.tsx`, `MetaCompositions.tsx`, `SquadBuilder.tsx`, and `BattleSimulator.tsx` to use `<HeroFrame />`, eliminating fallback emojis and ensuring 100% visual consistency.
+- **Authentic Game Compendium Overhaul:** Rebuilt `skills.ts`, `items.ts`, and `zeroOverlapSquads.ts` with authentic wiki data, AP/PP costs, trigger phases, and item stat boosts.
+
+### Fixed
+- **Missing Hero Portraits & Emoji Fallbacks:** Eliminated raw emoji icons (`🐉`, `🦅`, `🛡️`, `⛪`, `👑`) across squad views and modals, replacing them with ornate golden portrait frames.
+- **Shadowed `getUnitClass` in `MetaCompositions.tsx`:** Removed shadowing local function in favor of centralized `squadUtils.getUnitClass`.
+- **EPERM Trace File Lock on Windows:** Handled concurrent Next.js dev server file lock during builds.
+
 ## [1.1.0] - 2026-08-15
 ### Added
 - **4 to 6 Row In-Game Tactics Gambit System:** Upgraded `BuildDetailModal.tsx` and `ZeroOverlapTop10.tsx` with `generateComprehensiveTactics` providing every hero with 4-6 prioritized rules (AOE Row Nukes, Single-target Finishers/Sustain, Granted Item Skills, Start-of-Battle passives, Reaction guards/covers, and Synergy buffs).

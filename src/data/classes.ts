@@ -1594,7 +1594,7 @@ export const CLASSES_DATA: UnitClass[] = [
   },
   {
     "id": "renegade",
-    "name": "Renegade",
+    "name": "Dark Marquess (Axe)",
     "category": "Unique",
     "role": "Tank",
     "tier": "SS",
@@ -1611,18 +1611,6 @@ export const CLASSES_DATA: UnitClass[] = [
     },
     "activeSkills": [
       {
-        "name": "Eye of the Crimson Bear",
-        "apCost": 1,
-        "potency": 0,
-        "target": "All Enemies",
-        "flags": [
-          "Start of Battle",
-          "Affliction",
-          "Debuff"
-        ],
-        "description": "At Start of Battle, reduce all enemies' Initiative by 15 and inflict Guard Seal."
-      },
-      {
         "name": "Death Spin",
         "apCost": 2,
         "potency": 150,
@@ -1637,32 +1625,55 @@ export const CLASSES_DATA: UnitClass[] = [
       {
         "name": "Guarded Strike",
         "apCost": 1,
-        "potency": 120,
+        "potency": 100,
         "target": "Single Enemy",
         "flags": [
           "Physical",
           "Guard"
         ],
-        "description": "Strike target and enter impenetrable defensive stance."
+        "description": "Strike enemy with shield, dealing physical damage and entering Medium Guard."
+      },
+      {
+        "name": "Carnage",
+        "apCost": 2,
+        "potency": 175,
+        "target": "Single Enemy",
+        "flags": [
+          "Physical",
+          "Finisher"
+        ],
+        "description": "Execute a target enemy, restoring +1 AP if target is defeated."
       }
     ],
     "passiveSkills": [
       {
+        "name": "Eye of the Crimson Bear",
+        "ppCost": 1,
+        "trigger": "Start of Battle",
+        "isStartOfBattle": true,
+        "flags": [
+          "Debuff",
+          "Start of Battle"
+        ],
+        "description": "At Start of Battle, reduce all enemies' Initiative by 15 and Physical Attack by 20%."
+      },
+      {
         "name": "Sanguine Pursuit",
         "ppCost": 1,
-        "trigger": "After Ally Attacks Afflicted",
+        "trigger": "After Ally Attacks",
         "flags": [
           "Pursuit",
-          "Life Drain"
+          "Heal",
+          "Affliction"
         ],
-        "description": "Strike afflicted enemy, dealing heavy damage and healing user for 50% damage."
+        "description": "Follow-up attack afflicted enemies, dealing heavy damage and recovering 1 AP."
       },
       {
         "name": "Boundless Rage",
         "ppCost": 1,
         "trigger": "When Damaged",
         "flags": [
-          "Self Buff",
+          "Buff",
           "AP Gain"
         ],
         "description": "Gain +1 AP and +20% Phys Atk whenever sustaining damage."

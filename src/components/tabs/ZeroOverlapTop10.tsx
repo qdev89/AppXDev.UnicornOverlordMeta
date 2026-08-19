@@ -59,155 +59,7 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
 
   // Helper to resolve Unit Class & Portrait Image
   const getUnitClassInfo = (unitId: string | null) => {
-    if (!unitId) return null;
-    const aliasMap: Record<string, string> = {
-      'virginia-crusader': 'virginia-valkyria',
-      'virginia': 'virginia-valkyria',
-      'fencer': 'elven-fencer',
-      'berengaria-dark-marquess': 'berengaria-renegade',
-      'eltolinde-elven-prophet': 'eltolinde-elven-sibyl',
-      'eltolinde': 'eltolinde-elven-sibyl',
-      'rosalinde': 'rosalinde-elven-augur',
-      'arbalest': 'liza-shieldshooter',
-      'valkyrie': 'virginia-valkyria',
-      'snow-ranger': 'yunifi-snow-ranger',
-      'yunifi': 'yunifi-snow-ranger',
-      'elven-augur': 'rosalinde-elven-augur',
-      'elven-sibyl': 'eltolinde-elven-sibyl',
-      'dark-marquess': 'berengaria-renegade',
-      'prince': 'gilbert-prince',
-      'gilbert': 'gilbert-prince',
-      'featherbow': 'raenys-featherbow',
-      'raenys': 'raenys-featherbow',
-      'high-priestess': 'scarlett-high-priestess',
-      'scarlett': 'scarlett-high-priestess',
-      'druid': 'selvie-druid',
-      'selvie': 'selvie-druid',
-      'chloe': 'chloe-sergeant',
-      'melisandre': 'melisandre-swordmaster',
-      'clive': 'clive-great-knight',
-      'auch': 'auch-sorcerer',
-      'yahna': 'yahna-sorceress',
-      'sharon': 'sharon-bishop',
-      'hodrick': 'hodrick-legionnaire',
-      'hilda': 'hilda-wyvern-master',
-      'fran': 'fran-gryphon-master',
-      'miriam': 'miriam-sainted-knight',
-      'primm': 'primm-bishop',
-      'travis': 'travis-rogue',
-      'nina': 'nina-breaker',
-      'liza': 'liza-shieldshooter',
-      'bruno': 'bruno-berserker',
-      'colm': 'colm-vanguard',
-      'leah': 'leah-swordmaster',
-      'kitra': 'kitra-breaker',
-      'rolf': 'rolf-sniper',
-      'ramona': 'ramona-wereowl',
-      'ridiel': 'ridiel-elven-archer',
-      'bryce': 'bryce-legionnaire',
-      'lex': 'lex-vanguard',
-      'ithilion': 'ithilion-elven-fencer',
-      'railanor': 'railanor-elven-fencer',
-      'galadmir': 'galadmir-elven-archer',
-      'amalia': 'amalia-dreadnought',
-      'bertrand': 'bertrand-werebear',
-      'monica': 'monica-sainted-knight',
-      'aramis': 'aramis-swordmaster',
-      'mandrin': 'mandrin-sniper',
-      'dinah': 'dinah-werewolf',
-      'govil': 'govil-werewolf',
-      'morpan': 'morpan-werebear',
-      'jeremy': 'jeremy-landsknecht',
-      'ochlys': 'ochlys-feathersword',
-      'umerus': 'umerus-feathersword',
-      'sanatio': 'sanatio-featherstaff',
-      'tatiana': 'tatiana-bishop',
-      'gloucester': 'gloucester-doom-knight',
-    };
-    const targetId = aliasMap[unitId] || unitId;
-    const found = CLASSES_DATA.find(
-      (c) => c.id === targetId || c.id === unitId || c.name.toLowerCase().includes(unitId.toLowerCase().replace(/-/g, ' '))
-    );
-
-    if (found && found.image) return found;
-
-    // Direct mapping fallback for key characters & classes
-    const fallbackImageMap: Record<string, { image: string; name: string; role: string; tier: string }> = {
-      'alain-high-lord': { image: '/images/characters/alain-high-lord.png', name: 'Alain (High Lord)', role: 'Physical DPS', tier: 'SS' },
-      'rosalinde-elven-augur': { image: '/images/characters/rosalinde-elven-prophet.png', name: 'Rosalinde (Elven Augur)', role: 'Magic DPS', tier: 'SS' },
-      'eltolinde-elven-sibyl': { image: '/images/characters/eltolinde-elven-sibyl.png', name: 'Eltolinde (Elven Sibyl)', role: 'Support', tier: 'SS' },
-      'berengaria-renegade': { image: '/images/characters/berengaria-renegade.png', name: 'Berengaria (Dark Marquess - Axe)', role: 'Physical DPS', tier: 'SS' },
-      'yunifi-snow-ranger': { image: '/images/characters/yunifi-snow-ranger.png', name: 'Yunifi (Snow Ranger)', role: 'Physical DPS', tier: 'SS' },
-      'gilbert-prince': { image: '/images/characters/gilbert-prince.png', name: 'Gilbert (Prince)', role: 'Support', tier: 'S+' },
-      'raenys-featherbow': { image: '/images/characters/raenys-featherbow.png', name: 'Raenys (Featherbow)', role: 'Debuffer', tier: 'S+' },
-      'scarlett-high-priestess': { image: '/images/characters/scarlett-high-priestess.png', name: 'Scarlett (High Priestess)', role: 'Support', tier: 'SS' },
-      'chloe-sergeant': { image: '/images/characters/valkyria.png', name: 'Chloe (Sergeant)', role: 'Support', tier: 'S+' },
-      'melisandre-swordmaster': { image: '/images/characters/swordmaster.png', name: 'Melisandre (Swordmaster)', role: 'Physical DPS', tier: 'S+' },
-      'clive-great-knight': { image: '/images/characters/great-knight.png', name: 'Clive (Great Knight)', role: 'Physical DPS', tier: 'SS' },
-      'auch-sorcerer': { image: '/images/characters/warlock.png', name: 'Auch (Sorcerer)', role: 'Magic DPS', tier: 'SS' },
-      'yahna-sorceress': { image: '/images/characters/sorceress.png', name: 'Yahna (Sorceress)', role: 'Magic DPS', tier: 'S+' },
-      'sharon-bishop': { image: '/images/characters/bishop.png', name: 'Sharon (Bishop)', role: 'Support', tier: 'S+' },
-      'hodrick-legionnaire': { image: '/images/characters/hoplite.png', name: 'Hodrick (Legionnaire)', role: 'Tank', tier: 'S+' },
-      'selvie-druid': { image: '/images/characters/druid.png', name: 'Selvie (Druid)', role: 'Debuffer', tier: 'SS' },
-      'hilda-wyvern-master': { image: '/images/characters/wyvern-master.png', name: 'Hilda (Wyvern Master)', role: 'Physical DPS', tier: 'SS' },
-      'fran-gryphon-master': { image: '/images/characters/gryphon-master.png', name: 'Fran (Gryphon Master)', role: 'Physical DPS', tier: 'S+' },
-      'miriam-sainted-knight': { image: '/images/characters/radiant-knight.png', name: 'Miriam (Sainted Knight)', role: 'Support', tier: 'S+' },
-      'primm-bishop': { image: '/images/characters/cleric.png', name: 'Primm (Bishop)', role: 'Support', tier: 'S' },
-      'travis-rogue': { image: '/images/characters/rogue.png', name: 'Travis (Rogue)', role: 'Debuffer', tier: 'S+' },
-      'nina-breaker': { image: '/images/characters/breaker.png', name: 'Nina (Breaker)', role: 'Physical DPS', tier: 'S+' },
-      'liza-shieldshooter': { image: '/images/characters/arbalist.png', name: 'Liza (Shieldshooter)', role: 'Support', tier: 'S' },
-      'bruno-berserker': { image: '/images/characters/gladiator.png', name: 'Bruno (Berserker)', role: 'Physical DPS', tier: 'S' },
-      'virginia-valkyria': { image: '/images/characters/valkyria.png', name: 'Virginia (Valkyria)', role: 'Tank', tier: 'S+' },
-      'colm-vanguard': { image: '/images/characters/vanguard.png', name: 'Colm (Vanguard)', role: 'Tank', tier: 'A+' },
-      'leah-swordmaster': { image: '/images/characters/swordmaster.png', name: 'Leah (Swordmaster)', role: 'Physical DPS', tier: 'S+' },
-      'kitra-breaker': { image: '/images/characters/breaker.png', name: 'Kitra (Breaker)', role: 'Physical DPS', tier: 'S+' },
-      'rolf-sniper': { image: '/images/characters/sniper.png', name: 'Rolf (Sniper)', role: 'Physical DPS', tier: 'S' },
-      'ramona-wereowl': { image: '/images/characters/cleric.png', name: 'Ramona (Wereowl)', role: 'Support', tier: 'SS' },
-      'ridiel-elven-archer': { image: '/images/characters/elven-fencer.png', name: 'Ridiel (Elven Archer)', role: 'Support', tier: 'S+' },
-      'bryce-legionnaire': { image: '/images/characters/hoplite.png', name: 'Bryce (Legionnaire)', role: 'Tank', tier: 'S+' },
-      'lex-vanguard': { image: '/images/characters/vanguard.png', name: 'Lex (Vanguard)', role: 'Tank', tier: 'A+' },
-      'ithilion-elven-fencer': { image: '/images/characters/elven-fencer.png', name: 'Ithilion (Elven Fencer)', role: 'Physical DPS', tier: 'S+' },
-      'railanor-elven-fencer': { image: '/images/characters/elven-fencer.png', name: 'Railanor (Elven Fencer)', role: 'Physical DPS', tier: 'S+' },
-      'galadmir-elven-archer': { image: '/images/characters/elven-fencer.png', name: 'Galadmir (Elven Archer)', role: 'Support', tier: 'S+' },
-      'amalia-dreadnought': { image: '/images/characters/high-lord.png', name: 'Amalia (Dreadnought)', role: 'Physical DPS', tier: 'S+' },
-      'bertrand-werebear': { image: '/images/characters/gladiator.png', name: 'Bertrand (Werebear)', role: 'Tank', tier: 'S' },
-      'monica-sainted-knight': { image: '/images/characters/radiant-knight.png', name: 'Monica (Sainted Knight)', role: 'Support', tier: 'S+' },
-      'aramis-swordmaster': { image: '/images/characters/swordmaster.png', name: 'Aramis (Swordmaster)', role: 'Physical DPS', tier: 'S+' },
-      'mandrin-sniper': { image: '/images/characters/sniper.png', name: 'Mandrin (Sniper)', role: 'Physical DPS', tier: 'S' },
-      'dinah-werewolf': { image: '/images/characters/werewolf.png', name: 'Dinah (Werewolf)', role: 'Physical DPS', tier: 'S+' },
-      'govil-werewolf': { image: '/images/characters/werewolf.png', name: 'Govil (Werewolf)', role: 'Physical DPS', tier: 'S+' },
-      'morpan-werebear': { image: '/images/characters/gladiator.png', name: 'Morpan (Werebear)', role: 'Tank', tier: 'S' },
-      'jeremy-landsknecht': { image: '/images/characters/landsknecht.png', name: 'Jeremy (Landsknecht)', role: 'Physical DPS', tier: 'S+' },
-      'ochlys-feathersword': { image: '/images/characters/feathersword.png', name: 'Ochlys (Feathersword)', role: 'Tank', tier: 'S+' },
-      'umerus-feathersword': { image: '/images/characters/feathersword.png', name: 'Umerus (Feathersword)', role: 'Physical DPS', tier: 'S+' },
-      'sanatio-featherstaff': { image: '/images/characters/bishop.png', name: 'Sanatio (Featherstaff)', role: 'Support', tier: 'S+' },
-      'tatiana-bishop': { image: '/images/characters/cleric.png', name: 'Tatiana (Bishop)', role: 'Support', tier: 'S' },
-      'gloucester-doom-knight': { image: '/images/characters/doom-knight.png', name: 'Gloucester (Doom Knight)', role: 'Magic DPS', tier: 'S+' },
-    };
-
-    const fallback = fallbackImageMap[unitId] || {
-      image: '/images/characters/alain-high-lord.png',
-      name: unitId.replace(/-/g, ' '),
-      role: 'Physical DPS',
-      tier: 'S+'
-    };
-
-    return {
-      id: unitId,
-      name: fallback.name,
-      image: fallback.image,
-      category: 'Promoted',
-      role: fallback.role,
-      tier: fallback.tier,
-      icon: '⚔️',
-      baseStats: { hp: 100, physAtk: 80, magAtk: 50, physDef: 70, magDef: 60, initiative: 30, evasion: 30, critRate: 10 },
-      activeSkills: [],
-      passiveSkills: [],
-      bestGrowthTypes: [],
-      synergiesWith: [],
-      recommendedEquipment: [],
-      overview: 'Promoted endgame meta hero.'
-    };
+    return getUnitClass(unitId);
   };
 
   const getItemType = (itemName: string): 'Weapon' | 'Shield' | 'Helm' | 'Accessory' => {
@@ -232,27 +84,26 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
 
   // Helper to resolve Item Image
   const getItemInfo = (itemName: string) => {
-    const cleanName = itemName.toLowerCase().replace(/[''\\]/g, '').replace(/[^a-z0-9]+/g, '');
-    const item = ITEMS_DATA.find((i) => {
-      const iName = i.name.toLowerCase().replace(/[''\\]/g, '').replace(/[^a-z0-9]+/g, '');
-      return iName === cleanName || iName.includes(cleanName) || cleanName.includes(iName);
-    });
+    const clean = itemName.toLowerCase().trim();
+    const norm = clean.replace(/[^a-z0-9]/g, '');
+    const found = ITEMS_DATA.find(
+      (i) =>
+        i.name.toLowerCase().trim() === clean ||
+        i.id.toLowerCase().trim() === clean.replace(/\s+/g, '-') ||
+        i.name.toLowerCase().replace(/[^a-z0-9]/g, '') === norm
+    );
     const type = getItemType(itemName);
     const icon = type === 'Weapon' ? '⚔️' : type === 'Shield' ? '🛡️' : type === 'Helm' ? '🪖' : '💎';
 
-    if (item && item.image) {
+    if (found && found.image) {
       return {
-        ...item,
+        ...found,
         type: type,
         icon: icon
       };
     }
 
-    const slug = itemName
-      .toLowerCase()
-      .replace(/[''\\]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-|-$/g, '');
+    const slug = clean.replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
     let fallbackImg = '/images/items/carnelian-pendant.png';
     if (type === 'Weapon') {
@@ -264,11 +115,11 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
     return {
       id: slug,
       name: itemName,
-      image: fallbackImg,
+      image: found?.image || fallbackImg,
       icon: icon,
       type: type,
-      statBoosts: 'Unique Meta Relic',
-      acquisition: 'Endgame Quest / Divine Shard Shop',
+      statBoosts: found?.statBoosts || 'Unique Meta Relic',
+      acquisition: found?.acquisition || 'Endgame Quest / Divine Shard Shop',
       isMetaCore: true,
       metaSquads: []
     };
@@ -604,15 +455,15 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
                               >
                                 <div className="flex items-center gap-2 overflow-hidden">
                                   <HeroFrame
-                                    image={heroImg}
-                                    name={gearConfig?.characterName || gearConfig?.unitName || info?.name || id}
+                                    image={heroImg || undefined}
+                                    name={gearConfig?.characterName || gearConfig?.unitName || info?.name || id || 'Unit'}
                                     icon={info?.icon}
                                     size="sm"
                                     frameVariant="gold"
                                   />
                                   <div className="overflow-hidden">
                                     <div className="text-[11px] font-bold text-slate-200 truncate">
-                                      {gearConfig?.characterName || gearConfig?.unitName || info?.name || id}
+                                      {gearConfig?.characterName || gearConfig?.unitName || info?.name || id || 'Unit'}
                                     </div>
                                     <div className="text-[9px] text-amber-400 font-mono truncate">
                                       {gearConfig?.className || gearConfig?.roleTitle || info?.role || 'Vanguard'}
@@ -652,8 +503,8 @@ export const ZeroOverlapTop10: React.FC<ZeroOverlapTop10Props> = ({ onLoadIntoBu
                               >
                                 <div className="flex items-center gap-2 overflow-hidden">
                                   <HeroFrame
-                                    image={heroImg}
-                                    name={gearConfig?.characterName || gearConfig?.unitName || info?.name || id}
+                                    image={heroImg || undefined}
+                                    name={gearConfig?.characterName || gearConfig?.unitName || info?.name || id || 'Unit'}
                                     icon={info?.icon}
                                     size="sm"
                                     frameVariant="purple"

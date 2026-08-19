@@ -1338,7 +1338,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "roleTitle": "Row Blindness & Evasion Tank",
         "weapon": "Pursuant's Blade",
         "shieldOrHelm": "Thief's Mantle",
-        "accessory1": "Ring of the Unicorn",
+        "accessory1": "Lucky Coin",
         "accessory2": "Raven Plume",
         "slot1Weapon": {
           "bestInSlot": "Pursuant's Blade",
@@ -1348,27 +1348,27 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
             "Notos's Sword"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +18, Poison Affliction on hit"
+          "notes": "Phys Atk +18, Grants Pursuit (1 PP)"
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Thief's Mantle",
           "optimalAlternatives": [
-            "Thief's Mantle",
             "Silk Hood",
-            "Leather Hood"
+            "Leather Hood",
+            "Silken Scarf"
           ],
           "slotType": "Helm",
-          "notes": "Evasion +20, Evade PP +1"
+          "notes": "Evasion +20, Grants Evade (1 PP)"
         },
         "slot3Accessory": {
-          "bestInSlot": "Ring of the Unicorn",
+          "bestInSlot": "Lucky Coin",
           "optimalAlternatives": [
-            "Lucky Coin",
+            "Silken Scarf",
             "Thief's Bell",
             "Skillful Amulet"
           ],
           "slotType": "Accessory",
-          "notes": "Shadowbite: Row Blindness affliction"
+          "notes": "Evasion +20, Crit Rate +20% for frontline evasion tanking"
         },
         "slot4Accessory": {
           "bestInSlot": "Raven Plume",
@@ -1378,7 +1378,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
             "Carnelian Pendant"
           ],
           "slotType": "Accessory",
-          "notes": "Initiative +15 for Turn-1 Shadowbite"
+          "notes": "Initiative +15 for Turn-1 Shadowbite row blind"
         },
         "statPriorities": [
           "Initiative (S+)",
@@ -1633,7 +1633,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
     "pveRating": "Godly (Invincible against melee physical armies)",
     "description": "Virginia commands an unyielding counter-attack fortress. Dual-wielding swords and shields with Maiden's Hammer, Virginia buffs squad physical defense by +30% on Turn 0 with Iron Veil. Leah delivers lethal True-Strike parries, Kitra shatters enemy armor, Rolf snipes flying threats with 100% True Strike, and Colm blocks all incoming arrow volleys with Arrow Cover.",
     "keyItems": [
-      "Holy Unicorn Blade",
+      "Blue Rose Sword",
       "Blue Rose Shield",
       "Counter Belt",
       "Apeliotes's Bow"
@@ -3676,7 +3676,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "roleTitle": "Divine Barrier Leader & Sacred Guardian",
         "weapon": "Kingstaff Albiore",
         "shieldOrHelm": "Archbishop's Mitre",
-        "accessory1": "Holy Unicorn Signet",
+        "accessory1": "Celestial Talisman",
         "accessory2": "Lapis Pendant",
         "slot1Weapon": {
           "bestInSlot": "Kingstaff Albiore",
@@ -3699,14 +3699,14 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
           "notes": "Row Refresh, Mag Def +10, Healing +20"
         },
         "slot3Accessory": {
-          "bestInSlot": "Holy Unicorn Signet",
+          "bestInSlot": "Celestial Talisman",
           "optimalAlternatives": [
-            "Holy Unicorn Signet",
-            "Holy Broach",
-            "Celestial Talisman"
+            "Archbishop's Pendant",
+            "Lapis Pendant",
+            "Holy Broach"
           ],
           "slotType": "Accessory",
-          "notes": "Mag Def +10, AP +1, PP +1, Maiden's Protection"
+          "notes": "Mag Def +5, Affliction Resistance +50%"
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",

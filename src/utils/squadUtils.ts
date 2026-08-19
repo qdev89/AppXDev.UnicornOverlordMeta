@@ -3,163 +3,246 @@ import { CLASSES_DATA } from '@/data/classes';
 
 // Comprehensive alias dictionary mapping any shorthand, class name, or canonical hero name to class ID
 export const ALIAS_MAP: Record<string, string> = {
-  // Aliases & Promoted Names
-  'virginia-crusader': 'virginia-valkyria',
-  'virginia': 'virginia-valkyria',
-  'valkyrie': 'virginia-valkyria',
-  'valkyria': 'virginia-valkyria',
-  'fencer': 'elven-fencer',
-  'berengaria-dark-marquess': 'berengaria-renegade',
-  'dark-marquess': 'berengaria-renegade',
-  'berengaria': 'berengaria-renegade',
-  'eltolinde-elven-prophet': 'eltolinde-elven-sibyl',
-  'eltolinde': 'eltolinde-elven-sibyl',
-  'elven-sibyl': 'eltolinde-elven-sibyl',
-  'rosalinde': 'rosalinde-elven-augur',
-  'rosalinde-elven-prophet': 'rosalinde-elven-augur',
-  'elven-augur': 'rosalinde-elven-augur',
-  'arbalest': 'liza-shieldshooter',
-  'snow-ranger': 'yunifi-snow-ranger',
-  'yunifi': 'yunifi-snow-ranger',
-  'prince': 'gilbert-prince',
-  'gilbert': 'gilbert-prince',
-  'featherbow': 'raenys-featherbow',
-  'raenys': 'raenys-featherbow',
-  'raenys-feather-sword': 'raenys-featherbow',
-  'high-priestess': 'scarlett-high-priestess',
-  'scarlett': 'scarlett-high-priestess',
-  'druid': 'selvie-druid',
-  'selvie': 'selvie-druid',
-  'chloe': 'chloe-sergeant',
-  'sergeant': 'chloe-sergeant',
-  'melisandre': 'melisandre-swordmaster',
-  'swordmaster': 'melisandre-swordmaster',
-  'clive': 'clive-great-knight',
-  'great-knight': 'clive-great-knight',
-  'auch': 'auch-sorcerer',
-  'sorcerer': 'auch-sorcerer',
-  'warlock': 'auch-sorcerer',
-  'yahna': 'yahna-sorceress',
-  'sorceress': 'yahna-sorceress',
-  'witch': 'yahna-sorceress',
-  'sharon': 'sharon-bishop',
-  'bishop': 'sharon-bishop',
-  'cleric': 'sharon-bishop',
-  'hodrick': 'hodrick-legionnaire',
-  'legionnaire': 'hodrick-legionnaire',
-  'hoplite': 'hodrick-legionnaire',
-  'hilda': 'hilda-wyvern-master',
-  'wyvern-master': 'hilda-wyvern-master',
-  'fran': 'fran-gryphon-master',
-  'gryphon-master': 'fran-gryphon-master',
-  'miriam': 'miriam-sainted-knight',
-  'sainted-knight': 'miriam-sainted-knight',
-  'radiant-knight': 'miriam-sainted-knight',
-  'primm': 'primm-bishop',
-  'travis': 'travis-rogue',
-  'thief': 'travis-rogue',
-  'rogue': 'travis-rogue',
-  'nina': 'nina-breaker',
-  'breaker': 'nina-breaker',
-  'warrior': 'nina-breaker',
-  'liza': 'liza-shieldshooter',
-  'shieldshooter': 'liza-shieldshooter',
-  'bruno': 'bruno-berserker',
-  'berserker': 'bruno-berserker',
-  'gladiator': 'bruno-berserker',
-  'colm': 'colm-vanguard',
-  'vanguard': 'colm-vanguard',
-  'fighter': 'colm-vanguard',
-  'leah': 'leah-swordmaster',
-  'kitra': 'kitra-breaker',
-  'rolf': 'rolf-sniper',
-  'sniper': 'rolf-sniper',
-  'hunter': 'rolf-sniper',
-  'ramona': 'ramona-wereowl',
-  'wereowl': 'ramona-wereowl',
-  'ridiel': 'ridiel-elven-archer',
-  'elven-archer': 'ridiel-elven-archer',
-  'bryce': 'bryce-legionnaire',
-  'lex': 'lex-vanguard',
-  'ithilion': 'ithilion-elven-fencer',
-  'railanor': 'railanor-elven-fencer',
-  'galadmir': 'galadmir-elven-archer',
-  'amalia': 'amalia-dreadnought',
-  'dreadnought': 'amalia-dreadnought',
-  'bertrand': 'bertrand-werebear',
-  'werebear': 'bertrand-werebear',
-  'monica': 'monica-sainted-knight',
-  'aramis': 'aramis-swordmaster',
-  'mandrin': 'mandrin-sniper',
-  'dinah': 'dinah-werewolf',
-  'werewolf': 'dinah-werewolf',
-  'govil': 'govil-werewolf',
-  'morpan': 'morpan-werebear',
-  'jeremy': 'jeremy-landsknecht',
-  'landsknecht': 'jeremy-landsknecht',
-  'ochlys': 'ochlys-feathersword',
-  'feathersword': 'ochlys-feathersword',
-  'umerus': 'umerus-feathersword',
-  'sanatio': 'sanatio-featherstaff',
-  'featherstaff': 'sanatio-featherstaff',
-  'tatiana': 'tatiana-bishop',
-  'gloucester': 'gloucester-doom-knight',
-  'doom-knight': 'gloucester-doom-knight',
-  'dark-knight': 'gloucester-doom-knight',
-};
+  // Alain & Core
+  'alain': 'high-lord',
+  'alain-high-lord': 'high-lord',
+  'high-lord': 'high-lord',
+  'lord': 'high-lord',
 
-// Fallback lookup table for key heroes
-const FALLBACK_HERO_MAP: Record<string, { image: string; name: string; role: string; tier: string; category: string }> = {
-  'alain-high-lord': { image: '/images/characters/alain-high-lord.png', name: 'Alain (High Lord)', role: 'Physical DPS', tier: 'SS', category: 'Cavalry' },
-  'rosalinde-elven-augur': { image: '/images/characters/rosalinde-elven-prophet.png', name: 'Rosalinde (Elven Augur)', role: 'Magic DPS', tier: 'SS', category: 'Unique' },
-  'eltolinde-elven-sibyl': { image: '/images/characters/eltolinde-elven-sibyl.png', name: 'Eltolinde (Elven Sibyl)', role: 'Support', tier: 'SS', category: 'Unique' },
-  'berengaria-renegade': { image: '/images/characters/berengaria-renegade.png', name: 'Berengaria (Dark Marquess)', role: 'Physical DPS', tier: 'SS', category: 'Infantry' },
-  'yunifi-snow-ranger': { image: '/images/characters/yunifi-snow-ranger.png', name: 'Yunifi (Snow Ranger)', role: 'Physical DPS', tier: 'SS', category: 'Infantry' },
-  'gilbert-prince': { image: '/images/characters/gilbert-prince.png', name: 'Gilbert (Prince)', role: 'Support', tier: 'S+', category: 'Infantry' },
-  'raenys-featherbow': { image: '/images/characters/raenys-featherbow.png', name: 'Raenys (Featherbow)', role: 'Debuffer', tier: 'S+', category: 'Flying' },
-  'scarlett-high-priestess': { image: '/images/characters/scarlett-high-priestess.png', name: 'Scarlett (High Priestess)', role: 'Support', tier: 'SS', category: 'Infantry' },
-  'chloe-sergeant': { image: '/images/characters/valkyria.png', name: 'Chloe (Sergeant)', role: 'Support', tier: 'S+', category: 'Infantry' },
-  'melisandre-swordmaster': { image: '/images/characters/swordmaster.png', name: 'Melisandre (Swordmaster)', role: 'Physical DPS', tier: 'S+', category: 'Infantry' },
-  'clive-great-knight': { image: '/images/characters/great-knight.png', name: 'Clive (Great Knight)', role: 'Physical DPS', tier: 'SS', category: 'Cavalry' },
-  'auch-sorcerer': { image: '/images/characters/warlock.png', name: 'Auch (Sorcerer)', role: 'Magic DPS', tier: 'SS', category: 'Infantry' },
-  'yahna-sorceress': { image: '/images/characters/sorceress.png', name: 'Yahna (Sorceress)', role: 'Magic DPS', tier: 'S+', category: 'Infantry' },
-  'sharon-bishop': { image: '/images/characters/bishop.png', name: 'Sharon (Bishop)', role: 'Support', tier: 'S+', category: 'Infantry' },
-  'hodrick-legionnaire': { image: '/images/characters/hoplite.png', name: 'Hodrick (Legionnaire)', role: 'Tank', tier: 'SS', category: 'Armored' },
-  'selvie-druid': { image: '/images/characters/druid.png', name: 'Selvie (Druid)', role: 'Debuffer', tier: 'SS', category: 'Infantry' },
-  'hilda-wyvern-master': { image: '/images/characters/wyvern-master.png', name: 'Hilda (Wyvern Master)', role: 'Physical DPS', tier: 'SS', category: 'Flying' },
-  'fran-gryphon-master': { image: '/images/characters/gryphon-master.png', name: 'Fran (Gryphon Master)', role: 'Physical DPS', tier: 'S+', category: 'Flying' },
-  'miriam-sainted-knight': { image: '/images/characters/radiant-knight.png', name: 'Miriam (Sainted Knight)', role: 'Support', tier: 'S+', category: 'Cavalry' },
-  'primm-bishop': { image: '/images/characters/cleric.png', name: 'Primm (Bishop)', role: 'Support', tier: 'S', category: 'Infantry' },
-  'travis-rogue': { image: '/images/characters/rogue.png', name: 'Travis (Rogue)', role: 'Debuffer', tier: 'S+', category: 'Infantry' },
-  'nina-breaker': { image: '/images/characters/breaker.png', name: 'Nina (Breaker)', role: 'Physical DPS', tier: 'S+', category: 'Infantry' },
-  'liza-shieldshooter': { image: '/images/characters/arbalist.png', name: 'Liza (Shieldshooter)', role: 'Support', tier: 'S', category: 'Infantry' },
-  'bruno-berserker': { image: '/images/characters/gladiator.png', name: 'Bruno (Berserker)', role: 'Physical DPS', tier: 'S', category: 'Infantry' },
-  'virginia-valkyria': { image: '/images/characters/valkyria.png', name: 'Virginia (Valkyria)', role: 'Tank', tier: 'S+', category: 'Infantry' },
-  'colm-vanguard': { image: '/images/characters/vanguard.png', name: 'Colm (Vanguard)', role: 'Tank', tier: 'A+', category: 'Infantry' },
-  'leah-swordmaster': { image: '/images/characters/swordmaster.png', name: 'Leah (Swordmaster)', role: 'Physical DPS', tier: 'S+', category: 'Infantry' },
-  'kitra-breaker': { image: '/images/characters/breaker.png', name: 'Kitra (Breaker)', role: 'Physical DPS', tier: 'S+', category: 'Infantry' },
-  'rolf-sniper': { image: '/images/characters/sniper.png', name: 'Rolf (Sniper)', role: 'Physical DPS', tier: 'S', category: 'Infantry' },
-  'ramona-wereowl': { image: '/images/characters/cleric.png', name: 'Ramona (Wereowl)', role: 'Support', tier: 'SS', category: 'Flying' },
-  'ridiel-elven-archer': { image: '/images/characters/elven-fencer.png', name: 'Ridiel (Elven Archer)', role: 'Support', tier: 'S+', category: 'Infantry' },
-  'bryce-legionnaire': { image: '/images/characters/hoplite.png', name: 'Bryce (Legionnaire)', role: 'Tank', tier: 'S+', category: 'Armored' },
-  'lex-vanguard': { image: '/images/characters/vanguard.png', name: 'Lex (Vanguard)', role: 'Tank', tier: 'A+', category: 'Infantry' },
-  'ithilion-elven-fencer': { image: '/images/characters/elven-fencer.png', name: 'Ithilion (Elven Fencer)', role: 'Physical DPS', tier: 'S+', category: 'Infantry' },
-  'railanor-elven-fencer': { image: '/images/characters/elven-fencer.png', name: 'Railanor (Elven Fencer)', role: 'Physical DPS', tier: 'S+', category: 'Infantry' },
-  'galadmir-elven-archer': { image: '/images/characters/elven-fencer.png', name: 'Galadmir (Elven Archer)', role: 'Support', tier: 'S+', category: 'Infantry' },
-  'amalia-dreadnought': { image: '/images/characters/high-lord.png', name: 'Amalia (Dreadnought)', role: 'Physical DPS', tier: 'S+', category: 'Infantry' },
-  'bertrand-werebear': { image: '/images/characters/gladiator.png', name: 'Bertrand (Werebear)', role: 'Tank', tier: 'S', category: 'Armored' },
-  'monica-sainted-knight': { image: '/images/characters/radiant-knight.png', name: 'Monica (Sainted Knight)', role: 'Support', tier: 'S+', category: 'Cavalry' },
-  'aramis-swordmaster': { image: '/images/characters/swordmaster.png', name: 'Aramis (Swordmaster)', role: 'Physical DPS', tier: 'S+', category: 'Infantry' },
-  'mandrin-sniper': { image: '/images/characters/sniper.png', name: 'Mandrin (Sniper)', role: 'Physical DPS', tier: 'S', category: 'Infantry' },
-  'dinah-werewolf': { image: '/images/characters/werewolf.png', name: 'Dinah (Werewolf)', role: 'Physical DPS', tier: 'S+', category: 'Infantry' },
-  'govil-werewolf': { image: '/images/characters/werewolf.png', name: 'Govil (Werewolf)', role: 'Physical DPS', tier: 'S+', category: 'Infantry' },
-  'morpan-werebear': { image: '/images/characters/gladiator.png', name: 'Morpan (Werebear)', role: 'Tank', tier: 'S', category: 'Armored' },
-  'jeremy-landsknecht': { image: '/images/characters/landsknecht.png', name: 'Jeremy (Landsknecht)', role: 'Physical DPS', tier: 'S+', category: 'Infantry' },
-  'ochlys-feathersword': { image: '/images/characters/feathersword.png', name: 'Ochlys (Feathersword)', role: 'Tank', tier: 'S+', category: 'Flying' },
-  'umerus-feathersword': { image: '/images/characters/feathersword.png', name: 'Umerus (Feathersword)', role: 'Physical DPS', tier: 'S+', category: 'Flying' },
-  'sanatio-featherstaff': { image: '/images/characters/bishop.png', name: 'Sanatio (Featherstaff)', role: 'Support', tier: 'S+', category: 'Flying' },
-  'tatiana-bishop': { image: '/images/characters/cleric.png', name: 'Tatiana (Bishop)', role: 'Support', tier: 'S', category: 'Infantry' },
-  'gloucester-doom-knight': { image: '/images/characters/doom-knight.png', name: 'Gloucester (Doom Knight)', role: 'Magic DPS', tier: 'S+', category: 'Cavalry' },
+  // Scarlett
+  'scarlett': 'high-priestess',
+  'scarlett-high-priestess': 'high-priestess',
+  'high-priestess': 'high-priestess',
+  'priestess': 'high-priestess',
+
+  // Clive
+  'clive': 'great-knight',
+  'clive-great-knight': 'great-knight',
+  'great-knight': 'great-knight',
+  'knight': 'great-knight',
+
+  // Chloe
+  'chloe': 'sergeant',
+  'chloe-sergeant': 'sergeant',
+  'sergeant': 'sergeant',
+  'soldier': 'sergeant',
+
+  // Melisandre
+  'melisandre': 'swordmaster',
+  'melisandre-swordmaster': 'swordmaster',
+  'swordmaster': 'swordmaster',
+
+  // Auch
+  'auch': 'sorcerer',
+  'auch-sorcerer': 'sorcerer',
+  'sorcerer': 'sorcerer',
+  'warlock': 'sorcerer',
+  'wizard': 'sorcerer',
+
+  // Sharon
+  'sharon': 'bishop',
+  'sharon-bishop': 'bishop',
+  'bishop': 'bishop',
+  'cleric': 'bishop',
+
+  // Yahna
+  'yahna': 'sorceress',
+  'yahna-sorceress': 'sorceress',
+  'sorceress': 'sorceress',
+  'witch': 'sorceress',
+
+  // Hodrick
+  'hodrick': 'legionnaire',
+  'hodrick-legionnaire': 'legionnaire',
+  'legionnaire': 'legionnaire',
+  'hoplite': 'legionnaire',
+
+  // Selvie
+  'selvie': 'druid',
+  'selvie-druid': 'druid',
+  'druid': 'druid',
+  'shaman': 'druid',
+
+  // Hilda
+  'hilda': 'wyvern-master',
+  'hilda-wyvern-master': 'wyvern-master',
+  'wyvern-master': 'wyvern-master',
+  'wyvern-knight': 'wyvern-master',
+
+  // Fran
+  'fran': 'gryphon-master',
+  'fran-gryphon-master': 'gryphon-master',
+  'gryphon-master': 'gryphon-master',
+  'gryphon-knight': 'gryphon-master',
+
+  // Miriam & Monica
+  'miriam': 'sainted-knight',
+  'miriam-sainted-knight': 'sainted-knight',
+  'monica': 'sainted-knight',
+  'monica-sainted-knight': 'sainted-knight',
+  'sainted-knight': 'sainted-knight',
+  'radiant-knight': 'sainted-knight',
+
+  // Primm & Tatiana
+  'primm': 'bishop',
+  'primm-bishop': 'bishop',
+  'tatiana': 'bishop',
+  'tatiana-bishop': 'bishop',
+
+  // Gilbert
+  'gilbert': 'prince',
+  'gilbert-prince': 'prince',
+  'prince': 'prince',
+
+  // Berengaria
+  'berengaria': 'renegade',
+  'berengaria-renegade': 'renegade',
+  'berengaria-dark-marquess': 'renegade',
+  'dark-marquess': 'renegade',
+  'renegade': 'renegade',
+
+  // Travis
+  'travis': 'rogue',
+  'travis-rogue': 'rogue',
+  'rogue': 'rogue',
+  'thief': 'rogue',
+
+  // Nina & Kitra
+  'nina': 'breaker',
+  'nina-breaker': 'breaker',
+  'kitra': 'breaker',
+  'kitra-breaker': 'breaker',
+  'breaker': 'breaker',
+  'warrior': 'breaker',
+
+  // Liza
+  'liza': 'shieldshooter',
+  'liza-shieldshooter': 'shieldshooter',
+  'shieldshooter': 'shieldshooter',
+  'arbalist': 'shieldshooter',
+
+  // Bruno
+  'bruno': 'berserker',
+  'bruno-berserker': 'berserker',
+  'berserker': 'berserker',
+  'gladiator': 'berserker',
+
+  // Virginia
+  'virginia': 'valkyria',
+  'virginia-valkyria': 'valkyria',
+  'virginia-crusader': 'valkyria',
+  'valkyria': 'valkyria',
+  'valkyrie': 'valkyria',
+  'crusader': 'valkyria',
+
+  // Colm & Lex
+  'colm': 'vanguard',
+  'colm-vanguard': 'vanguard',
+  'lex': 'vanguard',
+  'lex-vanguard': 'vanguard',
+  'vanguard': 'vanguard',
+  'fighter': 'vanguard',
+
+  // Leah & Aramis
+  'leah': 'swordmaster',
+  'leah-swordmaster': 'swordmaster',
+  'aramis': 'swordmaster',
+  'aramis-swordmaster': 'swordmaster',
+
+  // Rolf & Mandrin
+  'rolf': 'sniper',
+  'rolf-sniper': 'sniper',
+  'mandrin': 'sniper',
+  'mandrin-sniper': 'sniper',
+  'sniper': 'sniper',
+  'hunter': 'sniper',
+
+  // Yunifi
+  'yunifi': 'snow-ranger',
+  'yunifi-snow-ranger': 'snow-ranger',
+  'snow-ranger': 'snow-ranger',
+
+  // Ramona
+  'ramona': 'wereowl',
+  'ramona-wereowl': 'wereowl',
+  'wereowl': 'wereowl',
+
+  // Ridiel & Galadmir
+  'ridiel': 'elven-archer',
+  'ridiel-elven-archer': 'elven-archer',
+  'galadmir': 'elven-archer',
+  'galadmir-elven-archer': 'elven-archer',
+  'elven-archer': 'elven-archer',
+
+  // Bryce
+  'bryce': 'legionnaire',
+  'bryce-legionnaire': 'legionnaire',
+
+  // Rosalinde & Eltolinde
+  'rosalinde': 'elven-augur',
+  'rosalinde-elven-augur': 'elven-augur',
+  'rosalinde-elven-prophet': 'elven-augur',
+  'elven-augur': 'elven-augur',
+  'elven-prophet': 'elven-augur',
+  'eltolinde': 'elven-sibyl',
+  'eltolinde-elven-sibyl': 'elven-sibyl',
+  'eltolinde-elven-prophet': 'elven-sibyl',
+  'elven-sibyl': 'elven-sibyl',
+
+  // Ithilion & Railanor
+  'ithilion': 'elven-fencer',
+  'ithilion-elven-fencer': 'elven-fencer',
+  'railanor': 'elven-fencer',
+  'railanor-elven-fencer': 'elven-fencer',
+  'elven-fencer': 'elven-fencer',
+  'fencer': 'elven-fencer',
+
+  // Amalia
+  'amalia': 'dreadnought',
+  'amalia-dreadnought': 'dreadnought',
+  'dreadnought': 'dreadnought',
+
+  // Bertrand & Morpan
+  'bertrand': 'werebear',
+  'bertrand-werebear': 'werebear',
+  'morpan': 'werebear',
+  'morpan-werebear': 'werebear',
+  'werebear': 'werebear',
+
+  // Dinah & Govil
+  'dinah': 'werewolf',
+  'dinah-werewolf': 'werewolf',
+  'govil': 'werewolf',
+  'govil-werewolf': 'werewolf',
+  'werewolf': 'werewolf',
+
+  // Jeremy
+  'jeremy': 'landsknecht',
+  'jeremy-landsknecht': 'landsknecht',
+  'landsknecht': 'landsknecht',
+
+  // Raenys
+  'raenys': 'featherbow',
+  'raenys-featherbow': 'featherbow',
+  'featherbow': 'featherbow',
+
+  // Sanatio
+  'sanatio': 'featherstaff',
+  'sanatio-featherstaff': 'featherstaff',
+  'featherstaff': 'featherstaff',
+
+  // Ochlys & Umerus
+  'ochlys': 'feathersword',
+  'ochlys-feathersword': 'feathersword',
+  'umerus': 'feathersword',
+  'umerus-feathersword': 'feathersword',
+  'feathersword': 'feathersword',
+
+  // Gloucester
+  'gloucester': 'doom-knight',
+  'gloucester-doom-knight': 'doom-knight',
+  'doom-knight': 'doom-knight',
+  'dark-knight': 'doom-knight',
 };
 
 // Complete canonical hero-to-portrait mapping for all 50 unique heroes
@@ -242,7 +325,6 @@ export function getHeroPortraitImage(
     const firstWord = raw.split('-')[0];
     if (HERO_IMAGE_MAP[firstWord]) return HERO_IMAGE_MAP[firstWord];
     if (HERO_IMAGE_MAP[raw]) return HERO_IMAGE_MAP[raw];
-    if (FALLBACK_HERO_MAP[raw]?.image) return FALLBACK_HERO_MAP[raw].image;
   }
   if (fallbackClassId) {
     const cleanClass = fallbackClassId.toLowerCase().trim();
@@ -258,12 +340,12 @@ export function getHeroPortraitImage(
 export function getUnitClass(unitId: string | null | undefined): UnitClass | null {
   if (!unitId) return null;
   const raw = unitId.toLowerCase().trim();
-  const aliased = (ALIAS_MAP[raw] || raw).toLowerCase();
-  const heroSpecificImage = getHeroPortraitImage(raw, null, aliased);
+  const classKey = (ALIAS_MAP[raw] || raw).toLowerCase();
+  const heroSpecificImage = getHeroPortraitImage(raw, null, classKey);
 
-  // 1. Direct ID match
+  // 1. Match by mapped classKey or direct ID
   let found = CLASSES_DATA.find(
-    (c) => c.id.toLowerCase() === aliased || c.id.toLowerCase() === raw
+    (c) => c.id.toLowerCase() === classKey || c.id.toLowerCase() === raw
   );
   if (found) {
     return {
@@ -272,7 +354,7 @@ export function getUnitClass(unitId: string | null | undefined): UnitClass | nul
     };
   }
 
-  // 2. Character name / class name match
+  // 2. Match by clean name (e.g. "dark marquess", "snow ranger", "high lord")
   const cleanId = raw.replace(/-/g, ' ');
   found = CLASSES_DATA.find(
     (c) =>
@@ -286,27 +368,6 @@ export function getUnitClass(unitId: string | null | undefined): UnitClass | nul
     return {
       ...found,
       image: heroSpecificImage || found.image || `/images/characters/${found.id}.png`,
-    };
-  }
-
-  // 3. Fallback to known hero directory
-  const fallback = FALLBACK_HERO_MAP[aliased] || FALLBACK_HERO_MAP[raw];
-  if (fallback) {
-    return {
-      id: aliased,
-      name: fallback.name,
-      image: heroSpecificImage || fallback.image,
-      category: fallback.category as any,
-      role: fallback.role as any,
-      tier: fallback.tier as any,
-      icon: '⚔️',
-      baseStats: { hp: 100, physAtk: 80, magAtk: 50, physDef: 70, magDef: 60, initiative: 30, evasion: 30, critRate: 10 },
-      activeSkills: [],
-      passiveSkills: [],
-      bestGrowthTypes: ['All-Rounder', 'Offensive'],
-      synergiesWith: [],
-      recommendedEquipment: [],
-      overview: 'Promoted endgame meta hero.'
     };
   }
 
@@ -348,67 +409,68 @@ export function getUnitGearConfig(
     return (
       charName === firstWord ||
       charName === target ||
-      uName.startsWith(firstWord) ||
-      uName.includes(`(${target}`) ||
-      uName.includes(` ${target}`) ||
-      (firstWord.length > 2 && uName.toLowerCase().includes(firstWord))
+      uName.includes(firstWord) ||
+      uName.includes(target)
     );
   });
   if (found) return found;
 
-  // 4. ClassName or UnitName includes match
+  // 4. ClassName / RoleTitle match
   found = squad.unitGearConfigs.find((g) => {
-    const uName = g.unitName.toLowerCase();
-    const gId = g.unitId.toLowerCase();
+    const clsName = (g.className || '').toLowerCase();
     return (
-      uName.includes(target.replace(/-/g, ' ')) ||
-      gId.includes(target) ||
-      target.includes(gId)
+      clsName.includes(aliased) ||
+      aliased.includes(clsName) ||
+      clsName.includes(firstWord) ||
+      firstWord.includes(clsName)
     );
   });
-  if (found) return found;
 
-  return undefined;
+  return found;
 }
 
 /**
- * Converts a SquadBuild into SquadSlot array for the SquadBuilder
+ * Converts a SquadBuild's 2x3 formation and unitGearConfigs into a SquadSlot array
  */
 export function convertBuildToSlots(squad: SquadBuild): SquadSlot[] {
-  const getSlotConfig = (uId: string | null) => {
-    if (!uId) return undefined;
-    return getUnitGearConfig(squad, uId);
-  };
+  const slots: SquadSlot[] = [];
+  const front = squad.frontRow || [];
+  const back = squad.backRow || [];
 
-  const createSlot = (
-    slotId: 'front-0' | 'front-1' | 'back-0' | 'back-1' | 'back-2',
-    row: 'front' | 'back',
-    index: number,
-    uId: string | null
-  ): SquadSlot => {
-    const config = getSlotConfig(uId);
-    return {
-      slotId,
-      row,
-      index,
-      unitId: uId || null,
-      growthTypes: config?.growthTypes,
-      customItems: config
-        ? [
-            config.slot1Weapon?.bestInSlot || config.weapon || null,
-            config.slot2ShieldOrOffhand?.bestInSlot || config.shieldOrHelm || null,
-            config.slot3Accessory?.bestInSlot || config.accessory1 || null,
-            config.slot4Accessory?.bestInSlot || config.accessory2 || null,
-          ]
-        : undefined,
-    };
-  };
+  // Front Row positions: front-0, front-1
+  front.slice(0, 2).forEach((unitId, idx) => {
+    const gearConfig = getUnitGearConfig(squad, unitId);
+    slots.push({
+      slotId: `front-${idx}` as 'front-0' | 'front-1',
+      row: 'front',
+      index: idx,
+      unitId: unitId || null,
+      customItems: gearConfig ? [
+        gearConfig.slot1Weapon?.bestInSlot || null,
+        gearConfig.slot2ShieldOrOffhand?.bestInSlot || null,
+        gearConfig.slot3Accessory?.bestInSlot || null,
+        gearConfig.slot4Accessory?.bestInSlot || null,
+      ] : undefined,
+    });
+  });
 
-  return [
-    createSlot('front-0', 'front', 0, squad.frontRow?.[0] || null),
-    createSlot('front-1', 'front', 1, squad.frontRow?.[1] || null),
-    createSlot('back-0', 'back', 0, squad.backRow?.[0] || null),
-    createSlot('back-1', 'back', 1, squad.backRow?.[1] || null),
-    createSlot('back-2', 'back', 2, squad.backRow?.[2] || null),
-  ];
+  // Back Row positions: back-0, back-1, back-2
+  back.slice(0, 3).forEach((unitId, idx) => {
+    const gearConfig = getUnitGearConfig(squad, unitId);
+    slots.push({
+      slotId: `back-${idx}` as 'back-0' | 'back-1' | 'back-2',
+      row: 'back',
+      index: idx,
+      unitId: unitId || null,
+      customItems: gearConfig ? [
+        gearConfig.slot1Weapon?.bestInSlot || null,
+        gearConfig.slot2ShieldOrOffhand?.bestInSlot || null,
+        gearConfig.slot3Accessory?.bestInSlot || null,
+        gearConfig.slot4Accessory?.bestInSlot || null,
+      ] : undefined,
+    });
+  });
+
+  return slots;
 }
+

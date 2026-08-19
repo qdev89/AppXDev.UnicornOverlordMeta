@@ -97,9 +97,13 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
 
     const grantedItemSkills: { name: string; cost: string; description: string; isStartOfBattle?: boolean }[] = [];
     equippedItemNames.forEach((itemName) => {
-      const clean = itemName.toLowerCase();
+      const clean = itemName.toLowerCase().trim();
+      const norm = clean.replace(/[^a-z0-9]/g, '');
       const found = ITEMS_DATA.find(
-        (i) => i.name.toLowerCase() === clean || clean.includes(i.name.toLowerCase()) || i.name.toLowerCase().includes(clean)
+        (i) =>
+          i.name.toLowerCase().trim() === clean ||
+          i.id.toLowerCase().trim() === clean.replace(/\s+/g, '-') ||
+          i.name.toLowerCase().replace(/[^a-z0-9]/g, '') === norm
       );
       if (found?.grantedSkill) {
         grantedItemSkills.push(found.grantedSkill);
@@ -114,26 +118,49 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
         (prev, curr) => ((curr.apCost || 1) >= (prev.apCost || 1) ? curr : prev),
         activeSkillsList[0]
       );
-      let cond1 = '[Target: Frontline Row]';
-      if (primaryActive.target === 'Full Row') cond1 = '[Target: Full Row (2+ Enemies)]';
+      let cond1 = '[Target: Front Row (2+ Enemies)]';
+      if (primaryActive.target === 'Full Row' || primaryActive.target === 'Enemy Row') cond1 = '[Target: Front Row (2+ Enemies)]';
       else if (primaryActive.target === 'All Enemies') cond1 = '[Target: All Enemies]';
-      else if (primaryActive.target === 'Column') cond1 = '[Target: Column (Infantry Priority)]';
+      else if (primaryActive.target === 'Column' || primaryActive.target === 'Enemy Column') cond1 = '[Target: Column (Infantry Priority)]';
       else if (primaryActive.flags?.includes('True-Strike') || primaryActive.name.toLowerCase().includes('keen'))
         cond1 = '[Target: Prioritize Scouts / Evasion]';
       else if (uClass.category === 'Cavalry') cond1 = '[Target: Prioritize Infantry]';
       else if (uClass.role === 'Physical DPS') cond1 = '[Target: Prioritize Low Phys DEF]';
+      else if (uClass.role === 'Support') cond1 = '[Target: Ally HP <= 50%]';
 
       steps.push({
-        step: 1,
+        step: steps.length + 1,
         unit: unitDisplayName,
         skill: primaryActive.name,
         condition1: cond1,
         condition2: `[Self AP >= ${primaryActive.apCost || 2}]`,
         notes: primaryActive.description || `Primary tactical strike with ${primaryActive.potency || 100}% potency.`,
       });
+
+      // Priority 2: Secondary Active Skill (Single Target Finisher / Cleanse / Lower AP)
+      const secondaryActive = activeSkillsList.find((s) => s.name !== primaryActive.name);
+      if (secondaryActive) {
+        let sCond1 = '[Target: Lowest HP %]';
+        if (secondaryActive.name.toLowerCase().includes('heal') || secondaryActive.name.toLowerCase().includes('light')) {
+          sCond1 = '[Target: Ally HP <= 75%]';
+        } else if (secondaryActive.flags?.includes('Anti-Flying') || secondaryActive.name.toLowerCase().includes('snipe')) {
+          sCond1 = '[Target: Flying Enemies Priority]';
+        } else if (secondaryActive.flags?.includes('Anti-Armor') || secondaryActive.name.toLowerCase().includes('smash') || secondaryActive.name.toLowerCase().includes('strike')) {
+          sCond1 = '[Target: Armored Enemies Priority]';
+        }
+
+        steps.push({
+          step: steps.length + 1,
+          unit: unitDisplayName,
+          skill: secondaryActive.name,
+          condition1: sCond1,
+          condition2: `[Self AP >= ${secondaryActive.apCost || 1}]`,
+          notes: secondaryActive.description || `Secondary tactical action.`,
+        });
+      }
     }
 
-    // Priority 2: Granted Item Active Skills (e.g. Trinity Rain, Dragoon Dive, Arrow Rain, Glacial Tempest)
+    // Priority 3: Granted Item Active Skills (e.g. Trinity Rain, Dragoon Dive, Arrow Rain, Glacial Tempest)
     grantedItemSkills.forEach((gSkill) => {
       if (gSkill.cost.includes('AP') && !steps.some((s) => s.skill === gSkill.name)) {
         steps.push({
@@ -147,7 +174,7 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
       }
     });
 
-    // Priority 3: Start of Battle Passive Trigger
+    // Priority 4: Start of Battle Passive Trigger
     const startOfBattleSkill = (uClass.passiveSkills || []).find((s) => s.isStartOfBattle || s.trigger === 'Start of Battle');
     if (startOfBattleSkill) {
       steps.push({
@@ -160,7 +187,7 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
       });
     }
 
-    // Priority 4: Defensive Reaction / Cover / Guard / Sustain Passives
+    // Priority 5: Defensive Reaction / Cover / Guard / Sustain Passives
     const defPassives = (uClass.passiveSkills || []).filter(
       (s) =>
         !s.isStartOfBattle &&
@@ -169,6 +196,7 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
           s.name.toLowerCase().includes('guard') ||
           s.name.toLowerCase().includes('cover') ||
           s.name.toLowerCase().includes('parry') ||
+          s.name.toLowerCase().includes('evade') ||
           s.name.toLowerCase().includes('heal') ||
           s.name.toLowerCase().includes('shield'))
     );
@@ -177,6 +205,7 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
         let cond1 = '[Before Being Attacked]';
         if (dp.name.toLowerCase().includes('cover')) cond1 = '[Before Ally Attacked (Back Row)]';
         else if (dp.name.toLowerCase().includes('parry')) cond1 = '[Before Melee Physical Attack]';
+        else if (dp.name.toLowerCase().includes('evade')) cond1 = '[Before Being Attacked]';
         else if (dp.name.toLowerCase().includes('heal')) cond1 = '[Ally HP <= 50%]';
         else if (dp.trigger) cond1 = `[${dp.trigger}]`;
 
@@ -191,15 +220,17 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
       }
     });
 
-    // Priority 5: Granted Item Passive Skills (e.g. Quick Impetus, Eagle Eye, Parting Resurrection)
+    // Priority 6: Granted Item Passive Skills (e.g. Quick Impetus, Hawk Eye, Eagle Eye, Pursuit, Toughness)
     grantedItemSkills.forEach((gSkill) => {
       if (gSkill.cost.includes('PP') && !steps.some((s) => s.skill === gSkill.name)) {
         let cond1 = '[After Ally Acts]';
         if (gSkill.name.toLowerCase().includes('impetus')) cond1 = '[Target: Highest ATK Ally (Turn 1)]';
-        else if (gSkill.name.toLowerCase().includes('eye') || gSkill.name.toLowerCase().includes('lens'))
+        else if (gSkill.name.toLowerCase().includes('eye') || gSkill.name.toLowerCase().includes('lens') || gSkill.name.toLowerCase().includes('hawk'))
           cond1 = '[Self: Before Attacking (AOE)]';
         else if (gSkill.name.toLowerCase().includes('barrier') || gSkill.name.toLowerCase().includes('shield'))
           cond1 = '[Before Magic Attack]';
+        else if (gSkill.name.toLowerCase().includes('pursuit'))
+          cond1 = '[After Ally Attacks]';
 
         steps.push({
           step: steps.length + 1,
@@ -212,13 +243,15 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
       }
     });
 
-    // Priority 6: Remaining Buff / Follow-up Passive Skills
+    // Priority 7: Remaining Buff / Follow-up / Pursuit / Plunder Passives
     const otherPassives = (uClass.passiveSkills || []).filter((s) => !steps.some((st) => st.skill === s.name));
     otherPassives.forEach((op) => {
       let cond1 = op.trigger ? `[${op.trigger}]` : '[After Ally Attack]';
-      if (op.name.toLowerCase().includes('call')) cond1 = '[After Ally Attack (Row Attack)]';
-      else if (op.name.toLowerCase().includes('conferral')) cond1 = '[Before Ally Physical Attack]';
-      else if (op.name.toLowerCase().includes('pursuit')) cond1 = '[After Ally Attacks Weakened Foe]';
+      if (op.name.toLowerCase().includes('call')) cond1 = '[Before Ally Physical Attack]';
+      else if (op.name.toLowerCase().includes('conferral') || op.name.toLowerCase().includes('weapon')) cond1 = '[Before Ally Physical Attack]';
+      else if (op.name.toLowerCase().includes('pursuit') || op.name.toLowerCase().includes('following') || op.name.toLowerCase().includes('chasing')) cond1 = '[After Ally Attacks]';
+      else if (op.name.toLowerCase().includes('plunder') || op.name.toLowerCase().includes('steal')) cond1 = '[After Active Action]';
+      else if (op.name.toLowerCase().includes('eyes')) cond1 = '[When Ally Uses PP]';
 
       steps.push({
         step: steps.length + 1,

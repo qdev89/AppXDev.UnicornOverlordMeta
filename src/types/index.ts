@@ -74,6 +74,9 @@ export interface UnitClass {
   recommendedEquipment: string[];
   overview: string;
   image?: string;
+  equipmentSlots?: ('Weapon' | 'Shield' | 'Accessory' | 'Offhand')[];
+  specialEquipmentTrait?: string;
+  specialTraitDescription?: string;
 }
 
 export interface TacticsRule {

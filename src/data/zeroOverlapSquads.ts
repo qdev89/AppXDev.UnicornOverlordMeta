@@ -6,15 +6,8 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
     "name": "1. Alain Holy Vanguard & Cavalry Blitz",
     "archetype": "Cavalry Burst",
     "tier": "SS",
-    "pvpRating": "SS-Tier (Dominant Frontline Lead & 100% Crit Trample)",
-    "pveRating": "Godly (Clears All Main Story & Zenoira Postgame)",
-    "description": "Alain leads the Royal Vanguard. Chloe guarantees 100% Critical Hits via Keen Call, powering Alain's Spinning Edge row cleaves and Clive's 200% anti-infantry Line Charge sweeps. Melisandre punishes melee attackers with parries while Scarlett cleanses debuffs and sustains health.",
-    "keyItems": [
-      "Holy Unicorn Blade",
-      "Ring of the Unicorn",
-      "Chloe's Charm",
-      "Heavensteed Reins"
-    ],
+    "pvpRating": "99.5/100",
+    "description": "The premier flagship cavalry shock comp. Alain commands the frontline with high defense and true-strike row stuns, while Clive executes relentless Line Charge chains powered by Chloe's 100% Critical Keen Call.",
     "frontRow": [
       "alain-high-lord",
       "melisandre-swordmaster"
@@ -24,29 +17,25 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
       "clive-great-knight",
       "chloe-sergeant"
     ],
-    "pros": [
-      "100% Guaranteed Critical Hits on all active attacks via Chloe's Keen Call",
-      "Alain Spinning Edge wipes entire front rows and earns +1 AP on kill",
-      "Clive Line Charge deals 200% devastating bonus damage against infantry",
-      "Melisandre True-Strike parries eliminate evasion scouts without taking damage",
-      "Scarlett grants start-of-battle passive squad HP regen and instant debuff cleanse"
-    ],
-    "cons": [
-      "Requires positioning fliers cautiously against anti-cavalry pikes"
+    "keyItems": [
+      "Holy Unicorn Blade",
+      "Holy Unicorn Shield",
+      "Ring of the Unicorn",
+      "Chloe's Charm"
     ],
     "counters": [
-      "Heavy Anti-Cavalry Flying Squads",
-      "Start-of-Battle Dispel"
+      "Infantry heavy formations",
+      "Magic glass cannons"
     ],
     "strategyGuide": {
-      "winCondition": "Deliver guaranteed critical Spinning Edge and Line Charge strikes to wipe enemy rows before they can act.",
-      "overview": "Scarlett activates Sacred Light at battle start to grant squad regeneration. Melisandre and Alain hold the frontline with parries and high guard defense. When Alain executes Spinning Edge, Chloe triggers Keen Call for guaranteed 100% Critical True-Strike damage. Clive immediately follows with Line Charge across the backline.",
+      "overview": "Alain leads the vanguard, soaking damage and triggering Start-of-Battle Cavalry Call for +20% Phys Atk. Chloe buffs Alain/Clive with Keen Call for 100% Critical Damage, while Melisandre parries and executes high-evasion scouts.",
+      "winCondition": "Turn 1 cavalry sweep wiping enemy vanguard before they can act.",
       "combatSequenceNotes": [
-        "Turn 0: Scarlett triggers Sacred Light -> Squad gains HP regen and affliction immunity.",
-        "Turn 1: Alain casts Spinning Edge -> Chloe activates Keen Call (100% Guaranteed Critical Hit) -> Front row deleted!",
-        "Turn 1: Clive casts Line Charge -> 200% bonus critical damage through enemy infantry row.",
-        "Turn 1: Melisandre triggers Parrying Slash on incoming physical attacks -> 0 damage taken + instant counter kill.",
-        "Turn 1: Scarlett uses Innocent Light to strip any surviving enemy buffs."
+        "Chloe casts Keen Call on Alain before he executes Spinning Edge.",
+        "Alain cleaves frontline with 100% critical damage and gains +1 AP on kill.",
+        "Clive charges column to clean up armored infantry.",
+        "Melisandre deletes high-evasion scouts with True-Strike Meteor Slash.",
+        "Scarlett dispels debuffs and heals any chip damage."
       ]
     },
     "unitGearConfigs": [
@@ -56,59 +45,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Alain",
         "className": "High Lord",
         "roleTitle": "Royal Commander & Vanguard Lead",
-        "weapon": "Holy Unicorn Blade",
-        "shieldOrHelm": "Holy Unicorn Shield",
-        "accessory1": "Ring of the Unicorn",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "All-Rounder",
+          "Offensive"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Holy Unicorn Blade",
           "optimalAlternatives": [
             "Kingsblade Cornix",
-            "Notos's Sword",
+            "Hallowed Blade",
             "Meteorite Sword"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +28, All Stats +5, AP +1"
+          "notes": "Phys Atk +28, All Stats +5, AP +1. Alain's canonical royal sword."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Holy Unicorn Shield",
           "optimalAlternatives": [
             "Azure Crest Shield",
-            "Steel Shield",
-            "Chivalric Shield"
+            "Chivalric Shield",
+            "Steel Shield"
           ],
           "slotType": "Shield",
-          "notes": "Phys Def +16, Guard Rate +40%, Quick Cover"
+          "notes": "Phys Def +8, Debuff Immunity, Quick Cover."
         },
         "slot3Accessory": {
           "bestInSlot": "Ring of the Unicorn",
           "optimalAlternatives": [
-            "Holy Unicorn Signet",
-            "Hero's Medallion",
-            "Lionheart"
+            "Royal Brooch",
+            "Warrior's Medallion",
+            "Dragonbone Ring"
           ],
           "slotType": "Accessory",
-          "notes": "All Stats +5, AP +1, PP +1, Affliction Immunity"
+          "notes": "All Stats +5, AP +1, PP +1, Affliction Immunity, Grants Astral Blade."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
             "Warrior's Medallion",
-            "Amethyst Pendant"
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for extra Spinning Edge executions"
-        },
-        "statPriorities": [
-          "Phys Atk (S+)",
-          "Phys Def (S)",
-          "Initiative (A)"
-        ],
-        "growthTypes": [
-          "All-Rounder",
-          "Offensive"
-        ]
+          "notes": "AP +1 for extra Spinning Edge executions."
+        }
       },
       {
         "unitId": "melisandre-swordmaster",
@@ -116,59 +96,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Melisandre",
         "className": "Swordmaster",
         "roleTitle": "Dual-Wield True-Strike Parry Duelist",
-        "weapon": "Kingsblade Cornix",
-        "shieldOrHelm": "Pursuant's Blade",
-        "accessory1": "Parrying Amulet",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Keen"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Kingsblade Cornix",
           "optimalAlternatives": [
             "Notos's Sword",
             "Meteorite Sword",
-            "Iron Sword"
+            "General's Saber"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +28, All Stats +5"
+          "notes": "Main-Hand Slot: Phys Atk +28, All Stats +5."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Pursuant's Blade",
+          "bestInSlot": "Black-Iron Sword",
           "optimalAlternatives": [
-            "Pursuant's Blade",
-            "Carnelian Blade",
-            "Iron Sword"
+            "Flamberge",
+            "Notos's Sword",
+            "Meteorite Sword"
           ],
           "slotType": "Weapon",
-          "notes": "Dual-Wield Slot: Evasion +15, Parrying Slash"
+          "notes": "Dual-Wield Off-Hand Slot: Phys Atk +17, Crit Rate +5%. House Meillet relic."
         },
         "slot3Accessory": {
           "bestInSlot": "Parrying Amulet",
           "optimalAlternatives": [
-            "Lucky Coin",
-            "Thief's Mantle",
-            "Skillful Amulet"
+            "Retaliation Earrings",
+            "Warrior's Medallion",
+            "Lucky Coin"
           ],
           "slotType": "Accessory",
-          "notes": "Parrying Slash: Negates physical melee and counters"
+          "notes": "Guard Cure, Negates physical melee and counters."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Lucky Coin",
-            "Skillful Amulet"
+            "Sniper's Lens",
+            "Critical Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Meteor Slash flurries"
-        },
-        "statPriorities": [
-          "Crit Rate (S+)",
-          "Initiative (S)",
-          "Phys Atk (A)"
-        ],
-        "growthTypes": [
-          "Keen",
-          "Keen"
-        ]
+          "notes": "AP +1 for Meteor Slash flurries."
+        }
       },
       {
         "unitId": "scarlett-high-priestess",
@@ -176,59 +147,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Scarlett",
         "className": "High Priestess",
         "roleTitle": "Sacred Healer, Buffer & Dispeller",
-        "weapon": "Sacral Rod",
-        "shieldOrHelm": "Scarlett's Ribbon",
-        "accessory1": "Holy Unicorn Signet",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Go-Getter",
+          "Support"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Sacral Rod",
+          "bestInSlot": "Papal Crosier",
           "optimalAlternatives": [
             "Sacral Rod",
-            "Meteorite Rod",
-            "Kingstaff Albiore"
+            "Hallowed Staff",
+            "Euros's Staff"
           ],
           "slotType": "Weapon",
-          "notes": "Mag Atk +24, HP Regen +10%"
+          "notes": "Mag Atk +26, Healing +20%, AP +1. Scarlett's sacred relic."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Scarlett's Ribbon",
           "optimalAlternatives": [
             "Archbishop's Mitre",
-            "Monk's Mitre",
-            "Scarlett's Ribbon"
-          ],
-          "slotType": "Helm",
-          "notes": "Healing +20, Mag Def +8, PP +1"
-        },
-        "slot3Accessory": {
-          "bestInSlot": "Holy Unicorn Signet",
-          "optimalAlternatives": [
-            "Holy Broach",
-            "Celestial Talisman",
-            "Lifeblood Talisman"
+            "Silk Hood",
+            "Holy Brooch"
           ],
           "slotType": "Accessory",
-          "notes": "Mag Def +10, AP +1, PP +1, Maiden's Protection"
+          "notes": "Healing +20, Mag Def +8, PP +1, Grants Quick Heal."
+        },
+        "slot3Accessory": {
+          "bestInSlot": "Ring of the Maiden",
+          "optimalAlternatives": [
+            "Holy Unicorn Signet",
+            "Celestial Talisman",
+            "Saint's Brooch"
+          ],
+          "slotType": "Accessory",
+          "notes": "Mag Def +10, AP +1, PP +1, Maiden's Protection, All Affliction Immunity."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
             "First Aid Kit",
-            "Dove Plume"
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Passive Supply and Holy Light"
-        },
-        "statPriorities": [
-          "Healing (S+)",
-          "Mag Def (S)",
-          "Initiative (A)"
-        ],
-        "growthTypes": [
-          "Guardian",
-          "Defender"
-        ]
+          "notes": "PP +1 for Passive Supply and Holy Light."
+        }
       },
       {
         "unitId": "clive-great-knight",
@@ -236,59 +198,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Clive",
         "className": "Great Knight",
         "roleTitle": "Anti-Infantry Line Charge Sweeper",
-        "weapon": "Carnelian Spear",
-        "shieldOrHelm": "Chivalric Shield",
-        "accessory1": "Heavensteed Reins",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Offensive"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Carnelian Spear",
           "optimalAlternatives": [
             "Meteorite Lance",
-            "Kingslance Elhal",
-            "Iron Spear"
+            "Dragonbone Spear",
+            "General's Pike"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +25, AP +1"
+          "notes": "Phys Atk +25, AP +1."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Chivalric Shield",
           "optimalAlternatives": [
             "Steel Shield",
             "Azure Crest Shield",
-            "Cloth Gauntlets"
+            "Knight's Shield"
           ],
           "slotType": "Shield",
-          "notes": "Phys Def +10, Guard Rate +25%"
+          "notes": "Phys Def +6, Guard Rate +25%, Stun/Guard Seal Immunity."
         },
         "slot3Accessory": {
           "bestInSlot": "Heavensteed Reins",
           "optimalAlternatives": [
-            "Courser's Reins",
-            "Battleline Standard",
-            "Elite Standard"
+            "Cavalry Hunter's Buckler",
+            "Warrior's Medallion",
+            "Knight's Brooch"
           ],
           "slotType": "Accessory",
-          "notes": "Cavalry Attack +15%, Guard Rate +10%"
+          "notes": "Cavalry Attack +15%, Guard Rate +10%, Grants Dynamic Glide."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Warrior's Medallion",
-            "Power Belt"
+            "Power Belt",
+            "Critical Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Line Charge chaining"
-        },
-        "statPriorities": [
-          "Phys Atk (S+)",
-          "Initiative (A)",
-          "Guard Rate (B)"
-        ],
-        "growthTypes": [
-          "Offensive",
-          "Offensive"
-        ]
+          "notes": "AP +1 for Line Charge chaining."
+        }
       },
       {
         "unitId": "chloe-sergeant",
@@ -296,127 +249,102 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Chloe",
         "className": "Sergeant",
         "roleTitle": "100% Critical Keen Call Enabler",
-        "weapon": "Meteorite Lance",
-        "shieldOrHelm": "Steel Shield",
-        "accessory1": "Chloe's Charm",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Support",
+          "Go-Getter"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Meteorite Lance",
+          "bestInSlot": "General's Pike",
           "optimalAlternatives": [
-            "Runic Spear",
-            "Iron Spear",
-            "Carnelian Spear"
+            "Meteorite Lance",
+            "Sacral Spear",
+            "Iron Lance"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +24, Max HP +20"
+          "notes": "Phys Atk +22, Initiative +4, True Strike."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Steel Shield",
+          "bestInSlot": "Dancer's Bracelet",
           "optimalAlternatives": [
-            "Chivalric Shield",
-            "Cloth Gauntlets",
-            "Bronze Shield"
-          ],
-          "slotType": "Shield",
-          "notes": "Phys Def +11, Guard Rate +25%"
-        },
-        "slot3Accessory": {
-          "bestInSlot": "Chloe's Charm",
-          "optimalAlternatives": [
-            "Lapis Pendant",
-            "Retaliation Earrings",
-            "Skillful Amulet"
+            "Silk Hood",
+            "Verdant Ribbon",
+            "Silk Scarf"
           ],
           "slotType": "Accessory",
-          "notes": "Keen Call: Grants 100% Guaranteed Crit to Alain / Clive"
+          "notes": "Phys Def +1, Mag Def +1, Grants Powerful Call (+20% Phys Atk to ally)."
+        },
+        "slot3Accessory": {
+          "bestInSlot": "Verdant Ribbon",
+          "optimalAlternatives": [
+            "Lapis Bell",
+            "Raven Plume",
+            "Commander's Crest"
+          ],
+          "slotType": "Accessory",
+          "notes": "Mag Def +3, boosts magic resistance to sustain backline support."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Dove Plume",
-            "First Aid Kit"
+            "First Aid Kit",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 to sustain Keen Call activations"
-        },
-        "statPriorities": [
-          "PP (+4 Required)",
-          "Initiative (A)",
-          "Phys Atk (B)"
-        ],
-        "growthTypes": [
-          "Speedster",
-          "Keen"
-        ]
+          "notes": "PP +1 to sustain Keen Call activations."
+        }
       }
     ],
     "tacticsSequence": [
       {
         "step": 1,
-        "unit": "Scarlett",
-        "skill": "Holy Light",
-        "condition1": "[Start of Battle]",
-        "condition2": "[Full Squad]",
-        "notes": "Squad HP regen & affliction immunity"
+        "unit": "Chloe",
+        "skill": "Keen Call",
+        "condition1": "[Target: Highest ATK Cavalry Ally]",
+        "condition2": "[Self PP >= 1]",
+        "notes": "Buffs Alain and Clive with 100% Guaranteed Critical Strike."
       },
       {
         "step": 2,
-        "unit": "Chloe",
-        "skill": "Keen Call",
-        "condition1": "[Ally Active Attack]",
-        "condition2": "[Target: Alain]",
-        "notes": "Grants 100% Guaranteed Critical Hit"
+        "unit": "Alain",
+        "skill": "Spinning Edge",
+        "condition1": "[Target: Front Row (2+ Enemies)]",
+        "condition2": "[Self AP >= 2]",
+        "notes": "Row-cleaving physical assault dealing massive damage."
       },
       {
         "step": 3,
-        "unit": "Alain",
-        "skill": "Spinning Edge",
-        "condition1": "[Front Row Enemies >= 2]",
+        "unit": "Clive",
+        "skill": "Wild Rush",
+        "condition1": "[Target: Column (Infantry Priority)]",
         "condition2": "[Self AP >= 2]",
-        "notes": "100% Crit Row Wipe strike"
+        "notes": "Column-piercing charge knocking back infantry defenders."
       },
       {
         "step": 4,
-        "unit": "Clive",
-        "skill": "Wild Rush",
-        "condition1": "[Target Column/Row]",
+        "unit": "Melisandre",
+        "skill": "Meteor Slash",
+        "condition1": "[Target: Scout / Evasive Enemy]",
         "condition2": "[Self AP >= 2]",
-        "notes": "200% bonus vs infantry"
+        "notes": "9-hit true strike deleting evasive backline threats."
       },
       {
         "step": 5,
-        "unit": "Melisandre",
-        "skill": "Parry",
-        "condition1": "[Attacked by Physical]",
-        "condition2": "[Self PP >= 1]",
-        "notes": "Negates damage & counters"
+        "unit": "Scarlett",
+        "skill": "Holy Light",
+        "condition1": "[Target: Lowest HP % Enemy]",
+        "condition2": "[Self AP >= 1]",
+        "notes": "Magic finisher bypassing heavy physical armor."
       }
-    ],
-    "substitutes": {
-      "earlyGame": [
-        "Lex Vanguard",
-        "Josef Paladin"
-      ],
-      "endgameAlternatives": [
-        "Monica Sainted Knight replacing Chloe"
-      ]
-    }
+    ]
   },
   {
     "id": "zero-2-trinity-rain-apocalypse",
     "name": "2. Trinity Rain Instant Apocalypse",
     "archetype": "Magic Nuke",
     "tier": "SS",
-    "pvpRating": "SS-Tier (Turn-1 Arena Board Wipe)",
-    "pveRating": "Godly (Wipes 99% Zenoira / Expert Enemy Formations)",
-    "description": "The definitive Turn-1 Magic Nuke. Sorcerer Auch channels Trinity Rain on Turn 1 with Millennium Scepter, instantly accelerated by Bishop Sharon using Cat-Ear Hood (Quick Impetus), boosted by Sorceress Yahna (+50% Mag Atk via Familiar's Choker), and backed by Selvie's Turn-0 Sandstorm Blindness and Hodrick's impenetrable wall.",
-    "keyItems": [
-      "Millenium Scepter",
-      "Black Cat-Ear Hood",
-      "Familiar's Choker",
-      "Sniper's Amber Lens"
-    ],
+    "pvpRating": "99.0/100",
+    "description": "The definitive turn-0 board wiper. Auch channels Trinity Rain with 100% True-Strike + 100% Critical Hit, while Sharon accelerates the cast immediately with Quick Impetus.",
     "frontRow": [
       "hodrick-legionnaire",
       "selvie-druid"
@@ -426,28 +354,26 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
       "yahna-sorceress",
       "sharon-bishop"
     ],
-    "pros": [
-      "Turn 1 instant battlefield wipe (2500+ magic damage across all 5 enemies)",
-      "100% Critical + True-Strike (bypasses Evasion and Guard completely)",
-      "Selvie Start-of-Battle Sandstorm blinds enemy strikers on Turn 0",
-      "Hodrick absorbs any surviving stray physical hits with 100% Guard Rate"
-    ],
-    "cons": [
-      "Requires +4 PP investment on Bishop Sharon for Quick Impetus trigger"
+    "keyItems": [
+      "Millenium Scepter",
+      "Black Cat-Ear Hood",
+      "Sniper's Amber Lens",
+      "Familiar's Choker"
     ],
     "counters": [
-      "Featherstaff Magic Reflect",
-      "Start-of-Battle Silence"
+      "Armored formations",
+      "Physical dodge tanks",
+      "Ground infantry"
     ],
     "strategyGuide": {
-      "winCondition": "Unleash a 3-hit battlefield-wide magic nuke of 2500+ damage on Turn 1 before enemies take a single action.",
-      "overview": "Selvie opens battle with Sandstorm to blind enemy strikers and Defensive Curse to strip 50% magic defense. Sorcerer Auch initiates Trinity Rain (4 AP charge). Bishop Sharon triggers Cat-Ear Hood Quick Impetus for instant turn execution. Yahna grants +50% Mag Atk via Familiar's Choker, and Auch activates Eagle Eye for 100% Critical True-Strike damage!",
+      "overview": "Selvie opens battle with Sandstorm / Defensive Curse. Auch begins charging Trinity Rain. Yahna triggers Sorcerous Connection for +50% Mag Atk. Sharon triggers Quick Impetus with Black Cat-Ear Hood to instantly fire Trinity Rain before enemy acts.",
+      "winCondition": "Trinity Rain hits all enemies for 300+ unblockable critical magic damage on Turn 1.",
       "combatSequenceNotes": [
-        "Turn 0: Selvie casts Sandstorm / Defensive Curse -> Blinds enemies and shreds 50% Magic Defense.",
-        "Turn 1: Auch initiates Trinity Rain (4 AP charge).",
-        "Turn 1: Sharon triggers Quick Impetus (Cat-Ear Hood) -> Grants Auch +1 AP and immediate instant turn execution.",
-        "Turn 1: Yahna activates Sorcerous Connection (Familiar's Choker) -> Grants Auch +50% Magic Attack.",
-        "Turn 1: Auch activates Eagle Eye (Sniper Lens) -> Trinity Rain strikes all 5 enemies for 3 waves of un-dodgeable critical magic devastation!"
+        "Selvie blinds enemy frontline on Turn 0 with Sandstorm.",
+        "Auch initiates Trinity Rain channel.",
+        "Yahna buffs Auch with Sorcerous Connection (+50% Mag Atk).",
+        "Sharon grants Quick Impetus, triggering instant Trinity Rain burst.",
+        "Hodrick protects squishy casters with Heavy Cover."
       ]
     },
     "unitGearConfigs": [
@@ -457,59 +383,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Auch",
         "className": "Sorcerer",
         "roleTitle": "Primary Spell Nuke Channeler",
-        "weapon": "Millenium Scepter",
-        "shieldOrHelm": "Sage's Hood",
-        "accessory1": "Sniper's Amber Lens",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Offensive"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Millenium Scepter",
           "optimalAlternatives": [
-            "Euros's Staff",
+            "Grand Magus Staff",
             "Carnelian Staff",
-            "Kingstaff Albiore"
+            "Sacral Rod"
           ],
           "slotType": "Weapon",
-          "notes": "Trinity Rain 4 AP, Mag Atk +25, Mag Def +8"
+          "notes": "Trinity Rain 4 AP, Mag Atk +25, Mag Def +8."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Sage's Hood",
           "optimalAlternatives": [
             "Silk Hood",
-            "Mage's Gloves",
-            "Ancient Crown"
+            "Wizard's Hat",
+            "Sorcerer's Robes"
           ],
-          "slotType": "Helm",
-          "notes": "Mag Atk +5, Mag Def +5, Initiative +4"
+          "slotType": "Accessory",
+          "notes": "Mag Atk +5, Mag Def +5, Initiative +4."
         },
         "slot3Accessory": {
           "bestInSlot": "Sniper's Amber Lens",
           "optimalAlternatives": [
             "Sniper's Lens",
-            "Sorcerer's Medallion",
-            "Magia Heart"
+            "Eyepatch of True Sight",
+            "Critical Ring"
           ],
           "slotType": "Accessory",
-          "notes": "Eagle Eye: Guaranteed 100% Crit + True Strike"
+          "notes": "Grants Hawk Eye: Guaranteed 100% Crit + True Strike on Trinity Rain."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Amethyst Pendant",
-            "Raven Plume"
+            "Sapphire Pendant",
+            "Magick Brooch"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 required to cast Trinity Rain (4 AP)"
-        },
-        "statPriorities": [
-          "Mag Atk (S+)",
-          "Initiative (S)",
-          "Crit Rate (A)"
-        ],
-        "growthTypes": [
-          "Offensive",
-          "Keen"
-        ]
+          "notes": "AP +1 required to cast Trinity Rain (4 AP)."
+        }
       },
       {
         "unitId": "sharon-bishop",
@@ -517,19 +434,19 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Sharon",
         "className": "Bishop",
         "roleTitle": "Instant Turn Acceleration Enabler",
-        "weapon": "Euros's Staff",
-        "shieldOrHelm": "Black Cat-Ear Hood",
-        "accessory1": "Lapis Pendant",
-        "accessory2": "Sapphire Pendant",
+        "growthTypes": [
+          "Support",
+          "Go-Getter"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Euros's Staff",
           "optimalAlternatives": [
-            "Meteorite Rod",
             "Sacral Rod",
-            "Sacral Rod"
+            "Hallowed Staff",
+            "Cleric's Cane"
           ],
           "slotType": "Weapon",
-          "notes": "Mag Atk +25, Initiative +5"
+          "notes": "Mag Atk +25, Initiative +5."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Black Cat-Ear Hood",
@@ -538,38 +455,29 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
             "Archbishop's Mitre",
             "Silk Hood"
           ],
-          "slotType": "Helm",
-          "notes": "Quick Impetus: +100% Turn Bar to charging ally, PP +1"
+          "slotType": "Accessory",
+          "notes": "Quick Impetus: +100% Turn Bar to charging ally, PP +1."
         },
         "slot3Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Amethyst Pendant",
-            "Onyx Pendant"
+            "First Aid Kit",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 required for Quick Impetus (3 PP)"
+          "notes": "PP +1 required for Quick Impetus (3 PP)."
         },
         "slot4Accessory": {
           "bestInSlot": "Sapphire Pendant",
           "optimalAlternatives": [
             "Lapis Pendant",
-            "Onyx Pendant",
-            "Dove Plume"
+            "Raven Plume",
+            "Saint's Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +2 ensuring total PP >= 4"
-        },
-        "statPriorities": [
-          "PP (+4 Required)",
-          "Initiative (A)",
-          "Healing (S)"
-        ],
-        "growthTypes": [
-          "Guardian",
-          "Speedster"
-        ]
+          "notes": "PP +2 ensuring total PP >= 4."
+        }
       },
       {
         "unitId": "yahna-sorceress",
@@ -577,59 +485,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Yahna",
         "className": "Sorceress",
         "roleTitle": "Magic Buffer & Focus Booster",
-        "weapon": "Carnelian Staff",
-        "shieldOrHelm": "Silk Hood",
-        "accessory1": "Familiar's Choker",
-        "accessory2": "Raven Plume",
+        "growthTypes": [
+          "Offensive",
+          "Go-Getter"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Carnelian Staff",
           "optimalAlternatives": [
-            "Meteorite Rod",
-            "Quartz Rod",
-            "Flame-Hex Staff"
+            "Dustbound Staff",
+            "Grand Magus Staff",
+            "Runic Staff"
           ],
           "slotType": "Weapon",
-          "notes": "Mag Atk +25, AP +1"
+          "notes": "Mag Atk +25, AP +1."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Silk Hood",
           "optimalAlternatives": [
             "Sage's Hood",
-            "Dusk Robes",
-            "Dawn Robes"
+            "Sorceress Robes",
+            "Magick Brooch"
           ],
-          "slotType": "Helm",
-          "notes": "Mag Def +4, Initiative +3"
+          "slotType": "Accessory",
+          "notes": "Mag Def +4, Initiative +3."
         },
         "slot3Accessory": {
           "bestInSlot": "Familiar's Choker",
           "optimalAlternatives": [
-            "Magia Heart",
-            "Magia Soul",
-            "Sorcerer's Medallion"
+            "Sorcerer's Medallion",
+            "Magick Pendant",
+            "Crown of Wisdom"
           ],
           "slotType": "Accessory",
-          "notes": "Sorcerous Connection: +50% Magic Attack to Auch"
+          "notes": "Sorcerous Connection: +50% Magic Attack to Auch."
         },
         "slot4Accessory": {
           "bestInSlot": "Raven Plume",
           "optimalAlternatives": [
-            "Dove Plume",
-            "Carnelian Pendant",
-            "Lapis Pendant"
+            "Angel Plume",
+            "Wind Talisman",
+            "Speed Belt"
           ],
           "slotType": "Accessory",
-          "notes": "Initiative +15 to buff Auch before cast"
-        },
-        "statPriorities": [
-          "Initiative (S+)",
-          "Mag Atk (A)",
-          "PP +2"
-        ],
-        "growthTypes": [
-          "Speedster",
-          "Speedster"
-        ]
+          "notes": "Initiative +15 to buff Auch before cast."
+        }
       },
       {
         "unitId": "hodrick-legionnaire",
@@ -637,59 +536,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Hodrick",
         "className": "Legionnaire",
         "roleTitle": "Physical Wall & Fortress Guard",
-        "weapon": "Meteorite Lance",
-        "shieldOrHelm": "Unyielding Shield",
-        "accessory1": "Defensive Ring",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Guardian",
+          "Survivor"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Meteorite Lance",
+          "bestInSlot": "Zenoiran Spear",
           "optimalAlternatives": [
-            "Iron Spear",
-            "Bronze Spear",
-            "Carnelian Spear"
+            "Meteorite Lance",
+            "Dragonbone Spear",
+            "Heavy Lance"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +24, Max HP +20"
+          "notes": "Phys Atk +22, Guard Rate +15%."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Unyielding Shield",
           "optimalAlternatives": [
             "Azure Crest Shield",
-            "Greatwood Shield",
-            "Azure Crest Shield"
+            "Golden Ram Shield",
+            "Steel Shield"
           ],
           "slotType": "Shield",
-          "notes": "Phys Def +18, Guard Rate +45%, Max HP +20"
+          "notes": "Greatshield Slot: Phys Def +7, Enduring Guard, Guard Rate +45%, Max HP +20."
         },
         "slot3Accessory": {
           "bestInSlot": "Defensive Ring",
           "optimalAlternatives": [
             "Guardian Gloves",
-            "Vitality Talisman",
-            "Defender's Ring"
+            "Tower Shield Belt",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "Phys Def +5, Guard Rate +10%"
+          "notes": "Phys Def +5, Guard Rate +10%, Grants Quick Barrier."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Defender's Ring",
-            "Vitality Talisman"
+            "Heavy Armor Brooch",
+            "First Aid Kit"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Heavy Cover activations"
-        },
-        "statPriorities": [
-          "Phys Def (S+)",
-          "Guard Rate (100%)",
-          "Max HP (S)"
-        ],
-        "growthTypes": [
-          "Guardian",
-          "Guardian"
-        ]
+          "notes": "PP +1 for Heavy Cover activations."
+        }
       },
       {
         "unitId": "selvie-druid",
@@ -697,136 +587,102 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Selvie",
         "className": "Druid",
         "roleTitle": "Start-of-Battle Curse & Blindness Controller",
-        "weapon": "Dustbound Staff",
-        "shieldOrHelm": "Druid's Robes",
-        "accessory1": "Raven Plume",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Go-Getter",
+          "Support"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Dustbound Staff",
           "optimalAlternatives": [
-            "Pestilent Staff",
-            "Pestilent Staff",
-            "Euros's Staff"
+            "Chiropteran Staff",
+            "Flame-Hex Staff",
+            "Sacral Rod"
           ],
           "slotType": "Weapon",
-          "notes": "Sandstorm: Start of Battle Blindness"
+          "notes": "Sandstorm: Start of Battle Blindness."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Druid's Robes",
           "optimalAlternatives": [
             "Dusk Robes",
             "Silk Hood",
-            "Sage's Hood"
+            "Curse Brooch"
           ],
-          "slotType": "Helm",
-          "notes": "Mag Def +10, Initiative +6, Debuff Resistance +50%"
+          "slotType": "Accessory",
+          "notes": "Mag Def +10, Initiative +6, Debuff Resistance +50%."
         },
         "slot3Accessory": {
           "bestInSlot": "Raven Plume",
           "optimalAlternatives": [
             "Angel Plume",
-            "Dove Plume",
-            "Thief's Mantle"
+            "Wind Brooch",
+            "Speed Amulet"
           ],
           "slotType": "Accessory",
-          "notes": "Initiative +15 to ensure Turn-0 curse application"
+          "notes": "Initiative +15 to ensure Turn-0 curse application."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Amethyst Pendant",
-            "First Aid Kit"
+            "Cursed Talisman",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Defensive Curse and Quick Guard"
-        },
-        "statPriorities": [
-          "Initiative (S+)",
-          "Debuff Potency (S)",
-          "Evasion (A)"
-        ],
-        "growthTypes": [
-          "Speedster",
-          "Guardian"
-        ]
+          "notes": "PP +1 for Defensive Curse and Quick Guard."
+        }
       }
     ],
     "tacticsSequence": [
       {
         "step": 1,
         "unit": "Selvie",
-        "skill": "Defensive Curse",
+        "skill": "Sandstorm",
         "condition1": "[Start of Battle]",
-        "condition2": "[All Enemies]",
-        "notes": "Blinds enemy attackers on Turn 0"
+        "condition2": "[Target: All Enemies]",
+        "notes": "Turn-0 Blindness preventing enemy physical burst."
       },
       {
         "step": 2,
-        "unit": "Selvie",
-        "skill": "Defensive Curse",
-        "condition1": "[Front Row Enemies]",
-        "condition2": "[Self AP >= 1]",
-        "notes": "Cuts enemy M.Def by 50%"
+        "unit": "Yahna",
+        "skill": "Sorcerous Connection",
+        "condition1": "[Before Ally Magic Attack]",
+        "condition2": "[Self PP >= 1]",
+        "notes": "Grants +50% Magic Attack to Auch."
       },
       {
         "step": 3,
         "unit": "Auch",
         "skill": "Trinity Rain",
-        "condition1": "[Target: All Enemies]",
+        "condition1": "[Target: All Enemies (Turn 1)]",
         "condition2": "[Self AP >= 4]",
-        "notes": "Channels 3-wave battlefield magic spell"
+        "notes": "Charges 3-hit catastrophic battlefield wipe."
       },
       {
         "step": 4,
         "unit": "Sharon",
         "skill": "Quick Impetus",
-        "condition1": "[Ally Using Charge Skill]",
-        "condition2": "[Target: Auch]",
-        "notes": "Cat-Ear Hood instant turn execution"
+        "condition1": "[Target: Auch (After Charge)]",
+        "condition2": "[Self PP >= 3]",
+        "notes": "Instant turn reset allowing Trinity Rain to trigger immediately."
       },
       {
         "step": 5,
-        "unit": "Yahna",
-        "skill": "Sorcerous Connection",
-        "condition1": "[Ally Using Active Magic]",
-        "condition2": "[Target: Auch]",
-        "notes": "+50% Magic Attack boost"
-      },
-      {
-        "step": 6,
-        "unit": "Auch",
-        "skill": "Eagle Eye",
-        "condition1": "[Before Trinity Rain Hits]",
+        "unit": "Hodrick",
+        "skill": "Heavy Cover",
+        "condition1": "[Before Ally Attacked (Back Row)]",
         "condition2": "[Self PP >= 1]",
-        "notes": "100% Critical True-Strike wipe"
+        "notes": "100% physical mitigation protecting squishy spellcasters."
       }
-    ],
-    "substitutes": {
-      "earlyGame": [
-        "Wizard Auch",
-        "Cleric Sharon",
-        "Hoplite Hodrick"
-      ],
-      "endgameAlternatives": [
-        "Rosalinde replacing Yahna"
-      ]
-    }
+    ]
   },
   {
     "id": "zero-3-dragoon-aerial-tempest",
     "name": "3. Dragoon Glacial Tempest (Aerial Bombardment)",
     "archetype": "Instant Board Wipe",
     "tier": "SS",
-    "pvpRating": "SS-Tier (Top-Rank Arena Aerial Wipe)",
-    "pveRating": "Godly (Wipes all Drakenhold, Bastorias & Albion maps)",
-    "description": "Hilda delivers an earth-shattering Dragoon Dive aerial bombardment (4 AP). Gilbert provides Turn-0 Rapid Order (+15 Squad Initiative) and Offensive Order (+20% Atk), Primm accelerates the dive instantly with White Cat-Ear Hood, Miriam protects against magic with Magic Barrier, and Fran clears airborne and cavalry units with High Gale.",
-    "keyItems": [
-      "Dragoon's Warspear",
-      "White Cat-Ear Hood",
-      "Angel Plume",
-      "Wingline Standard"
-    ],
+    "pvpRating": "98.5/100",
+    "description": "The physical aerial nuke counterpart to Trinity Rain. Hilda ascends into Dragoon Dive, accelerated by Primm's White Cat-Ear Hood, while Fran and Gilbert amplify aerial speed and physical power.",
     "frontRow": [
       "hilda-wyvern-master",
       "fran-gryphon-master"
@@ -836,28 +692,26 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
       "primm-bishop",
       "gilbert-prince"
     ],
-    "pros": [
-      "Turn-1 Dragoon Dive aerial bomb lands on all 5 enemies before they act",
-      "+20 Squad Initiative dominance via Gilbert Rapid Order + Angel Plume",
-      "Fran High Gale sweeps enemy cavalry with 200% bonus damage",
-      "Miriam Magic Barrier completely nullifies enemy magic attacks"
-    ],
-    "cons": [
-      "Vulnerable to enemy true-strike archers if not properly shielded"
+    "keyItems": [
+      "Dragoon's Warspear",
+      "White Cat-Ear Hood",
+      "Heavenwyvern Reins",
+      "Royal Saber"
     ],
     "counters": [
-      "Sniper Aerial Snipe True-Strike",
-      "Anti-Flying Balistas"
+      "Cavalry squads",
+      "Low P.Def infantry",
+      "Armored frontline walls"
     ],
     "strategyGuide": {
-      "winCondition": "Deliver an instant Turn-1 Dragoon Dive aerial strike boosted by +15 Initiative, +20% Atk, and guaranteed True-Strike criticals.",
-      "overview": "Gilbert opens combat with Rapid Order (+15 Initiative) and Angel Plume (+20 Initiative). Hilda initiates Dragoon Dive. Primm uses White Cat-Ear Hood (Quick Impetus) to immediately fire the dive. Hilda triggers Eagle Eye for 100% Critical True-Strike damage, obliterating all ground units.",
+      "overview": "Gilbert opens with Rapid Order (+20 Initiative). Hilda initiates Dragoon Dive. Primm uses White Cat-Ear Hood for Quick Impetus, instantly dropping Hilda onto the entire enemy board. Fran sweeps remaining survivors.",
+      "winCondition": "Turn 1 Dragoon Dive crashing down for 300+ physical area damage.",
       "combatSequenceNotes": [
-        "Turn 0: Gilbert triggers Rapid Order & Angel Plume -> Squad gains +35 Initiative.",
-        "Turn 1: Hilda channels Dragoon Dive (4 AP aerial strike).",
-        "Turn 1: Primm triggers Quick Impetus (White Cat-Ear Hood) -> Hilda takes instant turn.",
-        "Turn 1: Hilda triggers Eagle Eye -> Dragoon Dive crashes down for 220 physical potency across all 5 enemies!",
-        "Turn 1: Fran cleanses remaining fliers with High Gale."
+        "Gilbert grants +20 Initiative with Rapid Order.",
+        "Hilda initiates Dragoon Dive.",
+        "Primm triggers Quick Impetus with White Cat-Ear Hood.",
+        "Hilda lands for 300 potency area strike.",
+        "Fran follows up with High Gale on surviving enemies."
       ]
     },
     "unitGearConfigs": [
@@ -867,59 +721,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Hilda",
         "className": "Wyvern Master",
         "roleTitle": "Aerial Nuke Leader & Dragoon Diver",
-        "weapon": "Dragoon's Warspear",
-        "shieldOrHelm": "Wyvern Reins",
-        "accessory1": "Sniper's Amber Lens",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Keen"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Dragoon's Warspear",
           "optimalAlternatives": [
-            "Kingslance Elhal",
             "Meteorite Lance",
-            "Runic Spear"
+            "Carnelian Spear",
+            "Dragonbone Spear"
           ],
           "slotType": "Weapon",
-          "notes": "Dragoon Dive 4 AP, Phys Atk +24, Initiative +5"
+          "notes": "Dragoon Dive 4 AP, Phys Atk +24, Initiative +5."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Wyvern Reins",
           "optimalAlternatives": [
-            "Heavenwyvern Reins",
-            "Wyvern Claw",
-            "Steel Shield"
-          ],
-          "slotType": "Shield",
-          "notes": "Flying Atk +10%, Initiative +5"
-        },
-        "slot3Accessory": {
-          "bestInSlot": "Sniper's Amber Lens",
-          "optimalAlternatives": [
-            "Sniper's Lens",
-            "Hero's Medallion",
-            "Warrior's Medallion"
+            "Heavensteed Reins",
+            "Winged Brooch",
+            "Flight Scarf"
           ],
           "slotType": "Accessory",
-          "notes": "Eagle Eye: Guaranteed 100% Crit + True Strike"
+          "notes": "Flying Atk +10%, Initiative +5, Grants Aerial Wing."
+        },
+        "slot3Accessory": {
+          "bestInSlot": "Hero's Medallion",
+          "optimalAlternatives": [
+            "Warrior's Medallion",
+            "Critical Talisman",
+            "Sniper's Lens"
+          ],
+          "slotType": "Accessory",
+          "notes": "Phys Atk +20%, Base AP +1, Base PP +1. Coliseum Champion Crown."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Warrior's Medallion",
-            "Amethyst Pendant"
+            "Power Belt",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for 4 AP Dragoon Dive execution"
-        },
-        "statPriorities": [
-          "Phys Atk (S+)",
-          "Initiative (A)",
-          "Crit Rate (A)"
-        ],
-        "growthTypes": [
-          "Offensive",
-          "Keen"
-        ]
+          "notes": "AP +1 for 4 AP Dragoon Dive execution."
+        }
       },
       {
         "unitId": "fran-gryphon-master",
@@ -927,59 +772,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Fran",
         "className": "Gryphon Master",
         "roleTitle": "Anti-Cavalry Sky Sweeper",
-        "weapon": "Boreas's Axe",
-        "shieldOrHelm": "Heavenwyvern Reins",
-        "accessory1": "Wingline Standard",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Keen"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Boreas's Axe",
           "optimalAlternatives": [
-            "Meteorite Axe",
             "Carnelian Axe",
-            "Dragonbone Axe"
+            "Meteorite Axe",
+            "Rose Knight Axe"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +26, Initiative +5, Crit +10%"
+          "notes": "Phys Atk +26, Initiative +5, Crit +10%."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Heavenwyvern Reins",
           "optimalAlternatives": [
-            "Wingcrest Shield",
             "Wyvern Reins",
-            "Steel Shield"
+            "Flight Brooch",
+            "Wind Talisman"
           ],
-          "slotType": "Shield",
-          "notes": "Flying Atk +15%, Initiative +10"
+          "slotType": "Accessory",
+          "notes": "Flying Atk +15%, Initiative +10, Grants Aerial Wing."
         },
         "slot3Accessory": {
           "bestInSlot": "Wingline Standard",
           "optimalAlternatives": [
-            "Battleline Standard",
-            "Elite Standard",
-            "Angel Plume"
+            "Angel Plume",
+            "Feather Brooch",
+            "Gryphon Crest"
           ],
           "slotType": "Accessory",
-          "notes": "Squad Flying Atk +15%, Initiative +5"
+          "notes": "Squad Flying Atk +15%, Initiative +5, Grants Aerial Alignment."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Raven Plume",
-            "Warrior's Medallion"
+            "Power Belt",
+            "Critical Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for High Gale row sweeps"
-        },
-        "statPriorities": [
-          "Phys Atk (S)",
-          "Initiative (S)",
-          "Evasion (A)"
-        ],
-        "growthTypes": [
-          "Offensive",
-          "Speedster"
-        ]
+          "notes": "AP +1 for High Gale row sweeps."
+        }
       },
       {
         "unitId": "miriam-sainted-knight",
@@ -987,59 +823,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Miriam",
         "className": "Sainted Knight",
         "roleTitle": "Magic Defense Wall & Row Healer",
-        "weapon": "Runic Sword",
-        "shieldOrHelm": "Luminous Shield",
-        "accessory1": "Lapis Pendant",
-        "accessory2": "First Aid Kit",
+        "growthTypes": [
+          "Support",
+          "Guardian"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Runic Sword",
           "optimalAlternatives": [
-            "Phantom Knight's Sword",
-            "Notos's Sword",
-            "Hallowed Blade"
+            "Rosularis Sword",
+            "Hallowed Blade",
+            "White Knight Blade"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +18, Mag Atk +24, Magick Attack"
+          "notes": "Phys Atk +8, Mag Atk +14, Magick Attack, Mag Def +3."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Luminous Shield",
           "optimalAlternatives": [
-            "Steel Shield",
+            "Holy Knight's Shield",
             "Azure Crest Shield",
-            "Chivalric Shield"
+            "Steel Shield"
           ],
           "slotType": "Shield",
-          "notes": "Phys Def +12, Mag Def +12, Magic Barrier"
+          "notes": "Phys Def +6, Poison/Blindness Immunity, Guard Rate +25%."
         },
         "slot3Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Dove Plume",
-            "Amethyst Pendant"
+            "Magick Brooch",
+            "Celestial Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Magic Barrier triggers"
+          "notes": "PP +1 for Magic Barrier triggers."
         },
         "slot4Accessory": {
           "bestInSlot": "First Aid Kit",
           "optimalAlternatives": [
-            "Large Aid Kit",
-            "Lapis Pendant",
-            "Vitality Talisman"
+            "Vitality Talisman",
+            "Healing Brooch",
+            "Saint's Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "End of battle squad heal sustain"
-        },
-        "statPriorities": [
-          "Mag Def (S+)",
-          "Healing (S)",
-          "Phys Def (B)"
-        ],
-        "growthTypes": [
-          "Defender",
-          "All-Rounder"
-        ]
+          "notes": "Grants First Aid: End of battle squad heal sustain."
+        }
       },
       {
         "unitId": "primm-bishop",
@@ -1047,19 +874,19 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Primm",
         "className": "Bishop",
         "roleTitle": "Dragoon Turn Accelerator",
-        "weapon": "Sacral Rod",
-        "shieldOrHelm": "White Cat-Ear Hood",
-        "accessory1": "Lapis Pendant",
-        "accessory2": "Sapphire Pendant",
+        "growthTypes": [
+          "Support",
+          "Go-Getter"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Sacral Rod",
+          "bestInSlot": "Hallowed Staff",
           "optimalAlternatives": [
-            "Meteorite Rod",
-            "Hallowed Mace",
-            "Euros's Staff"
+            "Sacral Rod",
+            "Euros's Staff",
+            "Cleric's Cane"
           ],
           "slotType": "Weapon",
-          "notes": "Mag Atk +25, HP +15"
+          "notes": "Mag Atk +22, HP Regen +10%."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "White Cat-Ear Hood",
@@ -1068,38 +895,29 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
             "Archbishop's Mitre",
             "Silk Hood"
           ],
-          "slotType": "Helm",
-          "notes": "Quick Impetus: +100% Turn Bar to Hilda, PP +1"
+          "slotType": "Accessory",
+          "notes": "Quick Impetus: +100% Turn Bar to Hilda, PP +1."
         },
         "slot3Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Amethyst Pendant",
-            "Dove Plume"
+            "First Aid Kit",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 required for Quick Impetus (3 PP)"
+          "notes": "PP +1 required for Quick Impetus."
         },
         "slot4Accessory": {
           "bestInSlot": "Sapphire Pendant",
           "optimalAlternatives": [
             "Lapis Pendant",
-            "Onyx Pendant",
-            "First Aid Kit"
+            "Raven Plume",
+            "Saint's Brooch"
           ],
           "slotType": "Accessory",
-          "notes": "PP +2 ensuring total PP >= 4"
-        },
-        "statPriorities": [
-          "PP (+4 Required)",
-          "Initiative (B)",
-          "Healing (A)"
-        ],
-        "growthTypes": [
-          "Guardian",
-          "Speedster"
-        ]
+          "notes": "PP +2 ensuring total PP >= 4."
+        }
       },
       {
         "unitId": "gilbert-prince",
@@ -1107,59 +925,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Gilbert",
         "className": "Prince",
         "roleTitle": "Squad Commander & Order Buffer",
-        "weapon": "Notos's Sword",
-        "shieldOrHelm": "Royal Scarf",
-        "accessory1": "Angel Plume",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Support",
+          "Go-Getter"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Notos's Sword",
+          "bestInSlot": "Royal Saber",
           "optimalAlternatives": [
-            "Royal Saber",
-            "Meteorite Sword",
-            "Hallowed Blade"
+            "Kingsblade Cornix",
+            "Notos's Sword",
+            "General's Saber"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +25, Initiative +5"
+          "notes": "Phys Atk +18, Initiative +5. Gilbert's royal command blade."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Royal Scarf",
           "optimalAlternatives": [
-            "Golden Ram Shield",
-            "Steel Shield",
-            "Leather Hood"
+            "Prince's Crown",
+            "Silk Scarf",
+            "Commander's Crest"
           ],
-          "slotType": "Helm",
-          "notes": "Initiative +5, Evasion +10"
+          "slotType": "Accessory",
+          "notes": "Initiative +5, Evasion +10."
         },
         "slot3Accessory": {
           "bestInSlot": "Angel Plume",
           "optimalAlternatives": [
             "Raven Plume",
-            "Dove Plume",
-            "Wingline Standard"
+            "Wind Brooch",
+            "Royal Medallion"
           ],
           "slotType": "Accessory",
-          "notes": "Tailwind Array: Start of Battle +20 Squad Initiative"
+          "notes": "Tailwind Array: Start of Battle +20 Squad Initiative."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
-            "Carnelian Pendant",
-            "Battleline Standard",
-            "Sapphire Pendant"
+            "Sapphire Pendant",
+            "Vitality Talisman",
+            "First Aid Kit"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Rapid Order & Offensive Order"
-        },
-        "statPriorities": [
-          "Initiative (S+)",
-          "Phys Def (B)",
-          "PP +2"
-        ],
-        "growthTypes": [
-          "Speedster",
-          "Guardian"
-        ]
+          "notes": "PP +1 for Rapid Order & Offensive Order."
+        }
       }
     ],
     "tacticsSequence": [
@@ -1168,74 +977,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "unit": "Gilbert",
         "skill": "Rapid Order",
         "condition1": "[Start of Battle]",
-        "condition2": "[Full Squad]",
-        "notes": "+15 Squad Initiative buff"
+        "condition2": "[Self PP >= 1]",
+        "notes": "Grants +20 Initiative to entire squad guaranteeing turn priority."
       },
       {
         "step": 2,
         "unit": "Gilbert",
         "skill": "Offensive Order",
-        "condition1": "[Start of Battle]",
-        "condition2": "[Full Squad]",
-        "notes": "+20% Phys/Mag Attack buff"
+        "condition1": "[Target: Back Row Allies]",
+        "condition2": "[Self PP >= 1]",
+        "notes": "Increases Hilda's physical attack power by 20%."
       },
       {
         "step": 3,
         "unit": "Hilda",
         "skill": "Dragoon Dive",
-        "condition1": "[Target: All Enemies]",
+        "condition1": "[Target: Full Row (3+ Enemies)]",
         "condition2": "[Self AP >= 4]",
-        "notes": "Aerial 4 AP charge bomb"
+        "notes": "Launches skyward for devastating 300 potency dive bomb."
       },
       {
         "step": 4,
         "unit": "Primm",
         "skill": "Quick Impetus",
-        "condition1": "[Ally Using Charge Skill]",
-        "condition2": "[Target: Hilda]",
-        "notes": "White Cat-Ear instant dive"
+        "condition1": "[Target: Hilda (After Charge)]",
+        "condition2": "[Self PP >= 3]",
+        "notes": "Instantly grants 100% turn bar to crash down on Turn 1."
       },
       {
         "step": 5,
-        "unit": "Hilda",
-        "skill": "Eagle Eye",
-        "condition1": "[Before Dragoon Dive Hits]",
-        "condition2": "[Self PP >= 1]",
-        "notes": "100% Critical True Strike wipe"
-      },
-      {
-        "step": 6,
         "unit": "Fran",
         "skill": "High Gale",
-        "condition1": "[Back Row / Cavalry]",
+        "condition1": "[Target: Cavalry / Front Row]",
         "condition2": "[Self AP >= 2]",
-        "notes": "Cleans up survivors"
+        "notes": "Sweeps surviving cavalry and infantry with 2x damage."
       }
-    ],
-    "substitutes": {
-      "earlyGame": [
-        "Celeste Gryphon",
-        "Sharon Cleric"
-      ],
-      "endgameAlternatives": [
-        "Celeste replacing Fran"
-      ]
-    }
+    ]
   },
   {
     "id": "zero-4-berengaria-affliction-lockdown",
     "name": "4. Berengaria Affliction & Death Spiral",
     "archetype": "Affliction Control",
     "tier": "SS",
-    "pvpRating": "SS-Tier (Oppressive Stun & Affliction Lockdown)",
-    "pveRating": "Godly (Infinite Sustain & Armor Annihilation)",
-    "description": "Berengaria exploits afflicted targets. Travis opens battle with row-wide Blindness via Shadowbite, triggering Berengaria's Eye of the Crimson Bear (-20% Atk/Def to all enemies) and Sanguine Pursuit to perpetually freeze enemy turns. Nina shatters heavy armor with Enraged Strike, Bruno cleaves rows with Wide Smash, and Liza provides medical cover.",
-    "keyItems": [
-      "Carnelian Axe",
-      "Pursuant's Blade",
-      "Sniper's Amber Lens",
-      "Ring of the Unicorn"
-    ],
+    "pvpRating": "98.0/100",
+    "description": "The masterclass debuff and pursuit engine. Travis inflicts row-wide darkness with Shadowbite, triggering Berengaria's Sanguine Pursuit and Death Spin for +50% bonus damage and AP recovery.",
     "frontRow": [
       "berengaria-renegade",
       "travis-rogue"
@@ -1245,28 +1030,27 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
       "liza-shieldshooter",
       "bruno-berserker"
     ],
-    "pros": [
-      "Eye of the Crimson Bear strips -20% Atk/Def and -10 Initiative from all enemies at Turn 0",
-      "Travis Shadowbite blinds entire enemy rows with high evasion dodge",
-      "Berengaria Sanguine Pursuit refunds PP/AP on hitting afflicted targets",
-      "Nina Enraged Strike ignores 100% of enemy physical defense",
-      "Bruno Wide Smash cleaves entire enemy rows with high HP sustain"
-    ],
-    "cons": [
-      "Requires affliction application against affliction-immune enemies"
+    "keyItems": [
+      "Carnelian Axe",
+      "Kaikias's Shield",
+      "Earrings of Pursuit",
+      "Pursuant's Blade",
+      "Lucky Coin"
     ],
     "counters": [
-      "Affliction Immunity Rings (Ring of the Unicorn/Maiden)"
+      "Physical frontline tanks",
+      "Scouts and evasion units",
+      "Unshielded backlines"
     ],
     "strategyGuide": {
-      "winCondition": "Blind and debuff enemy rows on Turn 1 to trigger Berengaria's infinite pursuit chains and Nina's armor execution.",
-      "overview": "Berengaria activates Eye of the Crimson Bear at start of combat. Travis casts Shadowbite to blind the enemy front row. Berengaria triggers Sanguine Pursuit on all afflicted targets, refunding AP/PP. Nina executes high-defense tanks with Enraged Strike, Bruno cleaves the backline with Wide Smash, and Liza cures debuffs.",
+      "overview": "Berengaria activates Eye of the Crimson Bear at Start of Battle (-15 Init, -20% Atk to all enemies). Travis applies Row Blindness with Shadowbite. Berengaria follows up with Sanguine Pursuit, while Nina and Bruno crush guards and cleave rows.",
+      "winCondition": "Locking enemy frontline in Blindness while Berengaria loops Death Spin and Sanguine Pursuit.",
       "combatSequenceNotes": [
-        "Turn 0: Berengaria triggers Eye of the Crimson Bear -> -20% Atk/Def and -10 Init to all enemies.",
-        "Turn 1: Travis casts Shadowbite -> Blinds and afflicts the enemy front row.",
-        "Turn 1: Berengaria executes Death Spin & Sanguine Pursuit on afflicted targets.",
-        "Turn 1: Nina casts Enraged Strike on armored tanks -> 100% defense bypass kill!",
-        "Turn 1: Bruno cleans up backline survivors with Wide Smash."
+        "Berengaria applies -15 Initiative and -20% Attack on Turn 0.",
+        "Travis casts Shadowbite, blinding and sealing passive skills on enemy row.",
+        "Berengaria executes Death Spin on blinded targets (+50% damage).",
+        "Berengaria triggers Sanguine Pursuit on weakened foes (+1 AP on kill).",
+        "Nina shatters guards while Bruno sweeps with Wide Smash."
       ]
     },
     "unitGearConfigs": [
@@ -1276,59 +1060,51 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Berengaria",
         "className": "Dark Marquess (Axe)",
         "roleTitle": "Affliction Dominator & Executioner Lead",
-        "weapon": "Carnelian Axe",
-        "shieldOrHelm": "Thorn Shield",
-        "accessory1": "Sniper's Amber Lens",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "All-Rounder"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Carnelian Axe",
           "optimalAlternatives": [
-            "Kingsaxe Drakenash",
-            "Boreas's Axe",
-            "Meteorite Axe"
+            "Meteorite Axe",
+            "Dragonbone Axe",
+            "Boreas's Axe"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +25, AP +1"
+          "notes": "Phys Atk +25, AP +1."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Thorn Shield",
+          "bestInSlot": "Kaikias's Shield",
           "optimalAlternatives": [
-            "Azure Crest Shield",
-            "Blue Rose Shield",
-            "Steel Shield"
+            "Zenoiran Shield",
+            "Chivalric Shield",
+            "Steel Shield",
+            "Battler's Shield"
           ],
           "slotType": "Shield",
-          "notes": "Phys Def +14, Affliction Potency +20%"
+          "notes": "Phys Def +8, Guard Rate +30%, Guard Efficiency +25%, Initiative +10."
         },
         "slot3Accessory": {
-          "bestInSlot": "Sniper's Amber Lens",
+          "bestInSlot": "Earrings of Pursuit",
           "optimalAlternatives": [
-            "Earrings of Pursuit",
-            "Lucky Coin",
-            "Warrior's Medallion"
+            "Warrior's Medallion",
+            "Veteran's Eyepatch",
+            "Counter Belt"
           ],
           "slotType": "Accessory",
-          "notes": "Pursuit Crit +20% on Sanguine Pursuit"
+          "notes": "Phys Def +1, Follow-up Skills Deal +40 Damage, maximizing Sanguine Pursuit."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Warrior's Medallion",
-            "Power Belt"
+            "Power Belt",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Death Spin row attacks"
-        },
-        "statPriorities": [
-          "Phys Atk (S+)",
-          "Initiative (S)",
-          "Phys Def (A)"
-        ],
-        "growthTypes": [
-          "Offensive",
-          "Keen"
-        ]
+          "notes": "AP +1 for Death Spin row sweeps."
+        }
       },
       {
         "unitId": "travis-rogue",
@@ -1336,59 +1112,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Travis",
         "className": "Rogue",
         "roleTitle": "Row Blindness & Evasion Tank",
-        "weapon": "Pursuant's Blade",
-        "shieldOrHelm": "Thief's Mantle",
-        "accessory1": "Lucky Coin",
-        "accessory2": "Raven Plume",
+        "growthTypes": [
+          "Keen",
+          "Go-Getter"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Pursuant's Blade",
           "optimalAlternatives": [
-            "Phantom Knight's Sword",
-            "Bandit Longsword",
-            "Notos's Sword"
+            "Venom Blade",
+            "Notos's Sword",
+            "Bandit Longsword"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +18, Grants Pursuit (1 PP)"
+          "notes": "Phys Atk +18, Grants Pursuit (1 PP)."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Thief's Mantle",
           "optimalAlternatives": [
-            "Silk Hood",
-            "Leather Hood",
-            "Silken Scarf"
+            "Illusory Cloak",
+            "Dusk Robes",
+            "Silk Scarf"
           ],
-          "slotType": "Helm",
-          "notes": "Evasion +20, Grants Evade (1 PP)"
+          "slotType": "Accessory",
+          "notes": "Evasion +20, Grants Evade (1 PP)."
         },
         "slot3Accessory": {
           "bestInSlot": "Lucky Coin",
           "optimalAlternatives": [
-            "Silken Scarf",
-            "Thief's Bell",
-            "Skillful Amulet"
+            "Evasion Ring",
+            "Raven Plume",
+            "Wind Brooch"
           ],
           "slotType": "Accessory",
-          "notes": "Evasion +20, Crit Rate +20% for frontline evasion tanking"
+          "notes": "Evasion +20, Crit Rate +20% for frontline evasion tanking."
         },
         "slot4Accessory": {
           "bestInSlot": "Raven Plume",
           "optimalAlternatives": [
-            "Dove Plume",
-            "Lapis Pendant",
-            "Carnelian Pendant"
+            "Angel Plume",
+            "Speed Belt",
+            "Wind Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "Initiative +15 for Turn-1 Shadowbite row blind"
-        },
-        "statPriorities": [
-          "Initiative (S+)",
-          "Evasion (S+)",
-          "PP +2"
-        ],
-        "growthTypes": [
-          "Speedster",
-          "Speedster"
-        ]
+          "notes": "Initiative +15 for Turn-1 Shadowbite row blind."
+        }
       },
       {
         "unitId": "nina-breaker",
@@ -1396,119 +1163,101 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Nina",
         "className": "Breaker",
         "roleTitle": "Heavy Armor Crusher",
-        "weapon": "Juggernaut",
-        "shieldOrHelm": "Master's Gauntlets",
-        "accessory1": "Lapis Pendant",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Offensive"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Juggernaut",
           "optimalAlternatives": [
-            "Meteorite Axe",
-            "Giant's Greataxe",
-            "Carnelian Axe"
+            "Mason's Hammer",
+            "Rose Knight Hammer",
+            "Meteorite Axe"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +26, Stun Multiplier"
+          "notes": "Phys Atk +26, Stun Multiplier, Grants Ground Strike."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Master's Gauntlets",
           "optimalAlternatives": [
             "Armored Gauntlets",
-            "Armored Gauntlets",
-            "Power Belt"
+            "Power Belt",
+            "Warrior's Medallion"
           ],
-          "slotType": "Helm",
-          "notes": "Phys Atk +5, Guard Pierce +10%"
+          "slotType": "Accessory",
+          "notes": "Phys Atk +5, Guard Pierce +10%, Grants Nimble Fighter."
         },
         "slot3Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Warrior's Medallion",
-            "Power Belt"
+            "Critical Ring",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Heavy Impact"
+          "notes": "PP +1 for Heavy Impact."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
             "Power Belt",
-            "Lucky Coin"
+            "Strength Brooch"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Assault Blow executions"
-        },
-        "statPriorities": [
-          "Phys Atk (S+)",
-          "Crit Rate (B)",
-          "AP +1"
-        ],
-        "growthTypes": [
-          "Offensive",
-          "Offensive"
-        ]
+          "notes": "AP +1 for Assault Blow executions."
+        }
       },
       {
-        "unitId": "liza-shieldshooter",
-        "unitName": "Liza (Shieldshooter)",
-        "characterName": "Liza",
-        "className": "Shieldshooter",
-        "roleTitle": "Medical Bolt Healer & Anti-Flyer Cover",
-        "weapon": "Gallian Crossbow",
-        "shieldOrHelm": "Unyielding Shield",
-        "accessory1": "First Aid Kit",
-        "accessory2": "Lapis Pendant",
+        "unitId": "rolf-sniper",
+        "unitName": "Rolf (Sniper)",
+        "characterName": "Rolf",
+        "className": "Sniper",
+        "roleTitle": "True-Strike Anti-Flying Marksman",
+        "growthTypes": [
+          "Offensive",
+          "Keen"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Gallian Crossbow",
+          "bestInSlot": "Apeliotes's Bow",
           "optimalAlternatives": [
-            "Apeliotes's Bow",
-            "Carnelian Bow",
-            "Meteorite Bow"
+            "Zenoiran Bow",
+            "Runic Bow",
+            "Dragonbone Bow"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +24, Anti-Flying 200%"
+          "notes": "Phys Atk +25, Initiative +5, True Strike."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Unyielding Shield",
+          "bestInSlot": "Sniper's Lens",
           "optimalAlternatives": [
-            "Parrying Shield",
-            "Steel Shield",
-            "Azure Crest Shield"
-          ],
-          "slotType": "Shield",
-          "notes": "Phys Def +18, Guard Rate +45%"
-        },
-        "slot3Accessory": {
-          "bestInSlot": "First Aid Kit",
-          "optimalAlternatives": [
-            "Large Aid Kit",
-            "Medical Kit",
-            "Self-Aid Kit"
+            "Mirrored Spectacles",
+            "Hunter's Cap",
+            "Veteran's Eyepatch"
           ],
           "slotType": "Accessory",
-          "notes": "End of battle emergency healing"
+          "notes": "Crit Rate +10%, Acc +15, Grants Eagle Eye."
+        },
+        "slot3Accessory": {
+          "bestInSlot": "Mirrored Spectacles",
+          "optimalAlternatives": [
+            "Veteran's Eyepatch",
+            "Warrior's Medallion",
+            "Raven Plume"
+          ],
+          "slotType": "Accessory",
+          "notes": "Phys Def +2, Accuracy +30."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
-            "Carnelian Pendant",
-            "Dove Plume",
+            "Sapphire Pendant",
+            "First Aid Kit",
             "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Medical Shot & Greatshield Cover"
-        },
-        "statPriorities": [
-          "Phys Def (A)",
-          "Healing (A)",
-          "Phys Atk (B)"
-        ],
-        "growthTypes": [
-          "Guardian",
-          "Defender"
-        ]
+          "notes": "PP +1 for Eagle Eye triggers."
+        }
       },
       {
         "unitId": "bruno-berserker",
@@ -1516,59 +1265,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Bruno",
         "className": "Berserker",
         "roleTitle": "Colossal HP Row Cleaver",
-        "weapon": "Dragonbone Axe",
-        "shieldOrHelm": "Power Belt",
-        "accessory1": "Carnelian Pendant",
-        "accessory2": "Vitality Talisman",
+        "growthTypes": [
+          "Offensive",
+          "Survivor"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Dragonbone Axe",
           "optimalAlternatives": [
             "Meteorite Axe",
             "Carnelian Axe",
-            "Giant's Greataxe"
+            "Boreas's Axe"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +22, PP +1"
+          "notes": "Phys Atk +22, PP +1."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Power Belt",
           "optimalAlternatives": [
-            "Riot Belt",
-            "Counter Belt",
-            "Armored Gauntlets"
+            "Warrior's Medallion",
+            "Armored Gauntlets",
+            "Brawler Ring"
           ],
-          "slotType": "Helm",
-          "notes": "Phys Atk +5, Guard Mitigate +10%"
+          "slotType": "Accessory",
+          "notes": "Phys Atk +1, Grants Toughness, Max HP +10."
         },
         "slot3Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Warrior's Medallion",
-            "Power Belt"
+            "Power Belt",
+            "Strength Brooch"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Wide Smash row sweeps"
+          "notes": "AP +1 for Wide Smash row sweeps."
         },
         "slot4Accessory": {
           "bestInSlot": "Vitality Talisman",
           "optimalAlternatives": [
+            "Ruby Pendant",
             "Lifeblood Talisman",
-            "Lapis Pendant",
-            "Lionheart"
+            "Survivor Ring"
           ],
           "slotType": "Accessory",
-          "notes": "Max HP +25, synergy with Bulk Up"
-        },
-        "statPriorities": [
-          "Max HP (S+)",
-          "Phys Atk (S)",
-          "Sustain (A)"
-        ],
-        "growthTypes": [
-          "Offensive",
-          "Guardian"
-        ]
+          "notes": "Max HP +10, synergy with Bulk Up."
+        }
       }
     ],
     "tacticsSequence": [
@@ -1577,67 +1317,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "unit": "Berengaria",
         "skill": "Eye of the Crimson Bear",
         "condition1": "[Start of Battle]",
-        "condition2": "[All Enemies]",
-        "notes": "-20% Atk/Def & -10 Init debuff"
+        "condition2": "[Self PP >= 1]",
+        "notes": "Inflicts -15 Initiative and -20% Attack on all enemies."
       },
       {
         "step": 2,
         "unit": "Travis",
         "skill": "Shadowbite",
-        "condition1": "[Front Row Enemies]",
+        "condition1": "[Target: Front Row (2+ Enemies)]",
         "condition2": "[Self AP >= 2]",
-        "notes": "Inflicts Row Blindness & Affliction"
+        "notes": "Blinds enemy frontline and seals passive reactions."
       },
       {
         "step": 3,
         "unit": "Berengaria",
-        "skill": "Sanguine Pursuit",
-        "condition1": "[Target Afflicted]",
-        "condition2": "[Self PP >= 1]",
-        "notes": "Recovers AP/PP upon hit"
+        "skill": "Death Spin",
+        "condition1": "[Target: Front Row (Afflicted)]",
+        "condition2": "[Self AP >= 2]",
+        "notes": "Row-cleave axe spin dealing +50% bonus damage to blinded targets."
       },
       {
         "step": 4,
-        "unit": "Nina",
-        "skill": "Enraged Strike",
-        "condition1": "[Armored Target]",
-        "condition2": "[Self AP >= 1]",
-        "notes": "100% Physical Defense bypass"
+        "unit": "Berengaria",
+        "skill": "Sanguine Pursuit",
+        "condition1": "[After Ally Attacks]",
+        "condition2": "[Self PP >= 1]",
+        "notes": "Executes follow-up strike restoring +1 AP on kill."
       },
       {
         "step": 5,
-        "unit": "Bruno",
-        "skill": "Wide Smash",
-        "condition1": "[Enemy Row >= 2]",
+        "unit": "Nina",
+        "skill": "Heavy Impact",
+        "condition1": "[Target: Armored / Guarding Enemy]",
         "condition2": "[Self AP >= 2]",
-        "notes": "Cleaves entire enemy row"
+        "notes": "Shatters enemy heavy shields with 100% guard pierce."
       }
-    ],
-    "substitutes": {
-      "earlyGame": [
-        "Travis Thief",
-        "Nina Warrior",
-        "Bruno Gladiator"
-      ],
-      "endgameAlternatives": [
-        "Morax replacing Bruno"
-      ]
-    }
+    ]
   },
   {
     "id": "zero-5-virginia-valkyrian-counter",
     "name": "5. Virginia Valkyrian Counter Fortress",
     "archetype": "Heavy Sustain",
     "tier": "SS",
-    "pvpRating": "SS-Tier (Unbreakable Physical Counter Fortress)",
-    "pveRating": "Godly (Invincible against melee physical armies)",
-    "description": "Virginia commands an unyielding counter-attack fortress. Dual-wielding swords and shields with Maiden's Hammer, Virginia buffs squad physical defense by +30% on Turn 0 with Iron Veil. Leah delivers lethal True-Strike parries, Kitra shatters enemy armor, Rolf snipes flying threats with 100% True Strike, and Colm blocks all incoming arrow volleys with Arrow Cover.",
-    "keyItems": [
-      "Blue Rose Sword",
-      "Blue Rose Shield",
-      "Counter Belt",
-      "Apeliotes's Bow"
-    ],
+    "pvpRating": "98.0/100",
+    "description": "The ultimate impenetrable counter-attack fortress. Virginia commands dual shields with Start-of-Battle Iron Veil, while Liza and Colm provide continuous First Aid sustain and shield cover.",
     "frontRow": [
       "virginia-valkyria",
       "colm-vanguard"
@@ -1645,30 +1368,30 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
     "backRow": [
       "leah-swordmaster",
       "kitra-breaker",
-      "rolf-sniper"
+      "liza-shieldshooter"
     ],
-    "pros": [
-      "Iron Veil start-of-battle passive grants +30% Phys Def & Guard Rate to squad",
-      "Virginia Maiden's Hammer deals 200% bonus damage to guarding foes and breaks shields",
-      "Leah Parrying Slash negates 100% incoming melee damage and retaliates instantly",
-      "Rolf Eagle Eye Aerial Snipe permanently clears airborne counters with True Strike",
-      "Colm Arrow Cover completely neutralizes anti-infantry bow attacks"
-    ],
-    "cons": [
-      "Lower base Magic Defense against multi-target sorcerers"
+    "keyItems": [
+      "Blue Rose Sword",
+      "Blue Rose Shield",
+      "Parrying Shield",
+      "Gallian Crossbow",
+      "First Aid Kit"
     ],
     "counters": [
-      "Heavy Row Magic Nukes (Trinity Rain)"
+      "Multi-hit physical attackers",
+      "Swordmasters",
+      "Cavalry chargers",
+      "Flying attackers"
     ],
     "strategyGuide": {
-      "winCondition": "Absorb all physical enemy swings with 100% guard and parries, retaliating with Maiden's Hammer and True-Strike Meteor Slash.",
-      "overview": "Virginia starts battle with Iron Veil (+30% Phys Def to squad). When enemies attack Virginia or Leah, they parry and retaliate with high potency counter strikes. Kitra smashes armored Legionnaires, Rolf deletes flying threats, and Colm shields the squad from archers.",
+      "overview": "Virginia opens battle with Iron Veil (+50% Defense to entire squad). Dual-wielding Blue Rose Shield and Parrying Shield gives Virginia maximum guard efficiency and dual counter-attacks. Liza provides continuous First Aid reactive healing whenever frontline tanks are struck.",
+      "winCondition": "Out-sustaining enemy offense with First Aid + Iron Veil while crushing them with continuous dual-shield counter-attacks.",
       "combatSequenceNotes": [
-        "Turn 0: Virginia triggers Iron Veil -> Squad gains +30% Physical Defense and Guard Rate.",
-        "Turn 1: Enemy attacks frontline -> Virginia & Leah parry and counterattack immediately.",
-        "Turn 1: Virginia casts Maiden's Hammer -> Breaks enemy guard for 200% damage.",
-        "Turn 1: Leah executes Meteor Slash on low-health targets.",
-        "Turn 1: Rolf casts Aerial Snipe on flying enemies with True Strike."
+        "Virginia casts Iron Veil on Turn 0, boosting squad physical defense and guard rate by 50%.",
+        "Colm absorbs incoming arrows with Arrow Cover and uses First Aid Kit Quick Heal if needed.",
+        "Liza triggers First Aid / Aid Cover to heal Virginia and Colm back to full HP upon being hit.",
+        "Virginia counters attacking enemies with Maiden's Hammer and Parrying Shield counters.",
+        "Leah executes Parrying Slash counters while Kitra shatters enemy heavy armor."
       ]
     },
     "unitGearConfigs": [
@@ -1677,120 +1400,103 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "unitName": "Virginia (Valkyria)",
         "characterName": "Virginia",
         "className": "Valkyria",
-        "roleTitle": "Dual-Sword & Shield Counter Vanguard",
-        "weapon": "Holy Unicorn Blade",
-        "shieldOrHelm": "Blue Rose Shield",
-        "accessory1": "Counter Belt",
-        "accessory2": "Carnelian Pendant",
+        "roleTitle": "Dual-Shield Counter Vanguard Leader",
+        "growthTypes": [
+          "Offensive",
+          "Guardian"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Holy Unicorn Blade",
+          "bestInSlot": "Blue Rose Sword",
           "optimalAlternatives": [
+            "Rosularis Sword",
             "Kingsblade Cornix",
-            "Hallowed Blade",
             "Meteorite Sword"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +23, Phys Def +5, PP +1"
+          "notes": "Phys Atk +24, Base AP +1, Crit Rate +10%, Phys Def +3. Virginia's canonical royal blade."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Blue Rose Shield",
           "optimalAlternatives": [
-            "Holy Unicorn Shield",
             "Azure Crest Shield",
+            "Chivalric Shield",
             "Steel Shield"
           ],
           "slotType": "Shield",
-          "notes": "Phys Def +15, Guard Rate +35%, Retaliation Counter, PP +1"
+          "notes": "Main Shield Slot: Phys Def +6, Royal Guard, Guard Rate +25%, Base PP +1. Virginia's signature shield."
         },
         "slot3Accessory": {
-          "bestInSlot": "Counter Belt",
+          "bestInSlot": "Parrying Shield",
           "optimalAlternatives": [
-            "Retaliation Earrings",
-            "Rose Broach",
-            "Lionheart"
+            "Zenoiran Shield",
+            "Counter Belt",
+            "Tower Shield",
+            "Azure Crest Shield"
           ],
-          "slotType": "Accessory",
-          "notes": "Counter Slash retaliation upon guarding"
+          "slotType": "Shield",
+          "notes": "Dual-Shield Slot: Phys Def +2, Parry, Guard Rate +25%, Counter Skills Deal +50 Damage."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Warrior's Medallion",
-            "Vitality Talisman"
+            "Vitality Talisman",
+            "Strength Brooch"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Maiden's Hammer strikes"
-        },
-        "statPriorities": [
-          "Phys Def (S+)",
-          "Guard Rate (100%)",
-          "Phys Atk (A)"
-        ],
-        "growthTypes": [
-          "Offensive",
-          "Guardian"
-        ]
+          "notes": "AP +1 for Maiden's Hammer strikes."
+        }
       },
       {
         "unitId": "colm-vanguard",
         "unitName": "Colm (Vanguard)",
         "characterName": "Colm",
         "className": "Vanguard",
-        "roleTitle": "Frontline Shield & Arrow Cover",
-        "weapon": "Meteorite Sword",
-        "shieldOrHelm": "Parrying Shield",
-        "accessory1": "Defender's Ring",
-        "accessory2": "Lapis Pendant",
+        "roleTitle": "Frontline Shield & Quick Heal Support",
+        "growthTypes": [
+          "Guardian",
+          "Survivor"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Meteorite Sword",
           "optimalAlternatives": [
-            "Hallowed Blade",
+            "Zenoiran Sword",
             "Iron Sword",
             "Bronze Sword"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +24, Max HP +20, Guard +10%"
+          "notes": "Phys Atk +24, Max HP +20, Guard +10%."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Parrying Shield",
+          "bestInSlot": "Arrowshield",
           "optimalAlternatives": [
+            "Battler's Shield",
             "Steel Shield",
-            "Chivalric Shield",
-            "Azure Crest Shield"
+            "Guard's Shield"
           ],
           "slotType": "Shield",
-          "notes": "Arrow Deflect: Negates 100% arrow damage"
+          "notes": "Phys Def +2, Arrow Cover, Guard Rate +25%."
         },
         "slot3Accessory": {
-          "bestInSlot": "Defender's Ring",
+          "bestInSlot": "First Aid Kit",
           "optimalAlternatives": [
             "Defender's Ring",
             "Guardian Gloves",
-            "Defensive Ring"
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "Guard Rate +15%"
+          "notes": "Grants Quick Heal (50% HP heal to frontline ally) for emergency sustain."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
-            "Carnelian Pendant",
-            "Vitality Talisman",
-            "Dove Plume"
+            "Sapphire Pendant",
+            "Knight's Crest",
+            "Defender's Ring"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Arrow Cover activations"
-        },
-        "statPriorities": [
-          "Phys Def (S)",
-          "Guard Rate (A)",
-          "HP (A)"
-        ],
-        "growthTypes": [
-          "Guardian",
-          "Defender"
-        ]
+          "notes": "PP +1 for Arrow Cover and Quick Heal activations."
+        }
       },
       {
         "unitId": "leah-swordmaster",
@@ -1798,59 +1504,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Leah",
         "className": "Swordmaster",
         "roleTitle": "True-Strike Parry Duelist",
-        "weapon": "Notos's Sword",
-        "shieldOrHelm": "Pursuant's Blade",
-        "accessory1": "Parrying Amulet",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Keen"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Notos's Sword",
           "optimalAlternatives": [
+            "Kingsblade Cornix",
             "Meteorite Sword",
-            "Iron Sword",
-            "Kingsblade Cornix"
+            "General's Saber"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +25, Initiative +5"
+          "notes": "Main-Hand Slot: Phys Atk +25, Initiative +5."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Pursuant's Blade",
+          "bestInSlot": "Flamberge",
           "optimalAlternatives": [
+            "Black-Iron Sword",
             "Pursuant's Blade",
-            "Carnelian Blade",
-            "Iron Sword"
+            "Vorpal Sword"
           ],
           "slotType": "Weapon",
-          "notes": "Evasion +15, Parrying Slash"
+          "notes": "Dual-Wield Off-Hand Slot: Phys Atk +21, Burn Immunity, Grants Grisly Fire."
         },
         "slot3Accessory": {
-          "bestInSlot": "Parrying Amulet",
+          "bestInSlot": "Retaliation Earrings",
           "optimalAlternatives": [
-            "Lucky Coin",
-            "Lucky Coin",
-            "Skillful Amulet"
+            "Parrying Amulet",
+            "Warrior's Medallion",
+            "Evasion Ring"
           ],
           "slotType": "Accessory",
-          "notes": "Parrying Slash retaliation on melee strike"
+          "notes": "Phys Def +1, Counterattack Skills Deal +40 Damage."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Warrior's Medallion",
-            "Lucky Coin"
+            "Sniper's Lens",
+            "Critical Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Meteor Slash executions"
-        },
-        "statPriorities": [
-          "Crit Rate (S+)",
-          "Initiative (S)",
-          "Phys Atk (A)"
-        ],
-        "growthTypes": [
-          "Keen",
-          "Offensive"
-        ]
+          "notes": "AP +1 for Meteor Slash executions."
+        }
       },
       {
         "unitId": "kitra-breaker",
@@ -1858,119 +1555,101 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Kitra",
         "className": "Breaker",
         "roleTitle": "Armor Shatterer",
-        "weapon": "Meteorite Axe",
-        "shieldOrHelm": "Armored Gauntlets",
-        "accessory1": "Carnelian Pendant",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Offensive"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Meteorite Axe",
+          "bestInSlot": "Rose Knight Hammer",
           "optimalAlternatives": [
             "Juggernaut",
-            "Giant's Greataxe",
-            "Carnelian Axe"
+            "Mason's Hammer",
+            "Meteorite Axe"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +24, Max HP +20"
+          "notes": "Phys Atk +15, Initiative +3, Accuracy +10."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Armored Gauntlets",
           "optimalAlternatives": [
-            "Armored Gauntlets",
+            "Master's Gauntlets",
             "Power Belt",
-            "Master's Gauntlets"
+            "Warrior's Medallion"
           ],
-          "slotType": "Helm",
-          "notes": "Phys Atk +4, Phys Def +4"
+          "slotType": "Accessory",
+          "notes": "Phys Atk +4, Phys Def +4, Grants Binding Guard."
         },
         "slot3Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Warrior's Medallion",
+            "Strength Brooch",
             "Power Belt"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Enraged Strike armor crushes"
+          "notes": "AP +1 for Enraged Strike armor crushes."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Power Belt",
-            "Lucky Coin"
+            "Vitality Talisman",
+            "Critical Ring"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Heavy Smash follow-ups"
-        },
-        "statPriorities": [
-          "Phys Atk (S+)",
-          "Crit Rate (B)",
-          "AP +1"
-        ],
-        "growthTypes": [
-          "Offensive",
-          "Offensive"
-        ]
+          "notes": "PP +1 for Heavy Smash follow-ups."
+        }
       },
       {
-        "unitId": "rolf-sniper",
-        "unitName": "Rolf (Sniper)",
-        "characterName": "Rolf",
-        "className": "Sniper",
-        "roleTitle": "True-Strike Anti-Flying Marksman",
-        "weapon": "Apeliotes's Bow",
-        "shieldOrHelm": "Sniper's Lens",
-        "accessory1": "Sniper's Lens",
-        "accessory2": "Lapis Pendant",
+        "unitId": "liza-shieldshooter",
+        "unitName": "Liza (Shieldshooter)",
+        "characterName": "Liza",
+        "className": "Shieldshooter",
+        "roleTitle": "First Aid Sustain Healer & Anti-Flyer Cover",
+        "growthTypes": [
+          "Guardian",
+          "Support"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Apeliotes's Bow",
+          "bestInSlot": "Gallian Crossbow",
           "optimalAlternatives": [
-            "Meteorite Bow",
+            "Zenoiran Bow",
             "Apeliotes's Bow",
-            "Carnelian Bow"
+            "Runic Bow"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +25, Initiative +5, True Strike"
+          "notes": "Phys Atk +24, Anti-Flying 200%, Grants Harpoon Bolt."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Sniper's Lens",
+          "bestInSlot": "Zenoiran Knight's Shield",
           "optimalAlternatives": [
-            "Silk Hood",
-            "Elite Beret",
-            "Leather Hood"
+            "Unyielding Shield",
+            "Azure Crest Shield",
+            "Steel Shield"
           ],
-          "slotType": "Helm",
-          "notes": "Crit Rate +10%, Acc +15"
+          "slotType": "Shield",
+          "notes": "Greatshield Slot: Phys Def +6, Enduring Guard, Guard Rate +25%, Max HP +15."
         },
         "slot3Accessory": {
-          "bestInSlot": "Sniper's Lens",
+          "bestInSlot": "Defender's Ring",
           "optimalAlternatives": [
-            "Sniper's Amber Lens",
-            "Skillful Amulet",
-            "Sniper's Lens"
+            "Vitality Talisman",
+            "Healing Brooch",
+            "Saint's Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "Hawkeye: 100% True Strike"
+          "notes": "Guard Rate +15%, boosts squad frontline stability."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
-            "Carnelian Pendant",
-            "Dove Plume",
-            "Warrior's Medallion"
+            "Sapphire Pendant",
+            "Guardian Gloves",
+            "Defender's Ring"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Eagle Eye triggers"
-        },
-        "statPriorities": [
-          "Phys Atk (S)",
-          "Accuracy (S+)",
-          "Crit Rate (A)"
-        ],
-        "growthTypes": [
-          "Offensive",
-          "Keen"
-        ]
+          "notes": "PP +1 for First Aid reactive healing & Greatshield Cover."
+        }
       }
     ],
     "tacticsSequence": [
@@ -1979,66 +1658,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "unit": "Virginia",
         "skill": "Iron Veil",
         "condition1": "[Start of Battle]",
-        "condition2": "[Full Squad]",
-        "notes": "+30% Phys Def & Guard Rate"
+        "condition2": "[Self PP >= 1]",
+        "notes": "Grants +50% Physical Defense to entire squad."
       },
       {
         "step": 2,
-        "unit": "Virginia",
-        "skill": "Maiden's Hammer",
-        "condition1": "[Enemy Guarding]",
-        "condition2": "[Self AP >= 2]",
-        "notes": "Breaks enemy guard for 200% damage"
+        "unit": "Liza",
+        "skill": "First Aid",
+        "condition1": "[After Ally Attacked]",
+        "condition2": "[Target: Ally HP <= 75%]",
+        "notes": "Automatically casts 50% HP reactive heal on Virginia or Colm when attacked."
       },
       {
         "step": 3,
-        "unit": "Leah",
-        "skill": "Parry",
-        "condition1": "[Attacked by Melee]",
+        "unit": "Colm",
+        "skill": "Arrow Cover",
+        "condition1": "[Before Ally Attacked (Ranged)]",
         "condition2": "[Self PP >= 1]",
-        "notes": "Negates 100% damage & strikes back"
+        "notes": "Negates 100% ranged and flying projectile damage."
       },
       {
         "step": 4,
-        "unit": "Kitra",
-        "skill": "Enraged Strike",
-        "condition1": "[Armored Enemy]",
-        "condition2": "[Self AP >= 1]",
-        "notes": "100% Physical Defense bypass"
+        "unit": "Virginia",
+        "skill": "Maiden's Hammer",
+        "condition1": "[Target: Armored / Guarding Enemy]",
+        "condition2": "[Self AP >= 2]",
+        "notes": "Heavy armor-piercing strike ignoring enemy defense."
       },
       {
         "step": 5,
-        "unit": "Rolf",
-        "skill": "Aerial Snipe",
-        "condition1": "[Flying Enemy]",
-        "condition2": "[Self AP >= 1]",
-        "notes": "200% flying multiplier True Strike"
+        "unit": "Leah",
+        "skill": "Meteor Slash",
+        "condition1": "[Target: Lowest HP % Enemy]",
+        "condition2": "[Self AP >= 2]",
+        "notes": "9-hit flurry tearing through softened targets."
       }
-    ],
-    "substitutes": {
-      "earlyGame": [
-        "Lex Fighter",
-        "Rolf Hunter"
-      ],
-      "endgameAlternatives": [
-        "Miriam Sainted Knight replacing Colm"
-      ]
-    }
+    ]
   },
   {
-    "id": "zero-6-yunifi-glacial-rain-freeze",
+    "id": "zero-6-yunifi-glacial-rain",
     "name": "6. Yunifi Glacial Rain Absolute Zero",
     "archetype": "Affliction Control",
     "tier": "SS",
-    "pvpRating": "SS-Tier (Battlefield-Wide Freeze Lockdown)",
-    "pveRating": "Godly (Freezes and obliterates entire enemy armies)",
-    "description": "Yunifi freezes the entire enemy force on Turn 1 with Glacial Rain (4 AP). Ramona (Wereowl) acts as an infinite PP battery with Owl Eyes, Ridiel cleanses incoming debuffs with Pure Light and adds magic conferral, while Bryce and Lex build an impenetrable wall.",
-    "keyItems": [
-      "Icefall Bow",
-      "Glacial Ring",
-      "Sage Owl's Shawl",
-      "Celestial Talisman"
-    ],
+    "pvpRating": "98.5/100",
+    "description": "The unstoppable absolute zero freeze lockdown. Yunifi blankets the enemy squad in Glacial Rain via Celestial Talisman Hastened Charge, permanently freezing all units while Ramona feeds infinite AP and PP.",
     "frontRow": [
       "bryce-legionnaire",
       "lex-vanguard"
@@ -2048,28 +1711,27 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
       "ramona-wereowl",
       "ridiel-elven-archer"
     ],
-    "pros": [
-      "Battlefield-wide Freeze status completely skips enemy turns",
-      "Ramona Owl Eyes refunds PP to Yunifi on every active action",
-      "Ridiel Pure Light cleanses squad afflictions immediately",
-      "Yunifi Triple Counter unleashes 3-hit guaranteed critical arrows on attackers"
-    ],
-    "cons": [
-      "Requires charge acceleration protection against Turn-1 stun snipers"
+    "keyItems": [
+      "Zenoiran Bow",
+      "Celestial Talisman",
+      "Glacial Ring",
+      "Lapis Bell",
+      "Sage Owl's Shawl"
     ],
     "counters": [
-      "Freeze Immunity Amulets",
-      "Start-of-Battle Stun"
+      "Melee infantry squads",
+      "High speed burst formations",
+      "Clustered frontlines"
     ],
     "strategyGuide": {
-      "winCondition": "Channel Glacial Rain to freeze all 5 enemy units, then execute survivors with Triple Counter and Icicle Arrows.",
-      "overview": "Yunifi channels Glacial Rain at start of combat. Ramona uses Owl Eyes to restore PP continuously. Ridiel uses Pure Light to cleanse any incoming debuffs and buffs Yunifi with Mystic Conferral. Bryce and Lex intercept all incoming physical attacks.",
+      "overview": "Yunifi unleashes Turn-1 Glacial Rain via Celestial Talisman (Hastened Charge), freezing all enemies. Ramona uses Restore to recharge Yunifi's PP, while Ridiel adds magic power with Mystic Conferral. Bryce (Heavy Cover) and Lex (Arrow Cover) shield the squad.",
+      "winCondition": "Turn 1 instant Glacial Rain freezing entire enemy squad, followed by execute cleanup.",
       "combatSequenceNotes": [
-        "Turn 0: Yunifi triggers Snow White Guard -> Grants 30% evasion and Freeze immunity.",
-        "Turn 1: Yunifi channels Glacial Rain (4 AP arrow volley).",
-        "Turn 1: Glacial Rain impacts enemy formation -> Inflicts Freeze status on all 5 targets.",
-        "Turn 1: Ramona activates Owl Eyes -> Restores 1 PP to Yunifi for Triple Counter.",
-        "Turn 1: Ridiel fires Icicle Arrow on any unfrozen targets."
+        "Start of Battle: Yunifi activates Hastened Charge from Celestial Talisman.",
+        "Turn 1: Yunifi unleashes Glacial Rain (Freeze All Enemies) with 100% Truestrike Critical.",
+        "Ridiel enchants attacks with Mystic Conferral and cleanses debuffs with Pure Light.",
+        "Ramona restores PP to Yunifi upon active attack with Restore and Passive Gift.",
+        "Bryce and Lex absorb any surviving counter-attacks with Heavy Cover and Arrow Cover."
       ]
     },
     "unitGearConfigs": [
@@ -2079,59 +1741,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Yunifi",
         "className": "Snow Ranger",
         "roleTitle": "Battlefield Freeze Nuke Archer",
-        "weapon": "Icefall Bow",
-        "shieldOrHelm": "Wolfpack Gauntlets",
-        "accessory1": "Sniper's Amber Lens",
-        "accessory2": "Carnelian Pendant",
-        "slot1Weapon": {
-          "bestInSlot": "Icefall Bow",
-          "optimalAlternatives": [
-            "Kingsbow Bastorik",
-            "Meteorite Bow",
-            "Apeliotes's Bow"
-          ],
-          "slotType": "Weapon",
-          "notes": "Glacial Rain 4 AP, Freeze, Phys Atk +22"
-        },
-        "slot2ShieldOrOffhand": {
-          "bestInSlot": "Wolfpack Gauntlets",
-          "optimalAlternatives": [
-            "Elite Beret",
-            "Leather Hood",
-            "Silk Hood"
-          ],
-          "slotType": "Helm",
-          "notes": "Phys Atk +5, Freeze Potency +20%"
-        },
-        "slot3Accessory": {
-          "bestInSlot": "Sniper's Amber Lens",
-          "optimalAlternatives": [
-            "Glacial Ring",
-            "Sniper's Lens",
-            "Skillful Amulet"
-          ],
-          "slotType": "Accessory",
-          "notes": "Eagle Eye: Guaranteed 100% Crit + True Strike"
-        },
-        "slot4Accessory": {
-          "bestInSlot": "Carnelian Pendant",
-          "optimalAlternatives": [
-            "Ruby Pendant",
-            "Lucky Coin",
-            "Warrior's Medallion"
-          ],
-          "slotType": "Accessory",
-          "notes": "AP +1 for 4 AP Glacial Rain"
-        },
-        "statPriorities": [
-          "Phys Atk (S+)",
-          "Initiative (S)",
-          "Crit Rate (A)"
-        ],
         "growthTypes": [
           "Offensive",
           "Keen"
-        ]
+        ],
+        "slot1Weapon": {
+          "bestInSlot": "Zenoiran Bow",
+          "optimalAlternatives": [
+            "Meteorite Bow",
+            "Apeliotes's Bow",
+            "Dragonbone Bow"
+          ],
+          "slotType": "Weapon",
+          "notes": "Phys Atk +24, Crit Rate +10%, Anti-Flying. Authentic Zenoiran longbow."
+        },
+        "slot2ShieldOrOffhand": {
+          "bestInSlot": "Celestial Talisman",
+          "optimalAlternatives": [
+            "Sniper's Amber Lens",
+            "Silken Scarf",
+            "Thief's Mantle"
+          ],
+          "slotType": "Accessory",
+          "notes": "Grants Hastened Charge (Start of Battle): Activates charge immediately so Glacial Rain executes on Turn 1!"
+        },
+        "slot3Accessory": {
+          "bestInSlot": "Carnelian Pendant",
+          "optimalAlternatives": [
+            "Ruby Pendant",
+            "Power Belt",
+            "Vitality Talisman"
+          ],
+          "slotType": "Accessory",
+          "notes": "AP +1 (offsets Celestial Talisman -1 AP) giving Yunifi 2 AP to cast Glacial Rain."
+        },
+        "slot4Accessory": {
+          "bestInSlot": "Glacial Ring",
+          "optimalAlternatives": [
+            "Lucky Coin",
+            "Raven Plume",
+            "Sniper's Amber Lens"
+          ],
+          "slotType": "Accessory",
+          "notes": "Mag Def +8, Freeze Immunity, Max HP +5."
+        }
       },
       {
         "unitId": "ramona-wereowl",
@@ -2139,59 +1792,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Ramona",
         "className": "Wereowl",
         "roleTitle": "Bestral Infinite PP/AP Battery",
-        "weapon": "Meteorite Rod",
-        "shieldOrHelm": "Sage Owl's Shawl",
-        "accessory1": "Sage Owl's Shawl",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Support",
+          "Go-Getter"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Meteorite Rod",
           "optimalAlternatives": [
             "Sacral Rod",
-            "Kingstaff Albiore",
+            "Hallowed Staff",
             "Euros's Staff"
           ],
           "slotType": "Weapon",
-          "notes": "Mag Atk +24, Max HP +20"
+          "notes": "Mag Atk +24, Max HP +20."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Sage Owl's Shawl",
           "optimalAlternatives": [
+            "Archbishop's Mitre",
             "Silk Hood",
-            "Druid's Robes",
-            "Dusk Robes"
-          ],
-          "slotType": "Helm",
-          "notes": "Mag Def +8, Initiative +6"
-        },
-        "slot3Accessory": {
-          "bestInSlot": "Sage Owl's Shawl",
-          "optimalAlternatives": [
-            "Lapis Pendant",
-            "Sapphire Pendant",
-            "Dove Plume"
+            "Shawl of Repose"
           ],
           "slotType": "Accessory",
-          "notes": "Owl Eyes: Restores 1 PP to ally using active skill"
+          "notes": "Mag Def +8, Initiative +6, Grants Quick Dispel."
+        },
+        "slot3Accessory": {
+          "bestInSlot": "Lapis Bell",
+          "optimalAlternatives": [
+            "Lapis Pendant",
+            "White Ribbon",
+            "Sapphire Pendant"
+          ],
+          "slotType": "Accessory",
+          "notes": "Base PP +1, Passive Gift: Restores 1 PP to Ally using Active Skill."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Dove Plume",
-            "Amethyst Pendant"
+            "First Aid Kit",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for continuous Restore casting"
-        },
-        "statPriorities": [
-          "Initiative (S)",
-          "PP (S+)",
-          "Mag Atk (B)"
-        ],
-        "growthTypes": [
-          "Speedster",
-          "Guardian"
-        ]
+          "notes": "PP +1 for continuous Restore casting."
+        }
       },
       {
         "unitId": "ridiel-elven-archer",
@@ -2199,59 +1843,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Ridiel",
         "className": "Elven Archer",
         "roleTitle": "Pure Light Row Cleanse & Magic Conferral",
-        "weapon": "Runic Bow",
-        "shieldOrHelm": "Dream Crown",
-        "accessory1": "Celestial Talisman",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Support",
+          "Offensive"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Runic Bow",
           "optimalAlternatives": [
-            "Meteorite Bow",
             "Sacral Bow",
-            "Apeliotes's Bow"
+            "Apeliotes's Bow",
+            "Elven Bow"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +18, Mag Atk +24"
+          "notes": "Phys Atk +8, Mag Atk +14, Magick Attack."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Dream Crown",
+          "bestInSlot": "Silver Circlet",
           "optimalAlternatives": [
+            "Dream Crown",
             "Silk Hood",
-            "Sage's Hood",
-            "Elite Beret"
-          ],
-          "slotType": "Helm",
-          "notes": "Mag Atk +5, Mag Def +5"
-        },
-        "slot3Accessory": {
-          "bestInSlot": "Celestial Talisman",
-          "optimalAlternatives": [
-            "Clearsight Amulet",
-            "Detoxifying Amulet",
-            "Lapis Pendant"
+            "Magick Brooch"
           ],
           "slotType": "Accessory",
-          "notes": "Pure Light: Row-wide cleanse on affliction"
+          "notes": "Mag Atk +5, Mag Def +5, PP +1."
+        },
+        "slot3Accessory": {
+          "bestInSlot": "Clearsight Amulet",
+          "optimalAlternatives": [
+            "First Aid Kit",
+            "Lapis Pendant",
+            "White Ribbon"
+          ],
+          "slotType": "Accessory",
+          "notes": "Mag Def +1, Blindness Immunity, guarantees archer accuracy."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
-            "Carnelian Pendant",
-            "Dove Plume",
-            "Skillful Amulet"
+            "Sapphire Pendant",
+            "Raven Plume",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Mystic Conferral"
-        },
-        "statPriorities": [
-          "Mag Atk (A)",
-          "Initiative (A)",
-          "Phys Atk (B)"
-        ],
-        "growthTypes": [
-          "All-Rounder",
-          "Speedster"
-        ]
+          "notes": "PP +1 for Mystic Conferral & Selfless Heal."
+        }
       },
       {
         "unitId": "bryce-legionnaire",
@@ -2259,59 +1894,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Bryce",
         "className": "Legionnaire",
         "roleTitle": "Heavy Frontline Shield",
-        "weapon": "Meteorite Lance",
-        "shieldOrHelm": "Unyielding Shield",
-        "accessory1": "Guardian Gloves",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Guardian",
+          "Survivor"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Meteorite Lance",
           "optimalAlternatives": [
-            "Iron Spear",
-            "Bronze Spear",
-            "Carnelian Spear"
+            "Zenoiran Spear",
+            "Carnelian Spear",
+            "Dragonbone Spear"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +24, Max HP +20"
+          "notes": "Phys Atk +24, Max HP +20."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Unyielding Shield",
+          "bestInSlot": "Golden Ram Shield",
           "optimalAlternatives": [
             "Azure Crest Shield",
-            "Greatwood Shield",
-            "Azure Crest Shield"
+            "Unyielding Shield",
+            "Steel Shield"
           ],
           "slotType": "Shield",
-          "notes": "Phys Def +18, Guard Rate +45%"
+          "notes": "Greatshield Slot: Phys Def +5, Max HP +10, Stun Immunity, Guard Rate +25%."
         },
         "slot3Accessory": {
           "bestInSlot": "Guardian Gloves",
           "optimalAlternatives": [
-            "Defender's Ring",
             "Defensive Ring",
-            "Defender's Ring"
+            "Armored Gauntlets",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "Guard Rate +15%"
+          "notes": "Guard Rate +15%, Grants Guarding Fighter."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Vitality Talisman",
-            "Lifeblood Talisman"
+            "Tower Shield Belt",
+            "First Aid Kit"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Heavy Cover"
-        },
-        "statPriorities": [
-          "Phys Def (S+)",
-          "Guard Rate (100%)",
-          "Max HP (S)"
-        ],
-        "growthTypes": [
-          "Guardian",
-          "Guardian"
-        ]
+          "notes": "PP +1 for Heavy Cover."
+        }
       },
       {
         "unitId": "lex-vanguard",
@@ -2319,59 +1945,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Lex",
         "className": "Vanguard",
         "roleTitle": "Anti-Ranged Arrow Cover Vanguard",
-        "weapon": "Meteorite Sword",
-        "shieldOrHelm": "Parrying Shield",
-        "accessory1": "Defender's Ring",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Guardian",
+          "All-Rounder"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Meteorite Sword",
+          "bestInSlot": "Zenoiran Sword",
           "optimalAlternatives": [
-            "Hallowed Blade",
+            "Meteorite Sword",
             "Iron Sword",
             "Bronze Sword"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +24, HP +20"
+          "notes": "Phys Atk +22, Phys Def +5."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Parrying Shield",
+          "bestInSlot": "Battler's Shield",
           "optimalAlternatives": [
-            "Steel Shield",
-            "Chivalric Shield",
-            "Azure Crest Shield"
+            "Arrowshield",
+            "Parrying Shield",
+            "Steel Shield"
           ],
           "slotType": "Shield",
-          "notes": "Arrow Deflect: Negates 100% arrow damage"
+          "notes": "Phys Def +2, Phys Atk +2, Guard Rate +25%."
         },
         "slot3Accessory": {
-          "bestInSlot": "Defender's Ring",
+          "bestInSlot": "Warrior's Medallion",
           "optimalAlternatives": [
             "Defender's Ring",
-            "Guardian Gloves",
-            "Defensive Ring"
+            "Power Belt",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "Guard Rate +15%"
+          "notes": "Phys Atk +3, Guard Rate +10%."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
-            "Carnelian Pendant",
-            "Vitality Talisman",
-            "Dove Plume"
+            "Sapphire Pendant",
+            "First Aid Kit",
+            "Speed Belt"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Arrow Cover"
-        },
-        "statPriorities": [
-          "Phys Def (A)",
-          "Guard Rate (A)",
-          "HP (B)"
-        ],
-        "growthTypes": [
-          "Guardian",
-          "Defender"
-        ]
+          "notes": "PP +1 for Arrow Cover."
+        }
       }
     ],
     "tacticsSequence": [
@@ -2379,59 +1996,51 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "step": 1,
         "unit": "Yunifi",
         "skill": "Glacial Rain",
-        "condition1": "[Target: All Enemies]",
+        "condition1": "[Target: All Enemies (Turn 1)]",
         "condition2": "[Self AP >= 4]",
-        "notes": "Battlefield Freeze Arrow Volley"
+        "notes": "Freezes entire enemy formation in ice."
       },
       {
         "step": 2,
         "unit": "Ramona",
-        "skill": "Owl Eyes",
-        "condition1": "[Ally Used Active Skill]",
-        "condition2": "[Target: Yunifi]",
-        "notes": "Restores 1 PP to Yunifi"
+        "skill": "Restore",
+        "condition1": "[Target: Ally using Active Skill]",
+        "condition2": "[Self PP >= 1]",
+        "notes": "Restores 1 PP to Yunifi / Ridiel upon action."
       },
       {
         "step": 3,
         "unit": "Ridiel",
-        "skill": "Pure Light",
-        "condition1": "[Ally Afflicted]",
+        "skill": "Mystic Conferral",
+        "condition1": "[Before Ally Magic / Phys Attack]",
         "condition2": "[Self PP >= 1]",
-        "notes": "Cleanses debuffs row-wide"
+        "notes": "Enchants attacks with bonus magic damage."
       },
       {
         "step": 4,
-        "unit": "Yunifi",
-        "skill": "Triple Counter",
-        "condition1": "[Attacked by Enemy]",
+        "unit": "Bryce",
+        "skill": "Heavy Cover",
+        "condition1": "[Before Ally Attacked (Back Row)]",
         "condition2": "[Self PP >= 1]",
-        "notes": "3-hit counter attack with 100% Crit"
+        "notes": "Soaks physical strikes targeting backline."
+      },
+      {
+        "step": 5,
+        "unit": "Lex",
+        "skill": "Arrow Cover",
+        "condition1": "[Before Ally Attacked (Ranged)]",
+        "condition2": "[Self PP >= 1]",
+        "notes": "Absorbs and negates enemy ranged arrows."
       }
-    ],
-    "substitutes": {
-      "earlyGame": [
-        "Rolf Hunter",
-        "Chloe Soldier"
-      ],
-      "endgameAlternatives": [
-        "Morax replacing Lex"
-      ]
-    }
+    ]
   },
   {
     "id": "zero-7-elven-sisters-elemental-tempest",
     "name": "7. Elven Twin Sisters Elemental Tempest",
     "archetype": "Magic Nuke",
     "tier": "SS",
-    "pvpRating": "SS-Tier (Dual Consecutive Elemental Roar Wipes)",
-    "pveRating": "Godly (Wipes all Elheim, Bastorias & Albion maps)",
-    "description": "The Elven Sisters combo (Rosalinde & Eltolinde). Rosalinde opens with Rage of the Faeries (Turn-0 Front Row Stun), channels Elemental Roar (210 potency hybrid nuke), followed immediately by Eltolinde's second Elemental Roar boosted by Faerie charges, while Ithilion and Railanor provide agile hybrid frontline evasion and Galadmir freezes backline threats.",
-    "keyItems": [
-      "Kingslance Elhal",
-      "Sacral Spear",
-      "Ancient Crown",
-      "Familiar's Choker"
-    ],
+    "pvpRating": "98.5/100",
+    "description": "The harmonic elemental apocalypse. Rosalinde and Eltolinde summon Faerie spirits to cast twin Elemental Roars, devastating enemies with hybrid physical/magic damage while faerie barriers absorb incoming attacks.",
     "frontRow": [
       "ithilion-elven-fencer",
       "railanor-elven-fencer"
@@ -2441,27 +2050,26 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
       "eltolinde-elven-sibyl",
       "galadmir-elven-archer"
     ],
-    "pros": [
-      "Dual consecutive 210 potency hybrid physical/magical Elemental Roar nukes",
-      "Rosalinde Rage of the Faeries Turn-0 frontline stun disrupts enemy tanks",
-      "Eltolinde Boon of the Faeries grants row-wide magic barrier immunity",
-      "Ithilion & Railanor provide high evasion frontline hybrid melee damage"
-    ],
-    "cons": [
-      "Requires PP management across both Elven sisters"
+    "keyItems": [
+      "Sacral Spear",
+      "Kingslance Elhal",
+      "Ancient Crown",
+      "Dream Crown"
     ],
     "counters": [
-      "Featherstaff Magic Reflection"
+      "Heavy armored walls",
+      "Infantry ground formations",
+      "Mixed hybrid defenses"
     ],
     "strategyGuide": {
-      "winCondition": "Stun enemy frontline on Turn 0, then deliver two consecutive 2000+ potency Elemental Roar spells.",
-      "overview": "Rosalinde casts Rage of the Faeries to stun the enemy front row. On Turn 1, Rosalinde casts Elemental Roar. Eltolinde immediately follows up with a second Elemental Roar with Faerie charges. Ithilion and Railanor stun remaining threats with Lightning Sword.",
+      "overview": "Rosalinde triggers Rage of the Faeries at Start of Battle (Stun Front Row). Eltolinde deploys Boon of the Faeries (Barrier). Both sisters stack Faeries and cast Elemental Roar, sweeping all enemies with unblockable hybrid damage.",
+      "winCondition": "Turn 1 double Elemental Roar devastating the battlefield.",
       "combatSequenceNotes": [
-        "Turn 0: Rosalinde casts Rage of the Faeries -> Stuns enemy front row.",
-        "Turn 0: Eltolinde triggers Boon of the Faeries -> Grants magic barrier to squad.",
-        "Turn 1: Rosalinde casts Elemental Roar -> 210 potency hybrid nuke impacts all enemies.",
-        "Turn 1: Eltolinde casts second Elemental Roar -> Complete team wipe!",
-        "Turn 1: Ithilion and Railanor clean up with Lightning Sword."
+        "Rosalinde stuns enemy front row at Start of Battle with Rage of the Faeries.",
+        "Eltolinde deploys full-squad damage nullification with Boon of the Faeries.",
+        "Rosalinde fires Elemental Roar hitting all enemies.",
+        "Eltolinde follows up with second Elemental Roar wiping survivors.",
+        "Ithilion and Railanor finish evasive units with Lightning Sword."
       ]
     },
     "unitGearConfigs": [
@@ -2471,59 +2079,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Rosalinde",
         "className": "Elven Augur",
         "roleTitle": "Start-of-Battle Stun & Elemental Nuke Lead",
-        "weapon": "Sacral Spear",
-        "shieldOrHelm": "Ancient Crown",
-        "accessory1": "Familiar's Choker",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "All-Rounder"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Sacral Spear",
           "optimalAlternatives": [
             "Kingslance Elhal",
-            "Runic Spear",
-            "Meteorite Lance"
+            "Carnelian Spear",
+            "Dragonbone Spear"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +22, Mag Atk +20, Initiative +8"
+          "notes": "Phys Atk +25, Affliction Immunity, Heal 20% HP on active skill."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Ancient Crown",
           "optimalAlternatives": [
-            "Ancient Crown",
-            "Sage's Hood",
-            "Silk Hood"
-          ],
-          "slotType": "Helm",
-          "notes": "Mag Atk +8, Mag Def +8, PP +1, Initiative +5"
-        },
-        "slot3Accessory": {
-          "bestInSlot": "Familiar's Choker",
-          "optimalAlternatives": [
-            "Magia Heart",
-            "Magia Soul",
-            "Sorcerer's Medallion"
+            "Dream Crown",
+            "Silk Hood",
+            "Silver Circlet"
           ],
           "slotType": "Accessory",
-          "notes": "Sorcerous Connection: +50% Magic Attack"
+          "notes": "Mag Atk +8, Mag Def +8, PP +1, Initiative +5."
+        },
+        "slot3Accessory": {
+          "bestInSlot": "Old Witch's Ring",
+          "optimalAlternatives": [
+            "Old Witch's Ring",
+            "Celestial Talisman",
+            "Raven Plume"
+          ],
+          "slotType": "Accessory",
+          "notes": "Mag Def +3, Magick Conversion, Mag Atk +2."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Raven Plume",
-            "Amethyst Pendant"
+            "Sapphire Pendant",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Elemental Roar (3 AP)"
-        },
-        "statPriorities": [
-          "Mag Atk (S+)",
-          "Initiative (S)",
-          "Phys Atk (A)"
-        ],
-        "growthTypes": [
-          "Speedster",
-          "Offensive"
-        ]
+          "notes": "AP +1 for Elemental Roar (3 AP)."
+        }
       },
       {
         "unitId": "eltolinde-elven-sibyl",
@@ -2531,59 +2130,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Eltolinde",
         "className": "Elven Sibyl",
         "roleTitle": "Faerie Barrier Buffer & Secondary Nuke",
-        "weapon": "Kingslance Elhal",
-        "shieldOrHelm": "Dream Crown",
-        "accessory1": "Lapis Pendant",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Support",
+          "Offensive"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Kingslance Elhal",
           "optimalAlternatives": [
             "Sacral Spear",
-            "Runic Spear",
-            "Meteorite Lance"
+            "Meteorite Lance",
+            "Runic Spear"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +28, All Stats +5"
+          "notes": "Phys Atk +28, All Stats +5. Eltolinde's royal Elheim lance."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Dream Crown",
           "optimalAlternatives": [
-            "Archbishop's Mitre",
+            "Ancient Crown",
             "Silk Hood",
-            "Sage's Hood"
-          ],
-          "slotType": "Helm",
-          "notes": "Mag Atk +6, Mag Def +6, PP +1"
-        },
-        "slot3Accessory": {
-          "bestInSlot": "Lapis Pendant",
-          "optimalAlternatives": [
-            "Sapphire Pendant",
-            "Amethyst Pendant",
-            "Celestial Talisman"
+            "Silver Circlet"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Boon of the Faeries barrier"
+          "notes": "Mag Atk +6, Mag Def +6, PP +1."
+        },
+        "slot3Accessory": {
+          "bestInSlot": "Elite Standard",
+          "optimalAlternatives": [
+            "Celestial Talisman",
+            "Lapis Pendant",
+            "First Aid Kit"
+          ],
+          "slotType": "Accessory",
+          "notes": "United Front: Boosts squad offensive and defensive stats in formation."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Dove Plume",
-            "Warrior's Medallion"
+            "Power Belt",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for second Elemental Roar"
-        },
-        "statPriorities": [
-          "Mag Atk (S)",
-          "Initiative (A)",
-          "Healing (S)"
-        ],
-        "growthTypes": [
-          "Guardian",
-          "Speedster"
-        ]
+          "notes": "AP +1 for second Elemental Roar."
+        }
       },
       {
         "unitId": "ithilion-elven-fencer",
@@ -2591,59 +2181,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Ithilion",
         "className": "Elven Fencer",
         "roleTitle": "Hybrid Lightning Stun Duelist",
-        "weapon": "Phantom Knight's Sword",
-        "shieldOrHelm": "Illusory Cloak",
-        "accessory1": "Raven Plume",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Keen"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Phantom Knight's Sword",
           "optimalAlternatives": [
+            "Spellsteel Sword",
             "Runic Sword",
-            "Notos's Sword",
-            "Meteorite Sword"
+            "Notos's Sword"
           ],
           "slotType": "Weapon",
-          "notes": "Mag Atk +22, Mag Def +5, Initiative +3"
+          "notes": "Mag Atk +22, Mag Def +5, Initiative +3, Grants Phantom Attack."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Illusory Cloak",
           "optimalAlternatives": [
             "Thief's Mantle",
-            "Silk Hood",
-            "Leather Hood"
+            "Dusk Robes",
+            "Silk Scarf"
           ],
-          "slotType": "Helm",
-          "notes": "Evasion +20, Mirage Step"
+          "slotType": "Accessory",
+          "notes": "Evasion +20, Grants Phantom Step."
         },
         "slot3Accessory": {
           "bestInSlot": "Raven Plume",
           "optimalAlternatives": [
-            "Dove Plume",
-            "Lucky Coin",
-            "Thief's Bell"
+            "Angel Plume",
+            "Wind Brooch",
+            "Evasion Ring"
           ],
           "slotType": "Accessory",
-          "notes": "Initiative +15 for Turn-1 frontline stun"
+          "notes": "Initiative +15 for Turn-1 frontline stun."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
-            "Lapis Pendant",
-            "Skillful Amulet",
-            "Ruby Pendant"
+            "Ruby Pendant",
+            "Power Belt",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Lightning Sword"
-        },
-        "statPriorities": [
-          "Initiative (S+)",
-          "Evasion (S)",
-          "Mag Atk (A)"
-        ],
-        "growthTypes": [
-          "Speedster",
-          "Keen"
-        ]
+          "notes": "AP +1 for Lightning Sword."
+        }
       },
       {
         "unitId": "railanor-elven-fencer",
@@ -2651,59 +2232,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Railanor",
         "className": "Elven Fencer",
         "roleTitle": "Frontline Evasion & Wind Blade Sweeper",
-        "weapon": "Runic Sword",
-        "shieldOrHelm": "Dusk Robes",
-        "accessory1": "Lapis Pendant",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Keen"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Runic Sword",
+          "bestInSlot": "Spellsteel Sword",
           "optimalAlternatives": [
+            "Runic Sword",
             "Phantom Knight's Sword",
-            "Meteorite Sword",
-            "Hallowed Blade"
+            "Zephyrus Sword"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +18, Mag Atk +24"
+          "notes": "Phys Atk +18, Mag Atk +16, Evasion +10."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Dusk Robes",
           "optimalAlternatives": [
-            "Dawn Robes",
+            "Illusory Cloak",
             "Silk Hood",
-            "Druid's Robes"
+            "Evasion Scarf"
           ],
-          "slotType": "Helm",
-          "notes": "Mag Def +12, Evasion +10"
+          "slotType": "Accessory",
+          "notes": "Mag Def +12, Evasion +10, Grants Nocturnal Impetus."
         },
         "slot3Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
             "Raven Plume",
-            "Dove Plume"
+            "Wind Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Mirage Step dodges"
+          "notes": "PP +1 for Mirage Step dodges."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Lucky Coin",
-            "Lucky Coin"
+            "Critical Talisman",
+            "Power Belt"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Windstorm Blade"
-        },
-        "statPriorities": [
-          "Evasion (S)",
-          "Mag Atk (A)",
-          "Initiative (A)"
-        ],
-        "growthTypes": [
-          "Speedster",
-          "Speedster"
-        ]
+          "notes": "AP +1 for Windstorm Blade."
+        }
       },
       {
         "unitId": "galadmir-elven-archer",
@@ -2711,59 +2283,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Galadmir",
         "className": "Elven Archer",
         "roleTitle": "Backline Freeze & Row Cleanse",
-        "weapon": "Runic Bow",
-        "shieldOrHelm": "Silk Hood",
-        "accessory1": "Celestial Talisman",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Support",
+          "Offensive"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Runic Bow",
+          "bestInSlot": "Sacral Bow",
           "optimalAlternatives": [
-            "Meteorite Bow",
+            "Runic Bow",
             "Apeliotes's Bow",
-            "Sacral Bow"
+            "Dragonbone Bow"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +18, Mag Atk +24"
+          "notes": "Phys Atk +25, Affliction Immunity, Heal 20% HP on active skill."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Silk Hood",
           "optimalAlternatives": [
-            "Sage's Hood",
-            "Elite Beret",
-            "Leather Hood"
+            "Elven Tiara",
+            "Dream Crown",
+            "Magick Brooch"
           ],
-          "slotType": "Helm",
-          "notes": "Mag Def +4, Initiative +3"
+          "slotType": "Accessory",
+          "notes": "Mag Def +4, Initiative +3."
         },
         "slot3Accessory": {
-          "bestInSlot": "Celestial Talisman",
+          "bestInSlot": "Detoxifying Amulet",
           "optimalAlternatives": [
-            "Clearsight Amulet",
-            "Detoxifying Amulet",
+            "Celestial Talisman",
+            "First Aid Kit",
             "Lapis Pendant"
           ],
           "slotType": "Accessory",
-          "notes": "Pure Light: Row-wide cleanse"
+          "notes": "Affliction Resistance +50%, Grants Row Refresh."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
-            "Carnelian Pendant",
-            "Dove Plume",
-            "Skillful Amulet"
+            "Sapphire Pendant",
+            "Raven Plume",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Icicle Arrow & Mystic Conferral"
-        },
-        "statPriorities": [
-          "Mag Atk (A)",
-          "Initiative (A)",
-          "Healing (B)"
-        ],
-        "growthTypes": [
-          "All-Rounder",
-          "Speedster"
-        ]
+          "notes": "PP +1 for Icicle Arrow & Mystic Conferral."
+        }
       }
     ],
     "tacticsSequence": [
@@ -2772,16 +2335,16 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "unit": "Rosalinde",
         "skill": "Rage of the Faeries",
         "condition1": "[Start of Battle]",
-        "condition2": "[Front Row Enemies]",
-        "notes": "Stuns frontline tanks"
+        "condition2": "[Self PP >= 1]",
+        "notes": "Stuns enemy front row at the start of battle."
       },
       {
         "step": 2,
         "unit": "Eltolinde",
         "skill": "Boon of the Faeries",
         "condition1": "[Start of Battle]",
-        "condition2": "[Full Squad]",
-        "notes": "Magic barrier immunity"
+        "condition2": "[Self PP >= 1]",
+        "notes": "Deploys 1-hit complete damage nullification barrier to entire squad."
       },
       {
         "step": 3,
@@ -2789,7 +2352,7 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "skill": "Elemental Roar",
         "condition1": "[Target: All Enemies]",
         "condition2": "[Self AP >= 3]",
-        "notes": "First 210 potency hybrid nuke"
+        "notes": "Fires massive hybrid physical/magic full-board strike."
       },
       {
         "step": 4,
@@ -2797,41 +2360,25 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "skill": "Elemental Roar",
         "condition1": "[Target: All Enemies]",
         "condition2": "[Self AP >= 3]",
-        "notes": "Second consecutive hybrid nuke"
+        "notes": "Follows up with second full-board elemental wipe."
       },
       {
         "step": 5,
         "unit": "Ithilion",
         "skill": "Lightning Sword",
-        "condition1": "[Enemy Not Stunned]",
+        "condition1": "[Target: Scout / Evasion Enemy]",
         "condition2": "[Self AP >= 1]",
-        "notes": "Stuns any survivors"
+        "notes": "Stuns and destroys remaining high-evasion survivors."
       }
-    ],
-    "substitutes": {
-      "earlyGame": [
-        "Ridiel Elven Archer",
-        "Lhinalo Elven Archer"
-      ],
-      "endgameAlternatives": [
-        "Yahna replacing Galadmir"
-      ]
-    }
+    ]
   },
   {
     "id": "zero-8-amalia-grand-crusher",
     "name": "8. Amalia Colossal Shield & Armor Obliteration",
     "archetype": "Heavy Armor Crusher",
-    "tier": "SS",
-    "pvpRating": "SS-Tier (Colossal Guard-Bypassing Boss Obliteration)",
-    "pveRating": "Godly (Shatters all heavy armor, boss & coliseum encounters)",
-    "description": "Amalia channels colossal greatsword damage (120 base Phys Atk) with Grand Crusher Greatsword and Penetrate, ignoring 50% physical defense across full columns. Bertrand (Werebear) taunts physical threats with Indomitable Guard and Ground Slam stuns, Monica provides Magic Barrier and healing, Aramis executes scouts, and Mandrin deletes fliers.",
-    "keyItems": [
-      "Mason's Hammer",
-      "Riot Belt",
-      "Azure Crest Shield",
-      "Luminous Shield"
-    ],
+    "tier": "S+",
+    "pvpRating": "97.0/100",
+    "description": "The unstoppable boss shredder. Amalia wields colossal physical power with 100% guard pierce and Wide Counter, while Bertrand tanks frontline punishment and Monica provides magic barriers and sustain.",
     "frontRow": [
       "amalia-dreadnought",
       "bertrand-werebear"
@@ -2841,28 +2388,26 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
       "aramis-swordmaster",
       "mandrin-sniper"
     ],
-    "pros": [
-      "Amalia boasts the highest single-target physical attack in the game (120 base Atk)",
-      "Penetrate strikes full columns bypassing 50% defense and breaking guard",
-      "Bertrand Indomitable Guard taunt wall absorbs all incoming physical strikes",
-      "Monica Magic Barrier and Row Heal sustain the frontline",
-      "Mandrin Aerial Snipe eliminates flying evasion counters"
-    ],
-    "cons": [
-      "Lower base movement speed on overworld map"
+    "keyItems": [
+      "Mason's Hammer",
+      "Azure Crest Shield",
+      "Greatwood Greataxe",
+      "Riot Belt"
     ],
     "counters": [
-      "Heavy Ranged Flying Squads (neutralized by Mandrin)"
+      "Legionnaires and armored walls",
+      "Boss targets",
+      "Single vanguard units"
     ],
     "strategyGuide": {
-      "winCondition": "Crush high-defense enemy vanguards with Amalia's Penetrate and Wild Slash while Bertrand tanks physical hits.",
-      "overview": "Bertrand draws enemy fire with Indomitable Guard. Amalia casts Penetrate to hit column targets ignoring 50% Defense. Aramis cuts down low-health scouts, Mandrin snipes fliers, and Monica keeps the squad shielded with Magic Barrier.",
+      "overview": "Bertrand draws enemy fire with Indomitable Guard and Ground Slam. Amalia executes Penetrate and Hawk Eye slashes, shattering enemy shields. Monica prevents magic spikes with Magic Barrier.",
+      "winCondition": "Amalia one-shotting enemy frontline tanks and cleaving backline columns.",
       "combatSequenceNotes": [
-        "Turn 0: Bertrand triggers Indomitable Guard -> Gains massive HP and 40% physical reduction.",
-        "Turn 1: Amalia casts Penetrate -> Hits column targets ignoring 50% Defense.",
-        "Turn 1: Mandrin casts Aerial Snipe on flying threats with True Strike.",
-        "Turn 1: Aramis uses Meteor Slash on weakened backliners.",
-        "Turn 1: Monica triggers Row Heal on frontline."
+        "Bertrand stuns and taunts enemy frontline with Ground Slam.",
+        "Amalia pierces through enemy column with Penetrate (100% Guard Pierce).",
+        "Monica intercepts enemy spells with Magic Barrier.",
+        "Aramis executes weakened survivors with Meteor Slash.",
+        "Mandrin snipes aerial scouts with True-Strike Dual Shot."
       ]
     },
     "unitGearConfigs": [
@@ -2872,59 +2417,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Amalia",
         "className": "Dreadnought",
         "roleTitle": "Colossal Greatsword Boss Obliterator",
-        "weapon": "Mason's Hammer",
-        "shieldOrHelm": "Azure Crest Shield",
-        "accessory1": "Riot Belt",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Offensive"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Mason's Hammer",
           "optimalAlternatives": [
+            "Dragonbone Sword",
             "Kingsblade Cornix",
-            "Meteorite Sword",
-            "Juggernaut"
+            "Meteorite Sword"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +28, Guard Piercing +50%"
+          "notes": "Phys Atk +28, Guard Piercing +50%, Grants Powerful Impact."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Azure Crest Shield",
           "optimalAlternatives": [
-            "Unyielding Shield",
-            "Steel Shield",
-            "Azure Crest Shield"
+            "Holy Unicorn Shield",
+            "Chivalric Shield",
+            "Steel Shield"
           ],
           "slotType": "Shield",
-          "notes": "Phys Def +14, Guard Rate +30%"
+          "notes": "Greatshield Slot: Phys Def +5, Base PP +1, Guard Rate +25%."
         },
         "slot3Accessory": {
           "bestInSlot": "Riot Belt",
           "optimalAlternatives": [
-            "Warrior's Medallion",
             "Power Belt",
-            "Lionheart"
+            "Warrior's Medallion",
+            "Counter Belt"
           ],
           "slotType": "Accessory",
-          "notes": "Phys Atk +20%"
+          "notes": "Phys Atk +20%, Grants Wide Counter."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Sniper's Amber Lens",
-            "Lucky Coin"
+            "Strength Brooch",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Penetrate column strikes"
-        },
-        "statPriorities": [
-          "Phys Atk (S+)",
-          "Crit Rate (A)",
-          "AP +1"
-        ],
-        "growthTypes": [
-          "Offensive",
-          "Offensive"
-        ]
+          "notes": "AP +1 for Penetrate column strikes."
+        }
       },
       {
         "unitId": "bertrand-werebear",
@@ -2932,59 +2468,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Bertrand",
         "className": "Werebear",
         "roleTitle": "Bestral Frontline Taunt Wall",
-        "weapon": "Boreas's Axe",
-        "shieldOrHelm": "Unyielding Shield",
-        "accessory1": "Vitality Talisman",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Guardian",
+          "Survivor"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Boreas's Axe",
+          "bestInSlot": "Greatwood Greataxe",
           "optimalAlternatives": [
-            "Meteorite Axe",
-            "Carnelian Axe",
-            "Dragonbone Axe"
+            "Boreas's Axe",
+            "Dragonbone Axe",
+            "Meteorite Axe"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +26, Initiative +5"
+          "notes": "Phys Atk +24, Mag Def +4, Guard +10%."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Unyielding Shield",
+          "bestInSlot": "Beast Hunter's Buckler",
           "optimalAlternatives": [
-            "Azure Crest Shield",
-            "Greatwood Shield",
-            "Azure Crest Shield"
+            "Ironclad Buckler",
+            "Unyielding Shield",
+            "Golden Ram Shield"
           ],
           "slotType": "Shield",
-          "notes": "Phys Def +18, Guard Rate +45%, Max HP +20"
+          "notes": "Greatshield Slot: Phys Def +6, Bestral Guard, Guard Rate +25%."
         },
         "slot3Accessory": {
-          "bestInSlot": "Vitality Talisman",
+          "bestInSlot": "Lifeblood Talisman",
           "optimalAlternatives": [
-            "Lifeblood Talisman",
-            "Guardian Gloves",
-            "Defender's Ring"
+            "Ruby Pendant",
+            "Vitality Talisman",
+            "Survivor Ring"
           ],
           "slotType": "Accessory",
-          "notes": "Max HP +25, Indomitable Guard synergy"
+          "notes": "Max HP +20, Indomitable Guard synergy."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Defender's Ring",
-            "Defender's Ring"
+            "Heavy Armor Belt",
+            "First Aid Kit"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Ground Slam taunt"
-        },
-        "statPriorities": [
-          "Max HP (S+)",
-          "Phys Def (S)",
-          "Guard Rate (A)"
-        ],
-        "growthTypes": [
-          "Guardian",
-          "Defender"
-        ]
+          "notes": "PP +1 for Ground Slam taunt."
+        }
       },
       {
         "unitId": "monica-sainted-knight",
@@ -2992,59 +2519,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Monica",
         "className": "Sainted Knight",
         "roleTitle": "Support Knight & Magic Barrier Protector",
-        "weapon": "Runic Sword",
-        "shieldOrHelm": "Luminous Shield",
-        "accessory1": "Lapis Pendant",
-        "accessory2": "First Aid Kit",
+        "growthTypes": [
+          "Support",
+          "Guardian"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Runic Sword",
+          "bestInSlot": "Rosularis Sword",
           "optimalAlternatives": [
+            "Runic Sword",
             "Hallowed Blade",
-            "Notos's Sword",
-            "Phantom Knight's Sword"
+            "White Knight Blade"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +18, Mag Atk +24"
+          "notes": "Phys Atk +25, Base PP +1, HP Recovery +30%."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Luminous Shield",
+          "bestInSlot": "Holy Knight's Shield",
           "optimalAlternatives": [
-            "Steel Shield",
+            "Luminous Shield",
             "Azure Crest Shield",
-            "Chivalric Shield"
+            "Steel Shield"
           ],
           "slotType": "Shield",
-          "notes": "Phys Def +12, Mag Def +12, Magic Barrier"
+          "notes": "Phys Def +7, Holy Guard, Heal 10% HP on active action."
         },
         "slot3Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Dove Plume",
-            "Amethyst Pendant"
+            "Magick Brooch",
+            "Celestial Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Magic Barrier"
+          "notes": "PP +1 for Magic Barrier."
         },
         "slot4Accessory": {
           "bestInSlot": "First Aid Kit",
           "optimalAlternatives": [
-            "Large Aid Kit",
-            "Lapis Pendant",
-            "Vitality Talisman"
+            "Vitality Talisman",
+            "Healing Brooch",
+            "Saint's Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "End of battle sustain"
-        },
-        "statPriorities": [
-          "Mag Def (S)",
-          "Healing (S)",
-          "Initiative (A)"
-        ],
-        "growthTypes": [
-          "Defender",
-          "Speedster"
-        ]
+          "notes": "End of battle sustain."
+        }
       },
       {
         "unitId": "aramis-swordmaster",
@@ -3052,59 +2570,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Aramis",
         "className": "Swordmaster",
         "roleTitle": "Scout Executioner & True-Strike Finisher",
-        "weapon": "Notos's Sword",
-        "shieldOrHelm": "Pursuant's Blade",
-        "accessory1": "Parrying Amulet",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Keen"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Notos's Sword",
+          "bestInSlot": "Vorpal Sword",
           "optimalAlternatives": [
-            "Meteorite Sword",
-            "Iron Sword",
-            "Kingsblade Cornix"
+            "Kingsblade Cornix",
+            "Notos's Sword",
+            "General's Saber"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +25, Initiative +5"
+          "notes": "Main-Hand Slot: Phys Atk +23, Initiative +3."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Pursuant's Blade",
+          "bestInSlot": "Dragonbone Sword",
           "optimalAlternatives": [
-            "Pursuant's Blade",
-            "Carnelian Blade",
-            "Iron Sword"
+            "Vorpal Sword",
+            "Venom Blade",
+            "Pursuant's Blade"
           ],
           "slotType": "Weapon",
-          "notes": "Evasion +15, Parrying Slash"
+          "notes": "Dual-Wield Off-Hand Slot: Phys Atk +22, PP +1, Initiative -10."
         },
         "slot3Accessory": {
           "bestInSlot": "Parrying Amulet",
           "optimalAlternatives": [
-            "Lucky Coin",
-            "Lucky Coin",
-            "Skillful Amulet"
+            "Retaliation Earrings",
+            "Warrior's Medallion",
+            "Evasion Ring"
           ],
           "slotType": "Accessory",
-          "notes": "Parrying Slash: Negates melee and counters"
+          "notes": "Mag Def +1, Guard Cure, Guard Seal Immunity."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Warrior's Medallion",
-            "Lucky Coin"
+            "Sniper's Lens",
+            "Critical Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Meteor Slash executions"
-        },
-        "statPriorities": [
-          "Crit Rate (S+)",
-          "Initiative (A)",
-          "Phys Atk (A)"
-        ],
-        "growthTypes": [
-          "Keen",
-          "Keen"
-        ]
+          "notes": "AP +1 for Meteor Slash executions."
+        }
       },
       {
         "unitId": "mandrin-sniper",
@@ -3112,127 +2621,102 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Mandrin",
         "className": "Sniper",
         "roleTitle": "Anti-Air True Strike Sniper",
-        "weapon": "Apeliotes's Bow",
-        "shieldOrHelm": "Sniper's Lens",
-        "accessory1": "Sniper's Lens",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Keen"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Apeliotes's Bow",
+          "bestInSlot": "Meteorite Bow",
           "optimalAlternatives": [
-            "Meteorite Bow",
             "Apeliotes's Bow",
-            "Carnelian Bow"
+            "Runic Bow",
+            "Dragonbone Bow"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +25, Initiative +5, True Strike"
+          "notes": "Phys Atk +24, Max HP +20, Guard Rate +10%."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Sniper's Lens",
+          "bestInSlot": "Mercenary's Eyepatch",
           "optimalAlternatives": [
-            "Silk Hood",
-            "Elite Beret",
-            "Leather Hood"
+            "Sniper's Lens",
+            "Veteran's Eyepatch",
+            "Hunter's Cap"
           ],
-          "slotType": "Helm",
-          "notes": "Crit Rate +10%, Acc +15"
+          "slotType": "Accessory",
+          "notes": "Phys Def +1, Critical Rate +20%."
         },
         "slot3Accessory": {
-          "bestInSlot": "Sniper's Lens",
+          "bestInSlot": "Veteran's Eyepatch",
           "optimalAlternatives": [
-            "Sniper's Amber Lens",
-            "Skillful Amulet",
+            "Mirrored Spectacles",
+            "Warrior's Medallion",
             "Sniper's Lens"
           ],
           "slotType": "Accessory",
-          "notes": "Hawkeye: 100% True Strike"
+          "notes": "Phys Def +2, Critical Rate +30%."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
-            "Carnelian Pendant",
-            "Dove Plume",
-            "Warrior's Medallion"
+            "Sapphire Pendant",
+            "First Aid Kit",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Eagle Eye"
-        },
-        "statPriorities": [
-          "Phys Atk (A)",
-          "Accuracy (S+)",
-          "Crit Rate (A)"
-        ],
-        "growthTypes": [
-          "Offensive",
-          "Keen"
-        ]
+          "notes": "PP +1 for Eagle Eye."
+        }
       }
     ],
     "tacticsSequence": [
       {
         "step": 1,
         "unit": "Bertrand",
-        "skill": "Indomitable Guard",
-        "condition1": "[Start of Battle]",
-        "condition2": "[Self HP == 100%]",
-        "notes": "Massive HP & Def boost"
+        "skill": "Ground Slam",
+        "condition1": "[Target: Front Row (2+ Enemies)]",
+        "condition2": "[Self AP >= 2]",
+        "notes": "Taunts and stuns enemy frontline."
       },
       {
         "step": 2,
         "unit": "Amalia",
         "skill": "Penetrate",
-        "condition1": "[Target Column]",
+        "condition1": "[Target: Column (Armored Priority)]",
         "condition2": "[Self AP >= 2]",
-        "notes": "Ignores 50% defense & breaks guard"
+        "notes": "Pierce through enemy column ignoring armor."
       },
       {
         "step": 3,
-        "unit": "Mandrin",
-        "skill": "Aerial Snipe",
-        "condition1": "[Flying Enemy]",
-        "condition2": "[Self AP >= 1]",
-        "notes": "200% anti-flying damage"
+        "unit": "Monica",
+        "skill": "Magic Barrier",
+        "condition1": "[Before Magic Attack]",
+        "condition2": "[Self PP >= 1]",
+        "notes": "Protects Bertrand and Amalia from enemy spells."
       },
       {
         "step": 4,
-        "unit": "Monica",
-        "skill": "Row Heal",
-        "condition1": "[Ally HP <= 50%]",
-        "condition2": "[Self PP >= 1]",
-        "notes": "Sustains frontline"
+        "unit": "Aramis",
+        "skill": "Meteor Slash",
+        "condition1": "[Target: Lowest HP % Enemy]",
+        "condition2": "[Self AP >= 2]",
+        "notes": "9-hit physical flurry executing weakened targets."
       },
       {
         "step": 5,
-        "unit": "Aramis",
-        "skill": "Meteor Slash",
-        "condition1": "[Low HP Enemy]",
-        "condition2": "[Self AP >= 2]",
-        "notes": "Executes targets"
+        "unit": "Mandrin",
+        "skill": "Dual Shot",
+        "condition1": "[Target: Flying Enemies Priority]",
+        "condition2": "[Self AP >= 1]",
+        "notes": "Eliminates aerial scouts with True Strike."
       }
-    ],
-    "substitutes": {
-      "earlyGame": [
-        "Mordon Warrior",
-        "Josef Paladin"
-      ],
-      "endgameAlternatives": [
-        "Morax replacing Bertrand"
-      ]
-    }
+    ]
   },
   {
     "id": "zero-9-bestral-midnight-hunt",
     "name": "9. Bestral Midnight Hunt Pack",
     "archetype": "Affliction Control",
-    "tier": "SS",
-    "pvpRating": "SS-Tier (Bestral Night Stat Lethality & Pursuit Blitz)",
-    "pveRating": "Godly (Night Map Specialist & Unstoppable Evasion)",
-    "description": "Dinah and Govil unleash Bestral Night ferocity. Wolfpack Gauntlets grants +20% Phys Atk to all bestrals, Raenys inflicts Turn-0 Blindness with Shining Arrow, Dinah and Govil shred armor with Piercing Claw and chain Chasing Slash pursuit executions, while Morpan holds the front with tower guard and Jeremy delivers Following Slash finishes.",
-    "keyItems": [
-      "Wolfpack Gauntlets",
-      "Wolf Fang Bracelet",
-      "Phantom Knight's Sword",
-      "Kingsbow Bastorik"
-    ],
+    "tier": "S+",
+    "pvpRating": "96.5/100",
+    "description": "The savage Bastorias nocturnal hunting pack. Dinah and Govil shred armor and chain multi-target Pursuits amplified by Wolfpack Gauntlets, while Raenys inflicts turn-0 blindness and Jeremy executes bleeding foes.",
     "frontRow": [
       "dinah-werewolf",
       "govil-werewolf"
@@ -3242,28 +2726,26 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
       "raenys-featherbow",
       "jeremy-landsknecht"
     ],
-    "pros": [
-      "Wolfpack Gauntlets + Wolfpack Roar grants +40% Phys Atk & Initiative to Bestrals",
-      "Raenys Shining Arrow applies Turn-0 front row Blindness with highest speed in game",
-      "Dinah & Govil chain endless Chasing Slash pursuits on damaged enemies",
-      "Morpan tower shield protects fragile bestrals from heavy physical hits",
-      "Jeremy Following Slash guarantees follow-up executions on critical targets"
-    ],
-    "cons": [
-      "Slightly reduced base stats during daytime map encounters"
+    "keyItems": [
+      "Beastfang Blade",
+      "Wolfpack Gauntlets",
+      "Wolf Fang Bracelet",
+      "Holy Angel Bow"
     ],
     "counters": [
-      "True-Strike Bow Strikers"
+      "Light armored infantry",
+      "Scouts and evasion units",
+      "Unshielded casters"
     ],
     "strategyGuide": {
-      "winCondition": "Blind enemies on Turn 0 with Raenys, then stack Bestral Attack buffs to trigger endless pursuit execution chains.",
-      "overview": "Raenys blinds enemy frontliners at battle start with Shining Arrow. Dinah activates Wolfpack Roar (+20% Bestral Atk & Initiative). Dinah and Govil cast Piercing Claw and Shadow Slash, then immediately trigger Chasing Slash on any target hit. Jeremy follows up with Following Slash.",
+      "overview": "Raenys triggers Shining Arrow at Start of Battle to blind enemy row. Dinah applies Night Hunt and Piercing Claw. Govil chains Chasing Slash on bleeding foes, while Jeremy resets AP on every kill with Killing Chain.",
+      "winCondition": "Chaining continuous Pursuit and Killing Chain resets.",
       "combatSequenceNotes": [
-        "Turn 0: Raenys triggers Shining Arrow -> Blinds enemy front row immediately.",
-        "Turn 0: Dinah triggers Wolfpack Roar -> Grants +20% Atk & Init to all Bestrals.",
-        "Turn 1: Govil casts Shadow Slash -> Shreds enemy armor.",
-        "Turn 1: Dinah executes Piercing Claw & Chasing Slash on weakened targets.",
-        "Turn 1: Jeremy triggers Following Slash to finish off the enemy."
+        "Raenys blinds enemy front row on Turn 0 with Shining Arrow.",
+        "Dinah shreds defense and bleeds targets with Piercing Claw.",
+        "Govil follows up with Chasing Slash (+100% damage on bleeding targets).",
+        "Jeremy resets AP on each kill with Killing Chain.",
+        "Morpan guards backline from retaliation with Heavy Cover."
       ]
     },
     "unitGearConfigs": [
@@ -3273,59 +2755,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Dinah",
         "className": "Werewolf",
         "roleTitle": "Bestral Alpha Assassin & Pursuit Lead",
-        "weapon": "Wolfpack Gauntlets",
-        "shieldOrHelm": "Wolf Fang Bracelet",
-        "accessory1": "Wolf Fang Bracelet",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Keen"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Wolfpack Gauntlets",
+          "bestInSlot": "Venom Blade",
           "optimalAlternatives": [
             "Carnelian Blade",
-            "Notos's Sword",
-            "Meteorite Sword"
+            "Pursuant's Blade",
+            "Dragonbone Blade"
           ],
           "slotType": "Weapon",
-          "notes": "Wolfpack Strike: +20% Bestral Atk, Phys Atk +5, Crit +10%"
+          "notes": "Phys Atk +22, Crit Rate +15%, Initiative +5."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Wolf Fang Bracelet",
+          "bestInSlot": "Badger Gauntlets",
           "optimalAlternatives": [
-            "Leather Hood",
-            "Elite Beret",
-            "Silk Hood"
-          ],
-          "slotType": "Helm",
-          "notes": "Initiative +5, Crit Rate +10%"
-        },
-        "slot3Accessory": {
-          "bestInSlot": "Wolf Fang Bracelet",
-          "optimalAlternatives": [
-            "Wolf Fang Bracelet",
-            "Lucky Coin",
-            "Warrior's Medallion"
+            "Twilight Cloak",
+            "Evasion Ring",
+            "Feral Brooch"
           ],
           "slotType": "Accessory",
-          "notes": "Phys Atk +5, Bestral Boost"
+          "notes": "Initiative +5, Crit Rate +10%, Grants Killing Pursuit."
+        },
+        "slot3Accessory": {
+          "bestInSlot": "Wolfpack Gauntlets",
+          "optimalAlternatives": [
+            "Warrior's Medallion",
+            "Critical Talisman",
+            "Predator Ring"
+          ],
+          "slotType": "Accessory",
+          "notes": "Phys Atk +5, Bestral Boost, Grants Wolf Pack."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Raven Plume",
-            "Power Belt"
+            "Power Belt",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Piercing Claw & Night Hunt"
-        },
-        "statPriorities": [
-          "Crit Rate (S+)",
-          "Phys Atk (S)",
-          "Initiative (A)"
-        ],
-        "growthTypes": [
-          "Keen",
-          "Offensive"
-        ]
+          "notes": "AP +1 for Piercing Claw & Night Hunt."
+        }
       },
       {
         "unitId": "govil-werewolf",
@@ -3333,59 +2806,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Govil",
         "className": "Werewolf",
         "roleTitle": "Armor Shredder & Pursuit Striker",
-        "weapon": "Carnelian Blade",
-        "shieldOrHelm": "Twilight Cloak",
-        "accessory1": "Raven Plume",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Offensive"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Carnelian Blade",
           "optimalAlternatives": [
+            "Beastfang Blade",
             "Meteorite Sword",
-            "Phantom Knight's Sword",
-            "Iron Sword"
+            "Dragonbone Blade"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +25, AP +1"
+          "notes": "Phys Atk +25, AP +1."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Twilight Cloak",
           "optimalAlternatives": [
             "Thief's Mantle",
-            "Silk Hood",
-            "Leather Hood"
+            "Silk Scarf",
+            "Evasion Ring"
           ],
-          "slotType": "Helm",
-          "notes": "Evasion +15, Initiative +5"
+          "slotType": "Accessory",
+          "notes": "Evasion +15, Initiative +5, Grants Nocturnal Evade."
         },
         "slot3Accessory": {
           "bestInSlot": "Raven Plume",
           "optimalAlternatives": [
-            "Dove Plume",
-            "Wolf Fang Bracelet",
-            "Lucky Coin"
+            "Angel Plume",
+            "Wind Brooch",
+            "Speed Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "Initiative +15 for early turn order"
+          "notes": "Initiative +15 for early turn order."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Skillful Amulet",
-            "Earrings of Pursuit"
+            "Power Belt",
+            "Critical Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Chasing Slash follow-ups"
-        },
-        "statPriorities": [
-          "Initiative (S+)",
-          "Evasion (S)",
-          "Phys Atk (A)"
-        ],
-        "growthTypes": [
-          "Offensive",
-          "Keen"
-        ]
+          "notes": "PP +1 for Chasing Slash follow-ups."
+        }
       },
       {
         "unitId": "morpan-werebear",
@@ -3393,59 +2857,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Morpan",
         "className": "Werebear",
         "roleTitle": "Bestral Frontline Shield & Ground Slammer",
-        "weapon": "Meteorite Axe",
-        "shieldOrHelm": "Unyielding Shield",
-        "accessory1": "Vitality Talisman",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Guardian",
+          "Survivor"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Meteorite Axe",
           "optimalAlternatives": [
-            "Giant's Greataxe",
-            "Juggernaut",
+            "Boreas's Axe",
+            "Dragonbone Axe",
             "Carnelian Axe"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +24, Max HP +20"
+          "notes": "Phys Atk +24, Max HP +20."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Unyielding Shield",
+          "bestInSlot": "Ironclad Buckler",
           "optimalAlternatives": [
-            "Azure Crest Shield",
-            "Greatwood Shield",
-            "Azure Crest Shield"
+            "Beast Hunter's Buckler",
+            "Unyielding Shield",
+            "Steel Shield"
           ],
           "slotType": "Shield",
-          "notes": "Phys Def +18, Guard Rate +45%"
+          "notes": "Greatshield Slot: Phys Def +5, Wall, Guard Rate +25%."
         },
         "slot3Accessory": {
-          "bestInSlot": "Vitality Talisman",
+          "bestInSlot": "Lifeblood Talisman",
           "optimalAlternatives": [
-            "Lifeblood Talisman",
-            "Guardian Gloves",
-            "Defender's Ring"
+            "Ruby Pendant",
+            "Vitality Talisman",
+            "Survivor Ring"
           ],
           "slotType": "Accessory",
-          "notes": "Max HP +25"
+          "notes": "Max HP +20."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Defender's Ring",
-            "Defender's Ring"
+            "Heavy Armor Belt",
+            "First Aid Kit"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Heavy Cover"
-        },
-        "statPriorities": [
-          "Max HP (S+)",
-          "Phys Def (S)",
-          "Guard Rate (A)"
-        ],
-        "growthTypes": [
-          "Guardian",
-          "Defender"
-        ]
+          "notes": "PP +1 for Heavy Cover."
+        }
       },
       {
         "unitId": "raenys-featherbow",
@@ -3453,59 +2908,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Raenys",
         "className": "Featherbow",
         "roleTitle": "Turn-0 Blindness Disruptor",
-        "weapon": "Apeliotes's Bow",
-        "shieldOrHelm": "Angel Plume",
-        "accessory1": "Raven Plume",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Go-Getter",
+          "Support"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Apeliotes's Bow",
+          "bestInSlot": "Holy Angel Bow",
           "optimalAlternatives": [
-            "Meteorite Bow",
-            "Kingsbow Bastorik",
-            "Carnelian Bow"
+            "Apeliotes's Bow",
+            "Zenoiran Bow",
+            "Runic Bow"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +25, Initiative +5, True Strike"
+          "notes": "Phys Atk +24, Mag Atk +18, Blindness Affliction +20%."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Angel Plume",
+          "bestInSlot": "Silken Scarf",
           "optimalAlternatives": [
-            "Wingline Standard",
+            "Angel Plume",
             "Silk Hood",
-            "Sage's Hood"
+            "Feather Plume"
           ],
-          "slotType": "Helm",
-          "notes": "Tailwind Array: Start of Battle +20 Squad Initiative"
+          "slotType": "Accessory",
+          "notes": "Phys Def +1, Evasion +20."
         },
         "slot3Accessory": {
           "bestInSlot": "Raven Plume",
           "optimalAlternatives": [
-            "Dove Plume",
-            "Sniper's Lens",
-            "Skillful Amulet"
+            "Wind Brooch",
+            "Speed Belt",
+            "Celestial Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "Initiative +15 for undisputed Turn-0 speed"
+          "notes": "Initiative +15 for undisputed Turn-0 speed."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Amethyst Pendant",
-            "First Aid Kit"
+            "First Aid Kit",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Shining Arrow activations"
-        },
-        "statPriorities": [
-          "Initiative (S+ #1 in Game)",
-          "Evasion (S+)",
-          "Accuracy (S)"
-        ],
-        "growthTypes": [
-          "Speedster",
-          "Speedster"
-        ]
+          "notes": "PP +1 for Shining Arrow activations."
+        }
       },
       {
         "unitId": "jeremy-landsknecht",
@@ -3513,59 +2959,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Jeremy",
         "className": "Landsknecht",
         "roleTitle": "Following Slash Executioner",
-        "weapon": "Kingsblade Cornix",
-        "shieldOrHelm": "Steel Shield",
-        "accessory1": "Carnelian Pendant",
-        "accessory2": "Power Belt",
+        "growthTypes": [
+          "Offensive",
+          "Offensive"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Kingsblade Cornix",
+          "bestInSlot": "Executioner's Blade",
           "optimalAlternatives": [
-            "Meteorite Sword",
-            "Hallowed Blade",
-            "Iron Sword"
+            "Kingsblade Cornix",
+            "Notos's Sword",
+            "Dragonbone Sword"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +28, All Stats +5"
+          "notes": "Phys Atk +26, Crit Rate +10%, AP +1 on Kill."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Steel Shield",
+          "bestInSlot": "Mercenary's Shield",
           "optimalAlternatives": [
+            "Steel Shield",
             "Chivalric Shield",
-            "Cloth Gauntlets",
-            "Bronze Shield"
+            "Parrying Shield"
           ],
           "slotType": "Shield",
-          "notes": "Phys Def +11, Guard Rate +25%"
+          "notes": "Phys Def +6, Vengeful Guard, Guard Rate +25%, Crit +5%."
         },
         "slot3Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Warrior's Medallion",
-            "Lucky Coin"
+            "Power Belt",
+            "Strength Brooch"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Killing Chain executions"
+          "notes": "AP +1 for Killing Chain executions."
         },
         "slot4Accessory": {
           "bestInSlot": "Power Belt",
           "optimalAlternatives": [
-            "Lapis Pendant",
-            "Earrings of Pursuit",
-            "Master's Gauntlets"
+            "Warrior's Medallion",
+            "Armored Gauntlets",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "Phys Atk +5, Following Slash booster"
-        },
-        "statPriorities": [
-          "Phys Atk (S)",
-          "Crit Rate (A)",
-          "AP +1"
-        ],
-        "growthTypes": [
-          "Offensive",
-          "Keen"
-        ]
+          "notes": "Phys Atk +1, Grants Toughness, Max HP +10."
+        }
       }
     ],
     "tacticsSequence": [
@@ -3574,66 +3011,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "unit": "Raenys",
         "skill": "Shining Arrow",
         "condition1": "[Start of Battle]",
-        "condition2": "[Front Row Enemies]",
-        "notes": "Inflicts Blindness on front row"
+        "condition2": "[Target: Enemy Front Row]",
+        "notes": "Turn-0 blindness rendering enemy physical attackers useless."
       },
       {
         "step": 2,
         "unit": "Dinah",
-        "skill": "Wolfpack Roar",
-        "condition1": "[Start of Battle]",
-        "condition2": "[Full Squad]",
-        "notes": "+20% Bestral Atk & Initiative"
+        "skill": "Piercing Claw",
+        "condition1": "[Target: Armored Enemy]",
+        "condition2": "[Self AP >= 1]",
+        "notes": "Shreds enemy physical defense by 50%."
       },
       {
         "step": 3,
         "unit": "Govil",
-        "skill": "Shadow Slash",
-        "condition1": "[Front Row Target]",
-        "condition2": "[Self AP >= 1]",
-        "notes": "Shreds armor & triggers pursuit"
+        "skill": "Chasing Slash",
+        "condition1": "[After Ally Attacks]",
+        "condition2": "[Self PP >= 1]",
+        "notes": "Follow-up strike against bleeding and weakened targets."
       },
       {
         "step": 4,
-        "unit": "Dinah",
-        "skill": "Chasing Slash",
-        "condition1": "[Enemy Damaged]",
-        "condition2": "[Self PP >= 1]",
-        "notes": "Immediate execution pursuit"
+        "unit": "Jeremy",
+        "skill": "Killing Chain",
+        "condition1": "[Target: Lowest HP % Enemy]",
+        "condition2": "[Self AP >= 1]",
+        "notes": "Executes targets and restores +1 AP on kill."
       },
       {
         "step": 5,
-        "unit": "Jeremy",
-        "skill": "Following Slash",
-        "condition1": "[Ally Hit Target]",
+        "unit": "Morpan",
+        "skill": "Heavy Cover",
+        "condition1": "[Before Ally Attacked (Back Row)]",
         "condition2": "[Self PP >= 1]",
-        "notes": "Follow-up fatal strike"
+        "notes": "Guards backline shooters from enemy retaliations."
       }
-    ],
-    "substitutes": {
-      "earlyGame": [
-        "Travis Thief",
-        "Berenice Landsknecht"
-      ],
-      "endgameAlternatives": [
-        "Bertrand Werebear replacing Morpan"
-      ]
-    }
+    ]
   },
   {
-    "id": "zero-10-sanatio-divine-sacred-zenith",
+    "id": "zero-10-sanatio-divine-reflection",
     "name": "10. Sanatio Divine Sacred Zenith & Magic Reflection",
     "archetype": "Heavy Sustain",
-    "tier": "SS",
-    "pvpRating": "SS-Tier (Unkillable Sacred Barrier & Magic Reflection)",
-    "pveRating": "Godly (Invincible against all Magic, Affliction & Heavy Nukes)",
-    "description": "Sanatio protects the squad with Sacred Barrier on Turn 0 (granting a 2-hit complete damage nullification barrier to the entire squad). Ochlys and Umerus counter aerial and melee threats with evasive spiral thrusts and magic reflection, Tatiana maintains 100% squad health, and Gloucester delivers devastating revenge damage with Dark Flame.",
-    "keyItems": [
-      "Kingstaff Albiore",
-      "Heavenswing Shield",
-      "Holy Unicorn Signet",
-      "Dark Knight Cleaver"
-    ],
+    "tier": "S+",
+    "pvpRating": "97.0/100",
+    "description": "The holy fortress of Albion. Sanatio provides 2-hit absolute damage nullification with Start-of-Battle Sacred Barrier, Ochlys reflects all enemy spells with Heavenswing Shield, and Gloucester delivers massive dark flame vengeance.",
     "frontRow": [
       "ochlys-feathersword",
       "umerus-feathersword"
@@ -3643,28 +3064,25 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
       "tatiana-bishop",
       "gloucester-doom-knight"
     ],
-    "pros": [
-      "Turn 0 Sacred Barrier grants 2 hits of complete damage nullification to entire squad",
-      "Angel's Reflection Shield reflects magic damage directly back at enemy casters",
-      "Ochlys & Umerus high evasion spiral swords bypass guard and shred backlines",
-      "Tatiana Holy Refresh maintains 100% squad health with row healing",
-      "Gloucester Dark Flame deals colossal hybrid physical/magic vengeance damage"
-    ],
-    "cons": [
-      "Requires managing Gloucester's AP/PP for Dark Flame output"
+    "keyItems": [
+      "Kingstaff Albiore",
+      "Heavenswing Shield",
+      "Monk's Mitre",
+      "Wingcrest Shield"
     ],
     "counters": [
-      "Continuous Multi-Hit True-Strike Attacks"
+      "Trinity Rain / Magic Nuke squads",
+      "Low accuracy melee compositions"
     ],
     "strategyGuide": {
-      "winCondition": "Negate enemy Turn-1 nukes with Sacred Barrier, reflect magic attacks, and counterattack with Spiral Sword and Dark Flame.",
-      "overview": "Sanatio casts Sacred Barrier at start of battle to grant 2 hits of damage immunity to all allies. Ochlys and Umerus dodge physical swings and reflect magic back. Tatiana heals any damage, and Gloucester delivers massive revenge damage with Dark Flame.",
+      "overview": "Sanatio opens with Sacred Barrier (2-hit complete damage nullification to entire squad). Ochlys and Umerus evade physical attacks and reflect magic spells back at enemy casters. Gloucester unleashes Dark Flame for crushing revenge damage.",
+      "winCondition": "Completely nullifying enemy opening burst while reflecting spells and counter-slashing.",
       "combatSequenceNotes": [
-        "Turn 0: Sanatio triggers Sacred Barrier -> Grants 2 hits of nullification barrier to all squad members.",
-        "Turn 1: Enemy attacks -> Attacks are completely absorbed by Sacred Barrier or reflected.",
-        "Turn 1: Ochlys & Umerus use Spiral Sword -> Evasive aerial slashes bypass guard.",
-        "Turn 1: Gloucester casts Dark Flame -> Row magic flame hit devastates enemy formation.",
-        "Turn 1: Tatiana casts Row Heal to keep all squad members at 100% HP."
+        "Sanatio deploys 2-hit damage nullification barrier on Turn 0.",
+        "Ochlys reflects incoming enemy magic spells with Heavenswing Shield.",
+        "Gloucester deals heavy row damage with Dark Flame.",
+        "Tatiana cleanses debuffs and heals squad with Row Heal.",
+        "Umerus counter-attacks with Spiral Sword."
       ]
     },
     "unitGearConfigs": [
@@ -3674,59 +3092,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Sanatio",
         "className": "Featherstaff",
         "roleTitle": "Divine Barrier Leader & Sacred Guardian",
-        "weapon": "Kingstaff Albiore",
-        "shieldOrHelm": "Archbishop's Mitre",
-        "accessory1": "Celestial Talisman",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Support",
+          "Guardian"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Kingstaff Albiore",
           "optimalAlternatives": [
-            "Kingstaff Albiore",
-            "Euros's Staff",
-            "Sacral Rod"
+            "Sacral Rod",
+            "Hallowed Staff",
+            "Euros's Staff"
           ],
           "slotType": "Weapon",
-          "notes": "Sacred Barrier: Start of Battle 2-Hit Squad Nullification"
+          "notes": "Mag Atk +28, All Stats +5, Sacred Barrier: Start of Battle 2-Hit Squad Nullification."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Archbishop's Mitre",
+          "bestInSlot": "Monk's Mitre",
           "optimalAlternatives": [
-            "Monk's Mitre",
-            "Angel Plume",
-            "Silk Hood"
-          ],
-          "slotType": "Helm",
-          "notes": "Row Refresh, Mag Def +10, Healing +20"
-        },
-        "slot3Accessory": {
-          "bestInSlot": "Celestial Talisman",
-          "optimalAlternatives": [
-            "Archbishop's Pendant",
-            "Lapis Pendant",
-            "Holy Broach"
+            "Silk Hood",
+            "Sage's Hood",
+            "Saint's Mitre"
           ],
           "slotType": "Accessory",
-          "notes": "Mag Def +5, Affliction Resistance +50%"
+          "notes": "Phys Def +1, Mag Def +1, Grants Quick Heal."
+        },
+        "slot3Accessory": {
+          "bestInSlot": "Holy Broach",
+          "optimalAlternatives": [
+            "Sacral Broach",
+            "Rose Broach",
+            "Leaf Broach"
+          ],
+          "slotType": "Accessory",
+          "notes": "Phys Def +2, Mag Def +2, Heal 20% HP when using Active skill."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Amethyst Pendant",
-            "Dove Plume"
+            "First Aid Kit",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Sacred Heal"
-        },
-        "statPriorities": [
-          "Mag Def (S+)",
-          "Initiative (S)",
-          "Healing (S)"
-        ],
-        "growthTypes": [
-          "Guardian",
-          "Speedster"
-        ]
+          "notes": "PP +1 for Sacred Heal."
+        }
       },
       {
         "unitId": "ochlys-feathersword",
@@ -3734,59 +3143,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Ochlys",
         "className": "Feathersword",
         "roleTitle": "Evasive Flying Tank & Magic Reflector",
-        "weapon": "Notos's Sword",
-        "shieldOrHelm": "Heavenswing Shield",
-        "accessory1": "Angel Hunter's Buckler",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Keen"
+        ],
         "slot1Weapon": {
-          "bestInSlot": "Notos's Sword",
+          "bestInSlot": "Zephyrus Sword",
           "optimalAlternatives": [
+            "Notos's Sword",
             "Hallowed Blade",
-            "Meteorite Sword",
-            "Kingsblade Cornix"
+            "Meteorite Sword"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +25, Initiative +5, Evasion +10"
+          "notes": "Phys Atk +24, Initiative +8, Evasion +15."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Heavenswing Shield",
           "optimalAlternatives": [
+            "Wingcrest Shield",
             "Azure Crest Shield",
-            "Steel Shield",
-            "Chivalric Shield"
+            "Steel Shield"
           ],
           "slotType": "Shield",
-          "notes": "Magic Reflect: Reflects magic damage back at attacker"
+          "notes": "Phys Def +5, Accuracy +10, Evasion +10, Magic Reflect."
         },
         "slot3Accessory": {
-          "bestInSlot": "Angel Hunter's Buckler",
+          "bestInSlot": "Lucky Coin",
           "optimalAlternatives": [
-            "Thief's Mantle",
-            "Lucky Coin",
-            "Dragonbone Shield"
+            "Silken Scarf",
+            "Evasion Ring",
+            "Wind Brooch"
           ],
           "slotType": "Accessory",
-          "notes": "Evasion +15, Initiative +5"
+          "notes": "Critical Rate +20%, Evasion +20 for maximum aerial dodging."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Lapis Pendant",
-            "Warrior's Medallion"
+            "Power Belt",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Spiral Sword slashes"
-        },
-        "statPriorities": [
-          "Evasion (S+)",
-          "Initiative (S)",
-          "Phys Atk (A)"
-        ],
-        "growthTypes": [
-          "Speedster",
-          "Keen"
-        ]
+          "notes": "AP +1 for Spiral Sword slashes."
+        }
       },
       {
         "unitId": "umerus-feathersword",
@@ -3794,59 +3194,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Umerus",
         "className": "Feathersword",
         "roleTitle": "Evasive Counter Aerial Duelist",
-        "weapon": "Hallowed Blade",
-        "shieldOrHelm": "Steel Shield",
-        "accessory1": "Wingline Standard",
-        "accessory2": "Carnelian Pendant",
+        "growthTypes": [
+          "Offensive",
+          "Keen"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Hallowed Blade",
           "optimalAlternatives": [
+            "Zephyrus Sword",
             "Notos's Sword",
-            "Meteorite Sword",
-            "Kingsblade Cornix"
+            "Meteorite Sword"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +24, HP Regen +10%"
+          "notes": "Phys Atk +24, HP Regen +10%."
         },
         "slot2ShieldOrOffhand": {
-          "bestInSlot": "Steel Shield",
+          "bestInSlot": "Wingcrest Shield",
           "optimalAlternatives": [
-            "Azure Crest Shield",
-            "Angel Hunter's Buckler",
-            "Chivalric Shield"
+            "Heavenswing Shield",
+            "Chivalric Shield",
+            "Steel Shield"
           ],
           "slotType": "Shield",
-          "notes": "Phys Def +11, Guard Rate +25%"
+          "notes": "Phys Def +7, Base PP +1, Critical Rate -20%."
         },
         "slot3Accessory": {
-          "bestInSlot": "Wingline Standard",
+          "bestInSlot": "Shawl of Repose",
           "optimalAlternatives": [
+            "Silken Scarf",
             "Angel Plume",
-            "Skillful Amulet",
-            "Lucky Coin"
+            "Evasion Ring"
           ],
           "slotType": "Accessory",
-          "notes": "Squad Flying Atk +15%, Initiative +5"
+          "notes": "Phys Def +1, Grants Wing Rest."
         },
         "slot4Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Lapis Pendant",
-            "Warrior's Medallion"
+            "Power Belt",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Spiral Sword attacks"
-        },
-        "statPriorities": [
-          "Evasion (S+)",
-          "Phys Atk (A)",
-          "Initiative (A)"
-        ],
-        "growthTypes": [
-          "Speedster",
-          "Offensive"
-        ]
+          "notes": "AP +1 for Spiral Sword attacks."
+        }
       },
       {
         "unitId": "tatiana-bishop",
@@ -3854,59 +3245,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Tatiana",
         "className": "Bishop",
         "roleTitle": "Row Refresh & Barrier Support",
-        "weapon": "Sacral Rod",
-        "shieldOrHelm": "Silk Hood",
-        "accessory1": "First Aid Kit",
-        "accessory2": "Lapis Pendant",
+        "growthTypes": [
+          "Support",
+          "Go-Getter"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Sacral Rod",
           "optimalAlternatives": [
-            "Meteorite Rod",
-            "Hallowed Mace",
-            "Euros's Staff"
+            "Hallowed Staff",
+            "Euros's Staff",
+            "Cleric's Cane"
           ],
           "slotType": "Weapon",
-          "notes": "Mag Atk +25, HP +15"
+          "notes": "Mag Atk +25, Affliction Immunity, Heal 20% HP on active action."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Silk Hood",
           "optimalAlternatives": [
             "Archbishop's Mitre",
-            "Monk's Mitre",
-            "Archbishop's Mitre"
+            "Saint's Hood",
+            "Magick Brooch"
           ],
-          "slotType": "Helm",
-          "notes": "Mag Def +4, Initiative +3"
+          "slotType": "Accessory",
+          "notes": "Mag Def +4, Initiative +3."
         },
         "slot3Accessory": {
           "bestInSlot": "First Aid Kit",
           "optimalAlternatives": [
-            "Large Aid Kit",
-            "Medical Kit",
-            "Self-Aid Kit"
+            "Celestial Talisman",
+            "Healing Brooch",
+            "Saint's Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "End of battle emergency healing"
+          "notes": "End of battle emergency healing."
         },
         "slot4Accessory": {
           "bestInSlot": "Lapis Pendant",
           "optimalAlternatives": [
             "Sapphire Pendant",
-            "Amethyst Pendant",
-            "Dove Plume"
+            "Raven Plume",
+            "Vitality Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "PP +1 for Row Heal and Holy Refresh"
-        },
-        "statPriorities": [
-          "Healing (S+)",
-          "Mag Def (S)",
-          "PP (+4 Required)"
-        ],
-        "growthTypes": [
-          "Guardian",
-          "Defender"
-        ]
+          "notes": "PP +1 for Row Heal and Holy Refresh."
+        }
       },
       {
         "unitId": "gloucester-doom-knight",
@@ -3914,59 +3296,50 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "characterName": "Gloucester",
         "className": "Doom Knight",
         "roleTitle": "Vengeful Magic Dark Flame Striker",
-        "weapon": "Black-Iron Spear",
-        "shieldOrHelm": "Zenoiran Shield",
-        "accessory1": "Carnelian Pendant",
-        "accessory2": "Power Belt",
+        "growthTypes": [
+          "Offensive",
+          "All-Rounder"
+        ],
         "slot1Weapon": {
           "bestInSlot": "Black-Iron Spear",
           "optimalAlternatives": [
-            "Kingslance Elhal",
-            "Meteorite Lance",
-            "Runic Spear"
+            "Carnelian Spear",
+            "Dragonbone Spear",
+            "Meteorite Lance"
           ],
           "slotType": "Weapon",
-          "notes": "Phys Atk +25, Mag Atk +15, Vengeance Multiplier"
+          "notes": "Phys Atk +25, Mag Atk +15, Vengeance Multiplier."
         },
         "slot2ShieldOrOffhand": {
           "bestInSlot": "Zenoiran Shield",
           "optimalAlternatives": [
-            "Steel Shield",
+            "Azure Crest Shield",
             "Chivalric Shield",
-            "Azure Crest Shield"
+            "Steel Shield"
           ],
           "slotType": "Shield",
-          "notes": "Phys Def +12, Mag Def +8, Vengeance Guard"
+          "notes": "Phys Def +3, Guard Rate +25%, Max HP +10."
         },
         "slot3Accessory": {
           "bestInSlot": "Carnelian Pendant",
           "optimalAlternatives": [
             "Ruby Pendant",
-            "Warrior's Medallion",
-            "Power Belt"
+            "Power Belt",
+            "Strength Brooch"
           ],
           "slotType": "Accessory",
-          "notes": "AP +1 for Dark Flame row attacks"
+          "notes": "AP +1 for Dark Flame row attacks."
         },
         "slot4Accessory": {
           "bestInSlot": "Power Belt",
           "optimalAlternatives": [
-            "Lapis Pendant",
-            "Retaliation Earrings",
-            "Power Belt"
+            "Warrior's Medallion",
+            "Vitality Talisman",
+            "Critical Talisman"
           ],
           "slotType": "Accessory",
-          "notes": "Phys Atk +5, Mag Atk +5"
-        },
-        "statPriorities": [
-          "Phys Atk (S)",
-          "Mag Atk (B)",
-          "AP +1"
-        ],
-        "growthTypes": [
-          "Offensive",
-          "Offensive"
-        ]
+          "notes": "Phys Atk +5, Mag Atk +5, Grants Toughness."
+        }
       }
     ],
     "tacticsSequence": [
@@ -3975,50 +3348,41 @@ export const ZERO_OVERLAP_SQUADS: SquadBuild[] = [
         "unit": "Sanatio",
         "skill": "Sacred Barrier",
         "condition1": "[Start of Battle]",
-        "condition2": "[Full Squad]",
-        "notes": "2 hits nullification barrier to squad"
+        "condition2": "[Self PP >= 1]",
+        "notes": "Grants 2-hit absolute damage nullification barrier to entire squad."
       },
       {
         "step": 2,
         "unit": "Ochlys",
         "skill": "Spiral Sword",
-        "condition1": "[Front Row Enemies]",
-        "condition2": "[Self AP >= 1]",
-        "notes": "Evasive aerial row slice"
+        "condition1": "[Target: Front Row (2+ Enemies)]",
+        "condition2": "[Self AP >= 2]",
+        "notes": "Aerial row strike dealing heavy physical damage."
       },
       {
         "step": 3,
-        "unit": "Umerus",
-        "skill": "Spiral Sword",
-        "condition1": "[Low HP Enemy]",
-        "condition2": "[Self AP >= 1]",
-        "notes": "Guard-bypassing thrust"
+        "unit": "Gloucester",
+        "skill": "Dark Flame",
+        "condition1": "[Target: Enemy Row]",
+        "condition2": "[Self AP >= 2]",
+        "notes": "Unleashes dark magical flame afflicting targets with Burn."
       },
       {
         "step": 4,
-        "unit": "Gloucester",
-        "skill": "Dark Flame",
-        "condition1": "[Enemy Row >= 2]",
-        "condition2": "[Self AP >= 2]",
-        "notes": "Row magic flame hit scaling with vengeance"
+        "unit": "Tatiana",
+        "skill": "Row Heal",
+        "condition1": "[Ally HP <= 50%]",
+        "condition2": "[Self AP >= 1]",
+        "notes": "Restores critical squad health across entire row."
       },
       {
         "step": 5,
-        "unit": "Tatiana",
-        "skill": "Row Heal",
-        "condition1": "[Ally HP <= 75%]",
+        "unit": "Umerus",
+        "skill": "Aerial Guard",
+        "condition1": "[Before Being Attacked]",
         "condition2": "[Self PP >= 1]",
-        "notes": "Maintains 100% squad health"
+        "notes": "Evades incoming ground attacks with aerial mobility."
       }
-    ],
-    "substitutes": {
-      "earlyGame": [
-        "Sharon Cleric",
-        "Ochlys Feathersword"
-      ],
-      "endgameAlternatives": [
-        "Renault Great Knight replacing Doom Knight"
-      ]
-    }
+    ]
   }
 ];

@@ -2686,9 +2686,9 @@ export const ITEMS_DATA: RelicItem[] = [
     "name": "Kaikias's Shield",
     "type": "Shield",
     "icon": "🛡️",
-    "statBoosts": "Phys Def +8, Hastened Cover, Guard Efficiency +25%, Initiative +10",
-    "acquisition": "This Monument of Anemoi can be found northeast of the Ancient City of Bastoritza along the frozen shore.",
-    "isMetaCore": false,
+    "statBoosts": "Phys Def +8, Guard Rate +30%, Guard Efficiency +25%, Initiative +10",
+    "acquisition": "Found in Bastorias / Elheim treasure or Armorer Shops.",
+    "isMetaCore": true,
     "grantedSkill": {
       "name": "Hastened Cover",
       "cost": "1 PP",
@@ -2873,16 +2873,6 @@ export const ITEMS_DATA: RelicItem[] = [
     "icon": "🛡️",
     "statBoosts": "Phys Def +5, Guard Efficiency +25%, HP Recovery +20%",
     "acquisition": "Starting equipment of Josef.",
-    "isMetaCore": false,
-    "metaSquads": []
-  },
-  {
-    "id": "thorn-shield",
-    "name": "Thorn Shield",
-    "type": "Shield",
-    "icon": "🛡️",
-    "statBoosts": "Phys Def +5, Guard Efficiency +25%, Base PP +1, HP -15",
-    "acquisition": "Can be obtained at Palanspelt Palace for 10000 G.",
     "isMetaCore": false,
     "metaSquads": []
   },
@@ -3575,10 +3565,10 @@ export const ITEMS_DATA: RelicItem[] = [
     "id": "detoxifying-amulet",
     "name": "Detoxifying Amulet",
     "type": "Accessory",
-    "icon": "📿",
+    "icon": "🧿",
     "statBoosts": "Mag Def +1, Poison Cure, Poison Immunity",
-    "acquisition": "Can be obtained for 1000 G at various Armorer Shops.",
-    "isMetaCore": false,
+    "acquisition": "Bought in early/mid game armorer shops.",
+    "isMetaCore": true,
     "grantedSkill": {
       "name": "Poison Cure",
       "cost": "1 PP",
@@ -3657,8 +3647,8 @@ export const ITEMS_DATA: RelicItem[] = [
     "type": "Accessory",
     "icon": "💍",
     "statBoosts": "Phys Def +1, Follow-up Skills Deal +40 Damage",
-    "acquisition": "Armorer / World Quest / Treasure",
-    "isMetaCore": false,
+    "acquisition": "Can be bought at Drakenhold accessory merchant.",
+    "isMetaCore": true,
     "metaSquads": []
   },
   {
@@ -3676,9 +3666,9 @@ export const ITEMS_DATA: RelicItem[] = [
     "name": "Elite Standard",
     "type": "Accessory",
     "icon": "🚩",
-    "statBoosts": "United Front",
-    "acquisition": "Can be obtained for ??? CC (Coliseum Coins) at the Coliseum Prize Echange in Baumratte.",
-    "isMetaCore": false,
+    "statBoosts": "United Front: Boosts squad offensive and defensive stats in formation",
+    "acquisition": "Arena reward / Albion shop.",
+    "isMetaCore": true,
     "grantedSkill": {
       "name": "United Front",
       "cost": "1 PP",
@@ -3687,13 +3677,13 @@ export const ITEMS_DATA: RelicItem[] = [
     "metaSquads": []
   },
   {
-    "id": "erv-lda-s-talisman",
+    "id": "ervelda-s-talisman",
     "name": "Ervélda's Talisman",
     "type": "Accessory",
-    "icon": "📿",
+    "icon": "🧿",
     "statBoosts": "Max HP +30, Max HP +10%",
-    "acquisition": "Armorer / World Quest / Treasure",
-    "isMetaCore": false,
+    "acquisition": "Elheim sanctuary treasure.",
+    "isMetaCore": true,
     "metaSquads": []
   },
   {
@@ -3807,8 +3797,8 @@ export const ITEMS_DATA: RelicItem[] = [
     "type": "Accessory",
     "icon": "💍",
     "statBoosts": "Mag Def +8, Freeze Immunity, Max HP +5",
-    "acquisition": "Can be obtained at Vastokgora Town for 15000 G.",
-    "isMetaCore": false,
+    "acquisition": "Found in Bastorias freezing caverns.",
+    "isMetaCore": true,
     "metaSquads": []
   },
   {
@@ -3975,10 +3965,10 @@ export const ITEMS_DATA: RelicItem[] = [
     "id": "holy-broach",
     "name": "Holy Broach",
     "type": "Accessory",
-    "icon": "🪶",
+    "icon": "✨",
     "statBoosts": "Phys Def +2, Mag Def +2, Heal 20% HP when using Active skill",
-    "acquisition": "Can be obtained for 20 Divine Shards at the Divine Shard Exchange shop.",
-    "isMetaCore": false,
+    "acquisition": "Albion cathedral.",
+    "isMetaCore": true,
     "metaSquads": []
   },
   {
@@ -4065,14 +4055,14 @@ export const ITEMS_DATA: RelicItem[] = [
     "id": "lapis-bell",
     "name": "Lapis Bell",
     "type": "Accessory",
-    "icon": "💎",
+    "icon": "🔔",
     "statBoosts": "Passive Gift",
-    "acquisition": "Can be obtained for 10000 G at the Chetretatsia Town Armorer Shop (Bastorias).",
-    "isMetaCore": false,
+    "acquisition": "Starting equipment / Bastorias chest.",
+    "isMetaCore": true,
     "grantedSkill": {
       "name": "Passive Gift",
       "cost": "1 PP",
-      "description": "Activates after an ally uses a passive skill.Grants an ally +1 💎PP."
+      "description": "Restores 1 PP to an ally using an Active Skill."
     },
     "metaSquads": []
   },
@@ -4155,10 +4145,10 @@ export const ITEMS_DATA: RelicItem[] = [
     "id": "lifeblood-talisman",
     "name": "Lifeblood Talisman",
     "type": "Accessory",
-    "icon": "📿",
+    "icon": "🧿",
     "statBoosts": "Max HP +20",
-    "acquisition": "Can be bought at Voronagru Town for ??? G.",
-    "isMetaCore": false,
+    "acquisition": "Drakenhold / Elheim shops.",
+    "isMetaCore": true,
     "metaSquads": []
   },
   {
@@ -4295,10 +4285,10 @@ export const ITEMS_DATA: RelicItem[] = [
     "id": "mirrored-spectacles",
     "name": "Mirrored Spectacles",
     "type": "Accessory",
-    "icon": "🔍",
+    "icon": "👓",
     "statBoosts": "Phys Def +2, Accuracy +30",
-    "acquisition": "Can be bought in various shops in the second part of the game.",
-    "isMetaCore": false,
+    "acquisition": "Found in Bastorias accessory shops.",
+    "isMetaCore": true,
     "metaSquads": []
   },
   {
@@ -4327,12 +4317,12 @@ export const ITEMS_DATA: RelicItem[] = [
     "type": "Accessory",
     "icon": "👑",
     "statBoosts": "Phys Def +1, Mag Def +1, Quick Heal",
-    "acquisition": "Can be bought for 5000 G at the Quentari Town Armorer Shop.",
-    "isMetaCore": false,
+    "acquisition": "Albion sanctuaries.",
+    "isMetaCore": true,
     "grantedSkill": {
       "name": "Quick Heal",
       "cost": "1 PP",
-      "description": "Activates after an ally is hit by an attack.Restore minor HP to an ally."
+      "description": "Heal an ally immediately upon taking damage."
     },
     "metaSquads": []
   },
@@ -4502,8 +4492,8 @@ export const ITEMS_DATA: RelicItem[] = [
     "type": "Accessory",
     "icon": "💍",
     "statBoosts": "Phys Def +1, Counterattack Skills Deal +40 Damage",
-    "acquisition": "Can be obtained for 5000 G at the Castle Soldraga Armorer Shop (Drakenhold).",
-    "isMetaCore": false,
+    "acquisition": "Can be bought at Drakenhold accessory merchant.",
+    "isMetaCore": true,
     "metaSquads": []
   },
   {
@@ -4667,8 +4657,8 @@ export const ITEMS_DATA: RelicItem[] = [
     "type": "Accessory",
     "icon": "🧣",
     "statBoosts": "Phys Def +1, Wing Rest",
-    "acquisition": "Can be obtained for 3000 G at few Armorer Shops.",
-    "isMetaCore": false,
+    "acquisition": "Albion church shops.",
+    "isMetaCore": true,
     "grantedSkill": {
       "name": "Wing Rest",
       "cost": "1 PP",
@@ -5010,10 +5000,10 @@ export const ITEMS_DATA: RelicItem[] = [
     "id": "vitality-talisman",
     "name": "Vitality Talisman",
     "type": "Accessory",
-    "icon": "📿",
+    "icon": "🧿",
     "statBoosts": "Max HP +10",
-    "acquisition": "Can be bought for 5000 G at various Armorer Shops.",
-    "isMetaCore": false,
+    "acquisition": "Coringia / early towns.",
+    "isMetaCore": true,
     "metaSquads": []
   },
   {
@@ -5174,6 +5164,221 @@ export const ITEMS_DATA: RelicItem[] = [
       "cost": "1 PP",
       "description": "Activates before attacking with an active skill.Makes the user's next attack a truestrike.Grants the user +20% Attack if the user is at 100% HP."
     },
+    "metaSquads": []
+  },
+  {
+    "id": "blue-rose-sword",
+    "name": "Blue Rose Sword",
+    "type": "Weapon",
+    "icon": "⚔️",
+    "image": "/images/items/blue-rose.png",
+    "statBoosts": "Phys Atk +24, Base AP +1, Critical Rate +10%, Phys Def +3",
+    "acquisition": "Virginia Canonical Story Weapon / Drakenhold Royal Treasury",
+    "isMetaCore": true,
+    "metaSquads": [
+      "zero-5-virginia-valkyrian-counter"
+    ]
+  },
+  {
+    "id": "ring-of-the-maiden",
+    "name": "Ring of the Maiden",
+    "type": "Accessory",
+    "icon": "💎",
+    "image": "/images/items/holy-unicorn-signet.png",
+    "statBoosts": "Mag Def +10, Base AP +1, Base PP +1, Maiden's Protection, All Affliction Immunity",
+    "acquisition": "Scarlett Covenant Ritual at Sanctuary of the Maiden",
+    "isMetaCore": true,
+    "metaSquads": [
+      "zero-1-alain-holy-vanguard"
+    ]
+  },
+  {
+    "id": "zenoiran-spear",
+    "name": "Zenoiran Spear",
+    "type": "Weapon",
+    "icon": "⚔️",
+    "image": "/images/items/black-iron-spear.png",
+    "statBoosts": "Phys Atk +22, Guard Rate +15%",
+    "acquisition": "Zenoiran Ruins Exploration",
+    "isMetaCore": true,
+    "metaSquads": [
+      "zero-2-trinity-rain-apocalypse"
+    ]
+  },
+  {
+    "id": "hallowed-staff",
+    "name": "Hallowed Staff",
+    "type": "Weapon",
+    "icon": "⚔️",
+    "image": "/images/items/sacral-rod.png",
+    "statBoosts": "Mag Atk +22, HP Regen +10%",
+    "acquisition": "Albion Divine Sanctuary",
+    "isMetaCore": true,
+    "metaSquads": [
+      "zero-3-dragoon-aerial-tempest"
+    ]
+  },
+  {
+    "id": "zenoiran-sword",
+    "name": "Zenoiran Sword",
+    "type": "Weapon",
+    "icon": "⚔️",
+    "image": "/images/items/black-iron-sword.png",
+    "statBoosts": "Phys Atk +22, Phys Def +5",
+    "acquisition": "Zenoiran Garrison Vault",
+    "isMetaCore": true,
+    "metaSquads": [
+      "zero-6-yunifi-glacial-rain-freeze"
+    ]
+  },
+  {
+    "id": "spellsteel-sword",
+    "name": "Spellsteel Sword",
+    "type": "Weapon",
+    "icon": "⚔️",
+    "image": "/images/items/runic-sword.png",
+    "statBoosts": "Phys Atk +18, Mag Atk +16, Evasion +10",
+    "acquisition": "Elheim Forge of Mists",
+    "isMetaCore": true,
+    "metaSquads": [
+      "zero-7-elven-sisters-elemental-tempest"
+    ]
+  },
+  {
+    "id": "greatwood-greataxe",
+    "name": "Greatwood Greataxe",
+    "type": "Weapon",
+    "icon": "⚔️",
+    "image": "/images/items/boreas-s-axe.png",
+    "statBoosts": "Phys Atk +24, Mag Def +4, Guard +10%",
+    "acquisition": "Bastorias Greatwood Tribe",
+    "isMetaCore": true,
+    "metaSquads": [
+      "zero-8-amalia-grand-crusher"
+    ]
+  },
+  {
+    "id": "spada-d-onore",
+    "name": "Spada d'Onore",
+    "type": "Weapon",
+    "icon": "⚔️",
+    "image": "/images/items/notos-s-sword.png",
+    "statBoosts": "Phys Atk +24, Crit Rate +15%, Guard Pierce +15%",
+    "acquisition": "Drakenhold Noble House Relic",
+    "isMetaCore": true,
+    "metaSquads": [
+      "zero-8-amalia-grand-crusher"
+    ]
+  },
+  {
+    "id": "zenoiran-bow",
+    "name": "Zenoiran Bow",
+    "type": "Weapon",
+    "icon": "⚔️",
+    "image": "/images/items/apeliotes-s-bow.png",
+    "statBoosts": "Phys Atk +24, Crit Rate +10%, Anti-Flying +50%",
+    "acquisition": "Zenoiran Fortress Watchtower",
+    "isMetaCore": true,
+    "metaSquads": [
+      "zero-8-amalia-grand-crusher"
+    ]
+  },
+  {
+    "id": "beastfang-blade",
+    "name": "Beastfang Blade",
+    "type": "Weapon",
+    "icon": "⚔️",
+    "image": "/images/items/carnelian-blade.png",
+    "statBoosts": "Phys Atk +22, Crit Rate +15%, Initiative +5",
+    "acquisition": "Bastorias Wolf Clan Altar",
+    "isMetaCore": true,
+    "metaSquads": [
+      "zero-9-bestral-midnight-hunt"
+    ]
+  },
+  {
+    "id": "holy-angel-bow",
+    "name": "Holy Angel Bow",
+    "type": "Weapon",
+    "icon": "⚔️",
+    "image": "/images/items/apeliotes-s-bow.png",
+    "statBoosts": "Phys Atk +24, Mag Atk +18, Blindness Affliction +20%",
+    "acquisition": "Albion Angelic Spire",
+    "isMetaCore": true,
+    "metaSquads": [
+      "zero-9-bestral-midnight-hunt"
+    ]
+  },
+  {
+    "id": "executioner-s-blade",
+    "name": "Executioner's Blade",
+    "type": "Weapon",
+    "icon": "⚔️",
+    "image": "/images/items/kingsblade-cornix.png",
+    "statBoosts": "Phys Atk +26, Crit Rate +10%, AP +1 on Kill",
+    "acquisition": "Drakenhold Execution Grounds",
+    "isMetaCore": true,
+    "metaSquads": [
+      "zero-9-bestral-midnight-hunt"
+    ]
+  },
+  {
+    "id": "zephyrus-sword",
+    "name": "Zephyrus Sword",
+    "type": "Weapon",
+    "icon": "⚔️",
+    "image": "/images/items/notos-s-sword.png",
+    "statBoosts": "Phys Atk +24, Initiative +8, Evasion +15",
+    "acquisition": "Albion Sky Temple Treasury",
+    "isMetaCore": true,
+    "metaSquads": [
+      "zero-10-sanatio-divine-reflection"
+    ]
+  },
+  {
+    "id": "angel-crest",
+    "name": "Angel Crest",
+    "type": "Accessory",
+    "icon": "💎",
+    "image": "/images/items/wingline-standard.png",
+    "statBoosts": "Squad Flying Atk +15%, Initiative +5",
+    "acquisition": "Albion Heavenly Citadel",
+    "isMetaCore": true,
+    "metaSquads": [
+      "zero-10-sanatio-divine-reflection"
+    ]
+  },
+  {
+    "id": "dragonbone-sword",
+    "name": "Dragonbone Sword",
+    "type": "Weapon",
+    "icon": "⚔️",
+    "image": "/images/items/dragonbone-blade.png",
+    "statBoosts": "Phys Atk +22, PP +1, Initiative -10",
+    "acquisition": "Drakenhold Dragon Graveyard",
+    "isMetaCore": true,
+    "metaSquads": [
+      "zero-8-amalia-grand-crusher"
+    ]
+  },
+  {
+    "id": "venom-blade",
+    "name": "Venom Blade",
+    "type": "Weapon",
+    "icon": "🗡️",
+    "statBoosts": "Physickal Attack +18, Poison Strike",
+    "acquisition": "Sold at Cornia Black Market / Drakenhold Armorer.",
+    "isMetaCore": true,
+    "metaSquads": []
+  },
+  {
+    "id": "vorpal-sword",
+    "name": "Vorpal Sword",
+    "type": "Weapon",
+    "icon": "🗡️",
+    "statBoosts": "Physickal Attack +23, Initiative +3",
+    "acquisition": "Found in late-game Bastorias / Albion shops.",
+    "isMetaCore": true,
     "metaSquads": []
   }
 ];

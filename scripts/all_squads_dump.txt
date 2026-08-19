@@ -1,0 +1,750 @@
+
+================================================================================
+SQUAD 1: 1. Alain Holy Vanguard & Cavalry Blitz (Cavalry Burst) [ID: zero-1-alain-holy-vanguard]
+Key Items: Holy Unicorn Blade, Ring of the Unicorn, Chloe's Charm, Heavensteed Reins
+================================================================================
+
+HERO: Alain | Class: High Lord [ID: alain-high-lord] | Role: Royal Commander & Vanguard Lead
+  Slot 1 (Weapon): "Holy Unicorn Blade" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +28, All Stats +5, AP +1"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Holy Unicorn Shield" [DB Type: Shield] [Granted: None]
+    Note: "Phys Def +16, Guard Rate +40%, Quick Cover"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Ring of the Unicorn" [DB Type: Accessory] [Granted: Astral Blade]
+    Note: "All Stats +5, AP +1, PP +1, Affliction Immunity"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for extra Spinning Edge executions"
+    Alternatives: 
+
+HERO: Melisandre | Class: Swordmaster [ID: melisandre-swordmaster] | Role: Dual-Wield True-Strike Parry Duelist
+  Slot 1 (Weapon): "Kingsblade Cornix" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +28, All Stats +5"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Pursuant's Blade" [DB Type: Weapon] [Granted: Pursuit]
+    Note: "Dual-Wield Slot: Evasion +15, Parrying Slash"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Parrying Amulet" [DB Type: Accessory] [Granted: Guard Cure]
+    Note: "Parrying Slash: Negates physical melee and counters"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Meteor Slash flurries"
+    Alternatives: 
+
+HERO: Scarlett | Class: High Priestess [ID: scarlett-high-priestess] | Role: Sacred Healer, Buffer & Dispeller
+  Slot 1 (Weapon): "Sacral Rod" [DB Type: Weapon] [Granted: None]
+    Note: "Mag Atk +24, HP Regen +10%"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Scarlett's Ribbon" [DB Type: Accessory] [Granted: Quick Heal]
+    Note: "Healing +20, Mag Def +8, PP +1"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Holy Unicorn Signet" [DB Type: Accessory] [Granted: None]
+    Note: "Mag Def +10, AP +1, PP +1, Maiden's Protection"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Passive Supply and Holy Light"
+    Alternatives: 
+
+HERO: Clive | Class: Great Knight [ID: clive-great-knight] | Role: Anti-Infantry Line Charge Sweeper
+  Slot 1 (Weapon): "Carnelian Spear" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +25, AP +1"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Chivalric Shield" [DB Type: Shield] [Granted: None]
+    Note: "Phys Def +10, Guard Rate +25%"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Heavensteed Reins" [DB Type: Accessory] [Granted: Dynamic Glide]
+    Note: "Cavalry Attack +15%, Guard Rate +10%"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Line Charge chaining"
+    Alternatives: 
+
+HERO: Chloe | Class: Sergeant [ID: chloe-sergeant] | Role: 100% Critical Keen Call Enabler
+  Slot 1 (Weapon): "Meteorite Lance" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +24, Max HP +20"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Steel Shield" [DB Type: Shield] [Granted: None]
+    Note: "Phys Def +11, Guard Rate +25%"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Chloe's Charm" [DB Type: Accessory] [Granted: None]
+    Note: "Keen Call: Grants 100% Guaranteed Crit to Alain / Clive"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 to sustain Keen Call activations"
+    Alternatives: 
+
+================================================================================
+SQUAD 2: 2. Trinity Rain Instant Apocalypse (Magic Nuke) [ID: zero-2-trinity-rain-apocalypse]
+Key Items: Millenium Scepter, Black Cat-Ear Hood, Familiar's Choker, Sniper's Amber Lens
+================================================================================
+
+HERO: Auch | Class: Sorcerer [ID: auch-sorcerer] | Role: Primary Spell Nuke Channeler
+  Slot 1 (Weapon): "Millenium Scepter" [DB Type: Weapon] [Granted: Trinity Rain]
+    Note: "Trinity Rain 4 AP, Mag Atk +25, Mag Def +8"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Sage's Hood" [DB Type: Accessory] [Granted: None]
+    Note: "Mag Atk +5, Mag Def +5, Initiative +4"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Sniper's Amber Lens" [DB Type: Accessory] [Granted: Hawk Eye]
+    Note: "Eagle Eye: Guaranteed 100% Crit + True Strike"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 required to cast Trinity Rain (4 AP)"
+    Alternatives: 
+
+HERO: Sharon | Class: Bishop [ID: sharon-bishop] | Role: Instant Turn Acceleration Enabler
+  Slot 1 (Weapon): "Euros's Staff" [DB Type: Weapon] [Granted: None]
+    Note: "Mag Atk +25, Initiative +5"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Black Cat-Ear Hood" [DB Type: Accessory] [Granted: Quick Impetus]
+    Note: "Quick Impetus: +100% Turn Bar to charging ally, PP +1"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 required for Quick Impetus (3 PP)"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Sapphire Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +2 ensuring total PP >= 4"
+    Alternatives: 
+
+HERO: Yahna | Class: Sorceress [ID: yahna-sorceress] | Role: Magic Buffer & Focus Booster
+  Slot 1 (Weapon): "Carnelian Staff" [DB Type: Weapon] [Granted: None]
+    Note: "Mag Atk +25, AP +1"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Silk Hood" [DB Type: Accessory] [Granted: None]
+    Note: "Mag Def +4, Initiative +3"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Familiar's Choker" [DB Type: Accessory] [Granted: Sorcerous Connection]
+    Note: "Sorcerous Connection: +50% Magic Attack to Auch"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Raven Plume" [DB Type: Accessory] [Granted: None]
+    Note: "Initiative +15 to buff Auch before cast"
+    Alternatives: 
+
+HERO: Hodrick | Class: Legionnaire [ID: hodrick-legionnaire] | Role: Physical Wall & Fortress Guard
+  Slot 1 (Weapon): "Meteorite Lance" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +24, Max HP +20"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Unyielding Shield" [DB Type: Shield] [Granted: Enduring Guard]
+    Note: "Phys Def +18, Guard Rate +45%, Max HP +20"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Defensive Ring" [DB Type: Accessory] [Granted: Quick Barrier]
+    Note: "Phys Def +5, Guard Rate +10%"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Heavy Cover activations"
+    Alternatives: 
+
+HERO: Selvie | Class: Druid [ID: selvie-druid] | Role: Start-of-Battle Curse & Blindness Controller
+  Slot 1 (Weapon): "Dustbound Staff" [DB Type: Weapon] [Granted: Sandstorm]
+    Note: "Sandstorm: Start of Battle Blindness"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Druid's Robes" [DB Type: Accessory] [Granted: Cursed Impetus]
+    Note: "Mag Def +10, Initiative +6, Debuff Resistance +50%"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Raven Plume" [DB Type: Accessory] [Granted: None]
+    Note: "Initiative +15 to ensure Turn-0 curse application"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Defensive Curse and Quick Guard"
+    Alternatives: 
+
+================================================================================
+SQUAD 3: 3. Dragoon Glacial Tempest (Aerial Bombardment) (Instant Board Wipe) [ID: zero-3-dragoon-aerial-tempest]
+Key Items: Dragoon's Warspear, White Cat-Ear Hood, Angel Plume, Wingline Standard
+================================================================================
+
+HERO: Hilda | Class: Wyvern Master [ID: hilda-wyvern-master] | Role: Aerial Nuke Leader & Dragoon Diver
+  Slot 1 (Weapon): "Dragoon's Warspear" [DB Type: Weapon] [Granted: Dragoon Dive]
+    Note: "Dragoon Dive 4 AP, Phys Atk +24, Initiative +5"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Wyvern Reins" [DB Type: Accessory] [Granted: Aerial Wing]
+    Note: "Flying Atk +10%, Initiative +5"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Sniper's Amber Lens" [DB Type: Accessory] [Granted: Hawk Eye]
+    Note: "Eagle Eye: Guaranteed 100% Crit + True Strike"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for 4 AP Dragoon Dive execution"
+    Alternatives: 
+
+HERO: Fran | Class: Gryphon Master [ID: fran-gryphon-master] | Role: Anti-Cavalry Sky Sweeper
+  Slot 1 (Weapon): "Boreas's Axe" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +26, Initiative +5, Crit +10%"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Heavenwyvern Reins" [DB Type: Accessory] [Granted: Aerial Wing]
+    Note: "Flying Atk +15%, Initiative +10"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Wingline Standard" [DB Type: Accessory] [Granted: Aerial Alignment]
+    Note: "Squad Flying Atk +15%, Initiative +5"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for High Gale row sweeps"
+    Alternatives: 
+
+HERO: Miriam | Class: Sainted Knight [ID: miriam-sainted-knight] | Role: Magic Defense Wall & Row Healer
+  Slot 1 (Weapon): "Runic Sword" [DB Type: Weapon] [Granted: Magick Attack]
+    Note: "Phys Atk +18, Mag Atk +24, Magick Attack"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Luminous Shield" [DB Type: Shield] [Granted: None]
+    Note: "Phys Def +12, Mag Def +12, Magic Barrier"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Magic Barrier triggers"
+    Alternatives: 
+  Slot 4 (Accessory 2): "First Aid Kit" [DB Type: Accessory] [Granted: First Aid]
+    Note: "End of battle squad heal sustain"
+    Alternatives: 
+
+HERO: Primm | Class: Bishop [ID: primm-bishop] | Role: Dragoon Turn Accelerator
+  Slot 1 (Weapon): "Sacral Rod" [DB Type: Weapon] [Granted: None]
+    Note: "Mag Atk +25, HP +15"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "White Cat-Ear Hood" [DB Type: Accessory] [Granted: Quick Impetus]
+    Note: "Quick Impetus: +100% Turn Bar to Hilda, PP +1"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 required for Quick Impetus (3 PP)"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Sapphire Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +2 ensuring total PP >= 4"
+    Alternatives: 
+
+HERO: Gilbert | Class: Prince [ID: gilbert-prince] | Role: Squad Commander & Order Buffer
+  Slot 1 (Weapon): "Notos's Sword" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +25, Initiative +5"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Royal Scarf" [DB Type: Accessory] [Granted: None]
+    Note: "Initiative +5, Evasion +10"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Angel Plume" [DB Type: Accessory] [Granted: Tailwing]
+    Note: "Tailwind Array: Start of Battle +20 Squad Initiative"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Rapid Order & Offensive Order"
+    Alternatives: 
+
+================================================================================
+SQUAD 4: 4. Berengaria Affliction & Death Spiral (Affliction Control) [ID: zero-4-berengaria-affliction-lockdown]
+Key Items: Carnelian Axe, Pursuant's Blade, Sniper's Amber Lens, Ring of the Unicorn
+================================================================================
+
+HERO: Berengaria | Class: Dark Marquess (Axe) [ID: berengaria-renegade] | Role: Affliction Dominator & Executioner Lead
+  Slot 1 (Weapon): "Carnelian Axe" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +25, AP +1"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Thorn Shield" [DB Type: Shield] [Granted: None]
+    Note: "Phys Def +14, Affliction Potency +20%"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Sniper's Amber Lens" [DB Type: Accessory] [Granted: Hawk Eye]
+    Note: "Pursuit Crit +20% on Sanguine Pursuit"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Death Spin row attacks"
+    Alternatives: 
+
+HERO: Travis | Class: Rogue [ID: travis-rogue] | Role: Row Blindness & Evasion Tank
+  Slot 1 (Weapon): "Pursuant's Blade" [DB Type: Weapon] [Granted: Pursuit]
+    Note: "Phys Atk +18, Grants Pursuit (1 PP)"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Thief's Mantle" [DB Type: Accessory] [Granted: Evade]
+    Note: "Evasion +20, Grants Evade (1 PP)"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Lucky Coin" [DB Type: Accessory] [Granted: None]
+    Note: "Evasion +20, Crit Rate +20% for frontline evasion tanking"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Raven Plume" [DB Type: Accessory] [Granted: None]
+    Note: "Initiative +15 for Turn-1 Shadowbite row blind"
+    Alternatives: 
+
+HERO: Nina | Class: Breaker [ID: nina-breaker] | Role: Heavy Armor Crusher
+  Slot 1 (Weapon): "Juggernaut" [DB Type: Weapon] [Granted: Ground Strike]
+    Note: "Phys Atk +26, Stun Multiplier"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Master's Gauntlets" [DB Type: Accessory] [Granted: Nimble Fighter]
+    Note: "Phys Atk +5, Guard Pierce +10%"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Heavy Impact"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Assault Blow executions"
+    Alternatives: 
+
+HERO: Liza | Class: Shieldshooter [ID: liza-shieldshooter] | Role: Medical Bolt Healer & Anti-Flyer Cover
+  Slot 1 (Weapon): "Gallian Crossbow" [DB Type: Weapon] [Granted: Harpoon Bolt]
+    Note: "Phys Atk +24, Anti-Flying 200%"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Unyielding Shield" [DB Type: Shield] [Granted: Enduring Guard]
+    Note: "Phys Def +18, Guard Rate +45%"
+    Alternatives: 
+  Slot 3 (Accessory 1): "First Aid Kit" [DB Type: Accessory] [Granted: First Aid]
+    Note: "End of battle emergency healing"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Medical Shot & Greatshield Cover"
+    Alternatives: 
+
+HERO: Bruno | Class: Berserker [ID: bruno-berserker] | Role: Colossal HP Row Cleaver
+  Slot 1 (Weapon): "Dragonbone Axe" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +22, PP +1"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Power Belt" [DB Type: Accessory] [Granted: Toughness]
+    Note: "Phys Atk +5, Guard Mitigate +10%"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Wide Smash row sweeps"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Vitality Talisman" [DB Type: Accessory] [Granted: None]
+    Note: "Max HP +25, synergy with Bulk Up"
+    Alternatives: 
+
+================================================================================
+SQUAD 5: 5. Virginia Valkyrian Counter Fortress (Heavy Sustain) [ID: zero-5-virginia-valkyrian-counter]
+Key Items: Blue Rose Sword, Blue Rose Shield, Counter Belt, Apeliotes's Bow
+================================================================================
+
+HERO: Virginia | Class: Valkyria [ID: virginia-valkyria] | Role: Dual-Sword & Shield Counter Vanguard
+  Slot 1 (Weapon): "Holy Unicorn Blade" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +23, Phys Def +5, PP +1"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Blue Rose Shield" [DB Type: Shield] [Granted: Royal Guard]
+    Note: "Phys Def +15, Guard Rate +35%, Retaliation Counter, PP +1"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Counter Belt" [DB Type: Accessory] [Granted: Counter]
+    Note: "Counter Slash retaliation upon guarding"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Maiden's Hammer strikes"
+    Alternatives: 
+
+HERO: Colm | Class: Vanguard [ID: colm-vanguard] | Role: Frontline Shield & Arrow Cover
+  Slot 1 (Weapon): "Meteorite Sword" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +24, Max HP +20, Guard +10%"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Parrying Shield" [DB Type: Shield] [Granted: Parry]
+    Note: "Arrow Deflect: Negates 100% arrow damage"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Defender's Ring" [DB Type: Accessory] [Granted: Honed Shield]
+    Note: "Guard Rate +15%"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Arrow Cover activations"
+    Alternatives: 
+
+HERO: Leah | Class: Swordmaster [ID: leah-swordmaster] | Role: True-Strike Parry Duelist
+  Slot 1 (Weapon): "Notos's Sword" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +25, Initiative +5"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Pursuant's Blade" [DB Type: Weapon] [Granted: Pursuit]
+    Note: "Evasion +15, Parrying Slash"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Parrying Amulet" [DB Type: Accessory] [Granted: Guard Cure]
+    Note: "Parrying Slash retaliation on melee strike"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Meteor Slash executions"
+    Alternatives: 
+
+HERO: Kitra | Class: Breaker [ID: kitra-breaker] | Role: Armor Shatterer
+  Slot 1 (Weapon): "Meteorite Axe" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +24, Max HP +20"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Armored Gauntlets" [DB Type: Accessory] [Granted: Binding Guard]
+    Note: "Phys Atk +4, Phys Def +4"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Enraged Strike armor crushes"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Heavy Smash follow-ups"
+    Alternatives: 
+
+HERO: Rolf | Class: Sniper [ID: rolf-sniper] | Role: True-Strike Anti-Flying Marksman
+  Slot 1 (Weapon): "Apeliotes's Bow" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +25, Initiative +5, True Strike"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Sniper's Lens" [DB Type: Accessory] [Granted: Eagle Eye]
+    Note: "Crit Rate +10%, Acc +15"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Sniper's Lens" [DB Type: Accessory] [Granted: Eagle Eye]
+    Note: "Hawkeye: 100% True Strike"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Eagle Eye triggers"
+    Alternatives: 
+
+================================================================================
+SQUAD 6: 6. Yunifi Glacial Rain Absolute Zero (Affliction Control) [ID: zero-6-yunifi-glacial-rain-freeze]
+Key Items: Icefall Bow, Glacial Ring, Sage Owl's Shawl, Celestial Talisman
+================================================================================
+
+HERO: Yunifi | Class: Snow Ranger [ID: yunifi-snow-ranger] | Role: Battlefield Freeze Nuke Archer
+  Slot 1 (Weapon): "Icefall Bow" [DB Type: Weapon] [Granted: None]
+    Note: "Glacial Rain 4 AP, Freeze, Phys Atk +22"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Wolfpack Gauntlets" [DB Type: Accessory] [Granted: Wolf Pack]
+    Note: "Phys Atk +5, Freeze Potency +20%"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Sniper's Amber Lens" [DB Type: Accessory] [Granted: Hawk Eye]
+    Note: "Eagle Eye: Guaranteed 100% Crit + True Strike"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for 4 AP Glacial Rain"
+    Alternatives: 
+
+HERO: Ramona | Class: Wereowl [ID: ramona-wereowl] | Role: Bestral Infinite PP/AP Battery
+  Slot 1 (Weapon): "Meteorite Rod" [DB Type: Weapon] [Granted: None]
+    Note: "Mag Atk +24, Max HP +20"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Sage Owl's Shawl" [DB Type: Accessory] [Granted: Quick Dispel]
+    Note: "Mag Def +8, Initiative +6"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Sage Owl's Shawl" [DB Type: Accessory] [Granted: Quick Dispel]
+    Note: "Owl Eyes: Restores 1 PP to ally using active skill"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for continuous Restore casting"
+    Alternatives: 
+
+HERO: Ridiel | Class: Elven Archer [ID: ridiel-elven-archer] | Role: Pure Light Row Cleanse & Magic Conferral
+  Slot 1 (Weapon): "Runic Bow" [DB Type: Weapon] [Granted: Magick Attack]
+    Note: "Phys Atk +18, Mag Atk +24"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Dream Crown" [DB Type: Accessory] [Granted: None]
+    Note: "Mag Atk +5, Mag Def +5"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Celestial Talisman" [DB Type: Accessory] [Granted: Hastened Cast]
+    Note: "Pure Light: Row-wide cleanse on affliction"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Mystic Conferral"
+    Alternatives: 
+
+HERO: Bryce | Class: Legionnaire [ID: bryce-legionnaire] | Role: Heavy Frontline Shield
+  Slot 1 (Weapon): "Meteorite Lance" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +24, Max HP +20"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Unyielding Shield" [DB Type: Shield] [Granted: Enduring Guard]
+    Note: "Phys Def +18, Guard Rate +45%"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Guardian Gloves" [DB Type: Accessory] [Granted: Guarding Fighter]
+    Note: "Guard Rate +15%"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Heavy Cover"
+    Alternatives: 
+
+HERO: Lex | Class: Vanguard [ID: lex-vanguard] | Role: Anti-Ranged Arrow Cover Vanguard
+  Slot 1 (Weapon): "Meteorite Sword" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +24, HP +20"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Parrying Shield" [DB Type: Shield] [Granted: Parry]
+    Note: "Arrow Deflect: Negates 100% arrow damage"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Defender's Ring" [DB Type: Accessory] [Granted: Honed Shield]
+    Note: "Guard Rate +15%"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Arrow Cover"
+    Alternatives: 
+
+================================================================================
+SQUAD 7: 7. Elven Twin Sisters Elemental Tempest (Magic Nuke) [ID: zero-7-elven-sisters-elemental-tempest]
+Key Items: Kingslance Elhal, Sacral Spear, Ancient Crown, Familiar's Choker
+================================================================================
+
+HERO: Rosalinde | Class: Elven Augur [ID: rosalinde-elven-augur] | Role: Start-of-Battle Stun & Elemental Nuke Lead
+  Slot 1 (Weapon): "Sacral Spear" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +22, Mag Atk +20, Initiative +8"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Ancient Crown" [DB Type: Accessory] [Granted: None]
+    Note: "Mag Atk +8, Mag Def +8, PP +1, Initiative +5"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Familiar's Choker" [DB Type: Accessory] [Granted: Sorcerous Connection]
+    Note: "Sorcerous Connection: +50% Magic Attack"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Elemental Roar (3 AP)"
+    Alternatives: 
+
+HERO: Eltolinde | Class: Elven Sibyl [ID: eltolinde-elven-sibyl] | Role: Faerie Barrier Buffer & Secondary Nuke
+  Slot 1 (Weapon): "Kingslance Elhal" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +28, All Stats +5"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Dream Crown" [DB Type: Accessory] [Granted: None]
+    Note: "Mag Atk +6, Mag Def +6, PP +1"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Boon of the Faeries barrier"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for second Elemental Roar"
+    Alternatives: 
+
+HERO: Ithilion | Class: Elven Fencer [ID: ithilion-elven-fencer] | Role: Hybrid Lightning Stun Duelist
+  Slot 1 (Weapon): "Phantom Knight's Sword" [DB Type: Weapon] [Granted: Phantom Attack]
+    Note: "Mag Atk +22, Mag Def +5, Initiative +3"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Illusory Cloak" [DB Type: Accessory] [Granted: Phantom Step]
+    Note: "Evasion +20, Mirage Step"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Raven Plume" [DB Type: Accessory] [Granted: None]
+    Note: "Initiative +15 for Turn-1 frontline stun"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Lightning Sword"
+    Alternatives: 
+
+HERO: Railanor | Class: Elven Fencer [ID: railanor-elven-fencer] | Role: Frontline Evasion & Wind Blade Sweeper
+  Slot 1 (Weapon): "Runic Sword" [DB Type: Weapon] [Granted: Magick Attack]
+    Note: "Phys Atk +18, Mag Atk +24"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Dusk Robes" [DB Type: Accessory] [Granted: Nocturnal Impetus]
+    Note: "Mag Def +12, Evasion +10"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Mirage Step dodges"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Windstorm Blade"
+    Alternatives: 
+
+HERO: Galadmir | Class: Elven Archer [ID: galadmir-elven-archer] | Role: Backline Freeze & Row Cleanse
+  Slot 1 (Weapon): "Runic Bow" [DB Type: Weapon] [Granted: Magick Attack]
+    Note: "Phys Atk +18, Mag Atk +24"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Silk Hood" [DB Type: Accessory] [Granted: None]
+    Note: "Mag Def +4, Initiative +3"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Celestial Talisman" [DB Type: Accessory] [Granted: Hastened Cast]
+    Note: "Pure Light: Row-wide cleanse"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Icicle Arrow & Mystic Conferral"
+    Alternatives: 
+
+================================================================================
+SQUAD 8: 8. Amalia Colossal Shield & Armor Obliteration (Heavy Armor Crusher) [ID: zero-8-amalia-grand-crusher]
+Key Items: Mason's Hammer, Riot Belt, Azure Crest Shield, Luminous Shield
+================================================================================
+
+HERO: Amalia | Class: Dreadnought [ID: amalia-dreadnought] | Role: Colossal Greatsword Boss Obliterator
+  Slot 1 (Weapon): "Mason's Hammer" [DB Type: Weapon] [Granted: Powerful Impact]
+    Note: "Phys Atk +28, Guard Piercing +50%"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Azure Crest Shield" [DB Type: Shield] [Granted: None]
+    Note: "Phys Def +14, Guard Rate +30%"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Riot Belt" [DB Type: Accessory] [Granted: Wide Counter]
+    Note: "Phys Atk +20%"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Penetrate column strikes"
+    Alternatives: 
+
+HERO: Bertrand | Class: Werebear [ID: bertrand-werebear] | Role: Bestral Frontline Taunt Wall
+  Slot 1 (Weapon): "Boreas's Axe" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +26, Initiative +5"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Unyielding Shield" [DB Type: Shield] [Granted: Enduring Guard]
+    Note: "Phys Def +18, Guard Rate +45%, Max HP +20"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Vitality Talisman" [DB Type: Accessory] [Granted: None]
+    Note: "Max HP +25, Indomitable Guard synergy"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Ground Slam taunt"
+    Alternatives: 
+
+HERO: Monica | Class: Sainted Knight [ID: monica-sainted-knight] | Role: Support Knight & Magic Barrier Protector
+  Slot 1 (Weapon): "Runic Sword" [DB Type: Weapon] [Granted: Magick Attack]
+    Note: "Phys Atk +18, Mag Atk +24"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Luminous Shield" [DB Type: Shield] [Granted: None]
+    Note: "Phys Def +12, Mag Def +12, Magic Barrier"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Magic Barrier"
+    Alternatives: 
+  Slot 4 (Accessory 2): "First Aid Kit" [DB Type: Accessory] [Granted: First Aid]
+    Note: "End of battle sustain"
+    Alternatives: 
+
+HERO: Aramis | Class: Swordmaster [ID: aramis-swordmaster] | Role: Scout Executioner & True-Strike Finisher
+  Slot 1 (Weapon): "Notos's Sword" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +25, Initiative +5"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Pursuant's Blade" [DB Type: Weapon] [Granted: Pursuit]
+    Note: "Evasion +15, Parrying Slash"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Parrying Amulet" [DB Type: Accessory] [Granted: Guard Cure]
+    Note: "Parrying Slash: Negates melee and counters"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Meteor Slash executions"
+    Alternatives: 
+
+HERO: Mandrin | Class: Sniper [ID: mandrin-sniper] | Role: Anti-Air True Strike Sniper
+  Slot 1 (Weapon): "Apeliotes's Bow" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +25, Initiative +5, True Strike"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Sniper's Lens" [DB Type: Accessory] [Granted: Eagle Eye]
+    Note: "Crit Rate +10%, Acc +15"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Sniper's Lens" [DB Type: Accessory] [Granted: Eagle Eye]
+    Note: "Hawkeye: 100% True Strike"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Eagle Eye"
+    Alternatives: 
+
+================================================================================
+SQUAD 9: 9. Bestral Midnight Hunt Pack (Affliction Control) [ID: zero-9-bestral-midnight-hunt]
+Key Items: Wolfpack Gauntlets, Wolf Fang Bracelet, Phantom Knight's Sword, Kingsbow Bastorik
+================================================================================
+
+HERO: Dinah | Class: Werewolf [ID: dinah-werewolf] | Role: Bestral Alpha Assassin & Pursuit Lead
+  Slot 1 (Weapon): "Wolfpack Gauntlets" [DB Type: Accessory] [Granted: Wolf Pack]
+    Note: "Wolfpack Strike: +20% Bestral Atk, Phys Atk +5, Crit +10%"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Wolf Fang Bracelet" [DB Type: Accessory] [Granted: Killing Pursuit]
+    Note: "Initiative +5, Crit Rate +10%"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Wolf Fang Bracelet" [DB Type: Accessory] [Granted: Killing Pursuit]
+    Note: "Phys Atk +5, Bestral Boost"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Piercing Claw & Night Hunt"
+    Alternatives: 
+
+HERO: Govil | Class: Werewolf [ID: govil-werewolf] | Role: Armor Shredder & Pursuit Striker
+  Slot 1 (Weapon): "Carnelian Blade" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +25, AP +1"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Twilight Cloak" [DB Type: Accessory] [Granted: Nocturnal Evade]
+    Note: "Evasion +15, Initiative +5"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Raven Plume" [DB Type: Accessory] [Granted: None]
+    Note: "Initiative +15 for early turn order"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Chasing Slash follow-ups"
+    Alternatives: 
+
+HERO: Morpan | Class: Werebear [ID: morpan-werebear] | Role: Bestral Frontline Shield & Ground Slammer
+  Slot 1 (Weapon): "Meteorite Axe" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +24, Max HP +20"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Unyielding Shield" [DB Type: Shield] [Granted: Enduring Guard]
+    Note: "Phys Def +18, Guard Rate +45%"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Vitality Talisman" [DB Type: Accessory] [Granted: None]
+    Note: "Max HP +25"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Heavy Cover"
+    Alternatives: 
+
+HERO: Raenys | Class: Featherbow [ID: raenys-featherbow] | Role: Turn-0 Blindness Disruptor
+  Slot 1 (Weapon): "Apeliotes's Bow" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +25, Initiative +5, True Strike"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Angel Plume" [DB Type: Accessory] [Granted: Tailwing]
+    Note: "Tailwind Array: Start of Battle +20 Squad Initiative"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Raven Plume" [DB Type: Accessory] [Granted: None]
+    Note: "Initiative +15 for undisputed Turn-0 speed"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Shining Arrow activations"
+    Alternatives: 
+
+HERO: Jeremy | Class: Landsknecht [ID: jeremy-landsknecht] | Role: Following Slash Executioner
+  Slot 1 (Weapon): "Kingsblade Cornix" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +28, All Stats +5"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Steel Shield" [DB Type: Shield] [Granted: None]
+    Note: "Phys Def +11, Guard Rate +25%"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Killing Chain executions"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Power Belt" [DB Type: Accessory] [Granted: Toughness]
+    Note: "Phys Atk +5, Following Slash booster"
+    Alternatives: 
+
+================================================================================
+SQUAD 10: 10. Sanatio Divine Sacred Zenith & Magic Reflection (Heavy Sustain) [ID: zero-10-sanatio-divine-sacred-zenith]
+Key Items: Kingstaff Albiore, Heavenswing Shield, Holy Unicorn Signet, Dark Knight Cleaver
+================================================================================
+
+HERO: Sanatio | Class: Featherstaff [ID: sanatio-featherstaff] | Role: Divine Barrier Leader & Sacred Guardian
+  Slot 1 (Weapon): "Kingstaff Albiore" [DB Type: Weapon] [Granted: None]
+    Note: "Sacred Barrier: Start of Battle 2-Hit Squad Nullification"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Archbishop's Mitre" [DB Type: Accessory] [Granted: Relic Heal]
+    Note: "Row Refresh, Mag Def +10, Healing +20"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Celestial Talisman" [DB Type: Accessory] [Granted: Hastened Cast]
+    Note: "Mag Def +5, Affliction Resistance +50%"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Sacred Heal"
+    Alternatives: 
+
+HERO: Ochlys | Class: Feathersword [ID: ochlys-feathersword] | Role: Evasive Flying Tank & Magic Reflector
+  Slot 1 (Weapon): "Notos's Sword" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +25, Initiative +5, Evasion +10"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Heavenswing Shield" [DB Type: Shield] [Granted: None]
+    Note: "Magic Reflect: Reflects magic damage back at attacker"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Angel Hunter's Buckler" [DB Type: Shield] [Granted: Aerial Guard]
+    Note: "Evasion +15, Initiative +5"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Spiral Sword slashes"
+    Alternatives: 
+
+HERO: Umerus | Class: Feathersword [ID: umerus-feathersword] | Role: Evasive Counter Aerial Duelist
+  Slot 1 (Weapon): "Hallowed Blade" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +24, HP Regen +10%"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Steel Shield" [DB Type: Shield] [Granted: None]
+    Note: "Phys Def +11, Guard Rate +25%"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Wingline Standard" [DB Type: Accessory] [Granted: Aerial Alignment]
+    Note: "Squad Flying Atk +15%, Initiative +5"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Spiral Sword attacks"
+    Alternatives: 
+
+HERO: Tatiana | Class: Bishop [ID: tatiana-bishop] | Role: Row Refresh & Barrier Support
+  Slot 1 (Weapon): "Sacral Rod" [DB Type: Weapon] [Granted: None]
+    Note: "Mag Atk +25, HP +15"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Silk Hood" [DB Type: Accessory] [Granted: None]
+    Note: "Mag Def +4, Initiative +3"
+    Alternatives: 
+  Slot 3 (Accessory 1): "First Aid Kit" [DB Type: Accessory] [Granted: First Aid]
+    Note: "End of battle emergency healing"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Lapis Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "PP +1 for Row Heal and Holy Refresh"
+    Alternatives: 
+
+HERO: Gloucester | Class: Doom Knight [ID: gloucester-doom-knight] | Role: Vengeful Magic Dark Flame Striker
+  Slot 1 (Weapon): "Black-Iron Spear" [DB Type: Weapon] [Granted: None]
+    Note: "Phys Atk +25, Mag Atk +15, Vengeance Multiplier"
+    Alternatives: 
+  Slot 2 (Shield/Helm): "Zenoiran Shield" [DB Type: Shield] [Granted: None]
+    Note: "Phys Def +12, Mag Def +8, Vengeance Guard"
+    Alternatives: 
+  Slot 3 (Accessory 1): "Carnelian Pendant" [DB Type: Accessory] [Granted: None]
+    Note: "AP +1 for Dark Flame row attacks"
+    Alternatives: 
+  Slot 4 (Accessory 2): "Power Belt" [DB Type: Accessory] [Granted: Toughness]
+    Note: "Phys Atk +5, Mag Atk +5"
+    Alternatives: 

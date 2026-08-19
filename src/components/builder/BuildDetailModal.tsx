@@ -110,17 +110,21 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
       }
     });
 
-    const activeSkillsList = [...(uClass.activeSkills || [])];
+    // Sort active skills: AOE / All Enemies / Charge / Row skills first, then single-target finishers
+    const sortedActiveSkills = [...(uClass.activeSkills || [])].sort((a, b) => {
+      const aIsAoe = a.target === 'All Enemies' || a.flags?.includes('Charge') || a.flags?.includes('All Enemies') || a.target === 'Enemy Row' || a.target === 'Full Row' || a.flags?.includes('Row');
+      const bIsAoe = b.target === 'All Enemies' || b.flags?.includes('Charge') || b.flags?.includes('All Enemies') || b.target === 'Enemy Row' || b.target === 'Full Row' || b.flags?.includes('Row');
+      if (aIsAoe && !bIsAoe) return -1;
+      if (!aIsAoe && bIsAoe) return 1;
+      return (b.apCost || 1) - (a.apCost || 1);
+    });
 
-    // Priority 1: Primary Active Skill (Highest AP cost / Row Attack / AOE Strike / Core Nuke)
-    if (activeSkillsList.length > 0) {
-      const primaryActive = activeSkillsList.reduce(
-        (prev, curr) => ((curr.apCost || 1) >= (prev.apCost || 1) ? curr : prev),
-        activeSkillsList[0]
-      );
+    // Priority 1: Primary Active Skill (AOE Nuke / Row Attack / Core Skill)
+    if (sortedActiveSkills.length > 0) {
+      const primaryActive = sortedActiveSkills[0];
       let cond1 = '[Target: Front Row (2+ Enemies)]';
-      if (primaryActive.target === 'Full Row' || primaryActive.target === 'Enemy Row') cond1 = '[Target: Front Row (2+ Enemies)]';
-      else if (primaryActive.target === 'All Enemies') cond1 = '[Target: All Enemies]';
+      if (primaryActive.target === 'All Enemies' || primaryActive.flags?.includes('All Enemies')) cond1 = '[Target: All Enemies (Turn 1)]';
+      else if (primaryActive.target === 'Full Row' || primaryActive.target === 'Enemy Row' || primaryActive.flags?.includes('Row')) cond1 = '[Target: Front Row (2+ Enemies)]';
       else if (primaryActive.target === 'Column' || primaryActive.target === 'Enemy Column') cond1 = '[Target: Column (Infantry Priority)]';
       else if (primaryActive.flags?.includes('True-Strike') || primaryActive.name.toLowerCase().includes('keen'))
         cond1 = '[Target: Prioritize Scouts / Evasion]';
@@ -138,7 +142,7 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
       });
 
       // Priority 2: Secondary Active Skill (Single Target Finisher / Cleanse / Lower AP)
-      const secondaryActive = activeSkillsList.find((s) => s.name !== primaryActive.name);
+      const secondaryActive = sortedActiveSkills.slice(1).find((s) => s.name !== primaryActive.name);
       if (secondaryActive) {
         let sCond1 = '[Target: Lowest HP %]';
         if (secondaryActive.name.toLowerCase().includes('heal') || secondaryActive.name.toLowerCase().includes('light')) {
@@ -631,17 +635,60 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                 </div>
               </div>
 
-              {/* Bottom Left - Leader Effect & Tactical Role Panel */}
-              <div className="p-4 rounded-xl bg-slate-950 border border-amber-500/30 space-y-2">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-1.5">
-                  <span className="font-serif font-bold text-xs text-amber-300 uppercase tracking-wider">
-                    👑 Member Role: {currentUnitGearConfig?.roleTitle || currentUnitClass?.role}
+              {/* Bottom Left - Squad Strategy Guide & Win Condition Panel */}
+              <div className="p-4 rounded-xl bg-gradient-to-b from-slate-950 to-[#0c1220] border-2 border-amber-500/40 shadow-xl space-y-3 filigree-box">
+                <div className="flex items-center justify-between border-b border-amber-500/30 pb-1.5">
+                  <span className="font-serif font-bold text-xs text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                    <Crown className="w-3.5 h-3.5 text-amber-400" />
+                    Squad Meta Blueprint & Win Condition
                   </span>
-                  <span className="text-[10px] font-mono text-slate-400">Mobility 119</span>
+                  <span className="text-[10px] font-mono text-emerald-400 font-bold">{squad.tier} Tier • {squad.archetype}</span>
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed font-sans">
-                  {currentUnitClass?.overview || squad.strategyGuide?.overview || ''}
-                </p>
+
+                {squad.strategyGuide?.winCondition && (
+                  <div className="p-2.5 rounded-lg bg-amber-950/40 border border-amber-500/40 space-y-1">
+                    <span className="text-[10px] font-serif font-bold text-amber-300 uppercase tracking-wider block">
+                      🎯 Primary Win Condition:
+                    </span>
+                    <p className="text-xs text-amber-100 font-sans leading-relaxed">
+                      {squad.strategyGuide.winCondition}
+                    </p>
+                  </div>
+                )}
+
+                {squad.strategyGuide?.combatSequenceNotes && squad.strategyGuide.combatSequenceNotes.length > 0 && (
+                  <div className="space-y-1.5 pt-1">
+                    <span className="text-[10px] font-serif font-bold text-slate-400 uppercase tracking-wider block">
+                      ⚡ Turn-by-Turn Combat Sequence:
+                    </span>
+                    <div className="space-y-1">
+                      {squad.strategyGuide.combatSequenceNotes.map((stepNote, sIdx) => (
+                        <div key={sIdx} className="flex items-start gap-2 p-1.5 rounded bg-slate-900/90 border border-slate-800 text-[11px] font-sans text-slate-200">
+                          <span className="w-4 h-4 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono text-[9px] font-bold flex items-center justify-center shrink-0 mt-0.5">
+                            {sIdx + 1}
+                          </span>
+                          <span className="leading-snug">{stepNote}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Counters */}
+                {squad.counters && squad.counters.length > 0 && (
+                  <div className="pt-1 border-t border-slate-800/80">
+                    <span className="text-[10px] font-serif font-bold text-slate-400 uppercase tracking-wider block mb-1">
+                      🛡️ Matchup Strengths & Counters:
+                    </span>
+                    <div className="flex flex-wrap gap-1">
+                      {squad.counters.map((c, cIdx) => (
+                        <span key={cIdx} className="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/30 text-[10px] text-emerald-300 font-mono">
+                          ✓ {c}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -718,15 +765,33 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                     <h4 className="font-serif text-xs font-bold text-amber-300 uppercase tracking-wider">
                       ⚔️ 4-Slot Equipment Loadout (BIS & Opt)
                     </h4>
-                    <span className="text-[10px] font-mono text-emerald-400">Class Match</span>
+                    <span className="text-[10px] font-mono text-emerald-400">
+                      {currentUnitClass?.specialEquipmentTrait && currentUnitClass.specialEquipmentTrait !== 'Standard' 
+                        ? currentUnitClass.specialEquipmentTrait 
+                        : 'Class Match'}
+                    </span>
                   </div>
+
+                  {/* Special Equipment Trait Banner (e.g. Dual Shield Virginia, Dual Wield Swordmaster) */}
+                  {currentUnitClass?.specialEquipmentTrait && currentUnitClass.specialEquipmentTrait !== 'Standard' && (
+                    <div className="p-2 rounded-lg bg-gradient-to-r from-amber-500/20 via-cyan-500/20 to-purple-500/20 border border-amber-400/50 flex items-center gap-2">
+                      <span className="text-sm">
+                        {currentUnitClass.specialEquipmentTrait === 'Dual Shield' ? '🛡️' : currentUnitClass.specialEquipmentTrait === 'Dual Wield' ? '⚔️' : '🛡️'}
+                      </span>
+                      <div>
+                        <span className="text-[11px] font-serif font-bold text-amber-200 block">
+                          {currentUnitClass.specialTraitDescription || `Special Trait: ${currentUnitClass.specialEquipmentTrait}`}
+                        </span>
+                      </div>
+                    </div>
+                  )}
 
                   <div className="space-y-2">
                     {/* Slot 1: Weapon */}
                     <div className="p-2.5 rounded-lg bg-slate-900/90 border border-amber-500/30 space-y-1">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-mono font-bold text-amber-400 flex items-center gap-1">
-                          🗡️ Slot 1: {currentUnitGearConfig?.slot1Weapon?.slotType || 'Weapon'}
+                          🗡️ Slot 1: {currentUnitClass?.specialEquipmentTrait === 'Dual Wield' ? 'Main-Hand Weapon' : currentUnitGearConfig?.slot1Weapon?.slotType || 'Weapon'}
                         </span>
                         <span className="text-[9px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 font-serif font-extrabold border border-amber-500/30">
                           BIS
@@ -747,11 +812,17 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                       )}
                     </div>
 
-                    {/* Slot 2: Shield / Offhand / Helm */}
+                    {/* Slot 2: Shield / Offhand / Accessory */}
                     <div className="p-2.5 rounded-lg bg-slate-900/90 border border-cyan-500/30 space-y-1">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-mono font-bold text-cyan-400 flex items-center gap-1">
-                          🛡️ Slot 2: {currentUnitGearConfig?.slot2ShieldOrOffhand?.slotType || 'Shield / Armor'}
+                          {currentUnitGearConfig?.slot2ShieldOrOffhand?.slotType === 'Weapon' 
+                            ? '🗡️ Slot 2: Off-Hand Weapon (Dual Wield)'
+                            : currentUnitClass?.specialEquipmentTrait === 'Dual Shield'
+                            ? '🛡️ Slot 2: Shield 1 (Main Shield)'
+                            : currentUnitGearConfig?.slot2ShieldOrOffhand?.slotType === 'Shield'
+                            ? '🛡️ Slot 2: Shield'
+                            : '👑 Slot 2: Accessory 1'}
                         </span>
                         <span className="text-[9px] px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-300 font-serif font-extrabold border border-cyan-500/30">
                           BIS
@@ -772,11 +843,17 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                       )}
                     </div>
 
-                    {/* Slot 3: Accessory 1 */}
+                    {/* Slot 3: Accessory or Second Shield */}
                     <div className="p-2.5 rounded-lg bg-slate-900/90 border border-emerald-500/30 space-y-1">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-mono font-bold text-emerald-400 flex items-center gap-1">
-                          👑 Slot 3: Accessory 1
+                          {currentUnitClass?.specialEquipmentTrait === 'Dual Shield' && currentUnitGearConfig?.slot3Accessory?.slotType === 'Shield'
+                            ? '🛡️ Slot 3: Shield 2 (Dual Shield)'
+                            : currentUnitGearConfig?.slot3Accessory?.slotType === 'Shield'
+                            ? '🛡️ Slot 3: Shield'
+                            : currentUnitGearConfig?.slot3Accessory?.slotType === 'Weapon'
+                            ? '🗡️ Slot 3: Weapon'
+                            : `👑 Slot 3: Accessory ${currentUnitClass?.equipmentSlots?.[1] === 'Accessory' ? '2' : '1'}`}
                         </span>
                         <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 font-serif font-extrabold border border-emerald-500/30">
                           BIS
@@ -797,11 +874,11 @@ export const BuildDetailModal: React.FC<BuildDetailModalProps> = ({
                       )}
                     </div>
 
-                    {/* Slot 4: Accessory 2 */}
+                    {/* Slot 4: Final Accessory */}
                     <div className="p-2.5 rounded-lg bg-slate-900/90 border border-purple-500/30 space-y-1">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-mono font-bold text-purple-400 flex items-center gap-1">
-                          💍 Slot 4: Accessory 2
+                          💍 Slot 4: Accessory {currentUnitClass?.equipmentSlots?.[1] === 'Accessory' ? '3' : '2'}
                         </span>
                         <span className="text-[9px] px-1.5 py-0.2 rounded bg-purple-500/20 text-purple-300 font-serif font-extrabold border border-purple-500/30">
                           BIS

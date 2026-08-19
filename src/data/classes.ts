@@ -104,7 +104,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Carnelian Pendant"
     ],
     "overview": "Alain's promoted class. Supreme frontline leader with heavy guard sustain, row-cleaving attack power, and cavalry offensive synergy.",
-    "image": "/images/characters/high-lord.png"
+    "image": "/images/characters/high-lord.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Shield",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Royal High Lord: Equips royal sword, greatshield, and 2 accessories."
   },
   {
     "id": "swordmaster",
@@ -217,7 +225,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Carnelian Pendant"
     ],
     "overview": "Dual-wielding master duelist capable of parrying physical strikes, earning extra AP, and shredding targets with 9-hit Meteor Slash.",
-    "image": "/images/characters/swordmaster.png"
+    "image": "/images/characters/swordmaster.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Weapon",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Dual Wield",
+    "specialTraitDescription": "Dual Wield Specialist: Equips 2 swords simultaneously, gaining attack power and granted skills from both blades."
   },
   {
     "id": "high-priestess",
@@ -317,7 +333,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Lapis Pendant"
     ],
     "overview": "Scarlett's unique high priestess class. Combines column magic nuking with supreme single-target sustain, ailment dispelling, and passive PP supply.",
-    "image": "/images/characters/high-priestess.png"
+    "image": "/images/characters/high-priestess.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Sacred High Priestess: Equips staff and 3 sacred accessories."
   },
   {
     "id": "great-knight",
@@ -412,7 +436,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Carnelian Pendant"
     ],
     "overview": "Devastating cavalry powerhouse. Wild Rush column sweeps annihilate infantry, while Assaulting Lance chains kills.",
-    "image": "/images/characters/great-knight.png"
+    "image": "/images/characters/great-knight.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Shield",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Heavy Cavalry: Equips spear, shield, and 2 accessories."
   },
   {
     "id": "sergeant",
@@ -515,7 +547,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Lapis Pendant"
     ],
     "overview": "The core engine of burst damage teams. Keen Call guarantees critical hits for heavy nukers, while Long Thrust pierces evasion units.",
-    "image": "/images/characters/soldier.png"
+    "image": "/images/characters/soldier.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Tactical Commander: Equips spear and 3 accessories for maximum team buffing."
   },
   {
     "id": "legionnaire",
@@ -605,7 +645,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Lapis Pendant"
     ],
     "overview": "Impentrable physical fortress. Heavy Cover and Row Cover completely protect fragile backline casters from all physical harm.",
-    "image": "/images/characters/legionnaire.png"
+    "image": "/images/characters/legionnaire.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Shield",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Greatshield Specialist",
+    "specialTraitDescription": "Greatshield Fortress: Equips spear, greatshield, and 2 accessories for ultimate physical mitigation."
   },
   {
     "id": "druid",
@@ -710,7 +758,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Lapis Pendant"
     ],
     "overview": "Selvie's class. The most dominant debuffer in the game. Strips 50% of enemy defenses and negates enemy turn advantage with Cursed Swamp.",
-    "image": "/images/characters/selvie-druid.png"
+    "image": "/images/characters/selvie-druid.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Curse Shaman: Equips staff and 3 curse accessories."
   },
   {
     "id": "sorcerer",
@@ -812,7 +868,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Carnelian Pendant"
     ],
     "overview": "Auch's class. Supreme magic damage dealer capable of board-wiping with Millenium Scepter's Trinity Rain when fueled by Quick Impetus.",
-    "image": "/images/characters/warlock.png"
+    "image": "/images/characters/warlock.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Grand Magus: Equips staff and 3 magic accessories."
   },
   {
     "id": "sorceress",
@@ -904,7 +968,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Dove Plume"
     ],
     "overview": "Yahna's class. Enables Trinity Rain / Glacial Rain instant turns via Cat-Ear Hood Quick Impetus and buffs magic attack.",
-    "image": "/images/characters/sorceress.png"
+    "image": "/images/characters/sorceress.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Witch: Equips staff and 3 focus accessories."
   },
   {
     "id": "bishop",
@@ -1003,7 +1075,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Lapis Pendant"
     ],
     "overview": "Sharon's class. Supreme dedicated group healer and debuff cleanser with Row Heal and Refresh.",
-    "image": "/images/characters/bishop.png"
+    "image": "/images/characters/bishop.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Holy Bishop: Equips staff and 3 healing accessories."
   },
   {
     "id": "valkyria",
@@ -1109,7 +1189,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Rose Broach"
     ],
     "overview": "Virginia's unique dual-shield class. Grants Start-of-Battle squad defense with Iron Veil, counters melee attackers, and shatters guards with Maiden's Hammer.",
-    "image": "/images/characters/valkyria.png"
+    "image": "/images/characters/valkyria.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Shield",
+      "Shield",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Dual Shield",
+    "specialTraitDescription": "Dual Shield Master: Can equip 2 shields simultaneously, stacking Guard Rate, Phys/Mag DEF, and unique shield retaliation skills."
   },
   {
     "id": "snow-ranger",
@@ -1214,7 +1302,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Carnelian Pendant"
     ],
     "overview": "Yunifi's unique Bastorias class. Instant Absolute Zero board-wipe enabler with Glacial Rain, backed by deadly Triple Counter reactions.",
-    "image": "/images/characters/yunifi-snow-ranger.png"
+    "image": "/images/characters/yunifi-snow-ranger.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Glacial Marksman: Equips bow and 3 accessories."
   },
   {
     "id": "wyvern-master",
@@ -1321,7 +1417,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Black Cat-Ear Hood"
     ],
     "overview": "Hilda's class. Top-tier flying nuke enabler with Dragon's Roar speed control and devastating Dragoon Dive board wipes.",
-    "image": "/images/characters/wyvern-master.png"
+    "image": "/images/characters/wyvern-master.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Aerial Dragoon: Equips spear and 3 aerial accessories."
   },
   {
     "id": "gryphon-master",
@@ -1404,7 +1508,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Dove Plume"
     ],
     "overview": "Fran / Celeste's class. Premium anti-cavalry sweeper with High Gale row cleaves and row-wide Initiative acceleration.",
-    "image": "/images/characters/gryphon-master.png"
+    "image": "/images/characters/gryphon-master.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Sky Reaver: Equips axe and 3 flight accessories."
   },
   {
     "id": "sainted-knight",
@@ -1497,7 +1609,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Heavensteed Reins"
     ],
     "overview": "Monica / Miriam's promoted class. Mounted hybrid paladin capable of nullifying enemy magic nukes with Row Barrier while sustaining squad HP.",
-    "image": "/images/characters/sainted-knight.png"
+    "image": "/images/characters/sainted-knight.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Shield",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Holy Cavalry: Equips sword, shield, and 2 accessories with magic barriers."
   },
   {
     "id": "prince",
@@ -1590,7 +1710,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Dove Plume"
     ],
     "overview": "Gilbert's unique class. The ultimate team buffer with Rapid Order teamwide speed dominance and Offensive Order damage scaling.",
-    "image": "/images/characters/gilbert-prince.png"
+    "image": "/images/characters/gilbert-prince.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Royal Prince: Equips royal saber and 3 command accessories."
   },
   {
     "id": "renegade",
@@ -1696,7 +1824,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Lapis Pendant"
     ],
     "overview": "Berengaria's unique class. Dominates through affliction synergy, draining life with Sanguine Pursuit and crushing rows with Death Spin.",
-    "image": "/images/characters/berengaria-renegade.png"
+    "image": "/images/characters/berengaria-renegade.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Shield",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Dark Marquess: Equips axe, shield, and 2 accessories with affliction dominion."
   },
   {
     "id": "rogue",
@@ -1789,7 +1925,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Carnelian Pendant"
     ],
     "overview": "Travis's promoted class. Supreme evasion frontline tank that blinds enemy rows with Shadowbite and steals enemy AP/PP.",
-    "image": "/images/characters/rogue.png"
+    "image": "/images/characters/rogue.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Shadow Rogue: Equips sword and 3 evasion accessories."
   },
   {
     "id": "breaker",
@@ -1882,7 +2026,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Hero's Medallion"
     ],
     "overview": "Nina / Kitra's promoted class. Ultimate armored target deleter with 100% Armor-Piercing Enraged Strike.",
-    "image": "/images/characters/breaker.png"
+    "image": "/images/characters/breaker.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Armor Crusher: Equips heavy hammer/axe and 3 accessories."
   },
   {
     "id": "shieldshooter",
@@ -1963,7 +2115,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Lapis Pendant"
     ],
     "overview": "Liza's promoted class. Combines greatshield protection with lethal anti-flying truestrike crossbow fire.",
-    "image": "/images/characters/arbalist.png"
+    "image": "/images/characters/arbalist.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Shield",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Greatshield Specialist",
+    "specialTraitDescription": "Greatshield Marksman: Special archer class capable of equipping greatshields."
   },
   {
     "id": "berserker",
@@ -2044,7 +2204,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Hero's Medallion"
     ],
     "overview": "Bruno's class. High-HP bruiser that stuns entire enemy rows with Wide Smash and recovers health automatically.",
-    "image": "/images/characters/berserker.png"
+    "image": "/images/characters/berserker.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Gladiator: Equips axe and 3 accessories."
   },
   {
     "id": "vanguard",
@@ -2124,7 +2292,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Lapis Pendant"
     ],
     "overview": "Colm / Lex's class. Protects flying allies and backline squishies from lethal archer fire with Arrow Cover.",
-    "image": "/images/characters/vanguard.png"
+    "image": "/images/characters/vanguard.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Shield",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Frontline Defender: Equips sword, shield, and 2 accessories with Arrow Cover."
   },
   {
     "id": "sniper",
@@ -2217,7 +2393,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Dove Plume"
     ],
     "overview": "Rolf / Mandrin's class. Dedicated flying unit sniper with 100% Truestrike Eagle Eye and column-piercing archery.",
-    "image": "/images/characters/sniper.png"
+    "image": "/images/characters/sniper.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Marksman: Equips bow and 3 precision accessories."
   },
   {
     "id": "wereowl",
@@ -2297,7 +2481,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Sapphire Pendant"
     ],
     "overview": "Ramona's unique Bastorias class. The infinite PP battery of Unicorn Overlord, constantly recharging ally PP via Owl Eyes.",
-    "image": "/images/characters/priestess.png"
+    "image": "/images/characters/priestess.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Bestral Battery: Equips rod and 3 accessories."
   },
   {
     "id": "elven-archer",
@@ -2380,7 +2572,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Dove Plume"
     ],
     "overview": "Ridiel / Lhinalagos / Galadmir's class. Grants Start-of-Battle debuff immunity via Pure Light and freezes priority threats.",
-    "image": "/images/characters/elven-fencer.png"
+    "image": "/images/characters/elven-fencer.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Elven Marksman: Equips bow and 3 magic accessories."
   },
   {
     "id": "elven-fencer",
@@ -2460,7 +2660,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Lucky Coin"
     ],
     "overview": "Ithilion / Railanor's class. Evasive hybrid sword duelist capable of stunning targets and clearing debuffs with Remove Weakness.",
-    "image": "/images/characters/elven-fencer.png"
+    "image": "/images/characters/elven-fencer.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Elven Spellblade: Equips sword and 3 accessories."
   },
   {
     "id": "elven-sibyl",
@@ -2545,7 +2753,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Lapis Pendant"
     ],
     "overview": "Eltolinde's unique class. Dominates with Boon of the Faeries start-of-battle protection and massive Elemental Roar all-enemy board wipes.",
-    "image": "/images/characters/eltolinde-elven-sibyl.png"
+    "image": "/images/characters/eltolinde-elven-sibyl.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Elheim Sibyl: Equips royal lance and 3 accessories."
   },
   {
     "id": "elven-augur",
@@ -2628,7 +2844,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Lapis Pendant"
     ],
     "overview": "Rosalinde's unique class. Stuns the entire enemy front row on Turn 0 with Rage of the Faeries and nukes with Elemental Roar.",
-    "image": "/images/characters/rosalinde-elven-prophet.png"
+    "image": "/images/characters/rosalinde-elven-prophet.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Elheim Augur: Equips spear and 3 royal accessories."
   },
   {
     "id": "dreadnought",
@@ -2723,7 +2947,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Hero's Medallion"
     ],
     "overview": "Amalia's unique giantess class. Supreme coliseum champion capable of one-shotting columns with Penetrate and counter-killing with Omega Counter.",
-    "image": "/images/characters/high-lord.png"
+    "image": "/images/characters/high-lord.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Shield",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Greatshield Specialist",
+    "specialTraitDescription": "Colossal Vanguard: Equips greatsword, greatshield, and 2 accessories."
   },
   {
     "id": "werebear",
@@ -2802,7 +3034,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Lapis Pendant"
     ],
     "overview": "Bertrand / Morpan's class. Colossal frontline beast tank that absorbs row-wide attacks and regenerates HP continuously.",
-    "image": "/images/characters/gladiator.png"
+    "image": "/images/characters/gladiator.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Shield",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Greatshield Specialist",
+    "specialTraitDescription": "Bestral Fortress: Equips greataxe, greatshield/buckler, and 2 accessories."
   },
   {
     "id": "werewolf",
@@ -2895,7 +3135,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Carnelian Pendant"
     ],
     "overview": "Dinah / Govil's class. Fast, lethal pack hunter that chains continuous pursuit attacks via Chasing Slash under Wolfpack Roar.",
-    "image": "/images/characters/werewolf.png"
+    "image": "/images/characters/werewolf.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Bastorias Alpha: Equips sword and 3 bestral accessories."
   },
   {
     "id": "featherbow",
@@ -2976,7 +3224,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Sniper's Lens"
     ],
     "overview": "Raenys's unique Albion class. Blinds enemy frontlines at Start of Battle with Shining Arrow, neutralizing physical threats.",
-    "image": "/images/characters/raenys-featherbow.png"
+    "image": "/images/characters/raenys-featherbow.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Celestial Archer: Equips bow and 3 flight accessories."
   },
   {
     "id": "feathersword",
@@ -3058,7 +3314,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Carnelian Pendant"
     ],
     "overview": "Ochlys / Umerus's unique Albion flying sword class. Blazingly fast aerial duelist that converts buffs into massive damage with Discharge.",
-    "image": "/images/characters/swordmaster.png"
+    "image": "/images/characters/swordmaster.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Shield",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Aerial Duelist: Flying class equipped with sword, shield, and 2 accessories."
   },
   {
     "id": "featherstaff",
@@ -3140,7 +3404,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Lapis Pendant"
     ],
     "overview": "Sanatio's unique Albion healer class. Grants squadwide damage absorption barriers and full-team healing with Holy Breath.",
-    "image": "/images/characters/bishop.png"
+    "image": "/images/characters/bishop.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Accessory",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Divine Staff: Equips staff and 3 sacred accessories."
   },
   {
     "id": "doom-knight",
@@ -3225,7 +3497,15 @@ export const CLASSES_DATA: UnitClass[] = [
       "Hero's Medallion"
     ],
     "overview": "Gloucester's promoted class. Terrifying hybrid dark cavalry bruiser whose Dark Flame row attacks scale to monstrous damage as HP decreases.",
-    "image": "/images/characters/doom-knight.png"
+    "image": "/images/characters/doom-knight.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Shield",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Dark Knight: Equips spear, shield, and 2 accessories with demonic vengeance."
   },
   {
     "id": "landsknecht",
@@ -3304,6 +3584,14 @@ export const CLASSES_DATA: UnitClass[] = [
       "Hero's Medallion"
     ],
     "overview": "Jeremy's promoted class. Relentless pursuit attacker that chains unlimited Following Slashes upon enemy targets.",
-    "image": "/images/characters/landsknecht.png"
+    "image": "/images/characters/landsknecht.png",
+    "equipmentSlots": [
+      "Weapon",
+      "Shield",
+      "Accessory",
+      "Accessory"
+    ],
+    "specialEquipmentTrait": "Standard",
+    "specialTraitDescription": "Mercenary Slayer: Equips sword, shield, and 2 accessories."
   }
 ];
